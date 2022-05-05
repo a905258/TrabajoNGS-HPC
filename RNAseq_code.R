@@ -233,6 +233,8 @@ genes_paper_RNA <- c("STAG2","ESPL1","FGFR3","TACC3") #genes que aparecen en el 
 genes_conocidos <- c("TP53", "HRAS", "FGFR3", "PIK3CA", "RB1", "KARS", "TSC1") 
 chrom_rem_genes <- c("UTX", "ARID1A", "MLL-MLL3", "CREBBP-EP300", "NCOR1", "CHD6")
 
+database_enrichGO_simplified["GO:0007059","geneID"]
+
 #PAra el variant calling debe haber mutaciones en los genes: UTX, MLL-MLL3, CREBBP-EP300, NCOR1,ARID1A, CHD6 (estos genes son los que se han descubierto)
 #-Otros genes conocidos que estan mutados en bladder cancer: TP53, HRAS, FGFR3, PIK3CA, RB1, KARS, TSC1
 
@@ -242,7 +244,17 @@ which(chrom_rem_genes %in% sig_genes_symbol) #NCOR1
 
 ## Hace falta comparar con la lista del choromosome segregation
 
-genes_go <- strsplit(database_enrichgo_simplified[""]$geneID[j],"\\/")[[1]]
+
+database_enrichGO_simp_genes <- data.frame(database_enrichGO_simplified$geneID)
+rownames(database_enrichGO_simp_genes) <- rownames(database_enrichGO_simplified)
+
+genes_go <- strsplit(database_enrichGO_simp_genes["GO:0007059",],"\\/")[[1]]
+
+genes_go_symbol_ens <- ensembldb::select(EnsDb.Hsapiens.v79, keys = genes_go, keytype = "GENEID", columns = c("SYMBOL","GENEID"))
+genes_go_symbol <- genes_go_symbol_ens[,1]
+
+table(genes_paper_RNA %in% genes_go_symbol)
+which(genes_paper_RNA %in% genes_go_symbol)
 
 
 ############ PCA ###########
