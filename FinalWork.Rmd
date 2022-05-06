@@ -95,7 +95,52 @@ RNA-SEQ {data-icon="fa-calculator"}
 
 ### Kallisto
 
-La parte de Laura y Guille
+Here the code used for kallisto aligment is shown: 
+
+```{r setup, eval = FALSE}
+
+###################################################################################################
+# Slurm Script To Run scripts in arrays.
+###################################################################################################
+
+#!/bin/bash
+#SBATCH --job-name=Kallisto
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=1
+#SBATCH -N 1 # On one node
+#SBATCH --mem=4G
+#SBATCH --time=0-23:0:0
+##SBATCH --mail-type=END
+##SBATCH --mail-user=a905162@alumni.unav.es
+#SBATCH -o /scratch/a905162/ngs/logs/kallisto%a.log
+
+
+### Load programs here
+source /scratch/arubio/bin/moduleloadNGS
+
+# Including to absolute path
+#FILES=($(ls /scratch/arubio/RNAseq/*.fastq.gz))
+# Not a good idea...
+
+# Excluding the absolute path and the extension and taking only one directory pero paired-end reads (what we want)
+
+FILES=($(cd /scratch/arubio/RNAseq/ && basename --suffix=_1.fastq.gz -- *_1.fastq.gz))
+#FILES=($(cd /scratch/arubio/RNAseq/ && basename --suffix=SRR65014*_1.fastq.gz -- SRR65014*_1.fastq.gz))
+
+
+# Grab out filename from the array exported from our 'parent' shell
+filename=${FILES[$SLURM_ARRAY_TASK_ID]}
+mkdir /scratch/a905162/ngs/KallistoMaps/${filename}
+
+# Change the read write permissions
+chmod 770 /scratch/a905162/ngs/KallistoMaps/${filename}
+
+#  kallisto quant -i /scratch/arubio/GenomicFiles/kallisto_Assignment_index.idx -o /scratch/arubio/RNAseq/KallistoMaps/$filename -b 25 -t $SLURM_CPUS_PER_TASK
+
+kallisto quant -i /scratch/arubio/GenomicFiles/kallisto_Assignment_index.idx -o /scratch/a905162/ngs/KallistoMaps/$filename -b 25 -t $SLURM_CPUS_PER_TASK -g /
+
+```
 
 
 ### Procesamiento de datos RNA-Seq
