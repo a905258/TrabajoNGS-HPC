@@ -8,25 +8,17 @@ link-citations: true
 ---
 
 
-BACKGROUND {data-icon="fa-dna"}
-===================================== 
+## BACKGROUND 
 
-Column 1
---------------------------------------------------
+Bladder cancer is one of the most common disorders worldwide, with more than 573,000 new cases in 2020 and transitional cell carcinoma (TCC) being the most common primary neoplasm of the urinary bladder. Moreover, it is a disease that is generally diagnosed early, when the cancer is highly treatable. However, even early-stage bladder cancers can return after successful treatments.
 
-### What is Bladder Cancer?
+In this work, we have based on the scientific paper published by Guo G. et al. [@guo2013whole], where the researchers have performed a genomic analysis of TCC by both whole-genome and whole-exome sequencing in order to not only confirm existing mutations that are documented in the literature but also to identify additional genes and pathways that play a key role in this disease. For this, we have performed both a DNA-Seq and an RNA-Seq analysis to try to replicate some of the results obtained in the paper.
 
-Explicar un poco del bladder cancer y mencionar qué vamos a intentar replicar del paper
-
-Column 2
---------------------------------------------------
-
-### Bladder Cancer
 
 Foto
 
-PREPARACIÓN DE MUESTRAS {data-icon="fa-flask"}
-===================================== 
+
+## PREPARACIÓN DE MUESTRAS
 
 Poner abajo el sbatch de FastQC y MultiQC
 
@@ -36,8 +28,7 @@ Poner abajo el sbatch de FastQC y MultiQC
 ```
 
 
-DNA-SEQ {data-icon="fa-flask"}
-=====================================     
+## DNA-SEQ    
 
 ### Descargar FASTA  y hacer BWA index
 
@@ -90,8 +81,7 @@ done
 
 
 
-RNA-SEQ {data-icon="fa-calculator"}
-=====================================
+## RNA-SEQ
 
 ### Kallisto
 
@@ -468,12 +458,10 @@ Fig_boxplot
 ```
 
 
-CONCLUSIONS {data-icon="fa-clipboard-check"}
-=====================================     
+## CONCLUSIONS   
 
 
 
-BIBLIOGRAPHY {data-icon="fa-book"}
-=====================================     
+## BIBLIOGRAPHY  
 
 
