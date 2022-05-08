@@ -242,6 +242,7 @@ s2c_ordered <- s2c[with(s2c, order(sample_type)),]
 ```
 
 
+WT explanation: http://achri.blogspot.com/2016/10/using-kallisto-sleuth.html
 
 ```{r}
 # Load the kallisto processed data into the object
