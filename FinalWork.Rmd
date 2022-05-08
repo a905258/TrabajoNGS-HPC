@@ -256,33 +256,13 @@ so <- sleuth_fit(so, ~ sample_ID, fit_name = 'reduced')
 # Perform differential analysis (testing)
 so <- sleuth_lrt(so,'reduced', 'full')
 
-# In order to see the desing matrix
-mod <- so$fits$full$design_matrix
-
-#Read the Sleuth object
-
-#tpm not normalized
-RNASeq_tpm_raw <- sleuth_to_matrix(so,"obs_raw","tpm")
-
-#counts not normalized
-RNASeq_counts_raw <- sleuth_to_matrix(so,"obs_raw","est_counts")
-
-#tpm normalized
-RNASeq_tpm_norm <- sleuth_to_matrix(so,"obs_norm","tpm")
-
-#counts normalized
-RNASeq_counts_norm <- sleuth_to_matrix(so,"obs_norm","est_counts")
-```
-
-
-
-```{r}
 # Statistical Analysis result
-sleuth_table <- sleuth_results(so, 'reduced:full', 'lrt', show_all = FALSE)
-sleuth_significant <- dplyr::filter(sleuth_table, qval <= 0.001)
-head(sleuth_significant, 20)
+sleuth_table_lrt <- sleuth_results(so, 'reduced:full', 'lrt', show_all = FALSE)
+sleuth_significant_lrt <- dplyr::filter(sleuth_table_lrt, qval <= 0.001) #hemos bajado el qvalue de 0.05 a 0.001 porque con 0.05 habia 45000 trnascritos significativos, el valor de 0.001 lo hemos ido ajustando
 
-sig_transcripts <- sapply(strsplit(sleuth_significant$target_id,"\\."),function(X) return(X[1]))
+# We also prform the WT analysis
+so <- sleuth_wt(so, paste0('sample_typeCancer'))
+sleuth_table_wt <- sleuth_results(so, paste0('sample_typeCancer'))
 ```
 
 
@@ -291,6 +271,8 @@ sig_transcripts <- sapply(strsplit(sleuth_significant$target_id,"\\."),function(
 The enrichGO function of the ClusterProfiler R package was used to perform the Gene Ontology (GO) enrichment analysis for biological processes [cite]. The genes related to the gene transcripts with FDR < 0.001 were selected. The gene universe consisted of the more than 60,000 genes that were identified in *Ensembl* [cite]. Moreover, in all the cases, we selected the GO terms with FDR < 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term). Based on the FDR value, the top 20 GO terms were selected as the most enriched processes.
 
 ```{r echo=TRUE, message = FALSE, cache = TRUE}
+sig_transcripts <- sapply(strsplit(sleuth_significant$target_id,"\\."),function(X) return(X[1]))
+
 iij <- which(GeneTransciptLocation$ensembl_transcript_id %in% sig_transcripts)
 sig_genes <- GeneTransciptLocation$ensembl_gene_id[iij]
 
@@ -468,7 +450,6 @@ Fig_PCA
 In order to visualize more clearly the expression pattern of the most significant transcripts, a heatmap has been plotted. In addition to showing both the sample and transcript IDs in the columns and rows respectively, they have been distributed using a hierarchical clustering algorithm, so that the samples or transcripts that show a more similar behavior are closer to each other.
 
 ```{r echo=TRUE, message = FALSE, cache = TRUE}
-col.order <- s2c_ordered$sample
 RNASeq2_filt_ord <- RNASeq2_filtered[, col.order]
 
 num_cancer <- length(which(s2c_ordered$sample_type=="Cancer"))
@@ -490,12 +471,30 @@ legend(0.9,1.2, legend = c("Normal", "Cancer"),col = c("orange", "dark green"), 
 
 Next, we represent the gene expression values measured in TPMs of the top significant transcripts. To select the 10 most significant transcripts, those with a lower FDR value were chosen.
 
+```{r}
+sig_transcripts_sample <- data.frame(tran_name_1 = sapply(strsplit(sleuth_significant_lrt$target_id[1:10],"\\."),function(X) return(X[1])),
+                              tran_name_2 = sapply(strsplit(sleuth_significant_lrt$target_id[1:10],"\\."),function(X) return(X[2])))
+
+iij_sample <- which(GeneTransciptLocation$ensembl_transcript_id %in% sig_transcripts_sample$tran_name_1)
+sig_genes_sample <- GeneTransciptLocation$ensembl_gene_id[iij_sample]
+
+sig_trans_genes_sample <- GeneTransciptLocation[iij_sample, c(1,2)]
+colnames(sig_transcripts_sample)[1] <- "ensembl_transcript_id"
+sig_df <- merge(sig_transcripts_sample, sig_trans_genes_sample, by = c("ensembl_transcript_id"))
+
+sig_genes_symbol_ens_sample <- ensembldb::select(EnsDb.Hsapiens.v79, keys = sig_genes_sample, keytype = "GENEID", columns = c("SYMBOL","GENEID"))
+colnames(sig_genes_symbol_ens_sample)[2] <- colnames(sig_df)[3]
+sig_df <- merge(sig_df, sig_genes_symbol_ens_sample, by = c("ensembl_gene_id"))
+sig_df$SYMBOL_transcript_id <- paste0(sig_df$SYMBOL, "_", sig_df$tran_name_2)
+```
+
+
 ```{r echo=TRUE, message = FALSE, cache = TRUE}
-sig_transcripts_sample <- sig_transcripts[1:10]
-samples <- col.order
 RNASeq2_filt_ord_sample <- log2(1+RNASeq2_filt_ord[sig_transcripts_sample,])
 
-data_boxplot <- data.frame(transcripts = rep(sig_transcripts_sample, length(samples)), sample_id = rep(samples, each=length(sig_transcripts_sample)), sample_type = gl(2,length(sig_transcripts_sample)*num_normal,labels = c('Normal','Tumor')), values = as.vector(RNASeq2_filt_ord_sample))
+sig_df_bp <- sig_df[match(sig_transcripts_sample, sig_df$ensembl_transcript_id),]
+
+data_boxplot <- data.frame(transcripts = rep(sig_df_bp$SYMBOL_transcript_id, length(col.order)), sample_id = rep(col.order, each=length(sig_df_bp$SYMBOL_transcript_id)), sample_type = gl(2,length(sig_df_bp$SYMBOL_transcript_id)*num_normal,labels = c('Normal','Tumor')), values = as.vector(RNASeq2_filt_ord_sample))
 data_boxplot$transcripts = as.factor(data_boxplot$transcripts)
 
 Fig_boxplot <- ggplot(data = data_boxplot, aes(x = transcripts, y = values, fill = sample_type)) +
@@ -512,8 +511,50 @@ Fig_boxplot <- ggplot(data = data_boxplot, aes(x = transcripts, y = values, fill
         panel.background = element_rect(colour = "black", size = 1),
         axis.ticks.x = element_blank(),
         legend.title = element_blank()) +
-  ggtitle('10 most significant transcripts ')
+  ggtitle('Gene expression of the 10 most significant transcripts')
 Fig_boxplot
+```
+
+
+### Volcano plot
+
+```{r}
+transcripts <- sapply(strsplit(sleuth_table_wt$target_id,"\\."),function(X) return(X[1]))
+p_adjust <- sleuth_table_wt$qval
+beta <- sleuth_table_wt$b
+
+volcano_df <- data.frame(transcripts = transcripts,
+                         pvalue = -log10(p_adjust),
+                         beta = beta)
+
+volcano_df$sig <- factor(rep(0,nrow(volcano_df)), levels = c(-1,0,1))
+volcano_df$sig[p_adjust < 0.01 & beta < -3] <- -1
+volcano_df$sig[p_adjust < 0.01 & beta > 3] <- 1
+volcano_df$lab <- ''
+
+iix <- which(volcano_df$transcripts %in% sig_df$ensembl_transcript_id)
+sig_df_ord <- sig_df[match(volcano_df$transcripts[iix], sig_df$ensembl_transcript_id),]
+
+volcano_df$lab[iix] <- sig_df_ord$SYMBOL_transcript_id
+
+
+Fig_volcano <- ggplot(data = volcano_df) + geom_point(aes(x = beta,
+                                                          y = pvalue,
+                                                          colour = sig),
+                                                      size = 1) + 
+  theme_classic() + scale_x_continuous(limits = c((-max(abs(beta)) - 0.5),
+                                                  (max(abs(beta)) + 0.5))) +
+  scale_color_manual(values = c("#2600D1FF","#000000","#D60C00FF"), drop = F) +
+  theme(plot.title = element_text(hjust = 0.5),
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_rect(colour = 'black', size = 1),
+        legend.position = 'none') + ggtitle("Volcano  plot") + 
+  xlab("Beta") + ylab(bquote(~-Log[10]~Adjusted~p-Value)) +
+  geom_hline(yintercept = -log10(0.01), linetype = 'dashed') +
+  geom_vline(xintercept = -3, linetype = 'dashed') +
+  geom_vline(xintercept = 3, linetype = 'dashed') +
+  geom_label_repel(aes(x = beta, y = pvalue, label = ifelse(lab != '', lab, '')))
+Fig_volcano
 ```
 
 
