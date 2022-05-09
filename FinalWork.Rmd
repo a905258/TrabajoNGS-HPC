@@ -180,6 +180,7 @@ GeneTransciptLocation <- getBM(attributes=c("ensembl_gene_id","ensembl_transcrip
 
 ## Load and process the data generated with Kallisto
 
+Once having obtained the output from Kallisto, we have merged that information into a matrix containing the TPM values of each transcript per sample.
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 base_dir <- "/home/osboxes/Desktop/NGSFolder/FinalWork_NGS_HPC/FinalWork_NGS_HPC/samples" #base_dir = directory where the output of kallisto is stored
@@ -203,16 +204,28 @@ colnames(RNASeq2)<-sample_id
 
 ## Design and contrast matrices
 
-La explicación de la matriz de diseño y contraste
+Next, we will explain both the design and contrast matrices that has been built. The variable that will be studied is the sample type, that is, the difference in gene expression between normal and malignant samples. We will take as reference the normal samples. 
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
+# we build the design matrix
+
 model_matrix <- model.matrix(~ sample_ID + sample_type, data = samples)
+```
+
+As we will study the *sample type* variable, we just need to build a contrast matrix for this one. Additionally, we need to define the betas and the null hypothesis. First of all, let’s establish the other variables in the design matrix. From the second column to the sixteenth one represent the different patients, since the study is paired. The last column refers to the variable that we want to study, that is, the sample type. Now, we can define the null hypothesis and build the contrast matrix.
+
+We define $\beta_0$ as the mean expression of the transcripts in the normal sample of patient B18. Then, $\beta_0 + \beta_1$ is the mean expression of the normal sample of patient B23, and so on and so forth until $\beta_0 + \beta_{15}$, which is the mean isoform expression of the normal sample of patient B77. However, we are not interested in studying the differences in gene expression among different patients. In fact, as the contrast that we want to make is related to the difference between normal and malignant samples, the null hypothesis is that there is not a significant difference between those two, so $\beta_{16}}$ needs to be equal to 0.
+
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
+# we create the contrast matrix
+
+cont.matrix <- c(rep(0, ncol(model_matrix)-1), 1)
 ```
 
 
 ## Sleuth
 
-
+After having run kallisto for each of the samples, a differential expression analysis will be carried out using sleuth. Sleuth is an RNA-Seq analysis program for which kallisto has been used to quatify transcript abundances (cite). First of all, we need to create a tab delimited metadata file for the experiment so we have the factors for each sample ID (header "sample"), the ID of the patients (header "sample_ID"), the type of the sample, that is, whether the sample is normal or malignant (header "sample_type"), and the file path (header "path") to the kallisto output for each sample.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 samples_red <- samples[which(samples$Run %in% sample_id),]
@@ -240,8 +253,7 @@ s2c$sample_type <- relevel(as.factor(s2c$sample_type), "Normal")
 s2c_ordered <- s2c[with(s2c, order(sample_type)),]
 ```
 
-
-WT explanation: http://achri.blogspot.com/2016/10/using-kallisto-sleuth.html
+Then, we follow a series of steps in order to obtain the final table. For that, we first load the kallisto processed data into the object using the *sleuth_prep* function. Afterwards we estimate parameters for both the full and reduced sleuth model and we finally perform the differential analysis using the likelihood ratio test (LRT). However, as this method does not report the fold change, we also need to run the Wald test (WT), even though the former test is considered a better one. For most of the analyses and plots that will be carried out in this project the output corresponding to the LRT test will be used, employing the table generated with the WT test just to visualize the volcano plots.
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 # Load the kallisto processed data into the object
@@ -523,6 +535,8 @@ Fig_boxplot
 
 
 ### Volcano plot
+
+Differential expression analysis revealed that between the normal and malignant groups of patients, there are x transcripts altered with an FDR < 0.01 and a beta > |3|. Moreover, x of them belong to the overexpressed group (beta > 3) whereas x of the isoforms are underexpressed (beta < -3). The labelled transcripts are the ones whose expression was plotted through a boxplot in the previous image. 
 
 ```{r, eval = FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 transcripts <- sapply(strsplit(sleuth_table_wt$target_id,"\\."),function(X) return(X[1]))
