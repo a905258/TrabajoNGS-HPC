@@ -34,15 +34,15 @@ Poner abajo el sbatch de FastQC y MultiQC
 
 First of all, the BWA samples were obtained, and then the index had to be built. To build it the FASTA file of the reference genome was obtained from the Ensembl webpage (citar). To perform this task no Atlas job was performed, since the FASTA was directly downloaded by using the command line:
 
-```{r}
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 wget ftp://ftp.ensembl.org/pub/release-106/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 ```
 
 After downloading the FASTA file of the reference genome, we used it to make the index for all the .BAM genomic samples, which were stored in the resultsBWA directory. First, the ATLAS resources used were 1GB of memory and we set a 1-hour job. This failed, as the index needed more memory to be built. For this reason, the memory was increased to 100GB randomly. In the end, the job was completed but after analyzing the memory efficiency of the resources used (1 hour and 100GB) only 4.33GB were actually used. Therefore the Memory efficiency was only 4.33%. On the other hand, the CPU Efficiency was 99.06% which is really good and the CPU utilized was 52 minutes and 49 seconds, which is a value within our set period. In the future, to perform another BWA index it would be recommended to only use around 5GB of memory and again 1 hour of CPU time if the index is going to be built with the same number of samples, which is approx 25 samples (mirar cuantas fueron).
 
-```{r cars}
-
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 #!/bin/bash
+
 #SBATCH --job-name=index_bai
 #SBATCH --account=biomedicine
 #SBATCH --partition=biomedicine
@@ -60,7 +60,6 @@ for SAMPLE in /scratch/arubio/DNASeq/resultsBWA/*bam;
 do
 samtools index $SAMPLE
 done
-
 ```
 
 
@@ -87,13 +86,14 @@ done
 
 Here the code used for kallisto aligment is shown: 
 
-```{r setup, eval = FALSE}
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 ###################################################################################################
 # Slurm Script To Run scripts in arrays.
 ###################################################################################################
 
 #!/bin/bash
+
 #SBATCH --job-name=Kallisto
 #SBATCH --account=biomedicine
 #SBATCH --partition=biomedicine
@@ -129,7 +129,6 @@ chmod 770 /scratch/a905162/ngs/KallistoMaps/${filename}
 #  kallisto quant -i /scratch/arubio/GenomicFiles/kallisto_Assignment_index.idx -o /scratch/arubio/RNAseq/KallistoMaps/$filename -b 25 -t $SLURM_CPUS_PER_TASK
 
 kallisto quant -i /scratch/arubio/GenomicFiles/kallisto_Assignment_index.idx -o /scratch/a905162/ngs/KallistoMaps/$filename -b 25 -t $SLURM_CPUS_PER_TASK -g /
-
 ```
 
 
@@ -137,7 +136,7 @@ kallisto quant -i /scratch/arubio/GenomicFiles/kallisto_Assignment_index.idx -o 
 
 To process the RNA-Seq data, to begin with, the required libraries had to be loaded.
 
-```{r echo=TRUE, message = FALSE, cache = TRUE, warning=FALSE}
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 library(readr)
 library(sleuth)
 library(biomaRt)
@@ -152,7 +151,7 @@ library(EnsDb.Hsapiens.v79)
 
 The sample data was downloaded from ADI, and it was also necessary to change the names of the columns in order to correctly identify each of the variables. Furthermore, it was also important to split the column called *sample_name* into two different variables: *sample_ID* (IDs of the subjects) and *sample_type* (Normal or Cancer). 
 
-```{r eval=FALSE, message = FALSE, echo=TRUE}
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 samples <- read_csv("samples_finalwork.csv",col_names = FALSE)
 
 # View(samples)
@@ -166,7 +165,7 @@ samples$sample_type <- sapply(strsplit(samples$sample_name, "\\.|_"), function(X
 
 Finally, in order to relate the different transcripts with their corresponding genes, the following chunk of code shows the information that has been downloaded from *Ensembl* (citar), where we have the gene ID, the transcript ID, the chromosome name, and both the start and end of the transcript. However, we will only use the first two variables.
 
-```{r eval=FALSE, message = FALSE, echo=TRUE}
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 # Annotation
 # Get all the transcripts, genes, go_id and domains
 
@@ -182,7 +181,7 @@ GeneTransciptLocation <- getBM(attributes=c("ensembl_gene_id","ensembl_transcrip
 ## Load and process the data generated with Kallisto
 
 
-```{r eval=TRUE, message = FALSE, cache = TRUE}
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 base_dir <- "/home/osboxes/Desktop/NGSFolder/FinalWork_NGS_HPC/FinalWork_NGS_HPC/samples" #base_dir = directory where the output of kallisto is stored
 sample_id <- dir(base_dir) #sample_id = the names of the folders.
 
@@ -206,7 +205,7 @@ colnames(RNASeq2)<-sample_id
 
 La explicación de la matriz de diseño y contraste
 
-```{r}
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 model_matrix <- model.matrix(~ sample_ID + sample_type, data = samples)
 ```
 
@@ -215,7 +214,7 @@ model_matrix <- model.matrix(~ sample_ID + sample_type, data = samples)
 
 
 
-```{r eval=FALSE, message = FALSE, echo=TRUE}
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 samples_red <- samples[which(samples$Run %in% sample_id),]
 samples_red <- samples_red[match(sample_id, samples_red$Run),]
 
@@ -244,7 +243,7 @@ s2c_ordered <- s2c[with(s2c, order(sample_type)),]
 
 WT explanation: http://achri.blogspot.com/2016/10/using-kallisto-sleuth.html
 
-```{r}
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 # Load the kallisto processed data into the object
 s1 <- sleuth_prep(s2c_ordered, extra_bootstrap_summary=T) 
 
@@ -266,12 +265,18 @@ so <- sleuth_wt(so, paste0('sample_typeCancer'))
 sleuth_table_wt <- sleuth_results(so, paste0('sample_typeCancer'))
 ```
 
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+# load sleuth_table_lrt
+# load sleuth_table_wt
+sleuth_significant_lrt <- dplyr::filter(sleuth_table_lrt, qval <= 0.001)
+```
+
 
 ### Gene Ontology
 
 The enrichGO function of the ClusterProfiler R package was used to perform the Gene Ontology (GO) enrichment analysis for biological processes [cite]. The genes related to the gene transcripts with FDR < 0.001 were selected. The gene universe consisted of the more than 60,000 genes that were identified in *Ensembl* [cite]. Moreover, in all the cases, we selected the GO terms with FDR < 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term). Based on the FDR value, the top 20 GO terms were selected as the most enriched processes.
 
-```{r echo=TRUE, message = FALSE, cache = TRUE}
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 sig_transcripts <- sapply(strsplit(sleuth_significant$target_id,"\\."),function(X) return(X[1]))
 
 iij <- which(GeneTransciptLocation$ensembl_transcript_id %in% sig_transcripts)
@@ -280,7 +285,7 @@ sig_genes <- GeneTransciptLocation$ensembl_gene_id[iij]
 universe <- unique(GeneTransciptLocation$ensembl_gene_id)
 ```
 
-```{r eval=TRUE, message = FALSE, cache = TRUE}
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 enrichGO <- clusterProfiler::enrichGO(gene = sig_genes, OrgDb = "org.Hs.eg.db",
                                           keyType ='ENSEMBL',  ont ='BP', pvalueCutoff = 0.01,
                                           pAdjustMethod = 'fdr', universe = universe,
@@ -290,7 +295,7 @@ enrichGO <- clusterProfiler::enrichGO(gene = sig_genes, OrgDb = "org.Hs.eg.db",
 database_enrichgo <- data.frame(enrichGO)
 ```
 
-```{r echo=TRUE, message = FALSE, cache = TRUE}
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 # We use simplify to remove redundant GO terms
 
 enrichGO@result <- enrichGO@result[which(enrichGO@result$p.adjust < 0.05),]
@@ -302,7 +307,7 @@ database_enrichGO_simplified <- data.frame(enrichGO_simplified)
 
 
 
-```{r eval=TRUE, message = FALSE, cache = TRUE}
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 # Dotplots
 
 dotplot_enrichGO_simplified <- enrichplot::dotplot(enrichGO_simplified, showCategory = 20) + ggtitle("Dotplot")
@@ -322,7 +327,7 @@ cnetplot(enrichGO_simplified)
 
 As our project is based on a scientific article that was published in 2013, we decided to compare some of the genes that were obtained in our analysis with the ones reported by the researchers. To do that, first of all, we had to change the ID of the genes in order to match the names with the ones that appear on the paper. We were most interested in the comparison between the genes related to the chromosome segregation function that appeared in the GO enrichment analysis (GO:0007059) with the genes that the paper mentioned are related to the same function (*STAG2* and *ESPL1*). As a result, we could see that both of them were included in our results, which is completely logical.
 
-```{r}
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 sig_genes_symbol_ens <- ensembldb::select(EnsDb.Hsapiens.v79, keys = sig_genes, keytype = "GENEID", columns = c("SYMBOL","GENEID"))
 sig_genes_symbol <- sig_genes_symbol_ens[,1]
 
@@ -360,7 +365,7 @@ We were expecting to find also the FGFR3 gene, but we realized that the research
 We have used the following chunk of code to download the .bam and .bai files of the cancer sample number SRR645259 from subject B59. With these files, we have opened them in the IGV software. As we were expecting to find a gene fusion, we were expecting to find each of the mates from genes FGFR3 and TACC3.
 However, as can be seen in the image below (insertar captura de IGV), it cannot be seen what had initially been expected. For this reason, it has been decided to process the raw data of the corresponding sample using a different method.
 
-```{r}
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 scp a905208@atlas-fdr.sw.ehu.es:/scratch/arubio/DNAseq/resultsBWA/noduplicatesbam/SRR645259_aligned.bam* E:/NGSFolder/FinalWork_NGS_HPC/FinalWork_NGS_HPC/IGV_sample
 ```
 
@@ -369,7 +374,7 @@ La parte de STAR
 
 First of all, the following .sh file has been created in order to get the required index.
 
-```{r}
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 #!/bin/bash
 
 #SBATCH --account=biomedicine
@@ -391,26 +396,26 @@ STAR --runThreadN 20 --runMode genomeGenerate --genomeDir /scratch/a905208/Final
 
 For this, it has been necessary to download the *Homo_sapiens.GRCh38.106.gtf.gz* file from *Ensembl*, since the one that was already available (*gencode.v24.annotation.sorted.gtf*) was not compatible with the FASTA file.
 
-```{r}
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 wget ftp://ftp.ensembl.org/pub/release-106/gtf/homo_sapiens/Homo_sapiens.GRCh38.106.gtf.gz
 ```
 
 Once finished, the following two files (S1_R1.fq and S1_R2.fq) has been created.
 
-```{r}
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 cat SRR645259_1.fastq | head -n 1000000 > S1_R1.fq
 cat SRR645259_2.fastq | head -n 1000000 > S1_R2.fq
 ```
 
 Then, the following chunk of code has been executed from the command line. 
 
-```{r}
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 STAR --runThreadN 3 --genomeDir /scratch/a905208/FinalWork/STAR/index --readFilesIn S1_R1.fq S1_R2.fq --outFileNamePrefix S1_test --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --outSAMattributes NH HI AS NM MD
 ```
 
 Finally, to generate the .bai file from the .bam file that has been generated in the previous step, the following code has been run.
 
-```{r}
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 samtools index S1_testAligned.sortedByCoord.out.bam
 ```
 
@@ -419,7 +424,7 @@ samtools index S1_testAligned.sortedByCoord.out.bam
 
 To separate all the samples in clusters based on the results of differential gene expression analysis we first performed a PCA selecting the 8198 differentially expressed transcripts (FDR < 0.001). The correct separation between the sample groups confirms that the selected transcripts could be considered adequate to stratify the samples in the two groups. Moreover, the axes are ranked in order of importance, where differences along the first principal component axis (PC1) are more important than differences along with the second principal analysis (PC2).
 
-```{r echo=TRUE, message = FALSE, cache = TRUE}
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 rownames(RNASeq2) <- sapply(strsplit(rownames(RNASeq2), "\\."), function(X) X[1])
 
 RNASeq2_filtered <- RNASeq2[sig_transcripts,]
@@ -438,7 +443,7 @@ data_PCA <- data.frame(samples = rownames(PCs$x),
 
 
 
-```{r}
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 Fig_PCA <- ggplot(data_PCA) + geom_point(aes(x=PC1, y=PC2, color = type, size = 4)) + geom_label_repel(aes(x=PC1, y=PC2, label=ID)) +
   xlab('PC1') + ylab ('PC2') +
   theme_classic() + theme(legend.title = element_blank())
@@ -450,7 +455,7 @@ Fig_PCA
 
 In order to visualize more clearly the expression pattern of the most significant transcripts, a heatmap has been plotted. In addition to showing both the sample and transcript IDs in the columns and rows respectively, they have been distributed using a hierarchical clustering algorithm, so that the samples or transcripts that show a more similar behavior are closer to each other.
 
-```{r echo=TRUE, message = FALSE, cache = TRUE}
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 RNASeq2_filt_ord <- RNASeq2_filtered[, col.order]
 
 num_cancer <- length(which(s2c_ordered$sample_type=="Cancer"))
@@ -472,7 +477,7 @@ legend(0.9,1.2, legend = c("Normal", "Cancer"),col = c("orange", "dark green"), 
 
 Next, we represent the gene expression values measured in TPMs of the top significant transcripts. To select the 10 most significant transcripts, those with a lower FDR value were chosen.
 
-```{r}
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 sig_transcripts_sample <- data.frame(tran_name_1 = sapply(strsplit(sleuth_significant_lrt$target_id[1:10],"\\."),function(X) return(X[1])),
                               tran_name_2 = sapply(strsplit(sleuth_significant_lrt$target_id[1:10],"\\."),function(X) return(X[2])))
 
@@ -487,17 +492,17 @@ sig_genes_symbol_ens_sample <- ensembldb::select(EnsDb.Hsapiens.v79, keys = sig_
 colnames(sig_genes_symbol_ens_sample)[2] <- colnames(sig_df)[3]
 sig_df <- merge(sig_df, sig_genes_symbol_ens_sample, by = c("ensembl_gene_id"))
 sig_df$SYMBOL_transcript_id <- paste0(sig_df$SYMBOL, "_", sig_df$tran_name_2)
-```
 
-
-```{r echo=TRUE, message = FALSE, cache = TRUE}
 RNASeq2_filt_ord_sample <- log2(1+RNASeq2_filt_ord[sig_transcripts_sample,])
 
 sig_df_bp <- sig_df[match(sig_transcripts_sample, sig_df$ensembl_transcript_id),]
 
 data_boxplot <- data.frame(transcripts = rep(sig_df_bp$SYMBOL_transcript_id, length(col.order)), sample_id = rep(col.order, each=length(sig_df_bp$SYMBOL_transcript_id)), sample_type = gl(2,length(sig_df_bp$SYMBOL_transcript_id)*num_normal,labels = c('Normal','Tumor')), values = as.vector(RNASeq2_filt_ord_sample))
 data_boxplot$transcripts = as.factor(data_boxplot$transcripts)
+```
 
+
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 Fig_boxplot <- ggplot(data = data_boxplot, aes(x = transcripts, y = values, fill = sample_type)) +
   geom_boxplot(width=0.5,position=position_dodge(width=0.5),outlier.shape = NA) +
   coord_cartesian(ylim =c(0,10))+ theme_classic() +
@@ -519,7 +524,7 @@ Fig_boxplot
 
 ### Volcano plot
 
-```{r}
+```{r, eval = FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 transcripts <- sapply(strsplit(sleuth_table_wt$target_id,"\\."),function(X) return(X[1]))
 p_adjust <- sleuth_table_wt$qval
 beta <- sleuth_table_wt$b
