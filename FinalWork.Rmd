@@ -1,36 +1,75 @@
 ---
 title: 'FINAL WORK: NGS & HPC'
 author: "The big five"
-output: html_document
+output:  
+  html_document:
+    toc: true
+    theme: united
+    toc_depth: 4
+    toc_float: yes
 bibliography: FinalWork.bib
 biblio-style: "apalike"
 link-citations: true
 ---
 
 
-## BACKGROUND 
+## **BACKGROUND** 
 
 Bladder cancer is one of the most common disorders worldwide, with more than 573,000 new cases in 2020 and transitional cell carcinoma (TCC) being the most common primary neoplasm of the urinary bladder. Moreover, it is a disease that is generally diagnosed early, when the cancer is highly treatable. However, even early-stage bladder cancers can return after successful treatments.
 
 In this work, we have based on the scientific paper published by Guo G. et al. [@guo2013whole], where the researchers have performed a genomic analysis of TCC by both whole-genome and whole-exome sequencing in order to not only confirm existing mutations that are documented in the literature but also to identify additional genes and pathways that play a key role in this disease. For this, we have performed both a DNA-Seq and an RNA-Seq analysis to try to replicate some of the results obtained in the paper.
 
 
-Foto
+**FOTO**
 
 
-## PREPARACIÓN DE MUESTRAS
+## **1. PREPARACIÓN DE MUESTRAS**
 
-Poner abajo el sbatch de FastQC y MultiQC
+Regardless of the distinction made in this project between DNA and RNA samples, the first step consisted of obtaining the *FastQCs* and *MultiQCs* for both cases. In order to obtain the FastQCs, a job array was created to speed up the process and, specifically, the code followed for each of the samples was as follows: 
 
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
-```{r}
+#!/bin/bash
+
+#SBATCH --job-name=Kallisto
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=8
+#SBATCH --nodes=1
+#SBATCH --mem=3G
+#SBATCH --time=00:20:00
+##SBATCH --mail-type=END
+##SBATCH --mail-user=a905383@alumni.unav.es
+#SBATCH -o /scratch/a905383/HPC_A/logs_Kallisto/kallisto%a.log
+#SBATCH -o /scratch/a905383/HPC_A/fasta_files/logs/logs%a.log
+
+export PATH="/scratch/a905383/FastQC:$PATH"
+
+module load Java
+
+file=($(ls /scratch/arubio/RNAseq/*.fastq.gz))
+filename=${file[$SLURM_ARRAY_TASK_ID]}
+echo $filename
+
+fastqc $filename -o /scratch/arubio/RNAseq/FastqcReports
 
 ```
 
+Once all the *FastQCs* were obtained, the efficiency of the process was analysed after having used the indicated resources and the results are shown in Figure 1. In particular, it can be seen that both the efficiency of the memory and the CPU was very low, indicating that the resources used were excessive. In other words, resources were wasted. Therefore, it can be concluded that the results would have been better if the amount of memory had been reduced and if fewer CPUs had been used. 
 
-## DNA-SEQ    
+![**Figure 1:** Efficiency of the process to obtain FastQCs.](seff FastQC.png)
 
-### Descargar FASTA  y hacer BWA index
+The next step was to generate a *MultiQC* for the DNA samples and another one for the *RNA* samples. To do this, the *multiqc* command was used and the corresponding files were generated directly from the command line. 
+
+Then, after having carried out the first step for both types of samples, the analysis was separated in two, i.e. on one hand, an analysis was carried out with the *DNA* samples and, secondly, a study was carried out with the *RNA* samples. 
+
+
+## **2. DNA**
+
+![**Figure 2:** Flow diagram of DNA processing.](DNA diagram.png)   
+
+
+### 2.1. Alignment
 
 First of all, the BWA samples were obtained, and then the index had to be built. To build it the FASTA file of the reference genome was obtained from the Ensembl webpage (citar). To perform this task no Atlas job was performed, since the FASTA was directly downloaded by using the command line:
 
@@ -63,32 +102,251 @@ done
 ```
 
 
-### BWA
+### 2.2. Mark Duplicates
+
+After obtaining the first .bam files with their corresponding indexes, the duplicates were eliminated, i.e. each of the aligned files was analysed and the reads that were the same were eliminated. In this way, if in one of the samples there was a mutation that was repeated multiple times, it is checked if this mutation is relevant or if the fact that it is repeated multiple times is due to an error in the amplification. 
+
+To carry out this step, a job array was generated again in order to speed up the process and the .sbs file generated to run the job array was as follows: 
+
+
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+
+#!/bin/bash
+
+#SBATCH --job-name=Duplicates
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=4
+#SBATCH -N 1 # On one node
+#SBATCH --mem=16G
+#SBATCH --time=0-23:0:0
+##SBATCH --mail-type=END
+##SBATCH --mail-user=a905162@alumni.unav.es
+#SBATCH -o /scratch/a905162/ngs/logs/duplicates%a.log
+
+source /scratch/arubio/bin/moduleloadNGS
+
+FILES=($(cd /scratch/arubio/DNAseq/resultsBWA/ && ls *.bam))
+
+filename=${FILES[$SLURM_ARRAY_TASK_ID]}
+
+java -Djava.io.tmpdir=`pwd`/tmp -jar $PICARD MarkDuplicates -I /scratch/arubio/DNAseq/resultsBWA/$filename -O /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/$filename -M /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/$(basename $filename .bam)_metrics.txt
+
+```
+
+
+When executing the code, we initially tried to remove duplicates from a single sample to check the resources needed to run the job array. It should be noted that when removing the duplicates there were a lot of problems with Java because it was mentioned that there was no space left, but when we checked that there was enough space to perform this step, finally a temporary folder was created that allowed us to run the code and obtain the new .bam file having removed the duplicates.
+
+After obtaining the result of a single sample, the efficiency of the process was analysed and it was seen that 11 GB had been used and that the efficiency of the CPU had been of 11.77%. Therefore, when sending the job-array, the file was modified to the characteristics described in the code, i.e. 4 CPUs and a memory of 16 GB. 
+
+Once the job-array was executed, the efficiency was checked and, taking into account that the resources had been modified, it was theoretically thought that the results would be good. However, analysing Figure 3, it can be seen that both CPU and memory efficiency are very low, which means that resources were wasted.
+
+
+![**Figure 3:** Efficiency of the process to obtain .bam files without duplicates.](seff duplicados todas las muestras.png)
 
 
 
-### Haplotypecaller
+
+### 2.3. vcf generation
+
+Once the duplicates were removed, the next step was to generate the corresponding vcf's using the code described below. 
+
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+
+#!/bin/bash
+
+#SBATCH --job-name=vcf
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=8
+#SBATCH -N 1 # On one node
+#SBATCH --mem=8G
+#SBATCH --time=0-23:0:0
+##SBATCH --mail-type=END
+##SBATCH --mail-user=a905162@alumni.unav.es
+#SBATCH -o /scratch/a905162/ngs/logs/vcf%a.log
+
+source /scratch/arubio/bin/moduleloadNGS
+
+FILES=($(cd /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/ && ls *.bam))
+
+filename=${FILES[$SLURM_ARRAY_TASK_ID]}
+
+gatk HaplotypeCaller --native-pair-hmm-threads 8 -I /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/$filename -R /scratch/arubio/DNAseq/Auxfiles/dummy.fa -O /scratch/arubio/DNAseq/vcf/$filename.vcf
+
+
+```
+
+
+In the same way as before, a job-array was programmed, but before executing it, the vcf of a single sample was generated to check that the code worked and that the resources used were adequate. The result was a CPU efficiency of 67.96% and 3.73% in terms of memory. Therefore, analysing the results, it was decided to modify the script to reduce as much as possible the waste of resources and the resources described in the code were established, i.e. 8 CPUs and 8 GB of memory.  
+
+After many hours of job-array execution, the results were found to be correct and the efficiency of the process was studied in Figure 4. In the same way as before, high efficiency percentages were expected, however, in the case of memory, this was not the case, as it can be seen that the result was 22.13%. In any case, the CPU efficiency was 86%, which indicates that selecting 8 cores for each of the tasks was correct. 
+
+
+![**Figure 4:** Efficiency of the process to generate vcfs.](seff vcf todas las muestras.png)
+
+
+### 2.4. vcf reports
+
+Tras haber calculado el vcf...
+
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+
+#!/bin/bash
+
+#SBATCH --job-name=vcf1_report
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=2
+#SBATCH -N 1 # On one node
+#SBATCH --mem=1G
+#SBATCH --time=0-23:0:0
+##SBATCH --mail-type=END
+##SBATCH --mail-user=a905162@alumni.unav.es
+#SBATCH -o /scratch/a905162/ngs/logs/report1_%a.log
+
+source /scratch/arubio/bin/moduleloadNGS
+
+FILES=($(cd /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/ && ls *.bam))
+
+filename=${FILES[$SLURM_ARRAY_TASK_ID]}
+
+gatk BaseRecalibrator -R /scratch/arubio/DNAseq/Auxfiles/dummy.fa -I /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/$filename --known-sites /scratch/arubio/DNAseq/vcf/$filename.vcf -O /scratch/arubio/DNAseq/vcf/reports1/$(basename $filename )_report_1.table
+
+```
+
+
+Following the same procedure as before, the code was initially tested with a single sample in order to check that the result was correct and that the resources were consistent. However, when testing the CPU and memory efficiencies were of 12.44% and 1.78% respectively, so the resources had to be modified and it was decided that 2 CPUs per task and 1 GB of memory were sufficient. 
+
+After having checked that the code worked and that the output was correct, the job-array was run to obtain the reports of all the samples and finally the efficiency of the process was checked and this is shown in Figure 5. In particular, it was observed that the efficiencies were lower than expected, so it would have been more optimal to reduce the resources. 
+
+
+![**Figure 5:** Efficiency of the process to obtain the reports of the vcfs.](seff vcf report todas las muestras .png)
+
+
+### 2.5. Recalibration and Processing after recalibration
+
+Once the first vcfs and their reports were obtained, the .bam files were recalibrated, i.e. the quality of the files was modified. In particular, this has been necessary because....
+
+For this purpose, the following code has been generated. 
+
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+
+#!/bin/bash
+
+#SBATCH --job-name=recalibration
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=2
+#SBATCH -N 1
+#SBATCH --mem=1G
+#SBATCH --time=0-23:0:0
+#SBATCH --mail-type=END
+#SBATCH --mail-user=a905162@alumni.unav.es
+#SBATCH -o /scratch/a905162/ngs/logs/rec_%a.log
+
+source /scratch/arubio/bin/moduleloadNGS
+
+FILES=($(cd /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/ && ls *_aligned.bam))
+
+filename=${FILES[$SLURM_ARRAY_TASK_ID]}
+
+gatk ApplyBQSR -I /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/$filename --bqsr /scratch/arubio/DNAseq/vcf/reports1/$filename"_report_1.table" -O /scratch/a905162/ngs/recalibration2/$filename"_recalibrated.bam"
+
+```
+
+
+Initially, we started by recalibrating a single sample, but multiple errors occurred, which prevented us from reaching the final result. However, analysing the errors, it was observed that the problem was the lack of space in the scratch, so it was thought that by moving the files to our personal scratch the problem would be solved. However, when this was done, it was found that the space was common to the whole group, so moving the files to our personal folders didn't do anything. With this in mind, the next step was to move already used files to the personal dipc folder to free up space in the scratch in order to be able to generate the recalibrated files. As a result of this action, a single sample was run and in Figure 6 it can be seen that a result was obtained although the efficiencies were not as desired. 
+
+
+![**Figure 6:** Efficiency of the process to obtain the recalibrated .bam files.](seff recalibration 1 muestra .png)
+
+Due to the fact that it was possible to recalibrate a single sample, it was thought that a job-array could be sent with the rest of the samples, but the lack of space prevented a final result in all the attempts made. Therefore, we started to obtain the files manually and one by one, but taking into account that this process was not efficient and that we reached a situation in which there was no space left on the disk, we decided to stop the process here and went directly to the next section. 
 
 
 
-### VCF annotation
+### 2.6. Ensemble and Maftools
+
 This process was performed with the help of "Ensenmbl.org" website. As this process was not possible to be parallelize, each student uploaded two samples of normal .vcf files in order to be annotated. As this website is free of charge, the speed was not outstanding and took around five hours of runtime for each sample to be annotated.
 The distribution of samples can be seen on the image beneath.
 
 ![tabla](tabla.png)
 
+vcf --> tamaño menos a 50 MB --> muestras tumorales --> ensemble --> Archivo anotado --> sin CR --> vcf2maf --> maf --> gzip --> archivos juntos en un maf --> descargar los archivos individuales 
+
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+
+#!/bin/bash
+
+#SBATCH --job-name=vcf2maf
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=1
+#SBATCH -N 1
+#SBATCH --mem=2G
+#SBATCH --time=0-23:0:0
+#SBATCH --mail-type=END
+#SBATCH --mail-user=a905162@alumni.unav.es
+#SBATCH -o /scratch/a905162/ngs/logs/vcf2maf_3_%a.log
+
+source /scratch/arubio/bin/moduleloadNGS
+
+files=($(cd /scratch/arubio/DNAseq/vcf/ && ls *_sinCR.vcf))
+filename=${files[3]}
+
+perl /scratch/arubio/bin/mskcc-vcf2maf-754d68a/vcf2maf.pl --input-vcf /scratch/arubio/DNAseq/vcf/$filename --output-maf /scratch/arubio/DNAseq/vcf/$(basename $filename _anotated_sinCR.vcf).maf --inhibit-vep --ref-fasta //scratch/arubio/.vep/homo_sapiens/102_GRCh38/Homo_sapiens.GRCh38.dna.toplevel.fa.gz --ncbi-build GRCh38 --tumor-id SRR645235 --normal-id SRR645236
+
+```
 
 
-### MAF
-Once we have all maf
+
+![**Figure 10.** Efficiency of the process to obtain .maf files.](seff maftools muestra 24.png)
 
 
 
-## RNA-SEQ
+
+
+## **3. RNA**
+
+### 3.1. Kallisto
+
+In this step all FASTQC files from patients in the study were alligned against the reference human transcriptome. The objective here is to obtain a .bam file from each alligment.Here the code used for kallisto alligment is shown: 
+
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+
+#!/bin/bash
+
+#SBATCH --job-name=Kallisto
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=1
+#SBATCH -N 1 # On one node
+#SBATCH --mem=4G
+#SBATCH --time=0-23:0:0
+##SBATCH --mail-type=END
+##SBATCH --mail-user=a905162@alumni.unav.es
+#SBATCH -o /scratch/a905162/ngs/logs/kallisto%a.log
+
+source /scratch/arubio/bin/moduleloadNGS
+
+FILES=($(cd /scratch/arubio/RNAseq/ && basename --suffix=_1.fastq.gz -- *_1.fastq.gz))
+
+filename=${FILES[$SLURM_ARRAY_TASK_ID]}
+mkdir /scratch/a905162/ngs/KallistoMaps/${filename}
+
+chmod 770 /scratch/a905162/ngs/KallistoMaps/${filename}
+
+kallisto quant -i /scratch/arubio/GenomicFiles/kallisto_Assignment_index.idx -o /scratch/a905162/ngs/KallistoMaps/$filename -b 25 -t $SLURM_CPUS_PER_TASK -g /
+```
+
+This code was run in ATLAS PC in order to paralelize the job, at first 1 node and 16G of RAM were used but the job efficiency was 23.12%. In order to have a better usage of ATLAS resources, the job was sent again but only using 4G of RAM memory. Finally the efficiency reached has been represented in Figure 11.  
+
+
+![**Figure 11.** Efficiency of the process to do Kallisto.](seff Kallisto.png)
 
 
 
-### Procesamiento de datos RNA-Seq
+### 3.2. Procesamiento de datos RNA-Seq
 
 To process the RNA-Seq data, to begin with, the required libraries had to be loaded.
 
@@ -103,7 +361,6 @@ library(gplots)
 library(ggrepel)
 library(EnsDb.Hsapiens.v79)
 ```
-
 
 The sample data was downloaded from ADI, and it was also necessary to change the names of the columns in order to correctly identify each of the variables. Furthermore, it was also important to split the column called *sample_name* into two different variables: *sample_ID* (IDs of the subjects) and *sample_type* (Normal or Cancer). 
 
@@ -133,51 +390,8 @@ Atributos <- listAttributes(mart)
 GeneTransciptLocation <- getBM(attributes=c("ensembl_gene_id","ensembl_transcript_id","chromosome_name","transcript_start","transcript_end"),mart=mart)
 ```
 
-## Kallisto alligment
 
-In this step all FASTQC files from patients in the study were alligned against the reference human transcriptome. The objective here is to obtain a .bam file from each alligment.Here the code used for kallisto alligment is shown: 
-
-```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-###################################################################################################
-# Slurm Script To Run scripts in arrays.
-###################################################################################################
-
-#!/bin/bash
-
-#SBATCH --job-name=Kallisto
-#SBATCH --account=biomedicine
-#SBATCH --partition=biomedicine
-#SBATCH --cpus-per-task=1
-#SBATCH -N 1 # On one node
-#SBATCH --mem=4G
-#SBATCH --time=0-23:0:0
-##SBATCH --mail-type=END
-##SBATCH --mail-user=a905162@alumni.unav.es
-#SBATCH -o /scratch/a905162/ngs/logs/kallisto%a.log
-
-
-### Load programs here
-source /scratch/arubio/bin/moduleloadNGS
-
-# Excluding the absolute path and the extension and taking only one directory pero paired-end reads (what we want)
-FILES=($(cd /scratch/arubio/RNAseq/ && basename --suffix=_1.fastq.gz -- *_1.fastq.gz))
-
-# Grab out filename from the array exported from our 'parent' shell
-filename=${FILES[$SLURM_ARRAY_TASK_ID]}
-mkdir /scratch/a905162/ngs/KallistoMaps/${filename}
-
-# Change the read write permissions
-chmod 770 /scratch/a905162/ngs/KallistoMaps/${filename}
-
-#  kallisto quant -i /scratch/arubio/GenomicFiles/kallisto_Assignment_index.idx -o /scratch/arubio/RNAseq/KallistoMaps/$filename -b 25 -t $SLURM_CPUS_PER_TASK
-
-kallisto quant -i /scratch/arubio/GenomicFiles/kallisto_Assignment_index.idx -o /scratch/a905162/ngs/KallistoMaps/$filename -b 25 -t $SLURM_CPUS_PER_TASK -g /
-```
-
-This code was run in ATLAS PC in order to paralelize the job, at first 1 node and 16G of RAM were used but the job efficiency was 23.12%. In order to have a better usage of ATLAS resources, the job was sent again but only using 4G of RAM memory. Finally the efficiency reached 95.82% for CPU efficiency and 92.44% for Memory efficiency.
-
-## Load and process the data generated with Kallisto
+### 3.3. Load and process the data generated with Kallisto
 
 Once having obtained the output from Kallisto, we have merged that information into a matrix containing the TPM values of each transcript per sample.
 
@@ -201,7 +415,7 @@ colnames(RNASeq2)<-sample_id
 ```
 
 
-## Design and contrast matrices
+### 3.4. Design and contrast matrices
 
 Next, we will explain both the design and contrast matrices that has been built. The variable that will be studied is the sample type, that is, the difference in gene expression between normal and malignant samples. We will take as reference the normal samples. 
 
@@ -222,7 +436,7 @@ cont.matrix <- c(rep(0, ncol(model_matrix)-1), 1)
 ```
 
 
-## Sleuth
+### 3.5. Sleuth
 
 After having run kallisto for each of the samples, a differential expression analysis will be carried out using sleuth. Sleuth is an RNA-Seq analysis program for which kallisto has been used to quatify transcript abundances (cite). First of all, we need to create a tab delimited metadata file for the experiment so we have the factors for each sample ID (header "sample"), the ID of the patients (header "sample_ID"), the type of the sample, that is, whether the sample is normal or malignant (header "sample_type"), and the file path (header "path") to the kallisto output for each sample.
 
@@ -283,7 +497,7 @@ sleuth_significant_lrt <- dplyr::filter(sleuth_table_lrt, qval <= 0.001)
 ```
 
 
-### Gene Ontology
+### 3.6. Gene Ontology
 
 The enrichGO function of the ClusterProfiler R package was used to perform the Gene Ontology (GO) enrichment analysis for biological processes [cite]. The genes related to the gene transcripts with FDR < 0.001 were selected. The gene universe consisted of the more than 60,000 genes that were identified in *Ensembl* [cite]. Moreover, in all the cases, we selected the GO terms with FDR < 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term). Based on the FDR value, the top 20 GO terms were selected as the most enriched processes.
 
@@ -431,7 +645,7 @@ samtools index S1_testAligned.sortedByCoord.out.bam
 ```
 
 
-### PCA
+### 3.7. PCA
 
 To separate all the samples in clusters based on the results of differential gene expression analysis we first performed a PCA selecting the 8198 differentially expressed transcripts (FDR < 0.001). The correct separation between the sample groups confirms that the selected transcripts could be considered adequate to stratify the samples in the two groups. Moreover, the axes are ranked in order of importance, where differences along the first principal component axis (PC1) are more important than differences along with the second principal analysis (PC2).
 
@@ -462,7 +676,7 @@ Fig_PCA
 ```
 
 
-### Heatmap
+### 3.8. Heatmap
 
 In order to visualize more clearly the expression pattern of the most significant transcripts, a heatmap has been plotted. In addition to showing both the sample and transcript IDs in the columns and rows respectively, they have been distributed using a hierarchical clustering algorithm, so that the samples or transcripts that show a more similar behavior are closer to each other.
 
@@ -484,7 +698,7 @@ legend(0.9,1.2, legend = c("Normal", "Cancer"),col = c("orange", "dark green"), 
 ```
 
 
-### Boxplot
+### 3.9. Boxplot
 
 Next, we represent the gene expression values measured in TPMs of the top significant transcripts. To select the 10 most significant transcripts, those with a lower FDR value were chosen.
 
@@ -533,7 +747,7 @@ Fig_boxplot
 ```
 
 
-### Volcano plot
+### 3.10. Volcano plot
 
 Differential expression analysis revealed that between the normal and malignant groups of patients, there are x transcripts altered with an FDR < 0.01 and a beta > |3|. Moreover, x of them belong to the overexpressed group (beta > 3) whereas x of the isoforms are underexpressed (beta < -3). The labelled transcripts are the ones whose expression was plotted through a boxplot in the previous image. 
 
@@ -577,10 +791,10 @@ Fig_volcano
 ```
 
 
-## CONCLUSIONS   
+## **4. CONCLUSIONS**   
 
 
 
-## BIBLIOGRAPHY  
+## **5. BIBLIOGRAPHY**  
 
 
