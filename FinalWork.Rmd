@@ -71,12 +71,16 @@ done
 
 
 
-### VCF
+### VCF annotation
+This process was performed with the help of "Ensenmbl.org" website. As this process was not possible to be parallelize, each student uploaded two samples of normal .vcf files in order to be annotated. As this website is free of charge, the speed was not outstanding and took around five hours of runtime for each sample to be annotated.
+The distribution of samples can be seen on the image beneath.
+
+![tabla](tabla.png)
 
 
 
 ### MAF
-
+Once we have all maf
 
 
 
@@ -131,7 +135,7 @@ GeneTransciptLocation <- getBM(attributes=c("ensembl_gene_id","ensembl_transcrip
 
 ## Kallisto alligment
 
-In this step all FASTQC files from patients in the study were alligned against the reference human transcriptome. The objective here is to obtain a .bam file from each alligment.Here the code used for kallisto aligment is shown: 
+In this step all FASTQC files from patients in the study were alligned against the reference human transcriptome. The objective here is to obtain a .bam file from each alligment.Here the code used for kallisto alligment is shown: 
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -171,7 +175,7 @@ chmod 770 /scratch/a905162/ngs/KallistoMaps/${filename}
 kallisto quant -i /scratch/arubio/GenomicFiles/kallisto_Assignment_index.idx -o /scratch/a905162/ngs/KallistoMaps/$filename -b 25 -t $SLURM_CPUS_PER_TASK -g /
 ```
 
-This code was run in ATLAS PC in order to paralelize the job.at first 1 node and 16G of RAM were used but the job efficiency was 23.12%. In order to have a better usage of ATLAS resources, the job was sent again but only using 4G of RAM memory. Finally the efficiency reached 95.82% for CPU efficiency and 92.44% for Memory efficiency.
+This code was run in ATLAS PC in order to paralelize the job, at first 1 node and 16G of RAM were used but the job efficiency was 23.12%. In order to have a better usage of ATLAS resources, the job was sent again but only using 4G of RAM memory. Finally the efficiency reached 95.82% for CPU efficiency and 92.44% for Memory efficiency.
 
 ## Load and process the data generated with Kallisto
 
