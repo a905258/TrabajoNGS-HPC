@@ -1545,12 +1545,12 @@ div.tocify {
 
 <div id="background" class="section level2">
 <h2><strong>BACKGROUND</strong></h2>
-<p>Bladder cancer is one of the most common disorders worldwide, with
-more than 573,000 new cases in 2020 and transitional cell carcinoma
-(TCC) being the most common primary neoplasm of the urinary bladder.
-Moreover, it is a disease that is generally diagnosed early, when the
-cancer is highly treatable. However, even early-stage bladder cancers
-can return after successful treatments.</p>
+<p>:) :) :) Bladder cancer is one of the most common disorders
+worldwide, with more than 573,000 new cases in 2020 and transitional
+cell carcinoma (TCC) being the most common primary neoplasm of the
+urinary bladder. Moreover, it is a disease that is generally diagnosed
+early, when the cancer is highly treatable. However, even early-stage
+bladder cancers can return after successful treatments.</p>
 <p>In this work, we have based on the scientific paper published by Guo
 G. et al. <span class="citation">(<a href="#ref-guo2013whole" role="doc-biblioref">Guo et al. 2013</a>)</span>, where the researchers
 have performed a genomic analysis of TCC by both whole-genome and
@@ -1896,10 +1896,13 @@ to obtain .maf files.</p>
 </div>
 </div>
 </div>
+<div id="copy-number-analysis" class="section level2">
+<h2><strong>3. COPY NUMBER ANALYSIS</strong></h2>
+</div>
 <div id="rna" class="section level2">
-<h2><strong>3. RNA</strong></h2>
+<h2><strong>4. RNA</strong></h2>
 <div id="kallisto" class="section level3">
-<h3>3.1. Kallisto</h3>
+<h3>4.1. Kallisto</h3>
 <p>In this step all FASTQC files from patients in the study were
 alligned against the reference human transcriptome. The objective here
 is to obtain a .bam file from each alligment.Here the code used for
@@ -1939,7 +1942,7 @@ to do Kallisto.</p>
 </div>
 </div>
 <div id="procesamiento-de-datos-rna-seq" class="section level3">
-<h3>3.2. Procesamiento de datos RNA-Seq</h3>
+<h3>4.2. Procesamiento de datos RNA-Seq</h3>
 <p>To process the RNA-Seq data, to begin with, the required libraries
 had to be loaded.</p>
 <pre class="r"><code>library(readr)
@@ -1982,7 +1985,7 @@ Atributos &lt;- listAttributes(mart)
 GeneTransciptLocation &lt;- getBM(attributes=c(&quot;ensembl_gene_id&quot;,&quot;ensembl_transcript_id&quot;,&quot;chromosome_name&quot;,&quot;transcript_start&quot;,&quot;transcript_end&quot;),mart=mart)</code></pre>
 </div>
 <div id="load-and-process-the-data-generated-with-kallisto" class="section level3">
-<h3>3.3. Load and process the data generated with Kallisto</h3>
+<h3>4.3. Load and process the data generated with Kallisto</h3>
 <p>Once having obtained the output from Kallisto, we have merged that
 information into a matrix containing the TPM values of each transcript
 per sample.</p>
@@ -2004,7 +2007,7 @@ RNASeq2&lt;-as.matrix(RNASeq)
 colnames(RNASeq2)&lt;-sample_id</code></pre>
 </div>
 <div id="design-and-contrast-matrices" class="section level3">
-<h3>3.4. Design and contrast matrices</h3>
+<h3>4.4. Design and contrast matrices</h3>
 <p>Next, we will explain both the design and contrast matrices that has
 been built. The variable that will be studied is the sample type, that
 is, the difference in gene expression between normal and malignant
@@ -2036,7 +2039,7 @@ difference between those two, so <span class="math inline">\(\beta_{16}}\)</span
 cont.matrix &lt;- c(rep(0, ncol(model_matrix)-1), 1)</code></pre>
 </div>
 <div id="sleuth" class="section level3">
-<h3>3.5. Sleuth</h3>
+<h3>4.5. Sleuth</h3>
 <p>After having run kallisto for each of the samples, a differential
 expression analysis will be carried out using sleuth. Sleuth is an
 RNA-Seq analysis program for which kallisto has been used to quatify
@@ -2101,7 +2104,7 @@ so &lt;- sleuth_wt(so, paste0(&#39;sample_typeCancer&#39;))
 sleuth_table_wt &lt;- sleuth_results(so, paste0(&#39;sample_typeCancer&#39;))</code></pre>
 </div>
 <div id="gene-ontology" class="section level3">
-<h3>3.6. Gene Ontology</h3>
+<h3>4.6. Gene Ontology</h3>
 <p>The enrichGO function of the ClusterProfiler R package was used to
 perform the Gene Ontology (GO) enrichment analysis for biological
 processes [cite]. The genes related to the gene transcripts with FDR
@@ -2223,7 +2226,7 @@ generated in the previous step, the following code has been run.</p>
 <pre class="r"><code>samtools index S1_testAligned.sortedByCoord.out.bam</code></pre>
 </div>
 <div id="pca" class="section level3">
-<h3>3.7. PCA</h3>
+<h3>4.7. PCA</h3>
 <p>To separate all the samples in clusters based on the results of
 differential gene expression analysis we first performed a PCA selecting
 the 8198 differentially expressed transcripts (FDR &lt; 0.001). The
@@ -2249,7 +2252,7 @@ data_PCA &lt;- data.frame(samples = rownames(PCs$x),
                        PC2 = PCs$x[,2])</code></pre>
 </div>
 <div id="heatmap" class="section level3">
-<h3>3.8. Heatmap</h3>
+<h3>4.8. Heatmap</h3>
 <p>In order to visualize more clearly the expression pattern of the most
 significant transcripts, a heatmap has been plotted. In addition to
 showing both the sample and transcript IDs in the columns and rows
@@ -2258,7 +2261,7 @@ algorithm, so that the samples or transcripts that show a more similar
 behavior are closer to each other.</p>
 </div>
 <div id="boxplot" class="section level3">
-<h3>3.9. Boxplot</h3>
+<h3>4.9. Boxplot</h3>
 <p>Next, we represent the gene expression values measured in TPMs of the
 top significant transcripts. To select the 10 most significant
 transcripts, those with a lower FDR value were chosen.</p>
@@ -2285,21 +2288,21 @@ data_boxplot &lt;- data.frame(transcripts = rep(sig_df_bp$SYMBOL_transcript_id, 
 data_boxplot$transcripts = as.factor(data_boxplot$transcripts)</code></pre>
 </div>
 <div id="volcano-plot" class="section level3">
-<h3>3.10. Volcano plot</h3>
+<h3>4.10. Volcano plot</h3>
 <p>Differential expression analysis revealed that between the normal and
-malignant groups of patients, there are x transcripts altered with an
-FDR &lt; 0.01 and a beta &gt; |3|. Moreover, x of them belong to the
-overexpressed group (beta &gt; 3) whereas x of the isoforms are
+malignant groups of patients, there are 879 transcripts altered with an
+FDR &lt; 0.01 and a beta &gt; |3|. Moreover, 141 of them belong to the
+overexpressed group (beta &gt; 3) whereas 738 of the isoforms are
 underexpressed (beta &lt; -3). The labelled transcripts are the ones
 whose expression was plotted through a boxplot in the previous
 image.</p>
 </div>
 </div>
 <div id="conclusions" class="section level2">
-<h2><strong>4. CONCLUSIONS</strong></h2>
+<h2><strong>5. CONCLUSIONS</strong></h2>
 </div>
 <div id="bibliography" class="section level2 unnumbered">
-<h2 class="unnumbered"><strong>5. BIBLIOGRAPHY</strong></h2>
+<h2 class="unnumbered"><strong>6. BIBLIOGRAPHY</strong></h2>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-guo2013whole" class="csl-entry">
 Guo, Guangwu, Xiaojuan Sun, Chao Chen, Song Wu, Peide Huang, Zesong Li,
