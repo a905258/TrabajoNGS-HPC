@@ -13,8 +13,9 @@ link-citations: true
 ---
 
 
-## **BACKGROUND** 
 
+## **BACKGROUND** 
+:) :) :)
 Bladder cancer is one of the most common disorders worldwide, with more than 573,000 new cases in 2020 and transitional cell carcinoma (TCC) being the most common primary neoplasm of the urinary bladder. Moreover, it is a disease that is generally diagnosed early, when the cancer is highly treatable. However, even early-stage bladder cancers can return after successful treatments.
 
 In this work, we have based on the scientific paper published by Guo G. et al. [@guo2013whole], where the researchers have performed a genomic analysis of TCC by both whole-genome and whole-exome sequencing in order to not only confirm existing mutations that are documented in the literature but also to identify additional genes and pathways that play a key role in this disease. For this, we have performed both a DNA-Seq and an RNA-Seq analysis to try to replicate some of the results obtained in the paper.
@@ -173,8 +174,6 @@ FILES=($(cd /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/ && ls *.bam))
 filename=${FILES[$SLURM_ARRAY_TASK_ID]}
 
 gatk HaplotypeCaller --native-pair-hmm-threads 8 -I /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/$filename -R /scratch/arubio/DNAseq/Auxfiles/dummy.fa -O /scratch/arubio/DNAseq/vcf/$filename.vcf
-
-
 ```
 
 
@@ -749,7 +748,7 @@ Fig_boxplot
 
 ### 4.10. Volcano plot
 
-Differential expression analysis revealed that between the normal and malignant groups of patients, there are x transcripts altered with an FDR < 0.01 and a beta > |3|. Moreover, x of them belong to the overexpressed group (beta > 3) whereas x of the isoforms are underexpressed (beta < -3). The labelled transcripts are the ones whose expression was plotted through a boxplot in the previous image. 
+Differential expression analysis revealed that between the normal and malignant groups of patients, there are 879 transcripts altered with an FDR < 0.01 and a beta > |3|. Moreover, 141 of them belong to the overexpressed group (beta > 3) whereas 738 of the isoforms are underexpressed (beta < -3). The labelled transcripts are the ones whose expression was plotted through a boxplot in the previous image. 
 
 ```{r, eval = FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 transcripts <- sapply(strsplit(sleuth_table_wt$target_id,"\\."),function(X) return(X[1]))
