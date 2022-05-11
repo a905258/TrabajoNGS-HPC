@@ -174,8 +174,6 @@ FILES=($(cd /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/ && ls *.bam))
 filename=${FILES[$SLURM_ARRAY_TASK_ID]}
 
 gatk HaplotypeCaller --native-pair-hmm-threads 8 -I /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/$filename -R /scratch/arubio/DNAseq/Auxfiles/dummy.fa -O /scratch/arubio/DNAseq/vcf/$filename.vcf
-
-
 ```
 
 
