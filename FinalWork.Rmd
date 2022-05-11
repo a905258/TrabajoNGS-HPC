@@ -302,13 +302,13 @@ perl /scratch/arubio/bin/mskcc-vcf2maf-754d68a/vcf2maf.pl --input-vcf /scratch/a
 
 ![**Figure 10.** Efficiency of the process to obtain .maf files.](seff maftools muestra 24.png)
 
+## **3. COPY NUMBER ANALYSIS**
 
 
 
+## **4. RNA**
 
-## **3. RNA**
-
-### 3.1. Kallisto
+### 4.1. Kallisto
 
 In this step all FASTQC files from patients in the study were alligned against the reference human transcriptome. The objective here is to obtain a .bam file from each alligment.Here the code used for kallisto alligment is shown: 
 
@@ -346,7 +346,7 @@ This code was run in ATLAS PC in order to paralelize the job, at first 1 node an
 
 
 
-### 3.2. Procesamiento de datos RNA-Seq
+### 4.2. Procesamiento de datos RNA-Seq
 
 To process the RNA-Seq data, to begin with, the required libraries had to be loaded.
 
@@ -391,7 +391,7 @@ GeneTransciptLocation <- getBM(attributes=c("ensembl_gene_id","ensembl_transcrip
 ```
 
 
-### 3.3. Load and process the data generated with Kallisto
+### 4.3. Load and process the data generated with Kallisto
 
 Once having obtained the output from Kallisto, we have merged that information into a matrix containing the TPM values of each transcript per sample.
 
@@ -415,7 +415,7 @@ colnames(RNASeq2)<-sample_id
 ```
 
 
-### 3.4. Design and contrast matrices
+### 4.4. Design and contrast matrices
 
 Next, we will explain both the design and contrast matrices that has been built. The variable that will be studied is the sample type, that is, the difference in gene expression between normal and malignant samples. We will take as reference the normal samples. 
 
@@ -436,7 +436,7 @@ cont.matrix <- c(rep(0, ncol(model_matrix)-1), 1)
 ```
 
 
-### 3.5. Sleuth
+### 4.5. Sleuth
 
 After having run kallisto for each of the samples, a differential expression analysis will be carried out using sleuth. Sleuth is an RNA-Seq analysis program for which kallisto has been used to quatify transcript abundances (cite). First of all, we need to create a tab delimited metadata file for the experiment so we have the factors for each sample ID (header "sample"), the ID of the patients (header "sample_ID"), the type of the sample, that is, whether the sample is normal or malignant (header "sample_type"), and the file path (header "path") to the kallisto output for each sample.
 
@@ -497,7 +497,7 @@ sleuth_significant_lrt <- dplyr::filter(sleuth_table_lrt, qval <= 0.001)
 ```
 
 
-### 3.6. Gene Ontology
+### 4.6. Gene Ontology
 
 The enrichGO function of the ClusterProfiler R package was used to perform the Gene Ontology (GO) enrichment analysis for biological processes [cite]. The genes related to the gene transcripts with FDR < 0.001 were selected. The gene universe consisted of the more than 60,000 genes that were identified in *Ensembl* [cite]. Moreover, in all the cases, we selected the GO terms with FDR < 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term). Based on the FDR value, the top 20 GO terms were selected as the most enriched processes.
 
@@ -645,7 +645,7 @@ samtools index S1_testAligned.sortedByCoord.out.bam
 ```
 
 
-### 3.7. PCA
+### 4.7. PCA
 
 To separate all the samples in clusters based on the results of differential gene expression analysis we first performed a PCA selecting the 8198 differentially expressed transcripts (FDR < 0.001). The correct separation between the sample groups confirms that the selected transcripts could be considered adequate to stratify the samples in the two groups. Moreover, the axes are ranked in order of importance, where differences along the first principal component axis (PC1) are more important than differences along with the second principal analysis (PC2).
 
@@ -676,7 +676,7 @@ Fig_PCA
 ```
 
 
-### 3.8. Heatmap
+### 4.8. Heatmap
 
 In order to visualize more clearly the expression pattern of the most significant transcripts, a heatmap has been plotted. In addition to showing both the sample and transcript IDs in the columns and rows respectively, they have been distributed using a hierarchical clustering algorithm, so that the samples or transcripts that show a more similar behavior are closer to each other.
 
@@ -698,7 +698,7 @@ legend(0.9,1.2, legend = c("Normal", "Cancer"),col = c("orange", "dark green"), 
 ```
 
 
-### 3.9. Boxplot
+### 4.9. Boxplot
 
 Next, we represent the gene expression values measured in TPMs of the top significant transcripts. To select the 10 most significant transcripts, those with a lower FDR value were chosen.
 
@@ -747,7 +747,7 @@ Fig_boxplot
 ```
 
 
-### 3.10. Volcano plot
+### 4.10. Volcano plot
 
 Differential expression analysis revealed that between the normal and malignant groups of patients, there are x transcripts altered with an FDR < 0.01 and a beta > |3|. Moreover, x of them belong to the overexpressed group (beta > 3) whereas x of the isoforms are underexpressed (beta < -3). The labelled transcripts are the ones whose expression was plotted through a boxplot in the previous image. 
 
@@ -791,10 +791,10 @@ Fig_volcano
 ```
 
 
-## **4. CONCLUSIONS**   
+## **5. CONCLUSIONS**   
 
 
 
-## **5. BIBLIOGRAPHY**  
+## **6. BIBLIOGRAPHY**  
 
 
