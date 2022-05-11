@@ -58,7 +58,7 @@ fastqc $filename -o /scratch/arubio/RNAseq/FastqcReports
 
 Once all the *FastQCs* were obtained, the efficiency of the process was analysed after having used the indicated resources and the results are shown in Figure 1. In particular, it can be seen that both the efficiency of the memory and the CPU was very low, indicating that the resources used were excessive. In other words, resources were wasted. Therefore, it can be concluded that the results would have been better if the amount of memory had been reduced and if fewer CPUs had been used. 
 
-![**Figure 1:** Efficiency of the process to obtain FastQCs.](seff FastQC.png)
+![**Figure 1:** Efficiency of the process to obtain FastQCs.](./images/seff FastQC.png)
 
 The next step was to generate a *MultiQC* for the DNA samples and another one for the *RNA* samples. To do this, the *multiqc* command was used and the corresponding files were generated directly from the command line. 
 
@@ -67,7 +67,7 @@ Then, after having carried out the first step for both types of samples, the ana
 
 ## **2. DNA**
 
-![**Figure 2:** Flow diagram of DNA processing.](DNA diagram.png)   
+![**Figure 2:** Flow diagram of DNA processing.](./images/DNA diagram.png)   
 
 
 ### 2.1. Alignment
@@ -143,7 +143,7 @@ After obtaining the result of a single sample, the efficiency of the process was
 Once the job-array was executed, the efficiency was checked and, taking into account that the resources had been modified, it was theoretically thought that the results would be good. However, analysing Figure 3, it can be seen that both CPU and memory efficiency are very low, which means that resources were wasted.
 
 
-![**Figure 3:** Efficiency of the process to obtain .bam files without duplicates.](seff duplicados todas las muestras.png)
+![**Figure 3:** Efficiency of the process to obtain .bam files without duplicates.](./images/seff duplicados todas las muestras.png)
 
 
 
@@ -182,7 +182,7 @@ In the same way as before, a job-array was programmed, but before executing it, 
 After many hours of job-array execution, the results were found to be correct and the efficiency of the process was studied in Figure 4. In the same way as before, high efficiency percentages were expected, however, in the case of memory, this was not the case, as it can be seen that the result was 22.13%. In any case, the CPU efficiency was 86%, which indicates that selecting 8 cores for each of the tasks was correct. 
 
 
-![**Figure 4:** Efficiency of the process to generate vcfs.](seff vcf todas las muestras.png)
+![**Figure 4:** Efficiency of the process to generate vcfs.](./images/seff vcf todas las muestras.png)
 
 
 ### 2.4. vcf reports
@@ -258,7 +258,7 @@ gatk ApplyBQSR -I /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/$filename -
 Initially, we started by recalibrating a single sample, but multiple errors occurred, which prevented us from reaching the final result. However, analysing the errors, it was observed that the problem was the lack of space in the scratch, so it was thought that by moving the files to our personal scratch the problem would be solved. However, when this was done, it was found that the space was common to the whole group, so moving the files to our personal folders didn't do anything. With this in mind, the next step was to move already used files to the personal dipc folder to free up space in the scratch in order to be able to generate the recalibrated files. As a result of this action, a single sample was run and in Figure 6 it can be seen that a result was obtained although the efficiencies were not as desired. 
 
 
-![**Figure 6:** Efficiency of the process to obtain the recalibrated .bam files.](seff recalibration 1 muestra .png)
+![**Figure 6:** Efficiency of the process to obtain the recalibrated .bam files.](./images/seff recalibration 1 muestra .png)
 
 Due to the fact that it was possible to recalibrate a single sample, it was thought that a job-array could be sent with the rest of the samples, but the lack of space prevented a final result in all the attempts made. Therefore, we started to obtain the files manually and one by one, but taking into account that this process was not efficient and that we reached a situation in which there was no space left on the disk, we decided to stop the process here and went directly to the next section. 
 
@@ -269,7 +269,7 @@ Due to the fact that it was possible to recalibrate a single sample, it was thou
 This process was performed with the help of "Ensenmbl.org" website. As this process was not possible to be parallelize, each student uploaded two samples of normal .vcf files in order to be annotated. As this website is free of charge, the speed was not outstanding and took around five hours of runtime for each sample to be annotated.
 The distribution of samples can be seen on the image beneath.
 
-![tabla](tabla.png)
+![tabla](./images/tabla.png)
 
 vcf --> tamaño menos a 50 MB --> muestras tumorales --> ensemble --> Archivo anotado --> sin CR --> vcf2maf --> maf --> gzip --> archivos juntos en un maf --> descargar los archivos individuales 
 
@@ -299,7 +299,7 @@ perl /scratch/arubio/bin/mskcc-vcf2maf-754d68a/vcf2maf.pl --input-vcf /scratch/a
 
 
 
-![**Figure 10.** Efficiency of the process to obtain .maf files.](seff maftools muestra 24.png)
+![**Figure 10.** Efficiency of the process to obtain .maf files.](./images/seff maftools muestra 24.png)
 
 
 
@@ -341,7 +341,7 @@ kallisto quant -i /scratch/arubio/GenomicFiles/kallisto_Assignment_index.idx -o 
 This code was run in ATLAS PC in order to paralelize the job, at first 1 node and 16G of RAM were used but the job efficiency was 23.12%. In order to have a better usage of ATLAS resources, the job was sent again but only using 4G of RAM memory. Finally the efficiency reached has been represented in Figure 11.  
 
 
-![**Figure 11.** Efficiency of the process to do Kallisto.](seff Kallisto.png)
+![**Figure 11.** Efficiency of the process to do Kallisto.](./images/seff Kallisto.png)
 
 
 
