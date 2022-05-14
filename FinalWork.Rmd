@@ -369,6 +369,7 @@ The sample data was downloaded from ADI, and it was also necessary to change the
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 samples <- read_csv("samples_finalwork.csv",col_names = FALSE)
+samples <- read_csv("/Users/gracielauria/Desktop/NGS/final_work/samples.csv",col_names = FALSE) 
 
 # View(samples)
 
@@ -399,9 +400,11 @@ GeneTranscriptLocation <- getBM(attributes=c("ensembl_gene_id","ensembl_transcri
 ### 3.3. Load and process the data generated with Kallisto
 
 Having obtained the output from Kallisto (the abundance.tsv, abundance.5 and .json for each sample), we have used the abundance.tsv files to make a dataframe containing the TPM values of each transcript per sample.
+The RNAseq2 dataframe has 199,169 transcrits.
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 base_dir <- "/home/osboxes/Desktop/NGSFolder/FinalWork_NGS_HPC/FinalWork_NGS_HPC/samples" #base_dir = directory where the output of kallisto is stored
+base_dir <- "/Users/gracielauria/Desktop/NGS/final_work/samples"
 sample_id <- dir(base_dir) #sample_id = the names of the folders.
 
 dirsample<-(paste0(base_dir,"/",sample_id[1]))
@@ -502,11 +505,9 @@ sleuth_table_wt <- sleuth_results(so, paste0('sample_typeCancer'))
 ```
 
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
-sleuth_table_lrt<-load ("sleuth_table_lrt.RData")
-sleuth_significant<-load ("sleuth_significant_lrt.RData")
-sleuth_table_wt<-load ("sleuth_table_wt.RData")
-# load sleuth_table_wt
-
+sleuth_table<-load ("~/Desktop/TrabajoNGS-HPC/sleuth_table_lrt.RData")
+sleuth_significant<-load ("~/Desktop/TrabajoNGS-HPC/sleuth_significant_lrt.RData")
+sleuth_table_wt<-load ("~/Desktop/TrabajoNGS-HPC/sleuth_table_wt.RData")
 ```
 
 ![**Figure 12.** Sleuth significant matrix.](./images/sleuth_significant.png)
@@ -529,7 +530,7 @@ sig_genes <- GeneTranscriptLocation$ensembl_gene_id[iij] #8031 significant genes
 universe <- unique(GeneTranscriptLocation$ensembl_gene_id)
 ```
 
-Then gene ontology was performed with the enrichGO function. The genes related to the gene transcripts with FDR < 0.01 were selected. The gene universe consisted of the 67,128 genes that were identified in *Ensembl* [cite]. So finally in database_enrichGO we obtained ?
+Then gene ontology was performed with the enrichGO function. The genes related to the gene transcripts with FDR < 0.01 were selected, that is from the 8031 significant genes that we obtained we keep 4656 genes. The gene universe consisted of the 67,128 genes that were identified in *Ensembl* [cite]. So finally in database_enrichGO we obtained ?
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 enrichGO <- clusterProfiler::enrichGO(gene = sig_genes, OrgDb = "org.Hs.eg.db",
@@ -543,7 +544,7 @@ database_enrichgo <- data.frame(enrichGO) #enrichGO@result
 
 ![**Figure 13.** EnrichGO database.](./images/database_enrichGO.png)
 
-Moreover, in all the cases, we selected the GO terms with FDR < 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term). Based on the FDR value, the top 20 GO terms were selected as the most enriched processes.
+Moreover, in all the cases, we selected the GO terms with FDR < 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term). 
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 
@@ -555,18 +556,17 @@ enrichGO_simplified <- simplify(enrichGO, cutoff=0.7, by="p.adjust", select_fun=
 database_enrichGO_simplified <- data.frame(enrichGO_simplified)
 ```
 ![**Figure 14.** EnrichGO simplified database.](./images/database_enrichGO_simplified.png)
+Based on the FDR value, the top 20 GO terms were selected as the most enriched processes, which are now represented in a dotplot
 
-
-```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
-# Dotplots
-
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+# Dotplot
 dotplot_enrichGO_simplified <- enrichplot::dotplot(enrichGO_simplified, showCategory = 20) + ggtitle("Dotplot")
 dotplot_enrichGO_simplified
 
 ```
 
 ![**Figure 15.** Dotplot.](./images/Dotplot.png)
-```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
  #Enrichment Maps (estos mapas los borraba)
 
 #library(enrichplot)
@@ -634,7 +634,7 @@ which(genes_conocidos %in% sig_genes_symbol) #KRAS y HRAS
 which(chrom_rem_genes %in% sig_genes_symbol) #NCOR1
 ```
 
-La parte de IGV
+*La parte de IGV*
 
 We were expecting to find also the FGFR3 gene (from the RNA genes list), but we realized that the researchers from the scientific article analyzed the gene fusions, which is not related to the differential expression analysis that has been carried out. For this reason, another approach has been taken. 
 We have used the following chunk of code to download the .bam and .bai files of the cancer sample number SRR645259 from subject B59. With these files, we have opened them in the IGV software. As we were expecting to find a gene fusion, we were expecting to find each of the mates from genes FGFR3 and TACC3.
@@ -646,7 +646,7 @@ scp a905208@atlas-fdr.sw.ehu.es:/scratch/arubio/DNAseq/resultsBWA/noduplicatesba
 
 ![**Figure 18.** IGV showing TACC3 and FGFR3.](./images/IGV.png)
 
-La parte de STAR
+*La parte de STAR*
 
 First of all, the following .sh file has been created in order to get the required index.
 
