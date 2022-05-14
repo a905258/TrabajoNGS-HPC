@@ -78,7 +78,7 @@ First of all, the BWA samples were obtained, and then the index had to be built.
 wget ftp://ftp.ensembl.org/pub/release-106/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 ```
 
-After downloading the FASTA file of the reference genome, we used it to make the index for all the .BAM genomic samples, which were stored in the resultsBWA directory. First, the ATLAS resources used were 1GB of memory and we set a 1-hour job. This failed, as the index needed more memory to be built. For this reason, the memory was increased to 100GB randomly. In the end, the job was completed but after analyzing the memory efficiency of the resources used (1 hour and 100GB) only 4.33GB were actually used. Therefore the Memory efficiency was only 4.33%. On the other hand, the CPU Efficiency was 99.06% which is really good and the CPU utilized was 52 minutes and 49 seconds, which is a value within our set period. In the future, to perform another BWA index it would be recommended to only use around 5GB of memory and again 1 hour of CPU time if the index is going to be built with the same number of samples, which is approx 25 samples (mirar cuantas fueron).
+After downloading the FASTA file of the reference genome, we used it to make the index for all the .BAM genomic samples, which were stored in the resultsBWA directory. 
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 #!/bin/bash
@@ -101,6 +101,9 @@ do
 samtools index $SAMPLE
 done
 ```
+First, the ATLAS resources used were 1GB of memory and we set a 1-hour job. This failed, as the index needed more memory to be built. For this reason, the memory was increased to 100GB randomly. In the end, the job was completed but after analyzing the memory efficiency of the resources used (1 hour and 100GB) only 4.33GB were actually used. Therefore the Memory efficiency was only 4.33%. On the other hand, the CPU Efficiency was 99.06% which is really good and the CPU utilized was 52 minutes and 49 seconds, which is a value within our set period. In the future, to perform another BWA index it would be recommended to only use around 5GB of memory and again 1 hour of CPU time if the index is going to be built with the same number of samples, which is approx 25 samples (mirar cuantas fueron).
+
+![**Figure 3:** Efficiency of the process to obtain the bwa index.](./images/seff BWA INDEX.png)
 
 
 ### 2.2. Mark Duplicates
@@ -143,7 +146,7 @@ After obtaining the result of a single sample, the efficiency of the process was
 Once the job-array was executed, the efficiency was checked and, taking into account that the resources had been modified, it was theoretically thought that the results would be good. However, analysing Figure 3, it can be seen that both CPU and memory efficiency are very low, which means that resources were wasted.
 
 
-![**Figure 3:** Efficiency of the process to obtain .bam files without duplicates.](./images/seff duplicados todas las muestras.png)
+![**Figure 4:** Efficiency of the process to obtain .bam files without duplicates.](./images/seff duplicados todas las muestras.png)
 
 
 
@@ -182,7 +185,7 @@ In the same way as before, a job-array was programmed, but before executing it, 
 After many hours of job-array execution, the results were found to be correct and the efficiency of the process was studied in Figure 4. In the same way as before, high efficiency percentages were expected, however, in the case of memory, this was not the case, as it can be seen that the result was 22.13%. In any case, the CPU efficiency was 86%, which indicates that selecting 8 cores for each of the tasks was correct. 
 
 
-![**Figure 4:** Efficiency of the process to generate vcfs.](./images/seff vcf todas las muestras.png)
+![**Figure 5:** Efficiency of the process to generate vcfs.](./images/seff vcf todas las muestras.png)
 
 
 ### 2.4. vcf reports
@@ -220,7 +223,7 @@ Following the same procedure as before, the code was initially tested with a sin
 After having checked that the code worked and that the output was correct, the job-array was run to obtain the reports of all the samples and finally the efficiency of the process was checked and this is shown in Figure 5. In particular, it was observed that the efficiencies were lower than expected, so it would have been more optimal to reduce the resources. 
 
 
-![**Figure 5:** Efficiency of the process to obtain the reports of the vcfs.](seff vcf report todas las muestras .png)
+![**Figure 6:** Efficiency of the process to obtain the reports of the vcfs.](seff vcf report todas las muestras .png)
 
 
 ### 2.5. Recalibration and Processing after recalibration
@@ -258,7 +261,7 @@ gatk ApplyBQSR -I /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/$filename -
 Initially, we started by recalibrating a single sample, but multiple errors occurred, which prevented us from reaching the final result. However, analysing the errors, it was observed that the problem was the lack of space in the scratch, so it was thought that by moving the files to our personal scratch the problem would be solved. However, when this was done, it was found that the space was common to the whole group, so moving the files to our personal folders didn't do anything. With this in mind, the next step was to move already used files to the personal dipc folder to free up space in the scratch in order to be able to generate the recalibrated files. As a result of this action, a single sample was run and in Figure 6 it can be seen that a result was obtained although the efficiencies were not as desired. 
 
 
-![**Figure 6:** Efficiency of the process to obtain the recalibrated .bam files.](./images/seff recalibration 1 muestra .png)
+![**Figure 7:** Efficiency of the process to obtain the recalibrated .bam files.](./images/seff recalibration 1 muestra .png)
 
 Due to the fact that it was possible to recalibrate a single sample, it was thought that a job-array could be sent with the rest of the samples, but the lack of space prevented a final result in all the attempts made. Therefore, we started to obtain the files manually and one by one, but taking into account that this process was not efficient and that we reached a situation in which there was no space left on the disk, we decided to stop the process here and went directly to the next section. 
 
