@@ -15,6 +15,7 @@ library(readr)
 library(ggplot2)
 library(gplots)
 
+samples <- read_csv("/Users/gracielauria/Desktop/NGS/final_work/samples.csv",col_names = FALSE) #matriz ADI todas las samples
 samples <- read_csv("/home/osboxes/Desktop/NGSFolder/FinalWork_NGS_HPC/FinalWork_NGS_HPC/samples_finalwork.csv",col_names = FALSE) #matriz ADI todas las samples
 
 colnames(samples) <- c("ID", "library_strategy", "base_pair_fragment", "Bioproject", "Biosample", "Accession", "X7", "library_selection", "library_source", "library_name", "end_date", "X12", "X13", "Run", "SRS", "SRA_study", "sample_name", "read_length", "center_name", "data_type", "sra", "ncbi", "library_instrument", "library_layout", "organism", "seq_type", "Published")
@@ -34,6 +35,8 @@ model_matrix <- model.matrix(~ sample_ID + sample_type, data = samples)
 #cada sample tiene todos los transcritos que se han encontrado? 
 
 base_dir <- "/home/osboxes/Desktop/NGSFolder/FinalWork_NGS_HPC/FinalWork_NGS_HPC/samples" #base_dir = directory where the output of kallisto is stored
+base_dir <- read_csv("/Users/gracielauria/Desktop/NGS/final_work/samples",col_names = FALSE)
+
 sample_id <- dir(base_dir) #sample_id = the names of the folders.
 
 #if in the base_dir directory there are more files, we have to remove them from this variable. For example, if there is an R file:
