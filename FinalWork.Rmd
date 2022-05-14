@@ -12,21 +12,17 @@ biblio-style: "apalike"
 link-citations: true
 ---
 
+## **BACKGROUND**
 
-
-## **BACKGROUND** 
-:) :) :)
-Bladder cancer is one of the most common disorders worldwide, with more than 573,000 new cases in 2020 and transitional cell carcinoma (TCC) being the most common primary neoplasm of the urinary bladder. Moreover, it is a disease that is generally diagnosed early, when the cancer is highly treatable. However, even early-stage bladder cancers can return after successful treatments.
+:) :) :) Bladder cancer is one of the most common disorders worldwide, with more than 573,000 new cases in 2020 and transitional cell carcinoma (TCC) being the most common primary neoplasm of the urinary bladder. Moreover, it is a disease that is generally diagnosed early, when the cancer is highly treatable. However, even early-stage bladder cancers can return after successful treatments.
 
 In this work, we have based on the scientific paper published by Guo G. et al. [@guo2013whole], where the researchers have performed a genomic analysis of TCC by both whole-genome and whole-exome sequencing in order to not only confirm existing mutations that are documented in the literature but also to identify additional genes and pathways that play a key role in this disease. For this, we have performed both a DNA-Seq and an RNA-Seq analysis to try to replicate some of the results obtained in the paper.
 
-
 **FOTO**
-
 
 ## **1. PREPARACIÓN DE MUESTRAS**
 
-Regardless of the distinction made in this project between DNA and RNA samples, the first step consisted of obtaining the *FastQCs* and *MultiQCs* for both cases. In order to obtain the FastQCs, a job array was created to speed up the process and, specifically, the code followed for each of the samples was as follows: 
+Regardless of the distinction made in this project between DNA and RNA samples, the first step consisted of obtaining the *FastQCs* and *MultiQCs* for both cases. In order to obtain the FastQCs, a job array was created to speed up the process and, specifically, the code followed for each of the samples was as follows:
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -56,19 +52,17 @@ fastqc $filename -o /scratch/arubio/RNAseq/FastqcReports
 
 ```
 
-Once all the *FastQCs* were obtained, the efficiency of the process was analysed after having used the indicated resources and the results are shown in Figure 1. In particular, it can be seen that both the efficiency of the memory and the CPU was very low, indicating that the resources used were excessive. In other words, resources were wasted. Therefore, it can be concluded that the results would have been better if the amount of memory had been reduced and if fewer CPUs had been used. 
+Once all the *FastQCs* were obtained, the efficiency of the process was analysed after having used the indicated resources and the results are shown in Figure 1. In particular, it can be seen that both the efficiency of the memory and the CPU was very low, indicating that the resources used were excessive. In other words, resources were wasted. Therefore, it can be concluded that the results would have been better if the amount of memory had been reduced and if fewer CPUs had been used.
 
-![**Figure 1:** Efficiency of the process to obtain FastQCs.](images/seff FastQC.png)
+![**Figure 1:** Efficiency of the process to obtain FastQCs.](images/seff%20FastQC.png)
 
-The next step was to generate a *MultiQC* for the DNA samples and another one for the *RNA* samples. To do this, the *multiqc* command was used and the corresponding files were generated directly from the command line. 
+The next step was to generate a *MultiQC* for the DNA samples and another one for the *RNA* samples. To do this, the *multiqc* command was used and the corresponding files were generated directly from the command line.
 
-Then, after having carried out the first step for both types of samples, the analysis was separated in two, i.e. on one hand, an analysis was carried out with the *DNA* samples and, secondly, a study was carried out with the *RNA* samples. 
-
+Then, after having carried out the first step for both types of samples, the analysis was separated in two, i.e. on one hand, an analysis was carried out with the *DNA* samples and, secondly, a study was carried out with the *RNA* samples.
 
 ## **2. DNA**
 
-![**Figure 2:** Flow diagram of DNA processing.](images/DNA diagram.png)   
-
+![**Figure 2:** Flow diagram of DNA processing.](images/DNA%20diagram.png)
 
 ### 2.1. Alignment
 
@@ -102,13 +96,11 @@ samtools index $SAMPLE
 done
 ```
 
-
 ### 2.2. Mark Duplicates
 
-After obtaining the first .bam files with their corresponding indexes, the duplicates were eliminated, i.e. each of the aligned files was analysed and the reads that were the same were eliminated. In this way, if in one of the samples there was a mutation that was repeated multiple times, it is checked if this mutation is relevant or if the fact that it is repeated multiple times is due to an error in the amplification. 
+After obtaining the first .bam files with their corresponding indexes, the duplicates were eliminated, i.e. each of the aligned files was analysed and the reads that were the same were eliminated. In this way, if in one of the samples there was a mutation that was repeated multiple times, it is checked if this mutation is relevant or if the fact that it is repeated multiple times is due to an error in the amplification.
 
-To carry out this step, a job array was generated again in order to speed up the process and the .sbs file generated to run the job array was as follows: 
-
+To carry out this step, a job array was generated again in order to speed up the process and the .sbs file generated to run the job array was as follows:
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -135,22 +127,17 @@ java -Djava.io.tmpdir=`pwd`/tmp -jar $PICARD MarkDuplicates -I /scratch/arubio/D
 
 ```
 
-
 When executing the code, we initially tried to remove duplicates from a single sample to check the resources needed to run the job array. It should be noted that when removing the duplicates there were a lot of problems with Java because it was mentioned that there was no space left, but when we checked that there was enough space to perform this step, finally a temporary folder was created that allowed us to run the code and obtain the new .bam file having removed the duplicates.
 
-After obtaining the result of a single sample, the efficiency of the process was analysed and it was seen that 11 GB had been used and that the efficiency of the CPU had been of 11.77%. Therefore, when sending the job-array, the file was modified to the characteristics described in the code, i.e. 4 CPUs and a memory of 16 GB. 
+After obtaining the result of a single sample, the efficiency of the process was analysed and it was seen that 11 GB had been used and that the efficiency of the CPU had been of 11.77%. Therefore, when sending the job-array, the file was modified to the characteristics described in the code, i.e. 4 CPUs and a memory of 16 GB.
 
 Once the job-array was executed, the efficiency was checked and, taking into account that the resources had been modified, it was theoretically thought that the results would be good. However, analysing Figure 3, it can be seen that both CPU and memory efficiency are very low, which means that resources were wasted.
 
-
-![**Figure 3:** Efficiency of the process to obtain .bam files without duplicates.](images/seff duplicados todas las muestras.png)
-
-
-
+![**Figure 3:** Efficiency of the process to obtain .bam files without duplicates.](images/seff%20duplicados%20todas%20las%20muestras.png)
 
 ### 2.3. vcf generation
 
-Once the duplicates were removed, the next step was to generate the corresponding vcf's using the code described below. 
+Once the duplicates were removed, the next step was to generate the corresponding vcf's using the code described below.
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -176,14 +163,11 @@ filename=${FILES[$SLURM_ARRAY_TASK_ID]}
 gatk HaplotypeCaller --native-pair-hmm-threads 8 -I /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/$filename -R /scratch/arubio/DNAseq/Auxfiles/dummy.fa -O /scratch/arubio/DNAseq/vcf/$filename.vcf
 ```
 
+In the same way as before, a job-array was programmed, but before executing it, the vcf of a single sample was generated to check that the code worked and that the resources used were adequate. The result was a CPU efficiency of 67.96% and 3.73% in terms of memory. Therefore, analysing the results, it was decided to modify the script to reduce as much as possible the waste of resources and the resources described in the code were established, i.e. 8 CPUs and 8 GB of memory.
 
-In the same way as before, a job-array was programmed, but before executing it, the vcf of a single sample was generated to check that the code worked and that the resources used were adequate. The result was a CPU efficiency of 67.96% and 3.73% in terms of memory. Therefore, analysing the results, it was decided to modify the script to reduce as much as possible the waste of resources and the resources described in the code were established, i.e. 8 CPUs and 8 GB of memory.  
+After many hours of job-array execution, the results were found to be correct and the efficiency of the process was studied in Figure 4. In the same way as before, high efficiency percentages were expected, however, in the case of memory, this was not the case, as it can be seen that the result was 22.13%. In any case, the CPU efficiency was 86%, which indicates that selecting 8 cores for each of the tasks was correct.
 
-After many hours of job-array execution, the results were found to be correct and the efficiency of the process was studied in Figure 4. In the same way as before, high efficiency percentages were expected, however, in the case of memory, this was not the case, as it can be seen that the result was 22.13%. In any case, the CPU efficiency was 86%, which indicates that selecting 8 cores for each of the tasks was correct. 
-
-
-![**Figure 4:** Efficiency of the process to generate vcfs.](images/seff vcf todas las muestras.png)
-
+![**Figure 4:** Efficiency of the process to generate vcfs.](images/seff%20vcf%20todas%20las%20muestras.png)
 
 ### 2.4. vcf reports
 
@@ -214,20 +198,17 @@ gatk BaseRecalibrator -R /scratch/arubio/DNAseq/Auxfiles/dummy.fa -I /scratch/ar
 
 ```
 
+Following the same procedure as before, the code was initially tested with a single sample in order to check that the result was correct and that the resources were consistent. However, when testing the CPU and memory efficiencies were of 12.44% and 1.78% respectively, so the resources had to be modified and it was decided that 2 CPUs per task and 1 GB of memory were sufficient.
 
-Following the same procedure as before, the code was initially tested with a single sample in order to check that the result was correct and that the resources were consistent. However, when testing the CPU and memory efficiencies were of 12.44% and 1.78% respectively, so the resources had to be modified and it was decided that 2 CPUs per task and 1 GB of memory were sufficient. 
+After having checked that the code worked and that the output was correct, the job-array was run to obtain the reports of all the samples and finally the efficiency of the process was checked and this is shown in Figure 5. In particular, it was observed that the efficiencies were lower than expected, so it would have been more optimal to reduce the resources.
 
-After having checked that the code worked and that the output was correct, the job-array was run to obtain the reports of all the samples and finally the efficiency of the process was checked and this is shown in Figure 5. In particular, it was observed that the efficiencies were lower than expected, so it would have been more optimal to reduce the resources. 
-
-
-![**Figure 5:** Efficiency of the process to obtain the reports of the vcfs.](images/seff vcf report todas las muestras .png)
-
+![**Figure 5:** Efficiency of the process to obtain the reports of the vcfs.](images/seff%20vcf%20report%20todas%20las%20muestras%20.png)
 
 ### 2.5. Recalibration and Processing after recalibration
 
 Once the first vcfs and their reports were obtained, the .bam files were recalibrated, i.e. the quality of the files was modified. In particular, this has been necessary because....
 
-For this purpose, the following code has been generated. 
+For this purpose, the following code has been generated.
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -254,24 +235,19 @@ gatk ApplyBQSR -I /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/$filename -
 
 ```
 
+Initially, we started by recalibrating a single sample, but multiple errors occurred, which prevented us from reaching the final result. However, analysing the errors, it was observed that the problem was the lack of space in the scratch, so it was thought that by moving the files to our personal scratch the problem would be solved. However, when this was done, it was found that the space was common to the whole group, so moving the files to our personal folders didn't do anything. With this in mind, the next step was to move already used files to the personal dipc folder to free up space in the scratch in order to be able to generate the recalibrated files. As a result of this action, a single sample was run and in Figure 6 it can be seen that a result was obtained although the efficiencies were not as desired.
 
-Initially, we started by recalibrating a single sample, but multiple errors occurred, which prevented us from reaching the final result. However, analysing the errors, it was observed that the problem was the lack of space in the scratch, so it was thought that by moving the files to our personal scratch the problem would be solved. However, when this was done, it was found that the space was common to the whole group, so moving the files to our personal folders didn't do anything. With this in mind, the next step was to move already used files to the personal dipc folder to free up space in the scratch in order to be able to generate the recalibrated files. As a result of this action, a single sample was run and in Figure 6 it can be seen that a result was obtained although the efficiencies were not as desired. 
+![**Figure 6:** Efficiency of the process to obtain the recalibrated .bam files.](images/seff%20recalibration%201%20muestra%20.png)
 
-
-![**Figure 6:** Efficiency of the process to obtain the recalibrated .bam files.](images/seff recalibration 1 muestra .png)
-
-Due to the fact that it was possible to recalibrate a single sample, it was thought that a job-array could be sent with the rest of the samples, but the lack of space prevented a final result in all the attempts made. Therefore, we started to obtain the files manually and one by one, but taking into account that this process was not efficient and that we reached a situation in which there was no space left on the disk, we decided to stop the process here and went directly to the next section. 
-
-
+Due to the fact that it was possible to recalibrate a single sample, it was thought that a job-array could be sent with the rest of the samples, but the lack of space prevented a final result in all the attempts made. Therefore, we started to obtain the files manually and one by one, but taking into account that this process was not efficient and that we reached a situation in which there was no space left on the disk, we decided to stop the process here and went directly to the next section.
 
 ### 2.6. Ensemble and Maftools
 
-This process was performed with the help of "Ensenmbl.org" website. As this process was not possible to be parallelize, each student uploaded two samples of normal .vcf files in order to be annotated. As this website is free of charge, the speed was not outstanding and took around five hours of runtime for each sample to be annotated.
-The distribution of samples can be seen on the image beneath.
+This process was performed with the help of "Ensenmbl.org" website. As this process was not possible to be parallelize, each student uploaded two samples of normal .vcf files in order to be annotated. As this website is free of charge, the speed was not outstanding and took around five hours of runtime for each sample to be annotated. The distribution of samples can be seen on the image beneath.
 
 ![tabla](images/tabla.png)
 
-vcf --> tamaño menos a 50 MB --> muestras tumorales --> ensemble --> Archivo anotado --> sin CR --> vcf2maf --> maf --> gzip --> archivos juntos en un maf --> descargar los archivos individuales 
+vcf --\> tamaño menos a 50 MB --\> muestras tumorales --\> ensemble --\> Archivo anotado --\> sin CR --\> vcf2maf --\> maf --\> gzip --\> archivos juntos en un maf --\> descargar los archivos individuales
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -297,19 +273,281 @@ perl /scratch/arubio/bin/mskcc-vcf2maf-754d68a/vcf2maf.pl --input-vcf /scratch/a
 
 ```
 
-
-
-![**Figure 10.** Efficiency of the process to obtain .maf files.](images/seff maftools muestra 24.png)
+![**Figure 10.** Efficiency of the process to obtain .maf files.](images/seff%20maftools%20muestra%2024.png)
 
 ## **3. COPY NUMBER ANALYSIS**
 
+Copy number variation (CNV) analysis has had a major impact on the field of medical genetics, providing a mechanism to identify disease-causing genomic alterations in an unprecedented number of diseases and phenotypes. The term copy number variation refers to a difference in the dosage of genes or genomic fragments when compared with a reference human genome. It was originally used to describe genomic fragments that ranged in size from at least one kilobase to several million bases and had a variable copy number. Higher resolution CNV analysis has revealed the existence of increasingly smaller CNVs (100 to 1,000 bp) in the human genome. CNVs usually result from structural genomic alterations such as a deletion (loss), a duplication (gain), an insertion (usually a gain) or unbalanced translocations/inversions that may lead to either loss or gain of sequences near the breakpoints.
 
+![**Figure 11:** Flow diagram of CNV Analysis.](images/CNV%20Diagram.png)
+
+### 3.1 Interval List
+
+This is one of the most crucial steps in this pipeline, the intervals of the genome that are going to be selected for analysis, because of WGS this step limits the number of bases to be studied. 
+
+The interval list was generated using:
+
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+source /scratch/arubio/bin/moduleloadNGS
+
+gatk PreprocessIntervals -R /scratch/arubio/DNAseq/Auxfiles/dummy.fa \
+--bin-length 10000 --interval-merging-rule OVERLAPPING_ONLY \
+--padding 0 -O /scratch/a905383/CNV/preprocessed_intervals1.interval_list
+```
+
+This file was used as the *Figure 11* shows to generate the raw counts. But then, the intervals were filtered to be able to collect the allelic counts. A bin length of 10,000 was used to reduce computation cost.  
+
+The inputs of the filter are: 
+
+**blacklist.interval_list**: Downloaded [blacklist](data/GRCh38_unified_blacklist.bed) in bed format and transformed into interval list using picard. 
+
+**annotated_intervals.tsv**: Generated using gatk, 
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+gatk AnnotateIntervals  -R /scratch/arubio/DNAseq/Auxfiles/dummy.fa  -L /scratch/a905383/CNV/preprocessed_intervals10000.interval_list  --interval-merging-rule OVERLAPPING_ONLY  -O /scratch/a905383/CNV/annotated_intervals.tsv
+```
+
+**Counts**: Only tummoral counts were used, genrated from step 3.2
+
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+
+source /scratch/arubio/bin/moduleloadNGS
+
+gatk FilterIntervals -L /scratch/a905383/CNV/preprocessed_intervals10000.interval_list \
+ --interval-merging-rule OVERLAPPING_ONLY \
+ -XL blacklist.interval_list \
+ -I /scratch/a905383/CNV/counts/SRR645241.counts.hdf5 \
+ -I /scratch/a905383/CNV/counts/SRR645209.counts.hdf5 \
+ -I /scratch/a905383/CNV/counts/SRR645247.counts.hdf5 \
+ -I /scratch/a905383/CNV/counts/SRR645222.counts.hdf5 \
+ -I /scratch/a905383/CNV/counts/SRR645272.counts.hdf5 \
+ -I /scratch/a905383/CNV/counts/SRR645218.counts.hdf5 \
+ -I /scratch/a905383/CNV/counts/SRR645243.counts.hdf5 \
+ -I /scratch/a905383/CNV/counts/SRR645283.counts.hdf5 \
+ -I /scratch/a905383/CNV/counts/SRR645274.counts.hdf5 \
+ -I /scratch/a905383/CNV/counts/SRR645224.counts.hdf5 \
+ -I /scratch/a905383/CNV/counts/SRR645249.counts.hdf5 \
+ -I /scratch/a905383/CNV/counts/SRR645289.counts.hdf5 \
+ -I /scratch/a905383/CNV/counts/SRR645235.counts.hdf5 \
+ -I /scratch/a905383/CNV/counts/SRR645259.counts.hdf5 \
+ --annotated-intervals /scratch/a905383/CNV/annotated_intervals.tsv \
+ --minimum-gc-content 0.54 \
+ -O /scratch/a905383/CNV/filtered.interval_list
+
+```
+
+
+
+![**Figure 12:** Inputs to generate Intervals.](images/Filter%20Diagram.png)
+
+### 3.2 Collect Read Counts
+
+Raw Counts were collected using the unfiltered interval list. The input is an alligned bam file. We processed first the normal samples to be able to generate a panel of normals and then process the tumoral samples. Both codes are attached bellow.  
+
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+#SBATCH --job-name=cnv%a
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=1
+#SBATCH --nodes=1
+#SBATCH --mem=2G
+#SBATCH --time=00:30:00
+##SBATCH --mail-type=END
+##SBATCH --mail-user=a905383@alumni.unav.es
+#SBATCH -o /scratch/a905383/CNV/logs/cnv%a.log
+
+
+### Load programs here
+
+source /scratch/arubio/bin/moduleloadNGS
+
+files=("SRR645210" "SRR645219" "SRR645223" "SRR645225" "SRR645236" "SRR645242" \
+"SRR645244" "SRR645248" "SRR645250" "SRR645260" "SRR645273" "SRR645275" \
+"SRR645284" "SRR645288")
+
+filename=${files[$SLURM_ARRAY_TASK_ID]}
+
+
+samplesFolder=/scratch/a905383/CNV/raw_data
+intervals=/scratch/a905383/CNV/preprocessed_intervals100000.interval_list
+countsFolder=/scratch/a905383/CNV/counts
+
+echo $filename
+gatk CollectReadCounts -L $intervals \
+        -I $samplesFolder"/"$filename"_aligned.bam" \
+        --interval-merging-rule OVERLAPPING_ONLY \
+        -O $countsFolder"/"$filename"0.counts.
+```
+
+![**Figure 13:** Efficiency of the process by Collect Raw Counts. ](images/seff_CNV.png)
+
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+#SBATCH --job-name=cnv_tumor%a
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=1
+#SBATCH --nodes=1
+#SBATCH --mem=2G
+#SBATCH --time=00:30:00
+##SBATCH --mail-type=END
+##SBATCH --mail-user=a905383@alumni.unav.es
+#SBATCH -o /scratch/a905383/CNV/logs/cnv_tumor%a.log
+
+
+### Load programs here
+
+source /scratch/arubio/bin/moduleloadNGS
+
+
+files=("SRR645209" "SRR645218" "SRR645222" "SRR645224" "SRR645235" "SRR645241" \
+"SRR645243" "SRR645247" "SRR645249" "SRR645259" "SRR645272" "SRR645274" \
+"SRR645283" "SRR645289")
+
+filename=${files[$SLURM_ARRAY_TASK_ID]}
+
+
+samplesFolder=/scratch/a905383/CNV/raw_data
+intervals=/scratch/a905383/CNV/preprocessed_intervals100000.interval_list
+countsFolder=/scratch/a905383/CNV/counts
+
+echo $filename
+gatk CollectReadCounts -L $intervals \
+        -I $samplesFolder"/"$filename"_aligned.bam" \
+        --interval-merging-rule OVERLAPPING_ONLY \
+        -O $countsFolder"/"$filename"0.counts.hdf5"
+
+```
+
+![**Figure 14:** Efficiency of the process by Collect Raw Counts (Tumor). ](images/seff_CNV_tumor.png)
+### 3.3 Panel of Normals
+
+Creates a panel of normals (PoN) for read-count denoising given the read counts for samples in the panel. The resulting PoN can be used with DenoiseReadCounts to denoise other samples.
+The input read counts are first transformed to log2 fractional coverages and preprocessed according to specified filtering and imputation parameters. Singular value decomposition (SVD) is then performed to find the first number-of-eigensamples principal components, which are stored in the PoN. 
+
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+#SBATCH --job-name=cnv%a
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=1
+#SBATCH --nodes=1
+#SBATCH --mem=12G
+#SBATCH --time=00:30:00
+#SBATCH -o /scratch/a905383/CNV/logs/panel.log
+
+
+source /scratch/arubio/bin/moduleloadNGS
+
+module load Java/1.8.0_181
+
+countsFolder=/scratch/a905383/CNV/counts
+
+gatk CreateReadCountPanelOfNormals \
+ -I $countsFolder"/SRR645210.counts.hdf5" \
+ -I $countsFolder"/SRR645219.counts.hdf5" \
+ -I $countsFolder"/SRR645223.counts.hdf5" \
+ -I $countsFolder"/SRR645225.counts.hdf5" \
+ -I $countsFolder"/SRR645236.counts.hdf5" \
+ -I $countsFolder"/SRR645242.counts.hdf5" \
+ -I $countsFolder"/SRR645244.counts.hdf5" \
+ -I $countsFolder"/SRR645248.counts.hdf5" \
+ -I $countsFolder"/SRR645250.counts.hdf5" \
+ -I $countsFolder"/SRR645260.counts.hdf5" \
+ -I $countsFolder"/SRR645273.counts.hdf5" \
+ -I $countsFolder"/SRR645275.counts.hdf5" \
+ -I $countsFolder"/SRR645284.counts.hdf5" \
+ -I $countsFolder"/SRR645288.counts.hdf5" \
+ --minimum-interval-median-percentile 5.0 \
+ -O /scratch/a905383/CNV/counts/Normal.pon.hdf5
+
+```
+
+![**Figure 15:** Efficiency of the process by Collect Raw Counts (Tumor). ](images/seff_PON.png)
+
+### 3.4 Standarized Counts 
+
+Denoises read counts to produce denoised copy ratios. The input required is a PoN and the raw counts generated previously. 
+
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+#SBATCH --job-name=cnv%a
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=1
+#SBATCH --nodes=1
+#SBATCH --mem=12G
+#SBATCH --time=00:30:00
+#SBATCH -o /scratch/a905383/CNV/logs/standarized.log
+
+
+source /scratch/arubio/bin/moduleloadNGS
+
+module load Java/1.8.0_181
+
+countsFolder=/scratch/a905383/CNV/count2
+
+file=($(cd $countsFolder && basename --suffix=.counts.hdf5 -- *.counts.hdf5))
+
+for count in ${file[@]}; do
+   echo $count
+   resultFolder=$countsFolder"/"$count".standardizedCR.tsv"
+   gatk DenoiseReadCounts \
+     -I $countsFolder"/"$count".counts.hdf5" \
+     --count-panel-of-normals $countsFolder"/Normal.pon.hdf5" \
+     --standardized-copy-ratios $resultFolder \
+     --denoised-copy-ratios $countsFolder"/"$count".denoisedCR.tsv"
+   done
+```
+
+![**Figure 16:** Efficiency of the process by Collect Raw Counts (Tumor). ](images/seff_Standarized.png)
+
+### 3.5 Plot Copy Ratios
+
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+#SBATCH --job-name=cnv%a
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=1
+#SBATCH --nodes=1
+#SBATCH --mem=2G
+#SBATCH --time=00:30:00
+##SBATCH --mail-type=END
+##SBATCH --mail-user=a905383@alumni.unav.es
+#SBATCH -o /scratch/a905383/CNV/logs/plotter%a.log
+
+
+### Load programs here
+
+source /scratch/arubio/bin/moduleloadNGS
+
+
+module load R
+
+countsFolder=/scratch/a905383/CNV/counts
+
+file=($(cd $countsFolder && basename --suffix=.counts.hdf5 -- *.counts.hdf5))
+
+for count in ${file[@]}; do
+   echo $count
+   resultFolder=$countsFolder"/"$count".standardizedCR.tsv"
+   gatk PlotDenoisedCopyRatios \
+    --standardized-copy-ratios $resultFolder \
+    --denoised-copy-ratios $countsFolder"/"$count".denoisedCR.tsv" \
+    --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict \
+    --minimum-contig-length 46709983 \
+    --output $countsFolder"/plot" \
+    --output-prefix $count"_PlotDenoised"
+   done
+   
+```
+### 3.6 Collect Allelic Counts 
+
+### 3.7 Model Segments 
+
+### 3.8 Plot Modelled Ratios
 
 ## **4. RNA**
 
 ### 4.1. Kallisto
 
-In this step all FASTQC files from patients in the study were alligned against the reference human transcriptome. The objective here is to obtain a .bam file from each alligment.Here the code used for kallisto alligment is shown: 
+In this step all FASTQC files from patients in the study were alligned against the reference human transcriptome. The objective here is to obtain a .bam file from each alligment.Here the code used for kallisto alligment is shown:
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -338,12 +576,9 @@ chmod 770 /scratch/a905162/ngs/KallistoMaps/${filename}
 kallisto quant -i /scratch/arubio/GenomicFiles/kallisto_Assignment_index.idx -o /scratch/a905162/ngs/KallistoMaps/$filename -b 25 -t $SLURM_CPUS_PER_TASK -g /
 ```
 
-This code was run in ATLAS PC in order to paralelize the job, at first 1 node and 16G of RAM were used but the job efficiency was 23.12%. In order to have a better usage of ATLAS resources, the job was sent again but only using 4G of RAM memory. Finally the efficiency reached has been represented in Figure 11.  
+This code was run in ATLAS PC in order to paralelize the job, at first 1 node and 16G of RAM were used but the job efficiency was 23.12%. In order to have a better usage of ATLAS resources, the job was sent again but only using 4G of RAM memory. Finally the efficiency reached has been represented in Figure 11.
 
-
-![**Figure 11.** Efficiency of the process to do Kallisto.](images/seff Kallisto.png)
-
-
+![**Figure 11.** Efficiency of the process to do Kallisto.](images/seff%20Kallisto.png)
 
 ### 4.2. Procesamiento de datos RNA-Seq
 
@@ -361,7 +596,7 @@ library(ggrepel)
 library(EnsDb.Hsapiens.v79)
 ```
 
-The sample data was downloaded from ADI, and it was also necessary to change the names of the columns in order to correctly identify each of the variables. Furthermore, it was also important to split the column called *sample_name* into two different variables: *sample_ID* (IDs of the subjects) and *sample_type* (Normal or Cancer). 
+The sample data was downloaded from ADI, and it was also necessary to change the names of the columns in order to correctly identify each of the variables. Furthermore, it was also important to split the column called *sample_name* into two different variables: *sample_ID* (IDs of the subjects) and *sample_type* (Normal or Cancer).
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 samples <- read_csv("samples_finalwork.csv",col_names = FALSE)
@@ -373,7 +608,6 @@ colnames(samples) <- c("ID", "library_strategy", "base_pair_fragment", "Bioproje
 samples$sample_ID <- sapply(strsplit(samples$sample_name, "\\.|_"), function(X) X[1]) #selecciona la primera parte de antes de la "_"
 samples$sample_type <- sapply(strsplit(samples$sample_name, "\\.|_"), function(X) X[2]) # selecciona la segunda parte de antes de la "_"
 ```
-
 
 Finally, in order to relate the different transcripts with their corresponding genes, the following chunk of code shows the information that has been downloaded from *Ensembl* (citar), where we have the gene ID, the transcript ID, the chromosome name, and both the start and end of the transcript. However, we will only use the first two variables.
 
@@ -388,7 +622,6 @@ Atributos <- listAttributes(mart)
 
 GeneTransciptLocation <- getBM(attributes=c("ensembl_gene_id","ensembl_transcript_id","chromosome_name","transcript_start","transcript_end"),mart=mart)
 ```
-
 
 ### 4.3. Load and process the data generated with Kallisto
 
@@ -413,10 +646,9 @@ RNASeq2<-as.matrix(RNASeq)
 colnames(RNASeq2)<-sample_id
 ```
 
-
 ### 4.4. Design and contrast matrices
 
-Next, we will explain both the design and contrast matrices that has been built. The variable that will be studied is the sample type, that is, the difference in gene expression between normal and malignant samples. We will take as reference the normal samples. 
+Next, we will explain both the design and contrast matrices that has been built. The variable that will be studied is the sample type, that is, the difference in gene expression between normal and malignant samples. We will take as reference the normal samples.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 # we build the design matrix
@@ -424,7 +656,7 @@ Next, we will explain both the design and contrast matrices that has been built.
 model_matrix <- model.matrix(~ sample_ID + sample_type, data = samples)
 ```
 
-As we will study the *sample type* variable, we just need to build a contrast matrix for this one. Additionally, we need to define the betas and the null hypothesis. First of all, let’s establish the other variables in the design matrix. From the second column to the sixteenth one represent the different patients, since the study is paired. The last column refers to the variable that we want to study, that is, the sample type. Now, we can define the null hypothesis and build the contrast matrix.
+As we will study the *sample type* variable, we just need to build a contrast matrix for this one. Additionally, we need to define the betas and the null hypothesis. First of all, let's establish the other variables in the design matrix. From the second column to the sixteenth one represent the different patients, since the study is paired. The last column refers to the variable that we want to study, that is, the sample type. Now, we can define the null hypothesis and build the contrast matrix.
 
 We define $\beta_0$ as the mean expression of the transcripts in the normal sample of patient B18. Then, $\beta_0 + \beta_1$ is the mean expression of the normal sample of patient B23, and so on and so forth until $\beta_0 + \beta_{15}$, which is the mean isoform expression of the normal sample of patient B77. However, we are not interested in studying the differences in gene expression among different patients. In fact, as the contrast that we want to make is related to the difference between normal and malignant samples, the null hypothesis is that there is not a significant difference between those two, so $\beta_{16}}$ needs to be equal to 0.
 
@@ -433,7 +665,6 @@ We define $\beta_0$ as the mean expression of the transcripts in the normal samp
 
 cont.matrix <- c(rep(0, ncol(model_matrix)-1), 1)
 ```
-
 
 ### 4.5. Sleuth
 
@@ -495,10 +726,9 @@ sleuth_table_wt <- sleuth_results(so, paste0('sample_typeCancer'))
 sleuth_significant_lrt <- dplyr::filter(sleuth_table_lrt, qval <= 0.001)
 ```
 
-
 ### 4.6. Gene Ontology
 
-The enrichGO function of the ClusterProfiler R package was used to perform the Gene Ontology (GO) enrichment analysis for biological processes [cite]. The genes related to the gene transcripts with FDR < 0.001 were selected. The gene universe consisted of the more than 60,000 genes that were identified in *Ensembl* [cite]. Moreover, in all the cases, we selected the GO terms with FDR < 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term). Based on the FDR value, the top 20 GO terms were selected as the most enriched processes.
+The enrichGO function of the ClusterProfiler R package was used to perform the Gene Ontology (GO) enrichment analysis for biological processes [cite]. The genes related to the gene transcripts with FDR \< 0.001 were selected. The gene universe consisted of the more than 60,000 genes that were identified in *Ensembl* [cite]. Moreover, in all the cases, we selected the GO terms with FDR \< 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term). Based on the FDR value, the top 20 GO terms were selected as the most enriched processes.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 sig_transcripts <- sapply(strsplit(sleuth_significant$target_id,"\\."),function(X) return(X[1]))
@@ -529,8 +759,6 @@ enrichGO_simplified <- simplify(enrichGO, cutoff=0.7, by="p.adjust", select_fun=
 database_enrichGO_simplified <- data.frame(enrichGO_simplified)
 ```
 
-
-
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 # Dotplots
 
@@ -549,7 +777,7 @@ emapplot_enrichGO_simplified
 cnetplot(enrichGO_simplified)
 ```
 
-As our project is based on a scientific article that was published in 2013, we decided to compare some of the genes that were obtained in our analysis with the ones reported by the researchers. To do that, first of all, we had to change the ID of the genes in order to match the names with the ones that appear on the paper. We were most interested in the comparison between the genes related to the chromosome segregation function that appeared in the GO enrichment analysis (GO:0007059) with the genes that the paper mentioned are related to the same function (*STAG2* and *ESPL1*). As a result, we could see that both of them were included in our results, which is completely logical.
+As our project is based on a scientific article that was published in 2013, we decided to compare some of the genes that were obtained in our analysis with the ones reported by the researchers. To do that, first of all, we had to change the ID of the genes in order to match the names with the ones that appear on the paper. We were most interested in the comparison between the genes related to the chromosome segregation function that appeared in the GO enrichment analysis (<GO:0007059>) with the genes that the paper mentioned are related to the same function (*STAG2* and *ESPL1*). As a result, we could see that both of them were included in our results, which is completely logical.
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 sig_genes_symbol_ens <- ensembldb::select(EnsDb.Hsapiens.v79, keys = sig_genes, keytype = "GENEID", columns = c("SYMBOL","GENEID"))
@@ -582,17 +810,13 @@ table(genes_paper_RNA %in% genes_go_chrom_seg_symbol)
 which(genes_paper_RNA %in% genes_go_chrom_seg_symbol) #STAG2, ESPL1 y TACC3
 ```
 
-
 La parte de IGV
 
-We were expecting to find also the FGFR3 gene, but we realized that the researchers from the scientific article analyzed the gene fusions, which is not related to the differential expression analysis that has been carried out. For this reason, another approach has been taken. 
-We have used the following chunk of code to download the .bam and .bai files of the cancer sample number SRR645259 from subject B59. With these files, we have opened them in the IGV software. As we were expecting to find a gene fusion, we were expecting to find each of the mates from genes FGFR3 and TACC3.
-However, as can be seen in the image below (insertar captura de IGV), it cannot be seen what had initially been expected. For this reason, it has been decided to process the raw data of the corresponding sample using a different method.
+We were expecting to find also the FGFR3 gene, but we realized that the researchers from the scientific article analyzed the gene fusions, which is not related to the differential expression analysis that has been carried out. For this reason, another approach has been taken. We have used the following chunk of code to download the .bam and .bai files of the cancer sample number SRR645259 from subject B59. With these files, we have opened them in the IGV software. As we were expecting to find a gene fusion, we were expecting to find each of the mates from genes FGFR3 and TACC3. However, as can be seen in the image below (insertar captura de IGV), it cannot be seen what had initially been expected. For this reason, it has been decided to process the raw data of the corresponding sample using a different method.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 scp a905208@atlas-fdr.sw.ehu.es:/scratch/arubio/DNAseq/resultsBWA/noduplicatesbam/SRR645259_aligned.bam* E:/NGSFolder/FinalWork_NGS_HPC/FinalWork_NGS_HPC/IGV_sample
 ```
-
 
 La parte de STAR
 
@@ -631,7 +855,7 @@ cat SRR645259_1.fastq | head -n 1000000 > S1_R1.fq
 cat SRR645259_2.fastq | head -n 1000000 > S1_R2.fq
 ```
 
-Then, the following chunk of code has been executed from the command line. 
+Then, the following chunk of code has been executed from the command line.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 STAR --runThreadN 3 --genomeDir /scratch/a905208/FinalWork/STAR/index --readFilesIn S1_R1.fq S1_R2.fq --outFileNamePrefix S1_test --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --outSAMattributes NH HI AS NM MD
@@ -643,10 +867,9 @@ Finally, to generate the .bai file from the .bam file that has been generated in
 samtools index S1_testAligned.sortedByCoord.out.bam
 ```
 
-
 ### 4.7. PCA
 
-To separate all the samples in clusters based on the results of differential gene expression analysis we first performed a PCA selecting the 8198 differentially expressed transcripts (FDR < 0.001). The correct separation between the sample groups confirms that the selected transcripts could be considered adequate to stratify the samples in the two groups. Moreover, the axes are ranked in order of importance, where differences along the first principal component axis (PC1) are more important than differences along with the second principal analysis (PC2).
+To separate all the samples in clusters based on the results of differential gene expression analysis we first performed a PCA selecting the 8198 differentially expressed transcripts (FDR \< 0.001). The correct separation between the sample groups confirms that the selected transcripts could be considered adequate to stratify the samples in the two groups. Moreover, the axes are ranked in order of importance, where differences along the first principal component axis (PC1) are more important than differences along with the second principal analysis (PC2).
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 rownames(RNASeq2) <- sapply(strsplit(rownames(RNASeq2), "\\."), function(X) X[1])
@@ -665,15 +888,12 @@ data_PCA <- data.frame(samples = rownames(PCs$x),
                        PC2 = PCs$x[,2])
 ```
 
-
-
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 Fig_PCA <- ggplot(data_PCA) + geom_point(aes(x=PC1, y=PC2, color = type, size = 4)) + geom_label_repel(aes(x=PC1, y=PC2, label=ID)) +
   xlab('PC1') + ylab ('PC2') +
   theme_classic() + theme(legend.title = element_blank())
 Fig_PCA
 ```
-
 
 ### 4.8. Heatmap
 
@@ -695,7 +915,6 @@ heatmap_plot <- heatmap.2(x = log2(1+RNASeq2_filt_ord[1:50,]),
 )
 legend(0.9,1.2, legend = c("Normal", "Cancer"),col = c("orange", "dark green"), lty= 1, lwd = 10, cex = 0.7)
 ```
-
 
 ### 4.9. Boxplot
 
@@ -725,7 +944,6 @@ data_boxplot <- data.frame(transcripts = rep(sig_df_bp$SYMBOL_transcript_id, len
 data_boxplot$transcripts = as.factor(data_boxplot$transcripts)
 ```
 
-
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 Fig_boxplot <- ggplot(data = data_boxplot, aes(x = transcripts, y = values, fill = sample_type)) +
   geom_boxplot(width=0.5,position=position_dodge(width=0.5),outlier.shape = NA) +
@@ -745,10 +963,9 @@ Fig_boxplot <- ggplot(data = data_boxplot, aes(x = transcripts, y = values, fill
 Fig_boxplot
 ```
 
-
 ### 4.10. Volcano plot
 
-Differential expression analysis revealed that between the normal and malignant groups of patients, there are 879 transcripts altered with an FDR < 0.01 and a beta > |3|. Moreover, 141 of them belong to the overexpressed group (beta > 3) whereas 738 of the isoforms are underexpressed (beta < -3). The labelled transcripts are the ones whose expression was plotted through a boxplot in the previous image. 
+Differential expression analysis revealed that between the normal and malignant groups of patients, there are 879 transcripts altered with an FDR \< 0.01 and a beta \> \|3\|. Moreover, 141 of them belong to the overexpressed group (beta \> 3) whereas 738 of the isoforms are underexpressed (beta \< -3). The labelled transcripts are the ones whose expression was plotted through a boxplot in the previous image.
 
 ```{r, eval = FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 transcripts <- sapply(strsplit(sleuth_table_wt$target_id,"\\."),function(X) return(X[1]))
@@ -789,11 +1006,6 @@ Fig_volcano <- ggplot(data = volcano_df) + geom_point(aes(x = beta,
 Fig_volcano
 ```
 
+## **5. CONCLUSIONS**
 
-## **5. CONCLUSIONS**   
-
-
-
-## **6. BIBLIOGRAPHY**  
-
-
+## **6. BIBLIOGRAPHY**
