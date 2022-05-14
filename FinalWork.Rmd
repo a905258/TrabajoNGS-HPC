@@ -15,7 +15,7 @@ link-citations: true
 
 
 ## **BACKGROUND** 
-:) :) :)
+
 Bladder cancer is one of the most common disorders worldwide, with more than 573,000 new cases in 2020 and transitional cell carcinoma (TCC) being the most common primary neoplasm of the urinary bladder. Moreover, it is a disease that is generally diagnosed early, when the cancer is highly treatable. However, even early-stage bladder cancers can return after successful treatments.
 
 In this work, we have based on the scientific paper published by Guo G. et al. [@guo2013whole], where the researchers have performed a genomic analysis of TCC by both whole-genome and whole-exome sequencing in order to not only confirm existing mutations that are documented in the literature but also to identify additional genes and pathways that play a key role in this disease. For this, we have performed both a DNA-Seq and an RNA-Seq analysis to try to replicate some of the results obtained in the paper.
@@ -56,7 +56,7 @@ fastqc $filename -o /scratch/arubio/RNAseq/FastqcReports
 
 ```
 
-Once all the *FastQCs* were obtained, the efficiency of the process was analysed after having used the indicated resources and the results are shown in Figure 1. In particular, it can be seen that both the efficiency of the memory and the CPU was very low, indicating that the resources used were excessive. In other words, resources were wasted. Therefore, it can be concluded that the results would have been better if the amount of memory had been reduced and if fewer CPUs had been used. 
+Once all the *FastQCs* were obtained, the efficiency of the process was analysed after having used the indicated resources and the results are shown in Figure 1. In particular, it can be seen that both the efficiency of the memory and the CPU were very low, indicating that the resources used were excessive. In other words, resources were wasted. Therefore, it can be concluded that the results would have been better if the amount of memory had been reduced and if fewer CPUs had been used.
 
 ![**Figure 1:** Efficiency of the process to obtain FastQCs.](./images/seff FastQC.png)
 
@@ -72,7 +72,7 @@ Then, after having carried out the first step for both types of samples, the ana
 
 ### 2.1. Alignment
 
-First of all, the BWA samples were obtained, and then the index had to be built. To build it the FASTA file of the reference genome was obtained from the Ensembl webpage (citar). To perform this task no Atlas job was performed, since the FASTA was directly downloaded by using the command line:
+First of all, the BWA samples were obtained, and then the index had to be built. To build it the FASTA file of the reference genome was obtained from the Ensembl webpage [@cunningham2022ensembl]. To perform this task no Atlas job was performed, since the FASTA was directly downloaded by using the command line:
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 wget ftp://ftp.ensembl.org/pub/release-106/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
@@ -101,6 +101,7 @@ do
 samtools index $SAMPLE
 done
 ```
+
 First, the ATLAS resources used were 1GB of memory and we set a 1-hour job. This failed, as the index needed more memory to be built. For this reason, the memory was increased to 100GB randomly. In the end, the job was completed but after analyzing the memory efficiency of the resources used (1 hour and 100GB) only 4.33GB were actually used. Therefore the Memory efficiency was only 4.33%. On the other hand, the CPU Efficiency was 99.06% which is really good and the CPU utilized was 52 minutes and 49 seconds, which is a value within our set period. In the future, to perform another BWA index it would be recommended to only use around 5GB of memory and again 1 hour of CPU time if the index is going to be built with the same number of samples, which is approx 25 samples (mirar cuantas fueron).
 
 ![**Figure 3:** Efficiency of the process to obtain the bwa index.](./images/seff BWA INDEX.png)
@@ -143,7 +144,7 @@ When executing the code, we initially tried to remove duplicates from a single s
 
 After obtaining the result of a single sample, the efficiency of the process was analysed and it was seen that 11 GB had been used and that the efficiency of the CPU had been of 11.77%. Therefore, when sending the job-array, the file was modified to the characteristics described in the code, i.e. 4 CPUs and a memory of 16 GB. 
 
-Once the job-array was executed, the efficiency was checked and, taking into account that the resources had been modified, it was theoretically thought that the results would be good. However, analysing Figure 3, it can be seen that both CPU and memory efficiency are very low, which means that resources were wasted.
+Once the job-array was executed, the efficiency was checked and, taking into account that the resources had been modified, it was theoretically thought that the results would be good. However, analysing Figure 4, it can be seen that both CPU and memory efficiency are very low, which means that resources were wasted.
 
 
 ![**Figure 4:** Efficiency of the process to obtain .bam files without duplicates.](./images/seff duplicados todas las muestras.png)
@@ -182,7 +183,7 @@ gatk HaplotypeCaller --native-pair-hmm-threads 8 -I /scratch/arubio/DNAseq/resul
 
 In the same way as before, a job-array was programmed, but before executing it, the vcf of a single sample was generated to check that the code worked and that the resources used were adequate. The result was a CPU efficiency of 67.96% and 3.73% in terms of memory. Therefore, analysing the results, it was decided to modify the script to reduce as much as possible the waste of resources and the resources described in the code were established, i.e. 8 CPUs and 8 GB of memory.  
 
-After many hours of job-array execution, the results were found to be correct and the efficiency of the process was studied in Figure 4. In the same way as before, high efficiency percentages were expected, however, in the case of memory, this was not the case, as it can be seen that the result was 22.13%. In any case, the CPU efficiency was 86%, which indicates that selecting 8 cores for each of the tasks was correct. 
+After many hours of job-array execution, the results were found to be correct and the efficiency of the process was studied in Figure 5. In the same way as before, high efficiency percentages were expected. However, in the case of memory, this was not the case, as it can be seen that the result was 22.13%. In any case, the CPU efficiency was 86%, which indicates that selecting 8 cores for each of the tasks was correct. 
 
 
 ![**Figure 5:** Efficiency of the process to generate vcfs.](./images/seff vcf todas las muestras.png)
@@ -220,7 +221,7 @@ gatk BaseRecalibrator -R /scratch/arubio/DNAseq/Auxfiles/dummy.fa -I /scratch/ar
 
 Following the same procedure as before, the code was initially tested with a single sample in order to check that the result was correct and that the resources were consistent. However, when testing the CPU and memory efficiencies were of 12.44% and 1.78% respectively, so the resources had to be modified and it was decided that 2 CPUs per task and 1 GB of memory were sufficient. 
 
-After having checked that the code worked and that the output was correct, the job-array was run to obtain the reports of all the samples and finally the efficiency of the process was checked and this is shown in Figure 5. In particular, it was observed that the efficiencies were lower than expected, so it would have been more optimal to reduce the resources. 
+After having checked that the code worked and that the output was correct, the job-array was run to obtain the reports of all the samples and finally the efficiency of the process was checked and this is shown in Figure 6. In particular, it was observed that the efficiencies were lower than expected, so it would have been more optimal to reduce the resources. 
 
 
 ![**Figure 6:** Efficiency of the process to obtain the reports of the vcfs.](./images/seff vcf report todas las muestras .png)
@@ -259,7 +260,7 @@ gatk ApplyBQSR -I /scratch/arubio/DNAseq/resultsBWA/noduplicantesbam/$filename -
 ```
 
 
-Initially, we started by recalibrating a single sample, but multiple errors occurred, which prevented us from reaching the final result. However, analysing the errors, it was observed that the problem was the lack of space in the scratch, so it was thought that by moving the files to our personal scratch the problem would be solved. However, when this was done, it was found that the space was common to the whole group, so moving the files to our personal folders didn't do anything. With this in mind, the next step was to move already used files to the personal dipc folder to free up space in the scratch in order to be able to generate the recalibrated files. As a result of this action, a single sample was run and in Figure 6 it can be seen that a result was obtained although the efficiencies were not as desired. 
+Initially, we started by recalibrating a single sample, but multiple errors occurred, which prevented us from reaching the final result. However, analysing the errors, it was observed that the problem was the lack of space in the scratch, so it was thought that by moving the files to our personal scratch the problem would be solved. However, when this was done, it was found that the space was common to the whole group, so moving the files to our personal folders didn't do anything. With this in mind, the next step was to move already used files to the personal dipc folder to free up space in the scratch in order to be able to generate the recalibrated files. As a result of this action, a single sample was run and in Figure 7 it can be seen that a result was obtained although the efficiencies were not as desired. 
 
 
 ![**Figure 7:** Efficiency of the process to obtain the recalibrated .bam files.](./images/seff recalibration 1 muestra .png)
@@ -268,9 +269,9 @@ Due to the fact that it was possible to recalibrate a single sample, it was thou
 
 
 
-### 2.6. Ensemble and Maftools
+### 2.6. Ensembl and Maftools
 
-This process was performed with the help of "Ensenmbl.org" website. As this process was not possible to be parallelize, each student uploaded two samples of normal .vcf files in order to be annotated. As this website is free of charge, the speed was not outstanding and took around five hours of runtime for each sample to be annotated.
+This process was performed with the help of "Ensembl.org" website. As this process was not possible to parallelize, each student uploaded two samples of normal .vcf files in order to be annotated. As this website is free of charge, the speed was not outstanding and took around five hours of runtime for each sample to be annotated.
 The distribution of samples can be seen on the image beneath.
 
 ![tabla](./images/tabla.png)
@@ -313,7 +314,7 @@ perl /scratch/arubio/bin/mskcc-vcf2maf-754d68a/vcf2maf.pl --input-vcf /scratch/a
 
 ### 3.1. Kallisto
 
-In this step all FASTQC files from patients in the study were alligned against the reference human transcriptome. The objective here is to obtain a .bam file from each alligment.Here the code used for kallisto alligment is shown: 
+In this step all FASTQC files from patients in the study were alligned against the reference human transcriptome. The objective here is to obtain a .bam file from each alligment. Here the code used for kallisto alligment is shown: 
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -380,7 +381,7 @@ samples$sample_type <- sapply(strsplit(samples$sample_name, "\\.|_"), function(X
 ```
 
 
-Finally, in order to relate the different transcripts with their corresponding genes, the following chunk of code shows the information that has been downloaded from *Ensembl* (citar bien: http://may2021.archive.ensembl.org/index.html). From all the atributes found in the mart we have extracted in the variable "GeneTranscriptLocation" the gene ID, the transcript ID, the chromosome name, and both the start and end of the transcript. However, we will only use the first two variables, this data frame is composed of 258710 rows, which are all the transripts available for this ensemble archive version. Later this dataframe will be used to look into the chracteristics of the transcripts that we are studying in this work.
+Finally, in order to relate the different transcripts with their corresponding genes, the following chunk of code shows the information that has been downloaded from *Ensembl* [@cunningham2022ensembl]. From all the atributes found in the mart we have extracted in the variable "GeneTranscriptLocation" the gene ID, the transcript ID, the chromosome name, and both the start and end of the transcript. However, we will only use the first two variables, this data frame is composed of 258710 rows, which are all the transripts available for this ensemble archive version. Later this dataframe will be used to look into the chracteristics of the transcripts that we are studying in this work.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 # Annotation
@@ -399,8 +400,8 @@ GeneTranscriptLocation <- getBM(attributes=c("ensembl_gene_id","ensembl_transcri
 
 ### 3.3. Load and process the data generated with Kallisto
 
-Having obtained the output from Kallisto (the abundance.tsv, abundance.5 and .json for each sample), we have used the abundance.tsv files to make a dataframe containing the TPM values of each transcript per sample.
-The RNAseq2 dataframe has 199,169 transcrits.
+Having obtained the output from Kallisto (the abundance.tsv, abundance.5 and .json for each sample), we have used the abundance.tsv files to make a data frame containing the TPM values of each transcript per sample.
+The *RNAseq2* data frame has 199,169 transcripts.
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 base_dir <- "/home/osboxes/Desktop/NGSFolder/FinalWork_NGS_HPC/FinalWork_NGS_HPC/samples" #base_dir = directory where the output of kallisto is stored
@@ -445,10 +446,11 @@ We define $\beta_0$ as the mean expression of the transcripts in the normal samp
 cont.matrix <- c(rep(0, ncol(model_matrix)-1), 1)
 ```
 
+(hacer una tabla en power point)
 
 ### 3.5. Sleuth
 
-After having run kallisto for each of the samples, a differential expression analysis will be carried out using sleuth. Sleuth is an RNA-Seq analysis program for which kallisto has been used to quatify transcript abundances (cite). First of all, we need to create a tab delimited metadata file for the experiment so we have the factors for each sample ID (header "sample"), the ID of the patients (header "sample_ID"), the type of the sample, that is, wether the sample is normal or malignant (header "sample_type"), and the file path (header "path") to the kallisto output for each sample.
+After having run kallisto for each of the samples, a differential expression analysis will be carried out using sleuth. Sleuth is an RNA-Seq analysis program for which kallisto has been used to quatify transcript abundances [@bray2016near]. First of all, we need to create a tab delimited metadata file for the experiment so we have the factors for each sample ID (header "sample"), the ID of the patients (header "sample_ID"), the type of the sample, that is, whether the sample is normal or malignant (header "sample_type"), and the file path (header "path") to the kallisto output for each sample.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 #Keep only the RNA samples from the samples ADI file 
@@ -505,8 +507,8 @@ sleuth_table_wt <- sleuth_results(so, paste0('sample_typeCancer'))
 ```
 
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
-sleuth_table<-load ("~/Desktop/TrabajoNGS-HPC/sleuth_table_lrt.RData")
-sleuth_significant<-load ("~/Desktop/TrabajoNGS-HPC/sleuth_significant_lrt.RData")
+sleuth_table_lrt<-load ("~/Desktop/TrabajoNGS-HPC/sleuth_table_lrt.RData")
+sleuth_significant_lrt<-load ("~/Desktop/TrabajoNGS-HPC/sleuth_significant_lrt.RData")
 sleuth_table_wt<-load ("~/Desktop/TrabajoNGS-HPC/sleuth_table_wt.RData")
 ```
 
@@ -518,7 +520,7 @@ The enrichGO function of the ClusterProfiler R package was used to perform the G
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 #Remove the .(number) from the transcript id
-sig_transcripts <- sapply(strsplit(sleuth_significant$target_id,"\\."),function(X) return(X[1]))
+sig_transcripts <- sapply(strsplit(sleuth_significant_lrt$target_id,"\\."),function(X) return(X[1]))
 
 #Look what rows of the GeneTranscriptLocation have information of our significant trnascripts
 iij <- which(GeneTranscriptLocation$ensembl_transcript_id %in% sig_transcripts)
@@ -530,7 +532,7 @@ sig_genes <- GeneTranscriptLocation$ensembl_gene_id[iij] #8031 significant genes
 universe <- unique(GeneTranscriptLocation$ensembl_gene_id)
 ```
 
-Then gene ontology was performed with the enrichGO function. The genes related to the gene transcripts with FDR < 0.01 were selected, that is from the 8031 significant genes that we obtained we keep 4656 genes. The gene universe consisted of the 67,128 genes that were identified in *Ensembl* [cite]. So finally in database_enrichGO we obtained ?
+Then gene ontology was performed with the *enrichGO* function. The genes related to the gene transcripts with FDR < 0.01 were selected, that is, from the 8031 significant genes that we obtained we keep 4656 genes. The gene universe consisted of the 67,128 genes that were identified in *Ensembl*. So finally in database_enrichGO we obtained the GO terms that are related to the genes that significantly predict the difference in gene expression between normal and cancer samples.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 enrichGO <- clusterProfiler::enrichGO(gene = sig_genes, OrgDb = "org.Hs.eg.db",
@@ -555,17 +557,18 @@ enrichGO_simplified <- simplify(enrichGO, cutoff=0.7, by="p.adjust", select_fun=
 
 database_enrichGO_simplified <- data.frame(enrichGO_simplified)
 ```
+
 ![**Figure 14.** EnrichGO simplified database.](./images/database_enrichGO_simplified.png)
+
 Based on the FDR value, the top 20 GO terms were selected as the most enriched processes, which are now represented in a dotplot
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 # Dotplot
 dotplot_enrichGO_simplified <- enrichplot::dotplot(enrichGO_simplified, showCategory = 20) + ggtitle("Dotplot")
-dotplot_enrichGO_simplified
-
 ```
 
 ![**Figure 15.** Dotplot.](./images/Dotplot.png)
+
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
  #Enrichment Maps (estos mapas los borraba)
 
@@ -591,10 +594,10 @@ sig_genes_symbol <- sig_genes_symbol_ens[,1]
 
 genes_paper_RNA <- c("STAG2","ESPL1","FGFR3","TACC3") #genes that appear in the abstract. STAG2 and ESPL1 are the interesting ones (related with sister chromatid cohesion and segregation )
 ```
-We searched manually for the chromosome seggregation function in the enrichGOsimplified database
+
+We searched manually for the chromosome seggregation function in the *enrichGOsimplified* database.
 
 ![**Figure 16.** Chromosome segregation function.](./images/GO_chromosome_seggregation.png)
-
 
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
@@ -607,6 +610,7 @@ rownames(database_enrichGO_simp_genes) <- rownames(database_enrichGO_simplified)
 genes_go_chrom_seg <- strsplit(database_enrichGO_simp_genes["GO:0007059",],"\\/")[[1]]
 genes_go_chrom_seg_symbol_ens <- ensembldb::select(EnsDb.Hsapiens.v79, keys = genes_go_chrom_seg, keytype = "GENEID", columns = c("SYMBOL","GENEID"))
 ```
+
 ![**Figure 17.** Genes related to the chromosome seggregation.](./images/genes_chromosome_seggregation.png)
 
 
@@ -620,7 +624,8 @@ which(genes_paper_RNA %in% genes_go_chrom_seg_symbol) #STAG2, ESPL1 y TACC3 (not
 
 ```
 
-Now we are also going to check other genes
+Now we are also going to check other genes.
+
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 #For variant calling there must be mutations in the genes that are known to be mutated in bladder cancer: TP53, HRAS, FGFR3, PIK3CA, RB1, KARS, TSC1
@@ -736,9 +741,12 @@ Fig_PCA
 
 ### 3.8. Heatmap
 
-In order to visualize more clearly the expression pattern of the most significant transcripts, a heatmap has been plotted. In addition to showing both the sample and transcript IDs in the columns and rows respectively, they have been distributed using a hierarchical clustering algorithm, so that the samples or transcripts that show a more similar behavior are closer to each other.
+In order to visualize more clearly the expression pattern of the most significant transcripts, a heatmap has been plotted. In addition to showing both the sample and transcript IDs in the columns and rows respectively, they have been distributed using a hierarchical clustering algorithm, so that the samples or transcripts that show a more similar behavior are closer to each other. Additionally, it has been decided to plot just the 50 most significant transcripts in order to better appreciate the difference in expression pattern between the studied groups.
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+
+RNASeq2_filt_ord <- RNASeq2_filtered[, col.order]
+colnames(RNASeq2_filt_ord) <- s2c_ordered$sample_ID
 
 num_cancer <- length(which(s2c_ordered$sample_type=="Cancer"))
 num_normal <- length(which(s2c_ordered$sample_type=="Normal"))
@@ -751,10 +759,10 @@ heatmap_plot <- heatmap.2(x = log2(1+RNASeq2_filt_ord[1:50,]),
                        main="Normal vs Cancer",
                        margins = c(4,10)
 )
-legend(0.9,1.2, legend = c("Normal", "Cancer"),col = c("orange", "dark green"), lty= 1, lwd = 10, cex = 0.7)
+legend(0.8,1.1, legend = c("Normal", "Cancer"),col = c("orange", "dark green"), lty= 1, lwd = 10, cex = 0.7)
 ```
 
-![**Figure 20.** PCA.](./images/Heatmap.png)
+![**Figure 20.** Heatmap.](./images/Heatmap.png)
 
 ### 3.9. Boxplot
 
@@ -763,8 +771,8 @@ Next, we represent the gene expression values measured in TPMs of the most signi
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 #separate the 10 most significant transcripts and separate the ENST32(...) from the .number 
 sig_transcripts_sample <- data.frame(
-  tran_name_1 = sapply(strsplit(sleuth_significant$target_id[1:10],"\\."),function(X) return(X[1])),
-  tran_name_2 = sapply(strsplit(sleuth_significant$target_id[1:10],"\\."),function(X) return(X[2]))
+  tran_name_1 = sapply(strsplit(sleuth_significant_lrt$target_id[1:10],"\\."),function(X) return(X[1])),
+  tran_name_2 = sapply(strsplit(sleuth_significant_lrt$target_id[1:10],"\\."),function(X) return(X[2]))
   )
 
 #find which are the rows in GeneTranscriptLocation that coincide with our 10 most significant transcripts
@@ -790,15 +798,15 @@ sig_df$SYMBOL_transcript_id <- paste0(sig_df$SYMBOL, "_", sig_df$tran_name_2)
 
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+RNASeq2_filt_ord_sample <- log2(1+RNASeq2_filt_ord[sig_transcripts_sample$ensembl_transcript_id,])
 
-RNASeq2_filt_ord_sample <- log2(1+RNASeq2_filt_ord[sig_transcripts_sample,]) #esta linea no va
-
-sig_df_bp <- sig_df[match(sig_transcripts_sample, sig_df$ensembl_transcript_id),]
+sig_df_bp <- sig_df[match(sig_transcripts_sample$ensembl_transcript_id, sig_df$ensembl_transcript_id),]
 
 data_boxplot <- data.frame(transcripts = rep(sig_df_bp$SYMBOL_transcript_id, length(col.order)), sample_id = rep(col.order, each=length(sig_df_bp$SYMBOL_transcript_id)), sample_type = gl(2,length(sig_df_bp$SYMBOL_transcript_id)*num_normal,labels = c('Normal','Tumor')), values = as.vector(RNASeq2_filt_ord_sample))
 data_boxplot$transcripts = as.factor(data_boxplot$transcripts)
 ```
-aqui poner foto del data frame de data boxplot
+
+![**Figure 21.** Boxplot data frame.](./images/data_boxplot.png)
 
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 Fig_boxplot <- ggplot(data = data_boxplot, aes(x = transcripts, y = values, fill = sample_type)) +
@@ -815,10 +823,11 @@ Fig_boxplot <- ggplot(data = data_boxplot, aes(x = transcripts, y = values, fill
         panel.background = element_rect(colour = "black", size = 1),
         axis.ticks.x = element_blank(),
         legend.title = element_blank()) +
-  ggtitle('Gene expression of the 10 most significant transcripts')
+  ggtitle('Differential gene expression of the 10 most significant transcripts ')
 Fig_boxplot
 ```
-![**Figure 21.** Boxplot.](./images/Boxplot.png)
+
+![**Figure 22.** Boxplot.](./images/Boxplot.png)
 
 ### 3.10. Volcano plot
 
@@ -863,7 +872,7 @@ Fig_volcano <- ggplot(data = volcano_df) + geom_point(aes(x = beta,
 Fig_volcano
 ```
 
-![**Figure 22.** Volcano plot.](./images/Volcano plot.png)
+![**Figure 23.** Volcano plot.](./images/Volcano plot.png)
 
 
 ## **4. CONCLUSIONS**   
