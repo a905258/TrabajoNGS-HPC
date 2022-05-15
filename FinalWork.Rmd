@@ -341,7 +341,13 @@ gatk FilterIntervals -L /scratch/a905383/CNV/preprocessed_intervals10000.interva
 
 ### 3.2 Collect Read Counts
 
-Raw Counts were collected using the unfiltered interval list. The input is an alligned bam file. We processed first the normal samples to be able to generate a panel of normals and then process the tumoral samples. Both codes are attached bellow.  
+Raw Counts were collected using the unfiltered interval list. The input is an alligned bam file. We processed first the normal samples to be able to generate a panel of normals and then process the tumoral samples. Both codes are attached bellow.
+
+The inputs are: 
+
+**interval.interval_list**
+
+**Alligned bam**
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 #SBATCH --job-name=cnv%a
@@ -418,10 +424,15 @@ gatk CollectReadCounts -L $intervals \
 ```
 
 ![**Figure 14:** Efficiency of the process by Collect Raw Counts (Tumor). ](images/seff_CNV_tumor.png)
+
 ### 3.3 Panel of Normals
 
 Creates a panel of normals (PoN) for read-count denoising given the read counts for samples in the panel. The resulting PoN can be used with DenoiseReadCounts to denoise other samples.
 The input read counts are first transformed to log2 fractional coverages and preprocessed according to specified filtering and imputation parameters. Singular value decomposition (SVD) is then performed to find the first number-of-eigensamples principal components, which are stored in the PoN. 
+
+The inputs are: 
+
+**Normal Raw Counts**
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 #SBATCH --job-name=cnv%a
@@ -460,11 +471,17 @@ gatk CreateReadCountPanelOfNormals \
 
 ```
 
-![**Figure 15:** Efficiency of the process by Collect Raw Counts (Tumor). ](images/seff_PON.png)
+![**Figure 15:** Efficiency of the process by CreateReadCountPanelOfNormals. ](images/seff_PON.png)
 
 ### 3.4 Standarized Counts 
 
 Denoises read counts to produce denoised copy ratios. The input required is a PoN and the raw counts generated previously. 
+
+The inputs are: 
+
+**Raw Counts**
+
+**Panel of Normals**
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 #SBATCH --job-name=cnv%a
@@ -496,9 +513,15 @@ for count in ${file[@]}; do
    done
 ```
 
-![**Figure 16:** Efficiency of the process by Collect Raw Counts (Tumor). ](images/seff_Standarized.png)
+![**Figure 16:** Efficiency of the process by DenoiseReadCounts. ](images/seff_Standarized.png)
 
 ### 3.5 Plot Copy Ratios
+
+The inputs are: 
+
+**Denoised Counts**
+
+**Reference Sequence**
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 #SBATCH --job-name=cnv%a
@@ -537,11 +560,239 @@ for count in ${file[@]}; do
    done
    
 ```
+![**Figure 17:** Efficiency of the process by PlotDenoisedCopyRatios. ](images/seff_plotter.png)
+
+#### 3.5.1 Results
+
+
+```{r, echo=FALSE, message=FALSE}
+
+library(htmlwidgets)
+library(slickR)
+
+listRes = c("SRR645209", "SRR645218", "SRR645222", "SRR645224", "SRR645235", "SRR645241",
+"SRR645243", "SRR645247", "SRR645249", "SRR645259", "SRR645272", "SRR645274",
+"SRR645283", "SRR645289")
+resultsImages=sprintf("images/plot/%s_PlotDenoised.denoised.png",listRes)
+# This code creates the carousel
+
+slick_dots <- slickR(
+  obj = listRes,
+  height = 100,
+  width = "95%"
+)
+
+slickR(obj = resultsImages,height = 400,width='100%') %synch% (slickR(listRes, slideType = 'p') + settings(arrows = FALSE)) + settings( autoplay = TRUE)
+
+```
+
 ### 3.6 Collect Allelic Counts 
 
+Collects reference and alternate allele counts at specified sites. The alt count is defined as the total count minus the ref count, and the alt nucleotide is defined as the non-ref base with the highest count, with ties broken by the order of the bases in AllelicCountCollector#BASES. Only reads that pass the specified read filters and bases that exceed the specified minimum-base-quality will be counted.
+
+The inputs are: 
+
+**interval.interval_list**
+
+**Alligned bam**
+
+**Reference Sequence**
+
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+#SBATCH --job-name=cnv%a
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=1
+#SBATCH --nodes=1
+#SBATCH --mem=10G
+#SBATCH --time=36:30:00
+#SBATCH --mail-type=END
+#SBATCH --mail-user=a905383@alumni.unav.es
+#SBATCH -o /scratch/a905383/CNV/logs/allelicCount%a.log
+
+
+### Load programs here
+
+source /scratch/arubio/bin/moduleloadNGS
+
+file=($(cd /scratch/a905383/CNV/raw_data && basename --suffix=_aligned.bam -- *_aligned.bam))
+filename=${file[$SLURM_ARRAY_TASK_ID]}
+
+
+samplesFolder=/scratch/a905383/CNV/raw_data
+intervals=/scratch/a905383/CNV/filtered.interval_list
+countsFolder=/scratch/a905383/CNV/counts
+
+echo $filename
+gatk --java-options "-Xmx10g" CollectAllelicCounts -L $intervals \
+        -I $samplesFolder"/"$filename"_aligned.bam" \
+        -R /scratch/arubio/DNAseq/Auxfiles/dummy.fa \
+        -O $countsFolder"/"$filename".allelicCounts.tsv"
+```
+![**Figure 18:** Efficiency of the process by Collect Allelic Counts. ](images/seff_allelic.png)
+
 ### 3.7 Model Segments 
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+#SBATCH --job-name=cnv%a
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=2
+#SBATCH --nodes=1
+#SBATCH --mem=24G
+#SBATCH --time=36:30:00
+#SBATCH -o /scratch/a905383/CNV/logs/modelsegment.log
+
+
+source /scratch/arubio/bin/moduleloadNGS
+
+#module load Java/1.8.0_181
+
+countsFolder=/scratch/a905383/CNV/counts
+
+files_tumor=("SRR645209" "SRR645218" "SRR645222" "SRR645224" "SRR645235" "SRR645241" \
+"SRR645243" "SRR645247" "SRR645249" "SRR645259" "SRR645272" "SRR645274" \
+"SRR645283" "SRR645289")
+
+files_normal=("SRR645210" "SRR645219" "SRR645223" "SRR645225" "SRR645236" "SRR645242" \
+"SRR645244" "SRR645248" "SRR645250" "SRR645260" "SRR645273" "SRR645275" \
+"SRR645284" "SRR645288")
+
+nums=${#files_tumor[@]}
+num=$((nums-1))
+
+
+for ((i=0; i<=$num; i++)); do
+   echo $i
+   gatk --java-options "-Xmx23g" ModelSegments \
+     --denoised-copy-ratios $countsFolder"/"${files_tumor[$i]}".denoisedCR.tsv" \
+     --allelic-counts $countsFolder"/"${files_tumor[$i]}".allelicCounts.tsv" \
+     --normal-allelic-counts $countsFolder"/"${files_normal[$i]}".allelicCounts.tsv" \
+     --output "/scratch/a905383/CNV/counts/seg/"${files_tumor[$i]} \
+     --output-prefix "tumor"
+   done
+```
+
+![**Figure 19:** Efficiency of the process by Collect Allelic Counts. ](images/seff_modelsegments.png)
 
 ### 3.8 Plot Modelled Ratios
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+#SBATCH --job-name=cnv%a
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=2
+#SBATCH --nodes=1
+#SBATCH --mem=24G
+#SBATCH --time=36:30:00
+#SBATCH -o /scratch/a905383/CNV/logs/plot_modelsegment.log
+
+
+source /scratch/arubio/bin/moduleloadNGS
+
+module load R
+
+countsFolder=/scratch/a905383/CNV/counts
+
+files_tumor=("SRR645209" "SRR645218" "SRR645222" "SRR645224" "SRR645235" "SRR645241" \
+"SRR645243" "SRR645247" "SRR645249" "SRR645259" "SRR645272" "SRR645274" \
+"SRR645283" "SRR645289")
+
+files_normal=("SRR645210" "SRR645219" "SRR645223" "SRR645225" "SRR645236" "SRR645242" \
+"SRR645244" "SRR645248" "SRR645250" "SRR645260" "SRR645273" "SRR645275" \
+"SRR645284" "SRR645288")
+
+nums=${#files_tumor[@]}
+num=$((nums-1))
+
+
+for ((i=0; i<=$num; i++)); do
+   echo $i
+  gatk PlotModeledSegments \
+    --denoised-copy-ratios "/scratch/a905383/CNV/counts/"${files_tumor[$i]}".denoisedCR.tsv" \
+    --allelic-counts "/scratch/a905383/CNV/counts/seg/"${files_tumor[$i]}"/tumor.hets.tsv" \
+    --segments "/scratch/a905383/CNV/counts/seg/"${files_tumor[$i]}"/tumor.modelFinal.seg" \
+    --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict \
+    --minimum-contig-length 1000 \
+    --output /scratch/a905383/CNV/counts/seg/plot \
+    --output-prefix ${files_tumor[$i]}
+   done
+
+```
+
+#### 3.8.1 Results
+
+```{r, echo=FALSE, message=FALSE}
+
+library(htmlwidgets)
+library(slickR)
+
+listRes = c("SRR645209", "SRR645218", "SRR645222", "SRR645224", "SRR645235", "SRR645241",
+"SRR645243", "SRR645247", "SRR645249", "SRR645259", "SRR645272", "SRR645274",
+"SRR645283", "SRR645289")
+resultsImages=sprintf("images/plot2/%s.modeled.png",listRes)
+# This code creates the carousel
+
+slick_dots <- slickR(
+  obj = listRes,
+  height = 100,
+  width = "95%"
+)
+
+slickR(obj = resultsImages,height = 400,width='100%') %synch% (slickR(listRes, slideType = 'p') + settings(arrows = FALSE)) + settings( autoplay = TRUE)
+
+```
+
+### 3.9 IGV
+
+To compare the raw counts could be visualized in IGV, but the format need to be changed. Therefore, we present the following code that takes a raw counts file and formats it into .seg file. At the end, all files could be loaded together into IGV and find the regions with the higher variability. 
+
+**Formatter**
+```{r, echo=TRUE, message=FALSE, eval=FALSE}
+file="$1"
+
+name=$(basename --suffix=.denoisedCR.tsv -- $file)
+echo $name
+
+grep -v '^@' $file | awk -f so.awk  | awk -F" " '{print $1,$2,$3,$5,$4}' \
+OFS=" " | awk -v nam=$name -v OFS=" " 'BEGIN{print "ID\tcol1\tcol2"} \
+NR>1{print nam,$1,$2,$3,$4,$5}' | awk '{if (NR!=1) {print}}' | awk \
+'gsub(" ","\t")' | awk '{if (NR!=1) {print}}'  > $name"_cleaned.seg"
+```
+[so.awk](/data/so.awk)
+
+**Format Samples**
+
+```{r, echo=TRUE, message=FALSE, eval=FALSE}
+#SBATCH --job-name=cnv%a
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=1
+#SBATCH --nodes=1
+#SBATCH --mem=2G
+#SBATCH --time=36:30:00
+#SBATCH --mail-type=END
+#SBATCH --mail-user=a905383@alumni.unav.es
+#SBATCH -o /scratch/a905383/CNV/logs/names%a.log
+
+
+### Load programs here
+
+file=($(cd /scratch/a905383/CNV/counts && basename --suffix=.denoisedCR.tsv -- *.denoisedCR.tsv))
+filename=${file[$SLURM_ARRAY_TASK_ID]}
+
+bash /scratch/a905383/CNV/igv_file/formater.sbs "/scratch/a905383/CNV/counts/"$filename".denoisedCR.tsv"
+```
+
+#### 3.9.1 Resuls 
+
+* Two examples of the results have been attached:  
+
+    + [SRR645209_cleaned](data/SRR645209_cleaned.seg)
+
+    + [SRR645210_cleaned](data/SRR645210_cleaned.seg)
+
+* All samples loaded into IGV. 
+
+![**Figure 20:** Analyzing all counts together.](images/igv_seg.png)
 
 ## **4. RNA**
 
@@ -549,7 +800,7 @@ for count in ${file[@]}; do
 
 In this step all FASTQC files from patients in the study were alligned against the reference human transcriptome. The objective here is to obtain a .bam file from each alligment.Here the code used for kallisto alligment is shown:
 
-```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+```{r, eval = FALSE, message=FALSE, warning=FALSE}
 
 #!/bin/bash
 
