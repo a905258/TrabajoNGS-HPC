@@ -312,6 +312,8 @@ perl /scratch/arubio/bin/mskcc-vcf2maf-754d68a/vcf2maf.pl --input-vcf /scratch/a
 
 ## **3. RNA**
 
+![**Figure 11.** RNAseq pipeline.](./images/RNAseq_pipeline.png)
+
 ### 3.1. Kallisto
 
 In this step all FASTQC files from patients in the study were alligned against the reference human transcriptome. The objective here is to obtain a .bam file from each alligment. Here the code used for kallisto alligment is shown: 
@@ -346,7 +348,7 @@ kallisto quant -i /scratch/arubio/GenomicFiles/kallisto_Assignment_index.idx -o 
 This code was run in ATLAS PC in order to paralelize the job, at first 1 node and 16G of RAM were used but the job efficiency was 23.12%. In order to have a better usage of ATLAS resources, the job was sent again but only using 4G of RAM memory. Finally the efficiency reached has been represented in Figure 11.  
 
 
-![**Figure 11.** Efficiency of the process to do Kallisto.](./images/seff Kallisto.png)
+![**Figure 12.** Efficiency of the process to do Kallisto.](./images/seff Kallisto.png)
 
 
 
@@ -376,27 +378,28 @@ samples <- read_csv("/Users/gracielauria/Desktop/NGS/final_work/samples.csv",col
 
 colnames(samples) <- c("ID", "library_strategy", "base_pair_fragment", "Bioproject", "Biosample", "Accession", "X7", "library_selection", "library_source", "library_name", "end_date", "X12", "X13", "Run", "SRS", "SRA_study", "sample_name", "read_length", "center_name", "data_type", "sra", "ncbi", "library_instrument", "library_layout", "organism", "seq_type", "Published")
 
-samples$sample_ID <- sapply(strsplit(samples$sample_name, "\\.|_"), function(X) X[1]) #selecciona la primera parte de antes de la "_"
-samples$sample_type <- sapply(strsplit(samples$sample_name, "\\.|_"), function(X) X[2]) # selecciona la segunda parte de antes de la "_"
+#This allows to separate from sample_name: B28_normal, the sample_ID=B28 and sample_type=normal
+samples$sample_ID <- sapply(strsplit(samples$sample_name, "\\.|_"), function(X) X[1]) #selects part before the underscore 
+samples$sample_type <- sapply(strsplit(samples$sample_name, "\\.|_"), function(X) X[2]) #selects part after the underscore 
 ```
 
 
-Finally, in order to relate the different transcripts with their corresponding genes, the following chunk of code shows the information that has been downloaded from *Ensembl* [@cunningham2022ensembl]. From all the atributes found in the mart we have extracted in the variable "GeneTranscriptLocation" the gene ID, the transcript ID, the chromosome name, and both the start and end of the transcript. However, we will only use the first two variables, this data frame is composed of 258710 rows, which are all the transripts available for this ensemble archive version. Later this dataframe will be used to look into the chracteristics of the transcripts that we are studying in this work.
+Finally, in order to relate the different transcripts with their corresponding genes, the following chunk of code shows the information that has been downloaded from *Ensembl* [@cunningham2022ensembl]. From all the atributes found in the mart we have extracted in the variable "GeneTranscriptLocation" the gene ID, the transcript ID, the chromosome name, and both the start and end of the transcript. However, we will only use the first two variables, this data frame is composed of 258710 rows, which are all the transcripts available for this ensemble archive version. Later this dataframe will be used to look into the chracteristics of the transcripts that we are studying in this work.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
-# Annotation
-# Get all the transcripts, genes, go_id and domains
+# Annotation: Get all the transcripts, genes, go_id and domains
 
 mart <- biomaRt::useMart(host = 'may2021.archive.ensembl.org',
                          biomart = "ensembl",
                          dataset =   "hsapiens_gene_ensembl") 
-# hsapiens for human
-Atributos <- listAttributes(mart)
 
+#3164 attributes for each of the 258710 reported transcripts in the mart data frame, for example: cds coordinates, 5'UTR start, %GC content
+Atributos <- listAttributes(mart) 
 
-GeneTranscriptLocation <- getBM(attributes=c("ensembl_gene_id","ensembl_transcript_id","chromosome_name","transcript_start","transcript_end"),mart=mart) #258710 trnascrips reported
+#extract the desired attrubtes from mart
+GeneTranscriptLocation <- getBM(attributes=c("ensembl_gene_id","ensembl_transcript_id","chromosome_name","transcript_start","transcript_end"),mart=mart)
 ```
-
+![**Figure 13.** Gene Transcript Location Sample.](./images/GeneTranscriptLocation.png)
 
 ### 3.3. Load and process the data generated with Kallisto
 
@@ -404,7 +407,8 @@ Having obtained the output from Kallisto (the abundance.tsv, abundance.5 and .js
 The *RNAseq2* data frame has 199,169 transcripts.
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-base_dir <- "/home/osboxes/Desktop/NGSFolder/FinalWork_NGS_HPC/FinalWork_NGS_HPC/samples" #base_dir = directory where the output of kallisto is stored
+#base_dir = directory where the output of kallisto is stored
+base_dir <- "/home/osboxes/Desktop/NGSFolder/FinalWork_NGS_HPC/FinalWork_NGS_HPC/samples" 
 base_dir <- "/Users/gracielauria/Desktop/NGS/final_work/samples"
 sample_id <- dir(base_dir) #sample_id = the names of the folders.
 
@@ -423,20 +427,21 @@ RNASeq2<-as.matrix(RNASeq)
 colnames(RNASeq2)<-sample_id
 ```
 
-![**Figure 12.** Part of the RNASeq2 dataframe.](./images/muestra_de_RNAseq2.png)
+![**Figure 14.** Part of the RNASeq2 dataframe.](./images/muestra_de_RNAseq2.png)
 
 ### 3.4. Design and contrast matrices
 
-Next, we will explain both the design and contrast matrices that have been built. The variable that will be studied is the sample type, that is, the difference in gene expression between normal and malignant samples. We will take as reference the normal samples. 
+Next, both the design and contrast matrices that have been built will be explained. The variable that will be studied is the sample type, that is, the difference in gene expression between normal and malignant samples. The normal samples will be taken as reference.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
-# we build the design matrix
+# The design matrix is built
 
 model_matrix <- model.matrix(~ sample_ID + sample_type, data = samples)
 ```
 
 As we will study the *sample type* variable, we just need to build a contrast matrix for this one. Additionally, we need to define the betas and the null hypothesis. First of all, let’s establish the other variables in the design matrix. From the second column to the sixteenth one represent the different patients, since the study is paired. The last column refers to the variable that we want to study, that is, the sample type. Now, we can define the null hypothesis and build the contrast matrix.
-![**Figure 13.** Design matrix.](./images/modelmatrix.png)
+
+![**Figure 15.** Design matrix.](./images/modelmatrix.png)
 
 We define $\beta_0$ as the mean expression of the transcripts in the normal sample of patient B18. Then, $\beta_0 + \beta_1$ is the mean expression of the normal sample of patient B23, and so on and so forth until $\beta_0 + \beta_{15}$, which is the mean isoform expression of the normal sample of patient B77. However, we are not interested in studying the differences in gene expression among different patients. In fact, as the contrast that we want to make is related to the difference between normal and malignant samples, the null hypothesis is that there is not a significant difference between those two, so $\beta_{16}}$ needs to be equal to 0.
 
@@ -512,7 +517,7 @@ sleuth_significant_lrt<-load ("~/Desktop/TrabajoNGS-HPC/sleuth_significant_lrt.R
 sleuth_table_wt<-load ("~/Desktop/TrabajoNGS-HPC/sleuth_table_wt.RData")
 ```
 
-![**Figure 12.** Sleuth significant matrix.](./images/sleuth_significant.png)
+![**Figure 16.** Sleuth significant matrix.](./images/sleuth_significant.png)
 
 ### 3.6. Gene Ontology
 
@@ -532,7 +537,7 @@ sig_genes <- GeneTranscriptLocation$ensembl_gene_id[iij] #8031 significant genes
 universe <- unique(GeneTranscriptLocation$ensembl_gene_id)
 ```
 
-Then gene ontology was performed with the *enrichGO* function. The genes related to the gene transcripts with FDR < 0.01 were selected, that is, from the 8031 significant genes that we obtained we keep 4656 genes. The gene universe consisted of the 67,128 genes that were identified in *Ensembl*. So finally in database_enrichGO we obtained the GO terms that are related to the genes that significantly predict the difference in gene expression between normal and cancer samples.
+Then gene ontology was performed with the *enrichGO* function. [OJO] -> The genes related to the gene transcripts with FDR < 0.01 were selected, that is, from the 8031 significant genes that we obtained we keep 4656 genes. The gene universe consisted of the 67,128 genes that were identified in *Ensembl*. So finally in database_enrichGO we obtained the GO terms that are related to the genes that significantly predict the difference in gene expression between normal and cancer samples.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 enrichGO <- clusterProfiler::enrichGO(gene = sig_genes, OrgDb = "org.Hs.eg.db",
@@ -544,7 +549,7 @@ enrichGO <- clusterProfiler::enrichGO(gene = sig_genes, OrgDb = "org.Hs.eg.db",
 database_enrichgo <- data.frame(enrichGO) #enrichGO@result
 ```
 
-![**Figure 13.** EnrichGO database.](./images/database_enrichGO.png)
+![**Figure 17.** EnrichGO database.](./images/database_enrichGO.png)
 
 Moreover, in all the cases, we selected the GO terms with FDR < 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term). 
 
@@ -558,16 +563,18 @@ enrichGO_simplified <- simplify(enrichGO, cutoff=0.7, by="p.adjust", select_fun=
 database_enrichGO_simplified <- data.frame(enrichGO_simplified)
 ```
 
-![**Figure 14.** EnrichGO simplified database.](./images/database_enrichGO_simplified.png)
+![**Figure 18.** EnrichGO simplified database.](./images/database_enrichGO_simplified.png)
 
-Based on the FDR value, the top 20 GO terms were selected as the most enriched processes, which are now represented in a dotplot
+Based on the FDR value, the top 20 GO terms were selected as the most enriched processes, which are now represented in a dotplot.
+In the gene ratio the % of the genes that have a specific function can be seen, moreover the count represents the nu,ber of reported genes for that function and the gene ration is the count/universe_genes.
+
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 # Dotplot
 dotplot_enrichGO_simplified <- enrichplot::dotplot(enrichGO_simplified, showCategory = 20) + ggtitle("Dotplot")
 ```
 
-![**Figure 15.** Dotplot.](./images/Dotplot.png)
+![**Figure 19.** Dotplot.](./images/Dotplot.png)
 
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
  #Enrichment Maps (estos mapas los borraba)
@@ -597,7 +604,7 @@ genes_paper_RNA <- c("STAG2","ESPL1","FGFR3","TACC3") #genes that appear in the 
 
 We searched manually for the chromosome seggregation function in the *enrichGOsimplified* database.
 
-![**Figure 16.** Chromosome segregation function.](./images/GO_chromosome_seggregation.png)
+![**Figure 20.** Chromosome segregation function.](./images/GO_chromosome_seggregation.png)
 
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
@@ -611,7 +618,7 @@ genes_go_chrom_seg <- strsplit(database_enrichGO_simp_genes["GO:0007059",],"\\/"
 genes_go_chrom_seg_symbol_ens <- ensembldb::select(EnsDb.Hsapiens.v79, keys = genes_go_chrom_seg, keytype = "GENEID", columns = c("SYMBOL","GENEID"))
 ```
 
-![**Figure 17.** Genes related to the chromosome seggregation.](./images/genes_chromosome_seggregation.png)
+![**Figure 21.** Genes related to the chromosome seggregation.](./images/genes_chromosome_seggregation.png)
 
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
@@ -649,7 +656,7 @@ However, as can be seen in the image below, it cannot be seen what had initially
 scp a905208@atlas-fdr.sw.ehu.es:/scratch/arubio/DNAseq/resultsBWA/noduplicatesbam/SRR645259_aligned.bam* E:/NGSFolder/FinalWork_NGS_HPC/FinalWork_NGS_HPC/IGV_sample
 ```
 
-![**Figure 18.** IGV showing TACC3 and FGFR3.](./images/IGV.png)
+![**Figure 22.** IGV showing TACC3 and FGFR3.](./images/IGV.png)
 
 *La parte de STAR*
 
@@ -700,6 +707,8 @@ Finally, to generate the .bai file from the .bam file that has been generated in
 samtools index S1_testAligned.sortedByCoord.out.bam
 ```
 
+Figure 23.** output STAR en IGV.]
+Figure 24.** seff STAR.]
 
 ### 3.7. PCA
 
@@ -736,7 +745,7 @@ Fig_PCA <- ggplot(data_PCA) + geom_point(aes(x=PC1, y=PC2, color = type, size = 
 Fig_PCA
 ```
 
-![**Figure 19.** PCA plot.](./images/PCAplot.png)
+![**Figure 25.** PCA plot.](./images/PCAplot.png)
 
 
 ### 3.8. Heatmap
@@ -762,7 +771,7 @@ heatmap_plot <- heatmap.2(x = log2(1+RNASeq2_filt_ord[1:50,]),
 legend(0.8,1.1, legend = c("Normal", "Cancer"),col = c("orange", "dark green"), lty= 1, lwd = 10, cex = 0.7)
 ```
 
-![**Figure 20.** Heatmap.](./images/Heatmap.png)
+![**Figure 26.** Heatmap.](./images/Heatmap.png)
 
 ### 3.9. Boxplot
 
@@ -806,7 +815,7 @@ data_boxplot <- data.frame(transcripts = rep(sig_df_bp$SYMBOL_transcript_id, len
 data_boxplot$transcripts = as.factor(data_boxplot$transcripts)
 ```
 
-![**Figure 21.** Boxplot data frame.](./images/data_boxplot.png)
+![**Figure 27.** Boxplot data frame.](./images/data_boxplot.png)
 
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 Fig_boxplot <- ggplot(data = data_boxplot, aes(x = transcripts, y = values, fill = sample_type)) +
@@ -827,7 +836,7 @@ Fig_boxplot <- ggplot(data = data_boxplot, aes(x = transcripts, y = values, fill
 Fig_boxplot
 ```
 
-![**Figure 22.** Boxplot.](./images/Boxplot.png)
+![**Figure 28.** Boxplot.](./images/Boxplot.png)
 
 ### 3.10. Volcano plot
 
@@ -872,7 +881,7 @@ Fig_volcano <- ggplot(data = volcano_df) + geom_point(aes(x = beta,
 Fig_volcano
 ```
 
-![**Figure 23.** Volcano plot.](./images/Volcano plot.png)
+![**Figure 29.** Volcano plot.](./images/Volcano plot.png)
 
 
 ## **4. CONCLUSIONS**   
