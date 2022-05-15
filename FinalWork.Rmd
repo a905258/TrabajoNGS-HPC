@@ -786,9 +786,9 @@ bash /scratch/a905383/CNV/igv_file/formater.sbs "/scratch/a905383/CNV/counts/"$f
 
 * Two examples of the results have been attached:  
 
-    + [SRR645209_cleaned](data/SRR645209_cleaned.seg)
+    + [SRR645209_cleaned](data/seg/SRR645209_cleaned.seg)
 
-    + [SRR645210_cleaned](data/SRR645210_cleaned.seg)
+    + [SRR645210_cleaned](data/seg/SRR645210_cleaned.seg)
 
 * All samples loaded into IGV. 
 
