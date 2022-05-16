@@ -1656,6 +1656,7 @@ Fig_boxplot
 
 ### 4.10. Volcano plot
 
+:)
 Differential expression analysis revealed that between the normal and malignant groups of patients, there are 879 transcripts altered with an FDR \< 0.01 and a beta \> \|3\|. Moreover, 141 of them belong to the overexpressed group (beta \> 3) whereas 738 of the isoforms are underexpressed (beta \< -3). The labelled transcripts are the ones whose expression was plotted through a boxplot in the previous image.
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
