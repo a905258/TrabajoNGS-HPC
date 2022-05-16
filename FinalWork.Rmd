@@ -100,7 +100,7 @@ Finally, with regard to the quality of the sequencing, it can be observed that t
 
 ### 2.1. Alignment
 
-In order to perform the alignment, the first step was to download the FASTA file of the reference genome, i.e. the file in which the genomic information is described. Specifically, it was obtained from the Ensemble website (cite) and for this task no Atlas work was performed, since the FASTA was downloaded directly using the command line.
+In order to perform the alignment, the first step was to download the FASTA file of the reference genome, i.e. the file in which the genomic information is described. Specifically, it was obtained from [Ensemble](https://www.ensembl.org/Homo_sapiens/Info/Index) and for this task no Atlas work was performed, since the FASTA was downloaded directly using the command line.
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -1374,7 +1374,11 @@ Based on the FDR value, the top 20 GO terms were selected as the most enriched p
 dotplot_enrichGO_simplified <- enrichplot::dotplot(enrichGO_simplified, showCategory = 20) + ggtitle("Dotplot")
 ```
 
+<center>
+
 ![**Figure 33.** Dotplot.](./images/Dotplot.png){width="700"}
+
+</center>
 
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
  #Enrichment Maps (estos mapas los borraba)
