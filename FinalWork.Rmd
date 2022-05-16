@@ -73,6 +73,23 @@ The next step was to generate a *MultiQC* for the DNA samples and another one fo
 
 Then, after having carried out the first step for both types of samples, the analysis was separated in two, i.e. on one hand, an analysis was carried out with the *DNA* samples and, secondly, a study was carried out with the *RNA* samples.
 
+[MultiQC report of DNA samples](multiqc_report_DNA.html)
+
+Analysing the file generated for the DNA samples, it can be observed that in all samples there is a percentage of duplicates that has to be eliminated. On the other hand, analysing the GC content, it can be observed that it is almost the same in all samples, which is consistent, and this can be seen in the Per Sequence GC Content graph where each of the lines refers to a different sample. 
+
+Furthermore, with regard to the number and the length of the reads, the vast majority have a length greater than 90 base pairs, and it should be noted that the number of reads in each of the samples is quite variable, ranging from 60.9 million to 90 million. 
+
+Regarding the quality of the sequence, it can be observed that it decreases as the read length increases. That is, as the number of base pairs increases, the reliability of the results decreases, which is why multiple reads are used. 
+
+[MultiQC report of RNA samples](multiqc_report_RNA.html)
+
+Analysing the RNA samples, it can be seen at first glance that the percentage of duplicates is significantly higher and that the variability between samples is large. 
+
+On the other hand, with regard to the GC content, it can be observed that the results are relatively similar and that the variability remains small. Furthermore, analysing the number of readings that each sample has, it can be observed that there is a great variability and also that the quantity is smaller.
+
+Finally, with regard to the quality of the sequencing, it can be observed that the trend is maintained, since as the number of base pairs increases, the quality decreases. However, it should be noted that in this case the quality is lower, as although the trend is maintained, the quality is lower.
+
+
 ## **2. DNA**
 
 <center>
@@ -313,7 +330,7 @@ Due to the fact that it was possible to recalibrate a single sample, it was thou
 
 ### 2.6. Ensemble and Maftools
 
-After deciding not to continue with the recalibrations and therefore not obtaining the final vcf, we proceeded to continue with the study using the vcf generated in section 2.3. Specifically, the next step consisted of using the Ensembl Variant Effect Predictor (VEP) tool to determine the effect of the variants obtained in the genes, transcripts and protein sequence, as well as in the regulatory regions <https://www.ensembl.org/info/docs/tools/vep/index.html>. Specifically, the web interface that allows access to the main functions of the VEP without the need to use the command line was used. <https://pubmed.ncbi.nlm.nih.gov/20562413/>
+After deciding not to continue with the recalibrations and therefore not obtaining the final vcf, we proceeded to continue with the study using the vcf generated in section 2.3. Specifically, the next step consisted of using the Ensembl Variant Effect Predictor [(VEP)](https://www.ensembl.org/info/docs/tools/vep/index.html) tool to determine the effect of the variants obtained in the genes, transcripts and protein sequence, as well as in the regulatory regions. Specifically, the web interface that allows access to the main functions of the VEP without the need to use the command line was used. 
 
 It should be noted that when submitting the samples it was necessary to analyse the size of each of the files because Ensemble only accepts files smaller than 50 MB. Therefore, a filtering of the samples that exceeded this size was made and in addition, as this process was not possible to be parallelize, each student uploaded two samples of normal .vcf files in order to be annotated. As this website is free of charge, the speed was not outstanding and took around five hours of runtime for each sample to be annotated. The distribution of samples can be seen on the table beneath.
 
@@ -373,7 +390,6 @@ Once the .maf files had been obtained, they were compressed using the *gzip* com
 
 With the 8 .maf files downloaded, they were merged into a single .maf file to study the mutations together.
 
-
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 setwd("/Users/laura/Desktop/TECNUN/Máster/2º Semestre/Bioinformatics and Next Generation Sequencing/Final work")
@@ -428,6 +444,8 @@ plotmafSummary(NGS)
 
 ```
 
+<center>
+
 ![**Figure 11.** MAF summary.](images/maf_summary.jpeg)
 
 </center>
@@ -476,7 +494,7 @@ To begin this analysis, we first looked at the total number of mutations in each
 
 </center>
 
-Analysing the results, it can be seen that there are many mutations in each gene, so the next step was to analyse the type of mutations. Specifically, the result of this analysis has been represented in the table of Figure 14, where the types and the number of mutations existing in each gene has been represented.
+Analysing the results, it can be seen that there are many mutations in each gene, so the next step was to analyse the type of mutations. Specifically, the result of this analysis has been represented in the table of Figure 15, where the types and the number of mutations existing in each gene has been represented.
 
 <center>
 
@@ -486,11 +504,9 @@ Analysing the results, it can be seen that there are many mutations in each gene
 
 In order to understand the type of mutation represented in the table, each mutation has been described below:
 
--   **5' Flanking region:** region of DNA adjacent to the 5' end of the gene. Contains the promoter and may contain enhancers or other protein binding sites. It is the region of DNA that is not transcribed into RNA.
+-   **Flanking region:** region of DNA adjacent to the 3'/5' end of the gene. Contains the promoter and may contain enhancers or other protein binding sites. It is the region of DNA that is not transcribed into RNA.
 
 -   **Missense mutation:** a DNA change that results in different amino acids being encoded at a particular position in the resulting protein. Some missense mutation alter the function of the resulting protein.
-
--   **Flanking region:** a region of DNA which is not copied into the mature mRNA, bit which is present adjacent to 3'/5' end of the gene.
 
 -   **Silent mutation:** is a change in the sequence of nucleotide bases which constitutes DNA, without a subsequent change in the amino acid or the function of the overall protein.
 
@@ -499,7 +515,6 @@ In order to understand the type of mutation represented in the table, each mutat
 -   **Untranslated region (UTR):** section of messenger RNA that immediately follows the translation termination codon. Several regions of the mRNA molecule are not translated into a protein inclusing the 5' cap, 5' untranslated region, 3' untranslated region and poly(A) tail.
 
 Taking into account the types of mutations described and the fact that only mutations located in exons are represented in a Lollipop, it is coherent that only the Lollipop of the ESPL1 gene could be obtained. However, considering the study on which this analysis was based, it was expected to observe more mutations, especially in the STAG2 gene. Nevertheless, although in this case this gene is the one with the highest number of mutations, it should be noted that only 8 samples were used, so it is consistent to think that the mutations observed in the paper could not be obtained in this case.
-
 
 ## **3. COPY NUMBER ANALYSIS**
 
@@ -513,7 +528,7 @@ Copy number variation (CNV) analysis has had a major impact on the field of medi
 
 ### 3.1 Interval List
 
-This is one of the most crucial steps in this pipeline, the intervals of the genome that are going to be selected for analysis, because of WGS this step limits the number of bases to be studied. 
+This is one of the most crucial steps in this pipeline, the intervals of the genome that are going to be selected for analysis, because of WGS this step limits the number of bases to be studied.
 
 The interval list was generated using:
 
@@ -525,13 +540,14 @@ gatk PreprocessIntervals -R /scratch/arubio/DNAseq/Auxfiles/dummy.fa \
 --padding 0 -O /scratch/a905383/CNV/preprocessed_intervals1.interval_list
 ```
 
-This file was used as the *Figure 11* shows to generate the raw counts. But then, the intervals were filtered to be able to collect the allelic counts. A bin length of 10,000 was used to reduce computation cost.  
+This file was used as the *Figure 16* shows to generate the raw counts. But then, the intervals were filtered to be able to collect the allelic counts. A bin length of 10,000 was used to reduce computation cost.
 
-The inputs of the filter are: 
+The inputs of the filter are:
 
-**blacklist.interval_list**: Downloaded [blacklist](data/GRCh38_unified_blacklist.bed) in bed format and transformed into interval list using picard. 
+**blacklist.interval_list**: Downloaded [blacklist](data/GRCh38_unified_blacklist.bed) in bed format and transformed into interval list using picard.
 
-**annotated_intervals.tsv**: Generated using gatk, 
+**annotated_intervals.tsv**: Generated using gatk,
+
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 gatk AnnotateIntervals  -R /scratch/arubio/DNAseq/Auxfiles/dummy.fa  -L /scratch/a905383/CNV/preprocessed_intervals10000.interval_list  --interval-merging-rule OVERLAPPING_ONLY  -O /scratch/a905383/CNV/annotated_intervals.tsv
 ```
@@ -568,13 +584,14 @@ gatk FilterIntervals -L /scratch/a905383/CNV/preprocessed_intervals10000.interva
 <center>
 
 ![**Figure 17:** Inputs to generate Intervals.](images/Filter%20Diagram.png)
+
 </center>
 
 ### 3.2 Collect Read Counts
 
 Raw Counts were collected using the unfiltered interval list. The input is an alligned bam file. We processed first the normal samples to be able to generate a panel of normals and then process the tumoral samples. Both codes are attached bellow.
 
-The inputs are: 
+The inputs are:
 
 **interval.interval_list**
 
@@ -617,7 +634,7 @@ gatk CollectReadCounts -L $intervals \
 
 <center>
 
-![**Figure 18:** Efficiency of the process by Collect Raw Counts. ](images/seff_CNV.png)
+![**Figure 18:** Efficiency of the process by Collect Raw Counts.](images/seff_CNV.png)
 
 </center>
 
@@ -660,16 +677,15 @@ gatk CollectReadCounts -L $intervals \
 
 <center>
 
-![**Figure 19:** Efficiency of the process by Collect Raw Counts (Tumor). ](images/seff_CNV_tumor.png)
+![**Figure 19:** Efficiency of the process by Collect Raw Counts (Tumor).](images/seff_CNV_tumor.png)
 
 </center>
 
 ### 3.3 Panel of Normals
 
-Creates a panel of normals (PoN) for read-count denoising given the read counts for samples in the panel. The resulting PoN can be used with DenoiseReadCounts to denoise other samples.
-The input read counts are first transformed to log2 fractional coverages and preprocessed according to specified filtering and imputation parameters. Singular value decomposition (SVD) is then performed to find the first number-of-eigensamples principal components, which are stored in the PoN. 
+Creates a panel of normals (PoN) for read-count denoising given the read counts for samples in the panel. The resulting PoN can be used with DenoiseReadCounts to denoise other samples. The input read counts are first transformed to log2 fractional coverages and preprocessed according to specified filtering and imputation parameters. Singular value decomposition (SVD) is then performed to find the first number-of-eigensamples principal components, which are stored in the PoN.
 
-The inputs are: 
+The inputs are:
 
 **Normal Raw Counts**
 
@@ -712,15 +728,15 @@ gatk CreateReadCountPanelOfNormals \
 
 <center>
 
-![**Figure 20:** Efficiency of the process by CreateReadCountPanelOfNormals. ](images/seff_PON.png)
+![**Figure 20:** Efficiency of the process by CreateReadCountPanelOfNormals.](images/seff_PON.png)
 
 </center>
 
-### 3.4 Standarized Counts 
+### 3.4 Standarized Counts
 
-Denoises read counts to produce denoised copy ratios. The input required is a PoN and the raw counts generated previously. 
+Denoises read counts to produce denoised copy ratios. The input required is a PoN and the raw counts generated previously.
 
-The inputs are: 
+The inputs are:
 
 **Raw Counts**
 
@@ -758,13 +774,13 @@ for count in ${file[@]}; do
 
 <center>
 
-![**Figure 21:** Efficiency of the process by DenoiseReadCounts. ](images/seff_Standarized.png)
+![**Figure 21:** Efficiency of the process by DenoiseReadCounts.](images/seff_Standarized.png)
 
 </center>
 
 ### 3.5 Plot Copy Ratios
 
-The inputs are: 
+The inputs are:
 
 **Denoised Counts**
 
@@ -810,12 +826,11 @@ for count in ${file[@]}; do
 
 <center>
 
-![**Figure 22:** Efficiency of the process by PlotDenoisedCopyRatios. ](images/seff_plotter.png)
+![**Figure 22:** Efficiency of the process by PlotDenoisedCopyRatios.](images/seff_plotter.png)
 
 </center>
 
 #### 3.5.1 Results
-
 
 ```{r, echo=FALSE, message=FALSE}
 
@@ -838,11 +853,11 @@ slickR(obj = resultsImages,height = 400,width='100%') %synch% (slickR(listRes, s
 
 ```
 
-### 3.6 Collect Allelic Counts 
+### 3.6 Collect Allelic Counts
 
 Collects reference and alternate allele counts at specified sites. The alt count is defined as the total count minus the ref count, and the alt nucleotide is defined as the non-ref base with the highest count, with ties broken by the order of the bases in AllelicCountCollector#BASES. Only reads that pass the specified read filters and bases that exceed the specified minimum-base-quality will be counted.
 
-The inputs are: 
+The inputs are:
 
 **interval.interval_list**
 
@@ -884,11 +899,12 @@ gatk --java-options "-Xmx10g" CollectAllelicCounts -L $intervals \
 
 <center>
 
-![**Figure 23:** Efficiency of the process by Collect Allelic Counts. ](images/seff_allelic.png)
+![**Figure 23:** Efficiency of the process by Collect Allelic Counts.](images/seff_allelic.png)
 
 </center>
 
-### 3.7 Model Segments 
+### 3.7 Model Segments
+
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 #SBATCH --job-name=cnv%a
 #SBATCH --account=biomedicine
@@ -930,7 +946,7 @@ for ((i=0; i<=$num; i++)); do
 
 <center>
 
-![**Figure 24:** Efficiency of the process by Collect Allelic Counts. ](images/seff_modelsegments.png)
+![**Figure 24:** Efficiency of the process by Collect Allelic Counts.](images/seff_modelsegments.png)
 
 </center>
 
@@ -1004,9 +1020,10 @@ slickR(obj = resultsImages,height = 400,width='100%') %synch% (slickR(listRes, s
 
 ### 3.9 IGV
 
-To compare the raw counts could be visualized in IGV, but the format need to be changed. Therefore, we present the following code that takes a raw counts file and formats it into .seg file. At the end, all files could be loaded together into IGV and find the regions with the higher variability. 
+To compare the raw counts could be visualized in IGV, but the format need to be changed. Therefore, we present the following code that takes a raw counts file and formats it into .seg file. At the end, all files could be loaded together into IGV and find the regions with the higher variability.
 
 **Formatter**
+
 ```{r, echo=TRUE, message=FALSE, eval=FALSE}
 file="$1"
 
@@ -1018,6 +1035,7 @@ OFS=" " | awk -v nam=$name -v OFS=" " 'BEGIN{print "ID\tcol1\tcol2"} \
 NR>1{print nam,$1,$2,$3,$4,$5}' | awk '{if (NR!=1) {print}}' | awk \
 'gsub(" ","\t")' | awk '{if (NR!=1) {print}}'  > $name"_cleaned.seg"
 ```
+
 [so.awk](/data/so.awk)
 
 **Format Samples**
@@ -1043,15 +1061,15 @@ filename=${file[$SLURM_ARRAY_TASK_ID]}
 bash /scratch/a905383/CNV/igv_file/formater.sbs "/scratch/a905383/CNV/counts/"$filename".denoisedCR.tsv"
 ```
 
-#### 3.9.1 Resuls 
+#### 3.9.1 Resuls
 
-* Two examples of the results have been attached:  
+-   Two examples of the results have been attached:
 
-    + [SRR645209_cleaned](data/seg/SRR645209_cleaned.seg)
+    -   [SRR645209_cleaned](data/seg/SRR645209_cleaned.seg)
 
-    + [SRR645210_cleaned](data/seg/SRR645210_cleaned.seg)
+    -   [SRR645210_cleaned](data/seg/SRR645210_cleaned.seg)
 
-* All samples loaded into IGV. 
+-   All samples loaded into IGV.
 
 <center>
 
@@ -1060,7 +1078,12 @@ bash /scratch/a905383/CNV/igv_file/formater.sbs "/scratch/a905383/CNV/counts/"$f
 </center>
 
 ## **4. RNA**
-![**Figure 26.** RNAseq pipeline.](./images/RNAseq_pipeline.png)
+
+<center>
+
+![**Figure 26.** RNAseq pipeline.](./images/RNAseq_pipeline.png){width="545"}
+
+</center>
 
 ### 4.1. Kallisto
 
@@ -1093,7 +1116,7 @@ chmod 770 /scratch/a905162/ngs/KallistoMaps/${filename}
 kallisto quant -i /scratch/arubio/GenomicFiles/kallisto_Assignment_index.idx -o /scratch/a905162/ngs/KallistoMaps/$filename -b 25 -t $SLURM_CPUS_PER_TASK -g /
 ```
 
-This code was run in ATLAS PC in order to paralelize the job, at first 1 node and 16G of RAM were used but the job efficiency was 23.12%. In order to have a better usage of ATLAS resources, the job was sent again but only using 4G of RAM memory. Finally the efficiency reached has been represented in Figure 16.
+This code was run in ATLAS PC in order to paralelize the job, at first 1 node and 16G of RAM were used but the job efficiency was 23.12%. In order to have a better usage of ATLAS resources, the job was sent again but only using 4G of RAM memory. Finally the efficiency reached has been represented in Figure 26.
 
 <center>
 
@@ -1146,12 +1169,16 @@ Atributos <- listAttributes(mart)
 
 GeneTransciptLocation <- getBM(attributes=c("ensembl_gene_id","ensembl_transcript_id","chromosome_name","transcript_start","transcript_end"),mart=mart)
 ```
-![**Figure 27.** Gene Transcript Location Sample.](./images/GeneTranscriptLocation.png)
+
+<center>
+
+![**Figure 27.** Gene Transcript Location Sample.](./images/GeneTranscriptLocation.png){width="650"}
+
+</center>
 
 ### 4.3. Load and process the data generated with Kallisto
 
-Having obtained the output from Kallisto (the abundance.tsv, abundance.5 and .json for each sample), we have used the abundance.tsv files to make a data frame containing the TPM values of each transcript per sample.
-The *RNAseq2* data frame has 199,169 transcripts.
+Having obtained the output from Kallisto (the abundance.tsv, abundance.5 and .json for each sample), we have used the abundance.tsv files to make a data frame containing the TPM values of each transcript per sample. The *RNAseq2* data frame has 199,169 transcripts.
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 #base_dir = directory where the output of kallisto is stored
@@ -1173,7 +1200,12 @@ RNASeq<-RNASeq[,-1]
 RNASeq2<-as.matrix(RNASeq)
 colnames(RNASeq2)<-sample_id
 ```
-![**Figure 28.** Part of the RNASeq2 dataframe.](./images/muestra_de_RNAseq2.png)
+
+<center>
+
+![**Figure 28.** Part of the RNASeq2 dataframe.](./images/muestra_de_RNAseq2.png){width="650"}
+
+</center>
 
 ### 4.4. Design and contrast matrices
 
@@ -1185,7 +1217,11 @@ Next, we will explain both the design and contrast matrices that has been built.
 model_matrix <- model.matrix(~ sample_ID + sample_type, data = samples)
 ```
 
+<center>
+
 ![**Figure 29.** Design matrix.](./images/modelmatrix.png)
+
+</center>
 
 As we will study the *sample type* variable, we just need to build a contrast matrix for this one. Additionally, we need to define the betas and the null hypothesis. First of all, let's establish the other variables in the design matrix. From the second column to the sixteenth one represent the different patients, since the study is paired. The last column refers to the variable that we want to study, that is, the sample type. Now, we can define the null hypothesis and build the contrast matrix.
 
@@ -1255,7 +1291,11 @@ sleuth_table_wt <- sleuth_results(so, paste0('sample_typeCancer'))
 
 ```
 
-![**Figure 30.** Sleuth significant matrix.](./images/sleuth_significant.png)
+<center>
+
+![**Figure 30.** Sleuth significant matrix.](./images/sleuth_significant.png){width="700"}
+
+</center>
 
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 sleuth_table_lrt<-load ("~/Desktop/TrabajoNGS-HPC/sleuth_table_lrt.RData")
@@ -1265,7 +1305,7 @@ sleuth_table_wt<-load ("~/Desktop/TrabajoNGS-HPC/sleuth_table_wt.RData")
 
 ### 4.6. Gene Ontology
 
-The enrichGO function of the ClusterProfiler R package was used to perform the Gene Ontology (GO) enrichment analysis for biological processes [cite], before this an extraction of the significant genes from our significant transcripts was performed. 
+The enrichGO function of the ClusterProfiler R package was used to perform the Gene Ontology (GO) enrichment analysis for biological processes [cite], before this an extraction of the significant genes from our significant transcripts was performed.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 #Remove the .(number) from the transcript id
@@ -1281,7 +1321,7 @@ sig_genes <- GeneTranscriptLocation$ensembl_gene_id[iij] #8031 significant genes
 universe <- unique(GeneTranscriptLocation$ensembl_gene_id)
 ```
 
-Then gene ontology was performed with the *enrichGO* function. [OJO] -> The genes related to the gene transcripts with FDR < 0.01 were selected, that is, from the 8031 significant genes that we obtained we keep 4656 genes. The gene universe consisted of the 67,128 genes that were identified in *Ensembl*. So finally in database_enrichGO we obtained the GO terms that are related to the genes that significantly predict the difference in gene expression between normal and cancer samples.
+Then gene ontology was performed with the *enrichGO* function. [OJO] -\> The genes related to the gene transcripts with FDR \< 0.01 were selected, that is, from the 8031 significant genes that we obtained we keep 4656 genes. The gene universe consisted of the 67,128 genes that were identified in *Ensembl*. So finally in database_enrichGO we obtained the GO terms that are related to the genes that significantly predict the difference in gene expression between normal and cancer samples.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 enrichGO <- clusterProfiler::enrichGO(gene = sig_genes, OrgDb = "org.Hs.eg.db",
@@ -1293,7 +1333,11 @@ enrichGO <- clusterProfiler::enrichGO(gene = sig_genes, OrgDb = "org.Hs.eg.db",
 database_enrichgo <- data.frame(enrichGO) #enrichGO@result
 ```
 
-![**Figure 31.** EnrichGO database.](./images/database_enrichGO.png)
+<center>
+
+![**Figure 31.** EnrichGO database.](./images/database_enrichGO.png){width="700"}
+
+</center>
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 # We use simplify to remove redundant GO terms
@@ -1305,8 +1349,7 @@ enrichGO_simplified <- simplify(enrichGO, cutoff=0.7, by="p.adjust", select_fun=
 database_enrichGO_simplified <- data.frame(enrichGO_simplified)
 ```
 
-Moreover, in all the cases, we selected the GO terms with FDR < 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term). 
-
+Moreover, in all the cases, we selected the GO terms with FDR \< 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term).
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 
@@ -1318,18 +1361,20 @@ enrichGO_simplified <- simplify(enrichGO, cutoff=0.7, by="p.adjust", select_fun=
 database_enrichGO_simplified <- data.frame(enrichGO_simplified)
 ```
 
-![**Figure 32.** EnrichGO simplified database.](./images/database_enrichGO_simplified.png)
+<center>
 
-Based on the FDR value, the top 20 GO terms were selected as the most enriched processes, which are now represented in a dotplot.
-In the gene ratio the % of the genes that have a specific function can be seen, moreover the count represents the nu,ber of reported genes for that function and the gene ration is the count/universe_genes.
+![**Figure 32.** EnrichGO simplified database.](./images/database_enrichGO_simplified.png){width="700"}
 
+</center>
+
+Based on the FDR value, the top 20 GO terms were selected as the most enriched processes, which are now represented in a dotplot. In the gene ratio the % of the genes that have a specific function can be seen, moreover the count represents the nu,ber of reported genes for that function and the gene ration is the count/universe_genes.
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 # Dotplot
 dotplot_enrichGO_simplified <- enrichplot::dotplot(enrichGO_simplified, showCategory = 20) + ggtitle("Dotplot")
 ```
 
-![**Figure 33.** Dotplot.](./images/Dotplot.png)
+![**Figure 33.** Dotplot.](./images/Dotplot.png){width="700"}
 
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
  #Enrichment Maps (estos mapas los borraba)
@@ -1346,8 +1391,7 @@ dotplot_enrichGO_simplified <- enrichplot::dotplot(enrichGO_simplified, showCate
 #cnetplot(enrichGO_simplified)
 ```
 
-As our project is based on a scientific article that was published in 2013, we decided to compare some of the genes that were obtained in our analysis with the ones reported by the researchers. We were most interested in seeing if the genes related to the chromosome seggregation that the paper mentioned (*STAG2* and *ESPL1*), were actually found in the list of genes related to that function (GO:0007059) that we obtained in the enrichment analysis.
-As a result, we could see that both of them were included in our results, which is completely logical.
+As our project is based on a scientific article that was published in 2013, we decided to compare some of the genes that were obtained in our analysis with the ones reported by the researchers. We were most interested in seeing if the genes related to the chromosome seggregation that the paper mentioned (*STAG2* and *ESPL1*), were actually found in the list of genes related to that function (<GO:0007059>) that we obtained in the enrichment analysis. As a result, we could see that both of them were included in our results, which is completely logical.
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 #change the ENSEMBL ID of the significant genes to the SYMBOL GENE ID in order to match the names with the ones that appear on the paper. 
@@ -1359,8 +1403,11 @@ genes_paper_RNA <- c("STAG2","ESPL1","FGFR3","TACC3") #genes that appear in the 
 
 We searched manually for the chromosome seggregation function in the *enrichGOsimplified* database.
 
+<center>
+
 ![**Figure 34.** Chromosome segregation function.](./images/GO_chromosome_seggregation.png)
 
+</center>
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -1373,8 +1420,11 @@ genes_go_chrom_seg <- strsplit(database_enrichGO_simp_genes["GO:0007059",],"\\/"
 genes_go_chrom_seg_symbol_ens <- ensembldb::select(EnsDb.Hsapiens.v79, keys = genes_go_chrom_seg, keytype = "GENEID", columns = c("SYMBOL","GENEID"))
 ```
 
-![**Figure 35.** Genes related to the chromosome seggregation.](./images/genes_chromosome_seggregation.png)
+<center>
 
+![**Figure 35.** Genes related to the chromosome seggregation.](./images/genes_chromosome_seggregation.png){width="233"}
+
+</center>
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -1403,15 +1453,17 @@ which(chrom_rem_genes %in% sig_genes_symbol) #NCOR1
 
 *La parte de IGV*
 
-We were expecting to find also the FGFR3 gene (from the RNA genes list), but we realized that the researchers from the scientific article analyzed the gene fusions, which is not related to the differential expression analysis that has been carried out. For this reason, another approach has been taken. 
-We have used the following chunk of code to download the .bam and .bai files of the cancer sample number SRR645259 from subject B59. With these files, we have opened them in the IGV software. As we were expecting to find a gene fusion, we were expecting to find each of the mates from genes FGFR3 and TACC3.
-However, as can be seen in the image below, it cannot be seen what had initially been expected. For this reason, it has been decided to process the raw data of the corresponding sample using a different method.
+We were expecting to find also the FGFR3 gene (from the RNA genes list), but we realized that the researchers from the scientific article analyzed the gene fusions, which is not related to the differential expression analysis that has been carried out. For this reason, another approach has been taken. We have used the following chunk of code to download the .bam and .bai files of the cancer sample number SRR645259 from subject B59. With these files, we have opened them in the IGV software. As we were expecting to find a gene fusion, we were expecting to find each of the mates from genes FGFR3 and TACC3. However, as can be seen in the image below, it cannot be seen what had initially been expected. For this reason, it has been decided to process the raw data of the corresponding sample using a different method.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 scp a905208@atlas-fdr.sw.ehu.es:/scratch/arubio/DNAseq/resultsBWA/noduplicatesbam/SRR645259_aligned.bam* E:/NGSFolder/FinalWork_NGS_HPC/FinalWork_NGS_HPC/IGV_sample
 ```
 
+<center>
+
 ![**Figure 36.** IGV showing TACC3 and FGFR3.](./images/IGV.png)
+
+</center>
 
 *La parte de STAR*
 
@@ -1450,7 +1502,7 @@ cat SRR645259_1.fastq | head -n 1000000 > S1_R1.fq
 cat SRR645259_2.fastq | head -n 1000000 > S1_R2.fq
 ```
 
-Then, the following chunk of code has been executed from the command line. 
+Then, the following chunk of code has been executed from the command line.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 STAR --runThreadN 3 --genomeDir /scratch/a905208/FinalWork/STAR/index --readFilesIn S1_R1.fq S1_R2.fq --outFileNamePrefix S1_test --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --outSAMattributes NH HI AS NM MD
@@ -1462,12 +1514,11 @@ Finally, to generate the .bai file from the .bam file that has been generated in
 samtools index S1_testAligned.sortedByCoord.out.bam
 ```
 
-Figure 37.** output STAR en IGV.]
-Figure 38.** seff STAR.]
+Figure 37.\*\* output STAR en IGV.] Figure 38.\*\* seff STAR.]
 
 ### 4.7. PCA
 
-To separate all the samples in clusters based on the results of differential gene expression analysis we first performed a PCA selecting the 8198 differentially expressed transcripts (FDR < 0.001). The correct separation between the sample groups confirms that the selected transcripts could be considered adequate to stratify the samples in the two groups. Moreover, the axes are ranked in order of importance, where differences along the first principal component axis (PC1) are more important than differences along with the second principal analysis (PC2).
+To separate all the samples in clusters based on the results of differential gene expression analysis we first performed a PCA selecting the 8198 differentially expressed transcripts (FDR \< 0.001). The correct separation between the sample groups confirms that the selected transcripts could be considered adequate to stratify the samples in the two groups. Moreover, the axes are ranked in order of importance, where differences along the first principal component axis (PC1) are more important than differences along with the second principal analysis (PC2).
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 
@@ -1492,7 +1543,6 @@ data_PCA <- data.frame(samples = rownames(PCs$x),
                        PC2 = PCs$x[,2])
 ```
 
-
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 Fig_PCA <- ggplot(data_PCA) + geom_point(aes(x=PC1, y=PC2, color = type, size = 4)) + geom_label_repel(aes(x=PC1, y=PC2, label=ID)) +
   xlab('PC1') + ylab ('PC2') +
@@ -1500,7 +1550,11 @@ Fig_PCA <- ggplot(data_PCA) + geom_point(aes(x=PC1, y=PC2, color = type, size = 
 Fig_PCA
 ```
 
-![**Figure 39.** PCA plot.](./images/PCAplot.png)
+<center>
+
+![**Figure 39.** PCA plot.](./images/PCAplot.png){width="650"}
+
+</center>
 
 ### 4.8. Heatmap
 
@@ -1525,7 +1579,11 @@ heatmap_plot <- heatmap.2(x = log2(1+RNASeq2_filt_ord[1:50,]),
 legend(0.8,1.1, legend = c("Normal", "Cancer"),col = c("orange", "dark green"), lty= 1, lwd = 10, cex = 0.7)
 ```
 
-![**Figure 40.** Heatmap.](./images/Heatmap.png)
+<center>
+
+![**Figure 40.** Heatmap.](./images/Heatmap.png){width="700"}
+
+</center>
 
 ### 4.9. Boxplot
 
@@ -1559,7 +1617,6 @@ sig_df <- merge(sig_df, sig_genes_symbol_ens_sample, by = c("ensembl_gene_id"))
 sig_df$SYMBOL_transcript_id <- paste0(sig_df$SYMBOL, "_", sig_df$tran_name_2)
 ```
 
-
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 RNASeq2_filt_ord_sample <- log2(1+RNASeq2_filt_ord[sig_transcripts_sample$ensembl_transcript_id,])
 
@@ -1569,7 +1626,12 @@ data_boxplot <- data.frame(transcripts = rep(sig_df_bp$SYMBOL_transcript_id, len
 data_boxplot$transcripts = as.factor(data_boxplot$transcripts)
 ```
 
-![**Figure 41.** Boxplot data frame.](./images/data_boxplot.png)
+<center>
+
+![**Figure 41.** Boxplot data frame.](./images/data_boxplot.png){width="600"}
+
+</center>
+
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 Fig_boxplot <- ggplot(data = data_boxplot, aes(x = transcripts, y = values, fill = sample_type)) +
   geom_boxplot(width=0.5,position=position_dodge(width=0.5),outlier.shape = NA) +
@@ -1589,11 +1651,15 @@ Fig_boxplot <- ggplot(data = data_boxplot, aes(x = transcripts, y = values, fill
 Fig_boxplot
 ```
 
-![**Figure 42.** Boxplot.](./images/Boxplot.png)
+<center>
+
+![**Figure 42.** Boxplot.](./images/Boxplot.png){width="700"}
+
+</center>
 
 ### 4.10. Volcano plot
 
-Differential expression analysis revealed that between the normal and malignant groups of patients, there are 879 transcripts altered with an FDR < 0.01 and a beta > |3|. Moreover, 141 of them belong to the overexpressed group (beta > 3) whereas 738 of the isoforms are underexpressed (beta < -3). The labelled transcripts are the ones whose expression was plotted through a boxplot in the previous image. 
+Differential expression analysis revealed that between the normal and malignant groups of patients, there are 879 transcripts altered with an FDR \< 0.01 and a beta \> \|3\|. Moreover, 141 of them belong to the overexpressed group (beta \> 3) whereas 738 of the isoforms are underexpressed (beta \< -3). The labelled transcripts are the ones whose expression was plotted through a boxplot in the previous image.
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 transcripts <- sapply(strsplit(sleuth_table_wt$target_id,"\\."),function(X) return(X[1]))
@@ -1634,7 +1700,11 @@ Fig_volcano <- ggplot(data = volcano_df) + geom_point(aes(x = beta,
 Fig_volcano
 ```
 
-![**Figure 43.** Volcano plot.](./images/Volcano plot.png)
+<center>
+
+![**Figure 43.** Volcano plot.](./images/Volcano%20plot.png)
+
+</center>
 
 ## **5. CONCLUSIONS**
 
