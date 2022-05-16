@@ -1234,6 +1234,7 @@ cont.matrix <- c(rep(0, ncol(model_matrix)-1), 1)
 ```
 
 ### 4.5. Sleuth
+:)
 
 After having run kallisto for each of the samples, a differential expression analysis will be carried out using sleuth. Sleuth is an RNA-Seq analysis program for which kallisto has been used to quatify transcript abundances (cite). First of all, we need to create a tab delimited metadata file for the experiment so we have the factors for each sample ID (header "sample"), the ID of the patients (header "sample_ID"), the type of the sample, that is, whether the sample is normal or malignant (header "sample_type"), and the file path (header "path") to the kallisto output for each sample.
 
