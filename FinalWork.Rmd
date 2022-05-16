@@ -1060,6 +1060,7 @@ bash /scratch/a905383/CNV/igv_file/formater.sbs "/scratch/a905383/CNV/counts/"$f
 </center>
 
 ## **4. RNA**
+![**Figure 26.** RNAseq pipeline.](./images/RNAseq_pipeline.png)
 
 ### 4.1. Kallisto
 
@@ -1120,35 +1121,42 @@ The sample data was downloaded from ADI, and it was also necessary to change the
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 samples <- read_csv("samples_finalwork.csv",col_names = FALSE)
+samples <- read_csv("/Users/gracielauria/Desktop/NGS/final_work/samples.csv",col_names = FALSE) 
 
 # View(samples)
 
 colnames(samples) <- c("ID", "library_strategy", "base_pair_fragment", "Bioproject", "Biosample", "Accession", "X7", "library_selection", "library_source", "library_name", "end_date", "X12", "X13", "Run", "SRS", "SRA_study", "sample_name", "read_length", "center_name", "data_type", "sra", "ncbi", "library_instrument", "library_layout", "organism", "seq_type", "Published")
 
-samples$sample_ID <- sapply(strsplit(samples$sample_name, "\\.|_"), function(X) X[1]) #selecciona la primera parte de antes de la "_"
-samples$sample_type <- sapply(strsplit(samples$sample_name, "\\.|_"), function(X) X[2]) # selecciona la segunda parte de antes de la "_"
+#This allows to separate from sample_name: B28_normal, the sample_ID=B28 and sample_type=normal
+samples$sample_ID <- sapply(strsplit(samples$sample_name, "\\.|_"), function(X) X[1]) #selects part before the underscore 
+samples$sample_type <- sapply(strsplit(samples$sample_name, "\\.|_"), function(X) X[2]) #selects part after the underscore 
 ```
 
 Finally, in order to relate the different transcripts with their corresponding genes, the following chunk of code shows the information that has been downloaded from *Ensembl* (citar), where we have the gene ID, the transcript ID, the chromosome name, and both the start and end of the transcript. However, we will only use the first two variables.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
-# Annotation
-# Get all the transcripts, genes, go_id and domains
+# Annotation: Get all the transcripts, genes, go_id and domains
 
 mart <- biomaRt::useMart(host = 'may2021.archive.ensembl.org',
                          biomart = "ensembl",
-                         dataset =   "hsapiens_gene_ensembl") # hsapiens for human
-Atributos <- listAttributes(mart)
+                         dataset =   "hsapiens_gene_ensembl") 
+
+#3164 attributes for each of the 258710 reported transcripts in the mart data frame, for example: cds coordinates, 5'UTR start, %GC content
+Atributos <- listAttributes(mart) 
 
 GeneTransciptLocation <- getBM(attributes=c("ensembl_gene_id","ensembl_transcript_id","chromosome_name","transcript_start","transcript_end"),mart=mart)
 ```
+![**Figure 27.** Gene Transcript Location Sample.](./images/GeneTranscriptLocation.png)
 
 ### 4.3. Load and process the data generated with Kallisto
 
-Once having obtained the output from Kallisto, we have merged that information into a matrix containing the TPM values of each transcript per sample.
+Having obtained the output from Kallisto (the abundance.tsv, abundance.5 and .json for each sample), we have used the abundance.tsv files to make a data frame containing the TPM values of each transcript per sample.
+The *RNAseq2* data frame has 199,169 transcripts.
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-base_dir <- "/home/osboxes/Desktop/NGSFolder/FinalWork_NGS_HPC/FinalWork_NGS_HPC/samples" #base_dir = directory where the output of kallisto is stored
+#base_dir = directory where the output of kallisto is stored
+base_dir <- "/home/osboxes/Desktop/NGSFolder/FinalWork_NGS_HPC/FinalWork_NGS_HPC/samples" 
+base_dir <- "/Users/gracielauria/Desktop/NGS/final_work/samples"
 sample_id <- dir(base_dir) #sample_id = the names of the folders.
 
 dirsample<-(paste0(base_dir,"/",sample_id[1]))
@@ -1165,6 +1173,7 @@ RNASeq<-RNASeq[,-1]
 RNASeq2<-as.matrix(RNASeq)
 colnames(RNASeq2)<-sample_id
 ```
+![**Figure 28.** Part of the RNASeq2 dataframe.](./images/muestra_de_RNAseq2.png)
 
 ### 4.4. Design and contrast matrices
 
@@ -1175,6 +1184,8 @@ Next, we will explain both the design and contrast matrices that has been built.
 
 model_matrix <- model.matrix(~ sample_ID + sample_type, data = samples)
 ```
+
+![**Figure 29.** Design matrix.](./images/modelmatrix.png)
 
 As we will study the *sample type* variable, we just need to build a contrast matrix for this one. Additionally, we need to define the betas and the null hypothesis. First of all, let's establish the other variables in the design matrix. From the second column to the sixteenth one represent the different patients, since the study is paired. The last column refers to the variable that we want to study, that is, the sample type. Now, we can define the null hypothesis and build the contrast matrix.
 
@@ -1191,10 +1202,11 @@ cont.matrix <- c(rep(0, ncol(model_matrix)-1), 1)
 After having run kallisto for each of the samples, a differential expression analysis will be carried out using sleuth. Sleuth is an RNA-Seq analysis program for which kallisto has been used to quatify transcript abundances (cite). First of all, we need to create a tab delimited metadata file for the experiment so we have the factors for each sample ID (header "sample"), the ID of the patients (header "sample_ID"), the type of the sample, that is, whether the sample is normal or malignant (header "sample_type"), and the file path (header "path") to the kallisto output for each sample.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
+#Keep only the RNA samples from the samples ADI file 
 samples_red <- samples[which(samples$Run %in% sample_id),]
 samples_red <- samples_red[match(sample_id, samples_red$Run),]
 
-#With the next line we obtain the complete path
+#With the next line we obtain the complete path to each sample folder containing kallisto output
 kal_dirs <- sapply(sample_id, function(id) file.path(base_dir,id))
 
 #Build a data.frame with the sample ID, patient ID, condition (normal/cancer) and the kallisto directories for each sample. 
@@ -1228,36 +1240,48 @@ so <- sleuth_fit(s1, ~ sample_ID + sample_type, fit_name =  'full')
 # Estimate parameters for the sleuth reduced model
 so <- sleuth_fit(so, ~ sample_ID, fit_name = 'reduced')
 
-# Perform differential analysis (testing)
+# Perform differential analysis (testing) using LRT
 so <- sleuth_lrt(so,'reduced', 'full')
 
-# Statistical Analysis result
-sleuth_table_lrt <- sleuth_results(so, 'reduced:full', 'lrt', show_all = FALSE)
-sleuth_significant_lrt <- dplyr::filter(sleuth_table_lrt, qval <= 0.001) #hemos bajado el qvalue de 0.05 a 0.001 porque con 0.05 habia 45000 trnascritos significativos, el valor de 0.001 lo hemos ido ajustando
+# Statistical Analysis result from the “sleuth object”: 
+sleuth_table_lrt <- sleuth_results(so, 'reduced:full', 'lrt', show_all = FALSE) ##64681 transcripts
+sleuth_significant_lrt <- dplyr::filter(sleuth_table_lrt, qval <= 0.001) #filter by qval
+#the qvalue has been lowered from 0.05 to 0.001 because with 0.05 there were 45000 significant transcripts, 
+#finally with qval<=0.001 , 8198 transcripts  were kept.
 
-# We also prform the WT analysis
+# We also perform the WT analysis 
 so <- sleuth_wt(so, paste0('sample_typeCancer'))
 sleuth_table_wt <- sleuth_results(so, paste0('sample_typeCancer'))
+
 ```
 
+![**Figure 30.** Sleuth significant matrix.](./images/sleuth_significant.png)
+
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
-# load sleuth_table_lrt
-# load sleuth_table_wt
-sleuth_significant_lrt <- dplyr::filter(sleuth_table_lrt, qval <= 0.001)
+sleuth_table_lrt<-load ("~/Desktop/TrabajoNGS-HPC/sleuth_table_lrt.RData")
+sleuth_significant_lrt<-load ("~/Desktop/TrabajoNGS-HPC/sleuth_significant_lrt.RData")
+sleuth_table_wt<-load ("~/Desktop/TrabajoNGS-HPC/sleuth_table_wt.RData")
 ```
 
 ### 4.6. Gene Ontology
 
-The enrichGO function of the ClusterProfiler R package was used to perform the Gene Ontology (GO) enrichment analysis for biological processes [cite]. The genes related to the gene transcripts with FDR \< 0.001 were selected. The gene universe consisted of the more than 60,000 genes that were identified in *Ensembl* [cite]. Moreover, in all the cases, we selected the GO terms with FDR \< 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term). Based on the FDR value, the top 20 GO terms were selected as the most enriched processes.
+The enrichGO function of the ClusterProfiler R package was used to perform the Gene Ontology (GO) enrichment analysis for biological processes [cite], before this an extraction of the significant genes from our significant transcripts was performed. 
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
-sig_transcripts <- sapply(strsplit(sleuth_significant$target_id,"\\."),function(X) return(X[1]))
+#Remove the .(number) from the transcript id
+sig_transcripts <- sapply(strsplit(sleuth_significant_lrt$target_id,"\\."),function(X) return(X[1]))
 
-iij <- which(GeneTransciptLocation$ensembl_transcript_id %in% sig_transcripts)
-sig_genes <- GeneTransciptLocation$ensembl_gene_id[iij]
+#Look what rows of the GeneTranscriptLocation have information of our significant trnascripts
+iij <- which(GeneTranscriptLocation$ensembl_transcript_id %in% sig_transcripts)
 
-universe <- unique(GeneTransciptLocation$ensembl_gene_id)
+#Extract the genes corresponding to our transcripts
+sig_genes <- GeneTranscriptLocation$ensembl_gene_id[iij] #8031 significant genes 
+
+#Extract all the genes (universe) from GeneTranscriptLocation: 67,128 genes from the 258710 transcripts
+universe <- unique(GeneTranscriptLocation$ensembl_gene_id)
 ```
+
+Then gene ontology was performed with the *enrichGO* function. [OJO] -> The genes related to the gene transcripts with FDR < 0.01 were selected, that is, from the 8031 significant genes that we obtained we keep 4656 genes. The gene universe consisted of the 67,128 genes that were identified in *Ensembl*. So finally in database_enrichGO we obtained the GO terms that are related to the genes that significantly predict the difference in gene expression between normal and cancer samples.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 enrichGO <- clusterProfiler::enrichGO(gene = sig_genes, OrgDb = "org.Hs.eg.db",
@@ -1266,8 +1290,10 @@ enrichGO <- clusterProfiler::enrichGO(gene = sig_genes, OrgDb = "org.Hs.eg.db",
                                           qvalueCutoff = 0.05, minGSSize = 5, maxGSSize = 600,
                                           readable ='FALSE', pool = 'FALSE')	
 
-database_enrichgo <- data.frame(enrichGO)
+database_enrichgo <- data.frame(enrichGO) #enrichGO@result
 ```
+
+![**Figure 31.** EnrichGO database.](./images/database_enrichGO.png)
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 # We use simplify to remove redundant GO terms
@@ -1279,66 +1305,115 @@ enrichGO_simplified <- simplify(enrichGO, cutoff=0.7, by="p.adjust", select_fun=
 database_enrichGO_simplified <- data.frame(enrichGO_simplified)
 ```
 
-```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
-# Dotplots
+Moreover, in all the cases, we selected the GO terms with FDR < 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term). 
 
+
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
+
+enrichGO@result <- enrichGO@result[which(enrichGO@result$p.adjust < 0.05),]
+
+# We use simplify to remove redundant GO terms (those that are more than 70% similar)
+enrichGO_simplified <- simplify(enrichGO, cutoff=0.7, by="p.adjust", select_fun=min)
+
+database_enrichGO_simplified <- data.frame(enrichGO_simplified)
+```
+
+![**Figure 32.** EnrichGO simplified database.](./images/database_enrichGO_simplified.png)
+
+Based on the FDR value, the top 20 GO terms were selected as the most enriched processes, which are now represented in a dotplot.
+In the gene ratio the % of the genes that have a specific function can be seen, moreover the count represents the nu,ber of reported genes for that function and the gene ration is the count/universe_genes.
+
+
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+# Dotplot
 dotplot_enrichGO_simplified <- enrichplot::dotplot(enrichGO_simplified, showCategory = 20) + ggtitle("Dotplot")
-dotplot_enrichGO_simplified
+```
 
+![**Figure 33.** Dotplot.](./images/Dotplot.png)
 
-# Enrichment Maps
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+ #Enrichment Maps (estos mapas los borraba)
 
-emapplot_enrichGO_simplified <- emapplot(enrichGO_simplified) + theme(plot.title = element_text(hjust = 0.5)) + ggtitle("Enrichment Map")
-emapplot_enrichGO_simplified
+#library(enrichplot)
+#library(ggnewscale)
+#x2 <- pairwise_termsim(enrichGO_simplified)
+#emapplot_enrichGO_simplified <- emapplot(x2) + theme(plot.title = element_text(hjust = 0.5)) + ggtitle("Enrichment Map")
+#emapplot_enrichGO_simplified
 
 
 # Other plots
 
-cnetplot(enrichGO_simplified)
+#cnetplot(enrichGO_simplified)
 ```
 
-As our project is based on a scientific article that was published in 2013, we decided to compare some of the genes that were obtained in our analysis with the ones reported by the researchers. To do that, first of all, we had to change the ID of the genes in order to match the names with the ones that appear on the paper. We were most interested in the comparison between the genes related to the chromosome segregation function that appeared in the GO enrichment analysis (<GO:0007059>) with the genes that the paper mentioned are related to the same function (*STAG2* and *ESPL1*). As a result, we could see that both of them were included in our results, which is completely logical.
+As our project is based on a scientific article that was published in 2013, we decided to compare some of the genes that were obtained in our analysis with the ones reported by the researchers. We were most interested in seeing if the genes related to the chromosome seggregation that the paper mentioned (*STAG2* and *ESPL1*), were actually found in the list of genes related to that function (GO:0007059) that we obtained in the enrichment analysis.
+As a result, we could see that both of them were included in our results, which is completely logical.
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+#change the ENSEMBL ID of the significant genes to the SYMBOL GENE ID in order to match the names with the ones that appear on the paper. 
 sig_genes_symbol_ens <- ensembldb::select(EnsDb.Hsapiens.v79, keys = sig_genes, keytype = "GENEID", columns = c("SYMBOL","GENEID"))
 sig_genes_symbol <- sig_genes_symbol_ens[,1]
 
-genes_paper_RNA <- c("STAG2","ESPL1","FGFR3","TACC3") #genes que aparecen en el abstract. STAG2 y ESPL1 están relacionados con la función de "sister chromatid cohesion and segregation"
-genes_conocidos <- c("TP53", "HRAS", "FGFR3", "PIK3CA", "RB1", "KRAS", "TSC1") 
-chrom_rem_genes <- c("UTX", "ARID1A", "MLL-MLL3", "CREBBP-EP300", "NCOR1", "CHD6")
+genes_paper_RNA <- c("STAG2","ESPL1","FGFR3","TACC3") #genes that appear in the abstract. STAG2 and ESPL1 are the interesting ones (related with sister chromatid cohesion and segregation )
+```
 
-database_enrichGO_simplified["GO:0007059","geneID"] #hay que eliminar las barras diagonales para tener un vector con los nombres de los genes
+We searched manually for the chromosome seggregation function in the *enrichGOsimplified* database.
 
-#PAra el variant calling debe haber mutaciones en los genes: UTX, MLL-MLL3, CREBBP-EP300, NCOR1,ARID1A, CHD6 (estos genes son los que se han descubierto)
-#-Otros genes conocidos que estan mutados en bladder cancer: TP53, HRAS, FGFR3, PIK3CA, RB1, KARS, TSC1
+![**Figure 34.** Chromosome segregation function.](./images/GO_chromosome_seggregation.png)
 
-which(genes_conocidos %in% sig_genes_symbol) #KRAS y HRAS
-which(chrom_rem_genes %in% sig_genes_symbol) #NCOR1
 
-## Hace falta comparar con la lista del choromosome segregation
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
+#Now we need to compare the genes found in the paper with the genes related to chromosome seggregation: database_enrichGO_simp_genes["GO:0007059",]
 
 database_enrichGO_simp_genes <- data.frame(database_enrichGO_simplified$geneID)
 rownames(database_enrichGO_simp_genes) <- rownames(database_enrichGO_simplified)
 
 genes_go_chrom_seg <- strsplit(database_enrichGO_simp_genes["GO:0007059",],"\\/")[[1]]
-
 genes_go_chrom_seg_symbol_ens <- ensembldb::select(EnsDb.Hsapiens.v79, keys = genes_go_chrom_seg, keytype = "GENEID", columns = c("SYMBOL","GENEID"))
-genes_go_chrom_seg_symbol <- genes_go_symbol_ens[,1]
-
-table(genes_paper_RNA %in% genes_go_chrom_seg_symbol)
-which(genes_paper_RNA %in% genes_go_chrom_seg_symbol) #STAG2, ESPL1 y TACC3
 ```
 
-La parte de IGV
+![**Figure 35.** Genes related to the chromosome seggregation.](./images/genes_chromosome_seggregation.png)
 
-We were expecting to find also the FGFR3 gene, but we realized that the researchers from the scientific article analyzed the gene fusions, which is not related to the differential expression analysis that has been carried out. For this reason, another approach has been taken. We have used the following chunk of code to download the .bam and .bai files of the cancer sample number SRR645259 from subject B59. With these files, we have opened them in the IGV software. As we were expecting to find a gene fusion, we were expecting to find each of the mates from genes FGFR3 and TACC3. However, as can be seen in the image below (insertar captura de IGV), it cannot be seen what had initially been expected. For this reason, it has been decided to process the raw data of the corresponding sample using a different method.
+
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+
+genes_go_chrom_seg_symbol <- genes_go_chrom_seg_symbol_ens[,1] #only GENE IDs
+table(genes_paper_RNA %in% genes_go_chrom_seg_symbol) #1 FALSE, 3 TRUE
+
+#Therefore three of the four genes stated in the paper were found
+which(genes_paper_RNA %in% genes_go_chrom_seg_symbol) #STAG2, ESPL1 y TACC3 (not FGFR3)
+
+```
+
+Now we are also going to check other genes.
+
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+
+#For variant calling there must be mutations in the genes that are known to be mutated in bladder cancer: TP53, HRAS, FGFR3, PIK3CA, RB1, KARS, TSC1
+genes_conocidos <- c("TP53", "HRAS", "FGFR3", "PIK3CA", "RB1", "KRAS", "TSC1") 
+
+#For variant calling there must be mutations in the novel discovered genes: UTX, MLL-MLL3, CREBBP-EP300, NCOR1,ARID1A, CHD6 
+chrom_rem_genes <- c("UTX", "ARID1A", "MLL-MLL3", "CREBBP-EP300", "NCOR1", "CHD6")
+
+#The genes found in our sig_genes list (no pasa nada porque no salgan todos porque estamos trbajando con los samples de RNA y no de ADN)
+which(genes_conocidos %in% sig_genes_symbol) #KRAS y HRAS
+which(chrom_rem_genes %in% sig_genes_symbol) #NCOR1
+```
+
+*La parte de IGV*
+
+We were expecting to find also the FGFR3 gene (from the RNA genes list), but we realized that the researchers from the scientific article analyzed the gene fusions, which is not related to the differential expression analysis that has been carried out. For this reason, another approach has been taken. 
+We have used the following chunk of code to download the .bam and .bai files of the cancer sample number SRR645259 from subject B59. With these files, we have opened them in the IGV software. As we were expecting to find a gene fusion, we were expecting to find each of the mates from genes FGFR3 and TACC3.
+However, as can be seen in the image below, it cannot be seen what had initially been expected. For this reason, it has been decided to process the raw data of the corresponding sample using a different method.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 scp a905208@atlas-fdr.sw.ehu.es:/scratch/arubio/DNAseq/resultsBWA/noduplicatesbam/SRR645259_aligned.bam* E:/NGSFolder/FinalWork_NGS_HPC/FinalWork_NGS_HPC/IGV_sample
 ```
 
-La parte de STAR
+![**Figure 36.** IGV showing TACC3 and FGFR3.](./images/IGV.png)
+
+*La parte de STAR*
 
 First of all, the following .sh file has been created in order to get the required index.
 
@@ -1375,7 +1450,7 @@ cat SRR645259_1.fastq | head -n 1000000 > S1_R1.fq
 cat SRR645259_2.fastq | head -n 1000000 > S1_R2.fq
 ```
 
-Then, the following chunk of code has been executed from the command line.
+Then, the following chunk of code has been executed from the command line. 
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 STAR --runThreadN 3 --genomeDir /scratch/a905208/FinalWork/STAR/index --readFilesIn S1_R1.fq S1_R2.fq --outFileNamePrefix S1_test --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --outSAMattributes NH HI AS NM MD
@@ -1387,17 +1462,26 @@ Finally, to generate the .bai file from the .bam file that has been generated in
 samtools index S1_testAligned.sortedByCoord.out.bam
 ```
 
+Figure 37.** output STAR en IGV.]
+Figure 38.** seff STAR.]
+
 ### 4.7. PCA
 
-To separate all the samples in clusters based on the results of differential gene expression analysis we first performed a PCA selecting the 8198 differentially expressed transcripts (FDR \< 0.001). The correct separation between the sample groups confirms that the selected transcripts could be considered adequate to stratify the samples in the two groups. Moreover, the axes are ranked in order of importance, where differences along the first principal component axis (PC1) are more important than differences along with the second principal analysis (PC2).
+To separate all the samples in clusters based on the results of differential gene expression analysis we first performed a PCA selecting the 8198 differentially expressed transcripts (FDR < 0.001). The correct separation between the sample groups confirms that the selected transcripts could be considered adequate to stratify the samples in the two groups. Moreover, the axes are ranked in order of importance, where differences along the first principal component axis (PC1) are more important than differences along with the second principal analysis (PC2).
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
+
+#Remove .(number) from the transcript ID.
 rownames(RNASeq2) <- sapply(strsplit(rownames(RNASeq2), "\\."), function(X) X[1])
 
-RNASeq2_filtered <- RNASeq2[sig_transcripts,]
+#Keep only the significant trnanscripts in the trnanscrips vs samples data frame 
+RNASeq2_filtered <- RNASeq2[sig_transcripts,] #keep 8,198 transcripts of the original 199,169
 
-col.order <- s2c_ordered$sample
-RNASeq2_filt_ord <- RNASeq2_filtered[, col.order]
+#Order the column of "sample number"(SRR) from the sc2 data frame in ascending order according to the sample number
+col.order <- s2c_ordered$sample 
+
+#order the col names (sample numbers) of RNASeq2_filt_ord in ascending order
+RNASeq2_filt_ord <- RNASeq2_filtered[, col.order] 
 
 PCs <- prcomp(t(log2(1+RNASeq2_filt_ord)), center = T, retx = T)
 
@@ -1408,6 +1492,7 @@ data_PCA <- data.frame(samples = rownames(PCs$x),
                        PC2 = PCs$x[,2])
 ```
 
+
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 Fig_PCA <- ggplot(data_PCA) + geom_point(aes(x=PC1, y=PC2, color = type, size = 4)) + geom_label_repel(aes(x=PC1, y=PC2, label=ID)) +
   xlab('PC1') + ylab ('PC2') +
@@ -1415,12 +1500,16 @@ Fig_PCA <- ggplot(data_PCA) + geom_point(aes(x=PC1, y=PC2, color = type, size = 
 Fig_PCA
 ```
 
+![**Figure 39.** PCA plot.](./images/PCAplot.png)
+
 ### 4.8. Heatmap
 
-In order to visualize more clearly the expression pattern of the most significant transcripts, a heatmap has been plotted. In addition to showing both the sample and transcript IDs in the columns and rows respectively, they have been distributed using a hierarchical clustering algorithm, so that the samples or transcripts that show a more similar behavior are closer to each other.
+In order to visualize more clearly the expression pattern of the most significant transcripts, a heatmap has been plotted. In addition to showing both the sample and transcript IDs in the columns and rows respectively, they have been distributed using a hierarchical clustering algorithm, so that the samples or transcripts that show a more similar behavior are closer to each other. Additionally, it has been decided to plot just the 50 most significant transcripts in order to better appreciate the difference in expression pattern between the studied groups.
 
-```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+
 RNASeq2_filt_ord <- RNASeq2_filtered[, col.order]
+colnames(RNASeq2_filt_ord) <- s2c_ordered$sample_ID
 
 num_cancer <- length(which(s2c_ordered$sample_type=="Cancer"))
 num_normal <- length(which(s2c_ordered$sample_type=="Normal"))
@@ -1433,37 +1522,54 @@ heatmap_plot <- heatmap.2(x = log2(1+RNASeq2_filt_ord[1:50,]),
                        main="Normal vs Cancer",
                        margins = c(4,10)
 )
-legend(0.9,1.2, legend = c("Normal", "Cancer"),col = c("orange", "dark green"), lty= 1, lwd = 10, cex = 0.7)
+legend(0.8,1.1, legend = c("Normal", "Cancer"),col = c("orange", "dark green"), lty= 1, lwd = 10, cex = 0.7)
 ```
+
+![**Figure 40.** Heatmap.](./images/Heatmap.png)
 
 ### 4.9. Boxplot
 
-Next, we represent the gene expression values measured in TPMs of the top significant transcripts. To select the 10 most significant transcripts, those with a lower FDR value were chosen.
+Next, we represent the gene expression values measured in TPMs of the most significant transcripts. To select the 10 most significant transcripts, those with a lower FDR value were chosen.
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-sig_transcripts_sample <- data.frame(tran_name_1 = sapply(strsplit(sleuth_significant_lrt$target_id[1:10],"\\."),function(X) return(X[1])),
-                              tran_name_2 = sapply(strsplit(sleuth_significant_lrt$target_id[1:10],"\\."),function(X) return(X[2])))
+#separate the 10 most significant transcripts and separate the ENST32(...) from the .number 
+sig_transcripts_sample <- data.frame(
+  tran_name_1 = sapply(strsplit(sleuth_significant_lrt$target_id[1:10],"\\."),function(X) return(X[1])),
+  tran_name_2 = sapply(strsplit(sleuth_significant_lrt$target_id[1:10],"\\."),function(X) return(X[2]))
+  )
 
-iij_sample <- which(GeneTransciptLocation$ensembl_transcript_id %in% sig_transcripts_sample$tran_name_1)
-sig_genes_sample <- GeneTransciptLocation$ensembl_gene_id[iij_sample]
+#find which are the rows in GeneTranscriptLocation that coincide with our 10 most significant transcripts
+iij_sample <- which(GeneTranscriptLocation$ensembl_transcript_id %in% sig_transcripts_sample$tran_name_1)
 
-sig_trans_genes_sample <- GeneTransciptLocation[iij_sample, c(1,2)]
+#obtain the gene IDs corresponding to those 10 transcripts
+sig_genes_sample <- GeneTranscriptLocation$ensembl_gene_id[iij_sample]
+
+#put together Genes and transcripts
+sig_trans_genes_sample <- GeneTranscriptLocation[iij_sample, c(1,2)]
+
 colnames(sig_transcripts_sample)[1] <- "ensembl_transcript_id"
+
+#put together:  transcripts_ID, .(number), gene ID
 sig_df <- merge(sig_transcripts_sample, sig_trans_genes_sample, by = c("ensembl_transcript_id"))
 
+#obtain the gene symbols for the gene IDs and add it to sig_df
 sig_genes_symbol_ens_sample <- ensembldb::select(EnsDb.Hsapiens.v79, keys = sig_genes_sample, keytype = "GENEID", columns = c("SYMBOL","GENEID"))
 colnames(sig_genes_symbol_ens_sample)[2] <- colnames(sig_df)[3]
 sig_df <- merge(sig_df, sig_genes_symbol_ens_sample, by = c("ensembl_gene_id"))
 sig_df$SYMBOL_transcript_id <- paste0(sig_df$SYMBOL, "_", sig_df$tran_name_2)
+```
 
-RNASeq2_filt_ord_sample <- log2(1+RNASeq2_filt_ord[sig_transcripts_sample,])
 
-sig_df_bp <- sig_df[match(sig_transcripts_sample, sig_df$ensembl_transcript_id),]
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+RNASeq2_filt_ord_sample <- log2(1+RNASeq2_filt_ord[sig_transcripts_sample$ensembl_transcript_id,])
+
+sig_df_bp <- sig_df[match(sig_transcripts_sample$ensembl_transcript_id, sig_df$ensembl_transcript_id),]
 
 data_boxplot <- data.frame(transcripts = rep(sig_df_bp$SYMBOL_transcript_id, length(col.order)), sample_id = rep(col.order, each=length(sig_df_bp$SYMBOL_transcript_id)), sample_type = gl(2,length(sig_df_bp$SYMBOL_transcript_id)*num_normal,labels = c('Normal','Tumor')), values = as.vector(RNASeq2_filt_ord_sample))
 data_boxplot$transcripts = as.factor(data_boxplot$transcripts)
 ```
 
+![**Figure 41.** Boxplot data frame.](./images/data_boxplot.png)
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 Fig_boxplot <- ggplot(data = data_boxplot, aes(x = transcripts, y = values, fill = sample_type)) +
   geom_boxplot(width=0.5,position=position_dodge(width=0.5),outlier.shape = NA) +
@@ -1479,15 +1585,17 @@ Fig_boxplot <- ggplot(data = data_boxplot, aes(x = transcripts, y = values, fill
         panel.background = element_rect(colour = "black", size = 1),
         axis.ticks.x = element_blank(),
         legend.title = element_blank()) +
-  ggtitle('Gene expression of the 10 most significant transcripts')
+  ggtitle('Differential gene expression of the 10 most significant transcripts ')
 Fig_boxplot
 ```
 
+![**Figure 42.** Boxplot.](./images/Boxplot.png)
+
 ### 4.10. Volcano plot
 
-Differential expression analysis revealed that between the normal and malignant groups of patients, there are 879 transcripts altered with an FDR \< 0.01 and a beta \> \|3\|. Moreover, 141 of them belong to the overexpressed group (beta \> 3) whereas 738 of the isoforms are underexpressed (beta \< -3). The labelled transcripts are the ones whose expression was plotted through a boxplot in the previous image.
+Differential expression analysis revealed that between the normal and malignant groups of patients, there are 879 transcripts altered with an FDR < 0.01 and a beta > |3|. Moreover, 141 of them belong to the overexpressed group (beta > 3) whereas 738 of the isoforms are underexpressed (beta < -3). The labelled transcripts are the ones whose expression was plotted through a boxplot in the previous image. 
 
-```{r, eval = FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 transcripts <- sapply(strsplit(sleuth_table_wt$target_id,"\\."),function(X) return(X[1]))
 p_adjust <- sleuth_table_wt$qval
 beta <- sleuth_table_wt$b
@@ -1525,6 +1633,8 @@ Fig_volcano <- ggplot(data = volcano_df) + geom_point(aes(x = beta,
   geom_label_repel(aes(x = beta, y = pvalue, label = ifelse(lab != '', lab, '')))
 Fig_volcano
 ```
+
+![**Figure 43.** Volcano plot.](./images/Volcano plot.png)
 
 ## **5. CONCLUSIONS**
 
