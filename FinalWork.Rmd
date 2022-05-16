@@ -1339,15 +1339,7 @@ database_enrichgo <- data.frame(enrichGO) #enrichGO@result
 
 </center>
 
-```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
-# We use simplify to remove redundant GO terms
 
-enrichGO@result <- enrichGO@result[which(enrichGO@result$p.adjust < 0.05),]
-
-enrichGO_simplified <- simplify(enrichGO, cutoff=0.7, by="p.adjust", select_fun=min)
-
-database_enrichGO_simplified <- data.frame(enrichGO_simplified)
-```
 
 Moreover, in all the cases, we selected the GO terms with FDR \< 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term).
 
