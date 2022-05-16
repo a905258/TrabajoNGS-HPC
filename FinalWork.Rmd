@@ -1339,6 +1339,10 @@ database_enrichgo <- data.frame(enrichGO) #enrichGO@result
 
 </center>
 
+<<<<<<< HEAD
+=======
+:)
+>>>>>>> RNA2
 
 
 Moreover, in all the cases, we selected the GO terms with FDR \< 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term).
@@ -1655,6 +1659,7 @@ Fig_boxplot
 
 ### 4.10. Volcano plot
 
+:)
 Differential expression analysis revealed that between the normal and malignant groups of patients, there are 879 transcripts altered with an FDR \< 0.01 and a beta \> \|3\|. Moreover, 141 of them belong to the overexpressed group (beta \> 3) whereas 738 of the isoforms are underexpressed (beta \< -3). The labelled transcripts are the ones whose expression was plotted through a boxplot in the previous image.
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
