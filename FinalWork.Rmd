@@ -1289,21 +1289,19 @@ so <- sleuth_lrt(so,'reduced', 'full')
 # Statistical Analysis result from the “sleuth object”: 
 sleuth_table_lrt <- sleuth_results(so, 'reduced:full', 'lrt', show_all = FALSE) ##64681 transcripts
 sleuth_significant_lrt <- dplyr::filter(sleuth_table_lrt, qval <= 0.001) #filter by qval
-#the qvalue has been lowered from 0.05 to 0.001 because with 0.05 there were 45000 significant transcripts, 
-#finally with qval<=0.001 , 8198 transcripts  were kept.
-
+#the qvalue has been lowered from 0.05 to 0.001 because with 0.05 there were 45000 significant transcripts, with qval<=0.001 , 8198 transcripts  were kept.
 
 ```
 
 <center>
 
 ![**Figure 32.** Sleuth significant matrix.](./images/sleuth_significant.png){width="700"}
-<center>
+</center>
 
 However, as this method does not report the fold change, we also need to run the Wald test (WT), even though the former test is considered a better one. For most of the analyses and plots that will be carried out in this project the output corresponding to the LRT test will be used, employing the table generated with the WT test just to visualize the volcano plots.
 
-```{r}
-# We also perform the WT analysis 
+```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+#  WT analysis 
 so <- sleuth_wt(so, paste0('sample_typeCancer'))
 sleuth_table_wt <- sleuth_results(so, paste0('sample_typeCancer'))
 ```
@@ -1511,11 +1509,11 @@ wget ftp://ftp.ensembl.org/pub/release-106/gtf/homo_sapiens/Homo_sapiens.GRCh38.
 
 The seff of Star was:
 
-</center> 
 
-![**Figure 40.** Seff Star.](./images/SeffStar.png){width="700"}
 
-</center>
+*Figure 40.* Seff Star
+
+
 
 Once finished, the following two files (S1_R1.fq and S1_R2.fq) has been created.
 
