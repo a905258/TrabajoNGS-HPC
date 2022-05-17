@@ -1120,7 +1120,7 @@ This code was run in ATLAS PC in order to paralelize the job, at first 1 node an
 
 <center>
 
-![**Figure 26.** Efficiency of the process to do Kallisto.](images/seff%20Kallisto.png){width="511" height="240"}
+![**Figure 27.** Efficiency of the process to do Kallisto.](images/seff%20Kallisto.png){width="511" height="240"}
 
 <center>
 
@@ -1167,12 +1167,12 @@ mart <- biomaRt::useMart(host = 'may2021.archive.ensembl.org',
 #3164 attributes for each of the 258710 reported transcripts in the mart data frame, for example: cds coordinates, 5'UTR start, %GC content
 Atributos <- listAttributes(mart) 
 
-GeneTransciptLocation <- getBM(attributes=c("ensembl_gene_id","ensembl_transcript_id","chromosome_name","transcript_start","transcript_end"),mart=mart)
+GeneTranscriptLocation <- getBM(attributes=c("ensembl_gene_id","ensembl_transcript_id","chromosome_name","transcript_start","transcript_end"),mart=mart)
 ```
 
 <center>
 
-![**Figure 27.** Gene Transcript Location Sample.](./images/GeneTranscriptLocation.png){width="650"}
+![**Figure 28.** Gene Transcript Location Sample.](./images/GeneTranscriptLocation.png){width="650"}
 
 </center>
 
@@ -1203,7 +1203,7 @@ colnames(RNASeq2)<-sample_id
 
 <center>
 
-![**Figure 28.** Part of the RNASeq2 dataframe.](./images/muestra_de_RNAseq2.png){width="650"}
+![**Figure 29.** Part of the RNASeq2 dataframe.](./images/muestra_de_RNAseq2.png){width="650"}
 
 </center>
 
@@ -1219,7 +1219,7 @@ model_matrix <- model.matrix(~ sample_ID + sample_type, data = samples)
 
 <center>
 
-![**Figure 29.** Design matrix.](./images/modelmatrix.png)
+![**Figure 30.** Design matrix.](./images/modelmatrix.png)
 
 </center>
 
@@ -1234,7 +1234,6 @@ cont.matrix <- c(rep(0, ncol(model_matrix)-1), 1)
 ```
 
 ### 4.5. Sleuth
-:)
 
 After having run kallisto for each of the samples, a differential expression analysis will be carried out using sleuth. Sleuth is an RNA-Seq analysis program for which kallisto has been used to quatify transcript abundances (cite). First of all, we need to create a tab delimited metadata file for the experiment so we have the factors for each sample ID (header "sample"), the ID of the patients (header "sample_ID"), the type of the sample, that is, whether the sample is normal or malignant (header "sample_type"), and the file path (header "path") to the kallisto output for each sample.
 
@@ -1265,7 +1264,14 @@ s2c$sample_type <- relevel(as.factor(s2c$sample_type), "Normal")
 s2c_ordered <- s2c[with(s2c, order(sample_type)),]
 ```
 
-Then, we follow a series of steps in order to obtain the final table. For that, we first load the kallisto processed data into the object using the *sleuth_prep* function. Afterwards we estimate parameters for both the full and reduced sleuth model and we finally perform the differential analysis using the likelihood ratio test (LRT). However, as this method does not report the fold change, we also need to run the Wald test (WT), even though the former test is considered a better one. For most of the analyses and plots that will be carried out in this project the output corresponding to the LRT test will be used, employing the table generated with the WT test just to visualize the volcano plots.
+<center>
+
+![**Figure 31.** s2c ordered data frame.](./images/s2c_ordered.png)
+
+</center>
+
+
+Then, we follow a series of steps in order to obtain the final table. For that, we first load the kallisto processed data into the object using the *sleuth_prep* function. Afterwards we estimate parameters for both the full and reduced sleuth model and we finally perform the differential analysis using the likelihood ratio test (LRT). 
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 # Load the kallisto processed data into the object
@@ -1286,16 +1292,25 @@ sleuth_significant_lrt <- dplyr::filter(sleuth_table_lrt, qval <= 0.001) #filter
 #the qvalue has been lowered from 0.05 to 0.001 because with 0.05 there were 45000 significant transcripts, 
 #finally with qval<=0.001 , 8198 transcripts  were kept.
 
-# We also perform the WT analysis 
-so <- sleuth_wt(so, paste0('sample_typeCancer'))
-sleuth_table_wt <- sleuth_results(so, paste0('sample_typeCancer'))
 
 ```
 
 <center>
 
-![**Figure 30.** Sleuth significant matrix.](./images/sleuth_significant.png){width="700"}
+![**Figure 32.** Sleuth significant matrix.](./images/sleuth_significant.png){width="700"}
+<center>
 
+However, as this method does not report the fold change, we also need to run the Wald test (WT), even though the former test is considered a better one. For most of the analyses and plots that will be carried out in this project the output corresponding to the LRT test will be used, employing the table generated with the WT test just to visualize the volcano plots.
+
+```{r}
+# We also perform the WT analysis 
+so <- sleuth_wt(so, paste0('sample_typeCancer'))
+sleuth_table_wt <- sleuth_results(so, paste0('sample_typeCancer'))
+```
+
+<center>
+
+![**Figure 33.** Sleuth Wald matrix.](./images/sleuth_wt.png){width="700"}
 </center>
 
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
@@ -1310,7 +1325,7 @@ The enrichGO function of the ClusterProfiler R package was used to perform the G
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 #Remove the .(number) from the transcript id
-sig_transcripts <- sapply(strsplit(sleuth_significant_lrt$target_id,"\\."),function(X) return(X[1]))
+sig_transcripts <- sapply(strsplit(sleuth_significant$target_id,"\\."),function(X) return(X[1]))
 
 #Look what rows of the GeneTranscriptLocation have information of our significant trnascripts
 iij <- which(GeneTranscriptLocation$ensembl_transcript_id %in% sig_transcripts)
@@ -1318,11 +1333,12 @@ iij <- which(GeneTranscriptLocation$ensembl_transcript_id %in% sig_transcripts)
 #Extract the genes corresponding to our transcripts
 sig_genes <- GeneTranscriptLocation$ensembl_gene_id[iij] #8031 significant genes 
 
-#Extract all the genes (universe) from GeneTranscriptLocation: 67,128 genes from the 258710 transcripts
+#Extract all the genes (universe) from GeneTranscriptLocation: 67,128 genes from the 258710 anotated transcripts
 universe <- unique(GeneTranscriptLocation$ensembl_gene_id)
 ```
 
-Then gene ontology was performed with the *enrichGO* function. [OJO] -\> The genes related to the gene transcripts with FDR \< 0.01 were selected, that is, from the 8031 significant genes that we obtained we keep 4656 genes. The gene universe consisted of the 67,128 genes that were identified in *Ensembl*. So finally in database_enrichGO we obtained the GO terms that are related to the genes that significantly predict the difference in gene expression between normal and cancer samples.
+Then gene ontology was performed with the *enrichGO* function. The GO terms obtained represent in the data frame how many of our significant genes perform a specific function. It is seen in the gene ratio that instead of studying 8031 genes there are only 4656, which are the codifying genes of the list of significant genes. As an example we can see that from the universe (20967 codifying genes) there are 165 genes that have cytoplasmic traslation associated, therefore  from our 4656 genes we would expect that 36 actually have that funcion associated but actually there are 89, therefore this function is enriched.
+
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 enrichGO <- clusterProfiler::enrichGO(gene = sig_genes, OrgDb = "org.Hs.eg.db",
@@ -1336,17 +1352,14 @@ database_enrichgo <- data.frame(enrichGO) #enrichGO@result
 
 <center>
 
-![**Figure 31.** EnrichGO database.](./images/database_enrichGO.png){width="700"}
+![**Figure 34.** EnrichGO database.](./images/database_enrichGO.png){width="700"}
 
 </center>
 
-<<<<<<< HEAD
-=======
-:)
->>>>>>> RNA2
 
 
 Moreover, in all the cases, we selected the GO terms with FDR \< 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term).
+
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 
@@ -1360,11 +1373,11 @@ database_enrichGO_simplified <- data.frame(enrichGO_simplified)
 
 <center>
 
-![**Figure 32.** EnrichGO simplified database.](./images/database_enrichGO_simplified.png){width="700"}
+![**Figure 35.** EnrichGO simplified database.](./images/database_enrichGO_simplified.png){width="700"}
 
 </center>
 
-Based on the FDR value, the top 20 GO terms were selected as the most enriched processes, which are now represented in a dotplot. In the gene ratio the % of the genes that have a specific function can be seen, moreover the count represents the nu,ber of reported genes for that function and the gene ration is the count/universe_genes.
+Based on the FDR value,  20 GO terms that have more of our significant genes associated, this is represented in a  dotplot. In the gene ratio the % of significant genes/total number significant genes that have a specific function can be seen. The count represents the number of significant genes for that have that function. 
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 # Dotplot
@@ -1373,7 +1386,7 @@ dotplot_enrichGO_simplified <- enrichplot::dotplot(enrichGO_simplified, showCate
 
 <center>
 
-![**Figure 33.** Dotplot.](./images/Dotplot.png){width="700"}
+![**Figure 36.** Dotplot.](./images/Dotplot.png){width="700"}
 
 </center>
 
@@ -1406,7 +1419,7 @@ We searched manually for the chromosome seggregation function in the *enrichGOsi
 
 <center>
 
-![**Figure 34.** Chromosome segregation function.](./images/GO_chromosome_seggregation.png)
+![**Figure 37.** Chromosome segregation function.](./images/GO_chromosome_seggregation.png)
 
 </center>
 
@@ -1423,7 +1436,7 @@ genes_go_chrom_seg_symbol_ens <- ensembldb::select(EnsDb.Hsapiens.v79, keys = ge
 
 <center>
 
-![**Figure 35.** Genes related to the chromosome seggregation.](./images/genes_chromosome_seggregation.png){width="233"}
+![**Figure 38.** Genes related to the chromosome seggregation.](./images/genes_chromosome_seggregation.png){width="233"}
 
 </center>
 
@@ -1452,7 +1465,7 @@ which(genes_conocidos %in% sig_genes_symbol) #KRAS y HRAS
 which(chrom_rem_genes %in% sig_genes_symbol) #NCOR1
 ```
 
-*La parte de IGV*
+*IGV APPROACH*
 
 We were expecting to find also the FGFR3 gene (from the RNA genes list), but we realized that the researchers from the scientific article analyzed the gene fusions, which is not related to the differential expression analysis that has been carried out. For this reason, another approach has been taken. We have used the following chunk of code to download the .bam and .bai files of the cancer sample number SRR645259 from subject B59. With these files, we have opened them in the IGV software. As we were expecting to find a gene fusion, we were expecting to find each of the mates from genes FGFR3 and TACC3. However, as can be seen in the image below, it cannot be seen what had initially been expected. For this reason, it has been decided to process the raw data of the corresponding sample using a different method.
 
@@ -1462,11 +1475,11 @@ scp a905208@atlas-fdr.sw.ehu.es:/scratch/arubio/DNAseq/resultsBWA/noduplicatesba
 
 <center>
 
-![**Figure 36.** IGV showing TACC3 and FGFR3.](./images/IGV.png)
+![**Figure 39.** IGV showing TACC3 and FGFR3.](./images/IGV.png)
 
 </center>
 
-*La parte de STAR*
+*STAR APPROACH*
 
 First of all, the following .sh file has been created in order to get the required index.
 
@@ -1496,6 +1509,14 @@ For this, it has been necessary to download the *Homo_sapiens.GRCh38.106.gtf.gz*
 wget ftp://ftp.ensembl.org/pub/release-106/gtf/homo_sapiens/Homo_sapiens.GRCh38.106.gtf.gz
 ```
 
+The seff of Star was:
+
+</center> 
+
+![**Figure 40.** Seff Star.](./images/SeffStar.png){width="700"}
+
+</center>
+
 Once finished, the following two files (S1_R1.fq and S1_R2.fq) has been created.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
@@ -1515,7 +1536,13 @@ Finally, to generate the .bai file from the .bam file that has been generated in
 samtools index S1_testAligned.sortedByCoord.out.bam
 ```
 
-Figure 37.\*\* output STAR en IGV.] Figure 38.\*\* seff STAR.]
+
+<center>
+
+![**Figure 41.** IG visualization in STAR.](./images/IGV_STAR.png){width="700"}
+
+</center>
+
 
 ### 4.7. PCA
 
@@ -1553,7 +1580,7 @@ Fig_PCA
 
 <center>
 
-![**Figure 39.** PCA plot.](./images/PCAplot.png){width="650"}
+![**Figure 42.** PCA plot.](./images/PCAplot.png){width="650"}
 
 </center>
 
@@ -1582,7 +1609,7 @@ legend(0.8,1.1, legend = c("Normal", "Cancer"),col = c("orange", "dark green"), 
 
 <center>
 
-![**Figure 40.** Heatmap.](./images/Heatmap.png){width="700"}
+![**Figure 43.** Heatmap.](./images/Heatmap.png){width="700"}
 
 </center>
 
@@ -1629,7 +1656,7 @@ data_boxplot$transcripts = as.factor(data_boxplot$transcripts)
 
 <center>
 
-![**Figure 41.** Boxplot data frame.](./images/data_boxplot.png){width="600"}
+![**Figure 44.** Boxplot data frame.](./images/data_boxplot.png){width="600"}
 
 </center>
 
@@ -1654,13 +1681,12 @@ Fig_boxplot
 
 <center>
 
-![**Figure 42.** Boxplot.](./images/Boxplot.png){width="700"}
+![**Figure 45.** Boxplot.](./images/Boxplot.png){width="700"}
 
 </center>
 
 ### 4.10. Volcano plot
 
-:)
 Differential expression analysis revealed that between the normal and malignant groups of patients, there are 879 transcripts altered with an FDR \< 0.01 and a beta \> \|3\|. Moreover, 141 of them belong to the overexpressed group (beta \> 3) whereas 738 of the isoforms are underexpressed (beta \< -3). The labelled transcripts are the ones whose expression was plotted through a boxplot in the previous image.
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
@@ -1704,7 +1730,7 @@ Fig_volcano
 
 <center>
 
-![**Figure 43.** Volcano plot.](./images/Volcano%20plot.png)
+![**Figure 46.** Volcano plot.](./images/Volcano%20plot.png)
 
 </center>
 
