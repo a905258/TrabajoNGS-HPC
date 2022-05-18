@@ -21,7 +21,7 @@ Bladder cancer is one of the most common disorders worldwide, with more than 573
 
 In this work, we have based on the scientific paper published by Guo G. et al. [@guo2013whole], where the researchers have performed a genomic analysis of TCC by both whole-genome and whole-exome sequencing in order to not only confirm existing mutations that are documented in the literature but also to identify additional genes and pathways that play a key role in this disease. For this, we have performed both a DNA-Seq and an RNA-Seq analysis to try to replicate some of the results obtained in the paper.
 
-</center>
+<center>
 
 ![**Figure 0:** Bladder Cancer.](images/BladderCancer.png){width="511"}
 
@@ -1517,12 +1517,10 @@ wget ftp://ftp.ensembl.org/pub/release-106/gtf/homo_sapiens/Homo_sapiens.GRCh38.
 
 The seff of Star was:
 
-
-
-
-*Figure 40.* Seff Star
+</center>
 
 ![**Figure 40.** Seff Star.](./images/Seff_STAR.png){width="700"}
+<center>
 
 Then, the following chunk of code has been executed from the command line.
 
