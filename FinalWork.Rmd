@@ -1511,19 +1511,33 @@ For this, it has been necessary to download the *Homo_sapiens.GRCh38.106.gtf.gz*
 wget ftp://ftp.ensembl.org/pub/release-106/gtf/homo_sapiens/Homo_sapiens.GRCh38.106.gtf.gz
 ```
 
-The seff of Star was:
+Then, the following sbatch has been executed to perform the STAR alignment.
+
+```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
+#!/bin/bash
+ 
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=1
+#SBATCH --nodes=1
+#SBATCH --mem=100G
+#SBATCH --time=05:00:00
+ 
+cd /scratch/arubio/bin
+. moduleloadNGS
+ 
+cd /scratch/a905208/FinalWork/STAR_new
+ 
+STAR --runThreadN 3 --genomeDir /scratch/a905208/FinalWork/STAR/index --readFilesIn /scratch/a905208/FinalWork/fastq/SRR645259_1.fastq /scratch/a905208/FinalWork/faºstq/SRR645259_2.fastq --outFileNamePrefix S1_test --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --outSAMattributes NH HI AS NM MD
+```
+
+The seff of STAR was:
 
 <center>
 
 ![**Figure 40.** Seff Star.](./images/Seff_STAR.png){width="700"}
 
 </center>
-
-Then, the following chunk of code has been executed from the command line.
-
-```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
-STAR --runThreadN 3 --genomeDir /scratch/a905208/FinalWork/STAR/index --readFilesIn /scratch/a905208/FinalWork/fastq/SRR645259_1.fastq /scratch/a905208/FinalWork/fastq/SRR645259_2.fastq --outFileNamePrefix S1_test --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --outSAMattributes NH HI AS NM MD
-```
 
 Finally, to generate the .bai file from the .bam file that has been generated in the previous step, the following code has been run.
 
