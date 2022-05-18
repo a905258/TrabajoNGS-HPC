@@ -21,7 +21,11 @@ Bladder cancer is one of the most common disorders worldwide, with more than 573
 
 In this work, we have based on the scientific paper published by Guo G. et al. [@guo2013whole], where the researchers have performed a genomic analysis of TCC by both whole-genome and whole-exome sequencing in order to not only confirm existing mutations that are documented in the literature but also to identify additional genes and pathways that play a key role in this disease. For this, we have performed both a DNA-Seq and an RNA-Seq analysis to try to replicate some of the results obtained in the paper.
 
-**FOTO**
+</center>
+
+![**Figure 0:** Bladder Cancer.](images/BladderCancer.png){width="511"}
+
+</center>
 
 ## **1. SAMPLES PREPARATION**
 
@@ -328,15 +332,15 @@ Initially, we started by recalibrating a single sample, but multiple errors occu
 
 Due to the fact that it was possible to recalibrate a single sample, it was thought that a job-array could be sent with the rest of the samples, but the lack of space prevented a final result in all the attempts made. Therefore, we started to obtain the files manually and one by one, but taking into account that this process was not efficient and that we reached a situation in which there was no space left on the disk, we decided to stop the process here and went directly to the next section.
 
-### 2.6. Ensemble and Maftools
+### 2.6. Ensembl and Maftools
 
 After deciding not to continue with the recalibrations and therefore not obtaining the final vcf, we proceeded to continue with the study using the vcf generated in section 2.3. Specifically, the next step consisted of using the Ensembl Variant Effect Predictor [(VEP)](https://www.ensembl.org/info/docs/tools/vep/index.html) tool to determine the effect of the variants obtained in the genes, transcripts and protein sequence, as well as in the regulatory regions. Specifically, the web interface that allows access to the main functions of the VEP without the need to use the command line was used. 
 
-It should be noted that when submitting the samples it was necessary to analyse the size of each of the files because Ensemble only accepts files smaller than 50 MB. Therefore, a filtering of the samples that exceeded this size was made and in addition, as this process was not possible to be parallelize, each student uploaded two samples of normal .vcf files in order to be annotated. As this website is free of charge, the speed was not outstanding and took around five hours of runtime for each sample to be annotated. The distribution of samples can be seen on the table beneath.
+It should be noted that when submitting the samples it was necessary to analyse the size of each of the files because Ensembl only accepts files smaller than 50 MB. Therefore, a filtering of the samples that exceeded this size was made and in addition, as this process was not possible to be parallelize, each student uploaded two samples of normal .vcf files in order to be annotated. As this website is free of charge, the speed was not outstanding and took around five hours of runtime for each sample to be annotated. The distribution of samples can be seen on the table beneath.
 
 <center>
 
-![**Figure 8:** Samples uploaded to Ensemble.](images/samples%20ensemble.png){width="397"}
+![**Figure 8:** Samples uploaded to Ensembl.](images/samples%20ensemble.png){width="397"}
 
 </center>
 
@@ -1079,6 +1083,8 @@ bash /scratch/a905383/CNV/igv_file/formater.sbs "/scratch/a905383/CNV/counts/"$f
 
 ## **4. RNA**
 
+In this part, we are going to explain in detail the pipeline that has been followed to perform the RNA-Seq analysis. Figure 26 below shows a brief summary of the process.
+
 <center>
 
 ![**Figure 26.** RNAseq pipeline.](./images/RNAseq_pipeline.png){width="545"}
@@ -1087,7 +1093,7 @@ bash /scratch/a905383/CNV/igv_file/formater.sbs "/scratch/a905383/CNV/counts/"$f
 
 ### 4.1. Kallisto
 
-In this step all FASTQC files from patients in the study were alligned against the reference human transcriptome. The objective here is to obtain a .bam file from each alligment.Here the code used for kallisto alligment is shown:
+In this step all FASTQC files from patients in the study were aligned against the reference human transcriptome. The objective here is to obtain a *.bam* file from each aligment.Here the code used for *Kallisto* [@bray2016near] aligment is shown:
 
 ```{r, eval = FALSE, message=FALSE, warning=FALSE}
 
@@ -1116,7 +1122,7 @@ chmod 770 /scratch/a905162/ngs/KallistoMaps/${filename}
 kallisto quant -i /scratch/arubio/GenomicFiles/kallisto_Assignment_index.idx -o /scratch/a905162/ngs/KallistoMaps/$filename -b 25 -t $SLURM_CPUS_PER_TASK -g /
 ```
 
-This code was run in ATLAS PC in order to paralelize the job, at first 1 node and 16G of RAM were used but the job efficiency was 23.12%. In order to have a better usage of ATLAS resources, the job was sent again but only using 4G of RAM memory. Finally the efficiency reached has been represented in Figure 26.
+This code was run in ATLAS PC in order to paralelize the job, at first 1 node and 16G of RAM were used but the job efficiency was 23.12%. In order to have a better usage of ATLAS resources, the job was sent again but only using 4G of RAM memory. Finally the efficiency reached has been represented in Figure 27.
 
 <center>
 
@@ -1155,7 +1161,7 @@ samples$sample_ID <- sapply(strsplit(samples$sample_name, "\\.|_"), function(X) 
 samples$sample_type <- sapply(strsplit(samples$sample_name, "\\.|_"), function(X) X[2]) #selects part after the underscore 
 ```
 
-Finally, in order to relate the different transcripts with their corresponding genes, the following chunk of code shows the information that has been downloaded from *Ensembl* (citar), where we have the gene ID, the transcript ID, the chromosome name, and both the start and end of the transcript. However, we will only use the first two variables.
+Finally, in order to relate the different transcripts with their corresponding genes, the following chunk of code shows the information that has been downloaded from *Ensembl* [@cunningham2022ensembl], where we have the gene ID, the transcript ID, the chromosome name, and both the start and end of the transcript. However, we will only use the first two variables.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 # Annotation: Get all the transcripts, genes, go_id and domains
@@ -1235,7 +1241,7 @@ cont.matrix <- c(rep(0, ncol(model_matrix)-1), 1)
 
 ### 4.5. Sleuth
 
-After having run kallisto for each of the samples, a differential expression analysis will be carried out using sleuth. Sleuth is an RNA-Seq analysis program for which kallisto has been used to quatify transcript abundances (cite). First of all, we need to create a tab delimited metadata file for the experiment so we have the factors for each sample ID (header "sample"), the ID of the patients (header "sample_ID"), the type of the sample, that is, whether the sample is normal or malignant (header "sample_type"), and the file path (header "path") to the kallisto output for each sample.
+After having run kallisto for each of the samples, a differential expression analysis will be carried out using sleuth. Sleuth is an RNA-Seq analysis program for which kallisto has been used to quatify transcript abundances [@pachter2017sleuth]. First of all, we need to create a tab delimited metadata file for the experiment so we have the factors for each sample ID (header "sample"), the ID of the patients (header "sample_ID"), the type of the sample, that is, whether the sample is normal or malignant (header "sample_type"), and the file path (header "path") to the kallisto output for each sample.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 #Keep only the RNA samples from the samples ADI file 
@@ -1319,7 +1325,7 @@ sleuth_table_wt<-load ("~/Desktop/TrabajoNGS-HPC/sleuth_table_wt.RData")
 
 ### 4.6. Gene Ontology
 
-The enrichGO function of the ClusterProfiler R package was used to perform the Gene Ontology (GO) enrichment analysis for biological processes [cite], before this an extraction of the significant genes from our significant transcripts was performed.
+The enrichGO function of the ClusterProfiler R package was used to perform the Gene Ontology (GO) enrichment analysis for biological processes [@yu2012clusterprofiler], before this an extraction of the significant genes from our significant transcripts was performed.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 #Remove the .(number) from the transcript id
@@ -1375,7 +1381,7 @@ database_enrichGO_simplified <- data.frame(enrichGO_simplified)
 
 </center>
 
-Based on the FDR value,  20 GO terms that have more of our significant genes associated, this is represented in a  dotplot. In the gene ratio the % of significant genes/total number significant genes that have a specific function can be seen. The count represents the number of significant genes for that have that function. 
+Based on the FDR value, 20 GO terms that have more of our significant genes associated, this is represented in a  dotplot. In the gene ratio the % of significant genes/total number significant genes that have a specific function can be seen. The count represents the number of significant genes for that have that function. 
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 # Dotplot
@@ -1413,7 +1419,7 @@ sig_genes_symbol <- sig_genes_symbol_ens[,1]
 genes_paper_RNA <- c("STAG2","ESPL1","FGFR3","TACC3") #genes that appear in the abstract. STAG2 and ESPL1 are the interesting ones (related with sister chromatid cohesion and segregation )
 ```
 
-We searched manually for the chromosome seggregation function in the *enrichGOsimplified* database.
+We searched manually for the chromosome segregation function in the *enrichGOsimplified* database.
 
 <center>
 
@@ -1463,6 +1469,8 @@ which(genes_conocidos %in% sig_genes_symbol) #KRAS y HRAS
 which(chrom_rem_genes %in% sig_genes_symbol) #NCOR1
 ```
 
+Additionally, we also wanted to compare some of the genes that were mentioned in the paper with our list of statistically significant genes. On the one hand, the used gene list corresponded to the ones that were previously well-known bladder cancer mutated genes. On the other, we have taken into account some chromatin-remodeling genes where frequent mutations were found. In both cases, as those genes have been discovered performing mutation analyses in bladder cancer, it is expected that when compared with the significant genes obtained in our differential gene expression study, they do not coincide.
+
 *IGV APPROACH*
 
 We were expecting to find also the FGFR3 gene (from the RNA genes list), but we realized that the researchers from the scientific article analyzed the gene fusions, which is not related to the differential expression analysis that has been carried out. For this reason, another approach has been taken. We have used the following chunk of code to download the .bam and .bai files of the cancer sample number SRR645259 from subject B59. With these files, we have opened them in the IGV software. As we were expecting to find a gene fusion, we were expecting to find each of the mates from genes FGFR3 and TACC3. However, as can be seen in the image below, it cannot be seen what had initially been expected. For this reason, it has been decided to process the raw data of the corresponding sample using a different method.
@@ -1511,21 +1519,15 @@ The seff of Star was:
 
 
 
+
 *Figure 40.* Seff Star
 
-
-
-Once finished, the following two files (S1_R1.fq and S1_R2.fq) has been created.
-
-```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
-cat SRR645259_1.fastq | head -n 1000000 > S1_R1.fq
-cat SRR645259_2.fastq | head -n 1000000 > S1_R2.fq
-```
+![**Figure 40.** Seff Star.](./images/Seff_STAR.png){width="700"}
 
 Then, the following chunk of code has been executed from the command line.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
-STAR --runThreadN 3 --genomeDir /scratch/a905208/FinalWork/STAR/index --readFilesIn S1_R1.fq S1_R2.fq --outFileNamePrefix S1_test --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --outSAMattributes NH HI AS NM MD
+STAR --runThreadN 3 --genomeDir /scratch/a905208/FinalWork/STAR/index --readFilesIn /scratch/a905208/FinalWork/fastq/SRR645259_1.fastq /scratch/a905208/FinalWork/fastq/SRR645259_2.fastq --outFileNamePrefix S1_test --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --outSAMattributes NH HI AS NM MD
 ```
 
 Finally, to generate the .bai file from the .bam file that has been generated in the previous step, the following code has been run.
@@ -1537,7 +1539,7 @@ samtools index S1_testAligned.sortedByCoord.out.bam
 
 <center>
 
-![**Figure 41.** IG visualization in STAR.](./images/IGV_STAR.png){width="700"}
+![**Figure 41.** IGV visualization in STAR.](./images/IGV_STAR.png){width="700"}
 
 </center>
 
@@ -1733,5 +1735,9 @@ Fig_volcano
 </center>
 
 ## **5. CONCLUSIONS**
+
+In conclusion, it can be said that this study has validated some of the results that were obtained by the researchers who published the scientific article that this project was based on.
+When it comes to the RNA-Seq study, it can be seen that the use of both Kallisto and Sleuth has provided a good approach for identifying differentially expressed transcripts between normal and malignant samples. In fact, the visualization tools that have been used throughout this section show not only that the obtained statistically significant transcripts can successfully separate the samples from the studied groups (PCA plot and Heatmap) but also that the difference in expression is indeed considerable (Boxplot and Volcano plot).
+
 
 ## **6. BIBLIOGRAPHY**
