@@ -23,7 +23,7 @@ In this work, we have based on the scientific paper published by Guo G. et al. [
 
 <center>
 
-![**Figure 0:** Bladder Cancer.](images/BladderCancer.png){width="511"}
+![**Figure 0:** Bladder Cancer.](images/BladderCancer.png){width="489"}
 
 </center>
 
@@ -79,20 +79,19 @@ Then, after having carried out the first step for both types of samples, the ana
 
 [MultiQC report of DNA samples](multiqc_report_DNA.html)
 
-Analysing the file generated for the DNA samples, it can be observed that in all samples there is a percentage of duplicates that has to be eliminated. On the other hand, analysing the GC content, it can be observed that it is almost the same in all samples, which is consistent, and this can be seen in the Per Sequence GC Content graph where each of the lines refers to a different sample. 
+Analysing the file generated for the DNA samples, it can be observed that in all samples there is a percentage of duplicates that has to be eliminated. On the other hand, analysing the GC content, it can be observed that it is almost the same in all samples, which is consistent, and this can be seen in the Per Sequence GC Content graph where each of the lines refers to a different sample.
 
-Furthermore, with regard to the number and the length of the reads, the vast majority have a length greater than 90 base pairs, and it should be noted that the number of reads in each of the samples is quite variable, ranging from 60.9 million to 90 million. 
+Furthermore, with regard to the number and the length of the reads, the vast majority have a length greater than 90 base pairs, and it should be noted that the number of reads in each of the samples is quite variable, ranging from 60.9 million to 90 million.
 
-Regarding the quality of the sequence, it can be observed that it decreases as the read length increases. That is, as the number of base pairs increases, the reliability of the results decreases, which is why multiple reads are used. 
+Regarding the quality of the sequence, it can be observed that it decreases as the read length increases. That is, as the number of base pairs increases, the reliability of the results decreases, which is why multiple reads are used.
 
 [MultiQC report of RNA samples](multiqc_report_RNA.html)
 
-Analysing the RNA samples, it can be seen at first glance that the percentage of duplicates is significantly higher and that the variability between samples is large. 
+Analysing the RNA samples, it can be seen at first glance that the percentage of duplicates is significantly higher and that the variability between samples is large.
 
 On the other hand, with regard to the GC content, it can be observed that the results are relatively similar and that the variability remains small. Furthermore, analysing the number of readings that each sample has, it can be observed that there is a great variability and also that the quantity is smaller.
 
 Finally, with regard to the quality of the sequencing, it can be observed that the trend is maintained, since as the number of base pairs increases, the quality decreases. However, it should be noted that in this case the quality is lower, as although the trend is maintained, the quality is lower.
-
 
 ## **2. DNA**
 
@@ -334,7 +333,7 @@ Due to the fact that it was possible to recalibrate a single sample, it was thou
 
 ### 2.6. Ensembl and Maftools
 
-After deciding not to continue with the recalibrations and therefore not obtaining the final vcf, we proceeded to continue with the study using the vcf generated in section 2.3. Specifically, the next step consisted of using the Ensembl Variant Effect Predictor [(VEP)](https://www.ensembl.org/info/docs/tools/vep/index.html) tool to determine the effect of the variants obtained in the genes, transcripts and protein sequence, as well as in the regulatory regions. Specifically, the web interface that allows access to the main functions of the VEP without the need to use the command line was used. 
+After deciding not to continue with the recalibrations and therefore not obtaining the final vcf, we proceeded to continue with the study using the vcf generated in section 2.3. Specifically, the next step consisted of using the Ensembl Variant Effect Predictor [(VEP)](https://www.ensembl.org/info/docs/tools/vep/index.html) tool to determine the effect of the variants obtained in the genes, transcripts and protein sequence, as well as in the regulatory regions. Specifically, the web interface that allows access to the main functions of the VEP without the need to use the command line was used.
 
 It should be noted that when submitting the samples it was necessary to analyse the size of each of the files because Ensembl only accepts files smaller than 50 MB. Therefore, a filtering of the samples that exceeded this size was made and in addition, as this process was not possible to be parallelize, each student uploaded two samples of normal .vcf files in order to be annotated. As this website is free of charge, the speed was not outstanding and took around five hours of runtime for each sample to be annotated. The distribution of samples can be seen on the table beneath.
 
@@ -1276,8 +1275,7 @@ s2c_ordered <- s2c[with(s2c, order(sample_type)),]
 
 </center>
 
-
-Then, we follow a series of steps in order to obtain the final table. For that, we first load the kallisto processed data into the object using the *sleuth_prep* function. Afterwards we estimate parameters for both the full and reduced sleuth model and we finally perform the differential analysis using the likelihood ratio test (LRT). 
+Then, we follow a series of steps in order to obtain the final table. For that, we first load the kallisto processed data into the object using the *sleuth_prep* function. Afterwards we estimate parameters for both the full and reduced sleuth model and we finally perform the differential analysis using the likelihood ratio test (LRT).
 
 ```{r, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 # Load the kallisto processed data into the object
@@ -1302,6 +1300,7 @@ sleuth_significant_lrt <- dplyr::filter(sleuth_table_lrt, qval <= 0.001) #filter
 <center>
 
 ![**Figure 32.** Sleuth significant matrix.](./images/sleuth_significant.png){width="700"}
+
 </center>
 
 However, as this method does not report the fold change, we also need to run the Wald test (WT), even though the former test is considered a better one. For most of the analyses and plots that will be carried out in this project the output corresponding to the LRT test will be used, employing the table generated with the WT test just to visualize the volcano plots.
@@ -1315,6 +1314,7 @@ sleuth_table_wt <- sleuth_results(so, paste0('sample_typeCancer'))
 <center>
 
 ![**Figure 33.** Sleuth Wald matrix.](./images/sleuth_wt.png){width="700"}
+
 </center>
 
 ```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
@@ -1341,8 +1341,7 @@ sig_genes <- GeneTranscriptLocation$ensembl_gene_id[iij] #8031 significant genes
 universe <- unique(GeneTranscriptLocation$ensembl_gene_id)
 ```
 
-Then gene ontology was performed with the *enrichGO* function. The GO terms obtained represent in the data frame how many of our significant genes perform a specific function. It is seen in the gene ratio that instead of studying 8031 genes there are only 4656, which are the codifying genes of the list of significant genes. As an example we can see that from the universe (20967 codifying genes) there are 165 genes that have cytoplasmic traslation associated, therefore  from our 4656 genes we would expect that 36 actually have that funcion associated but actually there are 89, therefore this function is enriched.
-
+Then gene ontology was performed with the *enrichGO* function. The GO terms obtained represent in the data frame how many of our significant genes perform a specific function. It is seen in the gene ratio that instead of studying 8031 genes there are only 4656, which are the codifying genes of the list of significant genes. As an example we can see that from the universe (20967 codifying genes) there are 165 genes that have cytoplasmic traslation associated, therefore from our 4656 genes we would expect that 36 actually have that funcion associated but actually there are 89, therefore this function is enriched.
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 enrichGO <- clusterProfiler::enrichGO(gene = sig_genes, OrgDb = "org.Hs.eg.db",
@@ -1360,10 +1359,7 @@ database_enrichgo <- data.frame(enrichGO) #enrichGO@result
 
 </center>
 
-
-
 Moreover, in all the cases, we selected the GO terms with FDR \< 0.05 and, among them, we used a cut-off value of 0.7 to reduce redundant GO terms, which means that out of the terms that have a similarity higher than 0.7 (redundant terms), only one of them will be selected (representative term).
-
 
 ```{r, eval=FALSE, echo=TRUE, message = FALSE, warning=FALSE}
 
@@ -1381,7 +1377,7 @@ database_enrichGO_simplified <- data.frame(enrichGO_simplified)
 
 </center>
 
-Based on the FDR value, 20 GO terms that have more of our significant genes associated, this is represented in a  dotplot. In the gene ratio the % of significant genes/total number significant genes that have a specific function can be seen. The count represents the number of significant genes for that have that function. 
+Based on the FDR value, 20 GO terms that have more of our significant genes associated, this is represented in a dotplot. In the gene ratio the % of significant genes/total number significant genes that have a specific function can be seen. The count represents the number of significant genes for that have that function.
 
 ```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 # Dotplot
@@ -1517,10 +1513,11 @@ wget ftp://ftp.ensembl.org/pub/release-106/gtf/homo_sapiens/Homo_sapiens.GRCh38.
 
 The seff of Star was:
 
-</center>
+<center>
 
 ![**Figure 40.** Seff Star.](./images/Seff_STAR.png){width="700"}
-<center>
+
+</center>
 
 Then, the following chunk of code has been executed from the command line.
 
@@ -1534,13 +1531,11 @@ Finally, to generate the .bai file from the .bam file that has been generated in
 samtools index S1_testAligned.sortedByCoord.out.bam
 ```
 
-
 <center>
 
 ![**Figure 41.** IGV visualization in STAR.](./images/IGV_STAR.png){width="700"}
 
 </center>
-
 
 ### 4.7. PCA
 
@@ -1734,8 +1729,10 @@ Fig_volcano
 
 ## **5. CONCLUSIONS**
 
-In conclusion, it can be said that this study has validated some of the results that were obtained by the researchers who published the scientific article that this project was based on.
-When it comes to the RNA-Seq study, it can be seen that the use of both Kallisto and Sleuth has provided a good approach for identifying differentially expressed transcripts between normal and malignant samples. In fact, the visualization tools that have been used throughout this section show not only that the obtained statistically significant transcripts can successfully separate the samples from the studied groups (PCA plot and Heatmap) but also that the difference in expression is indeed considerable (Boxplot and Volcano plot).
+In conclusion, it can be said that this study has validated some of the results that were obtained by the researchers who published the scientific article that this project was based on. 
 
+Regarding to DNA, the several space problems made it impossible to carry out all the steps required for the analysis, but the steps that were carried out were found to be correct. On the other hand, concerning the mutations, as only 8 samples were used, it is consistent that the results do not coincide with the scientific article. However, given this situation, an exhaustive analysis was carried out to discover the reasons why the results were so different, so it has been concluded that the DNA analysis was specific and correct. 
+
+When it comes to the RNA-Seq study, it can be seen that the use of both Kallisto and Sleuth has provided a good approach for identifying differentially expressed transcripts between normal and malignant samples. In fact, the visualization tools that have been used throughout this section show not only that the obtained statistically significant transcripts can successfully separate the samples from the studied groups (PCA plot and Heatmap) but also that the difference in expression is indeed considerable (Boxplot and Volcano plot).
 
 ## **6. BIBLIOGRAPHY**
