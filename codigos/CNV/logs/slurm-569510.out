@@ -1,0 +1,168 @@
+Cargando compiladores de Intel...
+Cargando librerias de compresion...
+
+The following have been reloaded with a version change:
+  1) GCCcore/10.3.0 => GCCcore/6.4.0
+  2) binutils/.2.36.1-GCCcore-10.3.0 => binutils/.2.28-GCCcore-6.4.0
+  3) zlib/.1.2.11-GCCcore-10.3.0 => zlib/.1.2.11-GCCcore-6.4.0
+
+Cargando IGV...
+Cargando R/3.6.2-intel-2019a...
+
+The following have been reloaded with a version change:
+  1) GCCcore/6.4.0 => GCCcore/8.2.0
+  2) GLib/.2.53.5-GCCcore-6.4.0 => GLib/.2.60.1-GCCcore-8.2.0
+  3) LibTIFF/.4.0.9-intel-2017b => LibTIFF/.4.0.10-GCCcore-8.2.0
+  4) NASM/2.13.01-GCCcore-6.4.0 => NASM/2.14.02-GCCcore-8.2.0
+  5) PCRE/.8.41-GCCcore-6.4.0 => PCRE/.8.43-GCCcore-8.2.0
+  6) XZ/.5.2.3-GCCcore-6.4.0 => XZ/.5.2.4-GCCcore-8.2.0
+  7) binutils/.2.28-GCCcore-6.4.0 => binutils/.2.31.1-GCCcore-8.2.0
+  8) bzip2/.1.0.6-GCCcore-6.4.0 => bzip2/.1.0.6-GCCcore-8.2.0
+  9) gettext/.0.19.8.1-GCCcore-6.4.0 => gettext/.0.19.8.1-GCCcore-8.2.0
+ 10) icc/2017.4.196-GCC-6.4.0-2.28 => icc/2019.1.144-GCC-8.2.0-2.31.1
+ 11) iccifort/2017.4.196-GCC-6.4.0-2.28 => iccifort/2019.1.144-GCC-8.2.0-2.31.1
+ 12) ifort/2017.4.196-GCC-6.4.0-2.28 => ifort/2019.1.144-GCC-8.2.0-2.31.1
+ 13) iimpi/2017b => iimpi/2019a
+ 14) imkl/2017.3.196-iimpi-2017b => imkl/2019.1.144-iimpi-2019a
+ 15) impi/2017.3.196-iccifort-2017.4.196-GCC-6.4.0-2.28 => impi/2018.4.274-iccifort-2019.1.144-GCC-8.2.0-2.31.1
+ 16) intel/2017b => intel/2019a
+ 17) libffi/.3.2.1-GCCcore-6.4.0 => libffi/.3.2.1-GCCcore-8.2.0
+ 18) libjpeg-turbo/1.5.2-GCCcore-6.4.0 => libjpeg-turbo/.2.0.2-GCCcore-8.2.0
+ 19) libpng/.1.6.32-GCCcore-6.4.0 => libpng/.1.6.36-GCCcore-8.2.0
+ 20) libxml2/.2.9.4-GCCcore-6.4.0 => libxml2/.2.9.8-GCCcore-8.2.0
+ 21) ncurses/.6.0-GCCcore-6.4.0 => ncurses/.6.1-GCCcore-8.2.0
+ 22) util-linux/.2.31-GCCcore-6.4.0 => util-linux/.2.33-GCCcore-8.2.0
+ 23) zlib/.1.2.11-GCCcore-6.4.0 => zlib/.1.2.11-GCCcore-8.2.0
+
+Cargando Java...
+Cargando paths: kallisto, hisat, fastqc, STAR, conda, multiqc, bwa, stringtie, picard, samtools, samblaster, gatk ...
+
+The following have been reloaded with a version change:
+  1) Java/11.0.2 => Java/1.8.0_181
+
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar CreateReadCountPanelOfNormals -I /scratch/a905383/CNV/counts/SRR645210.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645219.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645223.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645225.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645236.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645242.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645244.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645248.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645250.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645260.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645273.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645275.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645284.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645288.exome.counts.hdf5
+USAGE: CreateReadCountPanelOfNormals [arguments]
+
+Creates a panel of normals for read-count denoising given the read counts for samples in the panel
+Version:4.2.5.0
+
+
+Required Arguments:
+
+--input,-I <File>             Input TSV or HDF5 files containing integer read counts in genomic intervals for all
+                              samples in the panel of normals (output of CollectReadCounts).  Intervals must be
+                              identical and in the same order for all samples.  This argument must be specified at least
+                              once. Required. 
+
+--output,-O <File>            Output file for the panel of normals.  Required. 
+
+
+Optional Arguments:
+
+--annotated-intervals <File>  Input file containing annotations for GC content in genomic intervals (output of
+                              AnnotateIntervals).  If provided, explicit GC correction will be performed before
+                              performing SVD.  Intervals must be identical to and in the same order as those in the
+                              input read-counts files.  Default value: null. 
+
+--arguments_file <File>       read one or more arguments files and add them to the command line  This argument may be
+                              specified 0 or more times. Default value: null. 
+
+--conf <String>               Spark properties to set on the Spark context in the format <property>=<value>  This
+                              argument may be specified 0 or more times. Default value: null. 
+
+--do-impute-zeros <Boolean>   If true, impute zero-coverage values as the median of the non-zero values in the
+                              corresponding interval.  (This is applied after all filters.)  Default value: true.
+                              Possible values: {true, false} 
+
+--extreme-outlier-truncation-percentile <Double>
+                              Fractional coverages normalized by genomic-interval medians that are strictly below this
+                              percentile or strictly above the complementary percentile are set to the corresponding
+                              percentile value.  (This is applied after all filters and imputation.)  Default value:
+                              0.1. 
+
+--extreme-sample-median-percentile <Double>
+                              Samples with a median (across genomic intervals) of fractional coverage normalized by
+                              genomic-interval medians  strictly below this percentile or strictly above the
+                              complementary percentile are filtered out.  (This is the fourth filter applied.)  Default
+                              value: 2.5. 
+
+--gatk-config-file <String>   A configuration file to use with the GATK.  Default value: null. 
+
+--gcs-max-retries,-gcs-retries <Integer>
+                              If the GCS bucket channel errors out, how many times it will attempt to re-initiate the
+                              connection  Default value: 20. 
+
+--gcs-project-for-requester-pays <String>
+                              Project to bill when accessing "requester pays" buckets. If unset, these buckets cannot be
+                              accessed.  User must have storage.buckets.get permission on the bucket being accessed. 
+                              Default value: . 
+
+--help,-h <Boolean>           display the help message  Default value: false. Possible values: {true, false} 
+
+--maximum-zeros-in-interval-percentage <Double>
+                              Genomic intervals with a fraction of zero-coverage samples greater than or equal to this
+                              percentage are filtered out.  (This is the third filter applied.)  Default value: 5.0. 
+
+--maximum-zeros-in-sample-percentage <Double>
+                              Samples with a fraction of zero-coverage genomic intervals greater than or equal to this
+                              percentage are filtered out.  (This is the second filter applied.)  Default value: 5.0. 
+
+--minimum-interval-median-percentile <Double>
+                              Genomic intervals with a median (across samples) of fractional coverage (optionally
+                              corrected for GC bias) less than or equal to this percentile are filtered out.  (This is
+                              the first filter applied.)  Default value: 10.0. 
+
+--number-of-eigensamples <Integer>
+                              Number of eigensamples to use for truncated SVD and to store in the panel of normals.  The
+                              number of samples retained after filtering will be used instead if it is smaller than
+                              this.  Default value: 20. 
+
+--program-name <String>       Name of the program running  Default value: null. 
+
+--QUIET <Boolean>             Whether to suppress job-summary info on System.err.  Default value: false. Possible
+                              values: {true, false} 
+
+--spark-master <String>       URL of the Spark Master to submit jobs to when using the Spark pipeline runner.  Default
+                              value: local[*]. 
+
+--spark-verbosity <String>    Spark verbosity. Overrides --verbosity for Spark-generated logs only. Possible values:
+                              {ALL, DEBUG, INFO, WARN, ERROR, FATAL, OFF, TRACE}  Default value: null. 
+
+--tmp-dir <GATKPath>          Temp directory to use.  Default value: null. 
+
+--use-jdk-deflater,-jdk-deflater <Boolean>
+                              Whether to use the JdkDeflater (as opposed to IntelDeflater)  Default value: false.
+                              Possible values: {true, false} 
+
+--use-jdk-inflater,-jdk-inflater <Boolean>
+                              Whether to use the JdkInflater (as opposed to IntelInflater)  Default value: false.
+                              Possible values: {true, false} 
+
+--verbosity <LogLevel>        Control verbosity of logging.  Default value: INFO. Possible values: {ERROR, WARNING,
+                              INFO, DEBUG} 
+
+--version <Boolean>           display the version number for this tool  Default value: false. Possible values: {true,
+                              false} 
+
+
+Advanced Arguments:
+
+--maximum-chunk-size <Integer>Maximum HDF5 matrix chunk size.  Large matrices written to HDF5 are chunked into equally
+                              sized subsets of rows (plus a subset containing the remainder, if necessary) to avoid a
+                              hard limit in Java HDF5 on the number of elements in a matrix.  However, since a single
+                              row is not allowed to be split across multiple chunks, the number of columns must be less
+                              than the maximum number of values in each chunk.  Decreasing this number will reduce heap
+                              usage when writing chunks.  Default value: 16777215. 
+
+--showHidden <Boolean>        display hidden arguments  Default value: false. Possible values: {true, false} 
+
+
+***********************************************************************
+
+A USER ERROR has occurred: Argument output was missing: Argument 'output' is required
+
+***********************************************************************
+Set the system property GATK_STACKTRACE_ON_USER_EXCEPTION (--java-options '-DGATK_STACKTRACE_ON_USER_EXCEPTION=true') to print the stack trace.
+/var/spool/slurmd/job569510/slurm_script: line 38: --minimum-interval-median-percentile: command not found

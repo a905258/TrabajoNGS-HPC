@@ -1,0 +1,1078 @@
+Cargando compiladores de Intel...
+Cargando librerias de compresion...
+
+The following have been reloaded with a version change:
+  1) GCCcore/10.3.0 => GCCcore/6.4.0
+  2) binutils/.2.36.1-GCCcore-10.3.0 => binutils/.2.28-GCCcore-6.4.0
+  3) iimpi/2021a => iimpi/2017b
+  4) impi/2021.2.0-intel-compilers-2021.2.0 => impi/2017.3.196-iccifort-2017.4.196-GCC-6.4.0-2.28
+  5) zlib/.1.2.11-GCCcore-10.3.0 => zlib/.1.2.11-GCCcore-6.4.0
+
+Cargando IGV...
+Cargando R/3.6.2-intel-2019a...
+
+The following have been reloaded with a version change:
+  1) GCCcore/6.4.0 => GCCcore/8.2.0
+  2) GLib/.2.53.5-GCCcore-6.4.0 => GLib/.2.60.1-GCCcore-8.2.0
+  3) HDF5/1.10.7-iimpi-2021a => HDF5/1.10.5-iimpi-2019a
+  4) LibTIFF/.4.0.9-intel-2017b => LibTIFF/.4.0.10-GCCcore-8.2.0
+  5) NASM/2.13.01-GCCcore-6.4.0 => NASM/2.14.02-GCCcore-8.2.0
+  6) PCRE/.8.41-GCCcore-6.4.0 => PCRE/.8.43-GCCcore-8.2.0
+  7) Szip/.2.1.1-GCCcore-10.3.0 => Szip/.2.1.1-GCCcore-8.2.0
+  8) XZ/.5.2.3-GCCcore-6.4.0 => XZ/.5.2.4-GCCcore-8.2.0
+  9) binutils/.2.28-GCCcore-6.4.0 => binutils/.2.31.1-GCCcore-8.2.0
+ 10) bzip2/.1.0.6-GCCcore-6.4.0 => bzip2/.1.0.6-GCCcore-8.2.0
+ 11) gettext/.0.19.8.1-GCCcore-6.4.0 => gettext/.0.19.8.1-GCCcore-8.2.0
+ 12) icc/2017.4.196-GCC-6.4.0-2.28 => icc/2019.1.144-GCC-8.2.0-2.31.1
+ 13) iccifort/2017.4.196-GCC-6.4.0-2.28 => iccifort/2019.1.144-GCC-8.2.0-2.31.1
+ 14) ifort/2017.4.196-GCC-6.4.0-2.28 => ifort/2019.1.144-GCC-8.2.0-2.31.1
+ 15) iimpi/2017b => iimpi/2019a
+ 16) imkl/2017.3.196-iimpi-2017b => imkl/2019.1.144-iimpi-2019a
+ 17) impi/2017.3.196-iccifort-2017.4.196-GCC-6.4.0-2.28 => impi/2018.4.274-iccifort-2019.1.144-GCC-8.2.0-2.31.1
+ 18) intel/2017b => intel/2019a
+ 19) libffi/.3.2.1-GCCcore-6.4.0 => libffi/.3.2.1-GCCcore-8.2.0
+ 20) libjpeg-turbo/1.5.2-GCCcore-6.4.0 => libjpeg-turbo/.2.0.2-GCCcore-8.2.0
+ 21) libpng/.1.6.32-GCCcore-6.4.0 => libpng/.1.6.36-GCCcore-8.2.0
+ 22) libxml2/.2.9.4-GCCcore-6.4.0 => libxml2/.2.9.8-GCCcore-8.2.0
+ 23) ncurses/.6.0-GCCcore-6.4.0 => ncurses/.6.1-GCCcore-8.2.0
+ 24) util-linux/.2.31-GCCcore-6.4.0 => util-linux/.2.33-GCCcore-8.2.0
+ 25) zlib/.1.2.11-GCCcore-6.4.0 => zlib/.1.2.11-GCCcore-8.2.0
+
+Cargando Java...
+Cargando paths: kallisto, hisat, fastqc, STAR, conda, multiqc, bwa, stringtie, picard, samtools, samblaster, gatk ...
+SRR645209
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645209.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645209.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645209_PlotDenoised
+11:23:28.215 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:23:28 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:23:28.736 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:23:28.737 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:23:28.737 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:23:28.738 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:23:28.739 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:23:28.739 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:23:28 AM CEST
+11:23:28.739 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:23:28.740 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:23:28.742 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:23:28.743 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:23:28.743 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:23:28.743 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:23:28.744 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:23:28.744 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:23:28.744 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:23:28.745 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:23:28.745 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:23:28.745 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:23:28.746 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:23:28.746 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:23:28.746 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:23:28.751 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:23:30.562 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:23:30.619 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645209.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:23:30.707 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645209.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:23:30.773 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:23:45.694 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:23:45.694 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:23:45 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.29 minutes.
+Runtime.totalMemory()=2076049408
+SRR645210
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645210.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645210.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645210_PlotDenoised
+11:23:51.076 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:23:51 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:23:51.505 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:23:51.506 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:23:51.506 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:23:51.507 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:23:51.507 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:23:51.508 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:23:50 AM CEST
+11:23:51.508 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:23:51.508 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:23:51.511 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:23:51.511 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:23:51.511 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:23:51.512 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:23:51.512 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:23:51.512 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:23:51.513 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:23:51.513 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:23:51.513 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:23:51.514 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:23:51.514 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:23:51.514 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:23:51.515 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:23:51.517 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:23:53.415 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:23:53.462 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645210.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:23:53.573 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645210.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:23:53.631 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:23:57.727 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:23:57.727 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:23:57 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645218
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645218.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645218.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645218_PlotDenoised
+11:24:03.093 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:24:03 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:24:03.506 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:24:03.507 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:24:03.507 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:24:03.508 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:24:03.508 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:24:03.509 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:24:02 AM CEST
+11:24:03.509 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:24:03.509 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:24:03.512 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:24:03.512 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:24:03.513 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:24:03.513 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:24:03.513 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:24:03.513 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:24:03.514 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:24:03.514 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:24:03.514 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:24:03.515 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:24:03.515 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:24:03.516 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:24:03.516 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:24:03.518 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:24:05.319 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:24:05.392 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645218.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:24:05.481 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645218.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:24:05.540 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:24:09.615 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:24:09.615 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:24:09 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645219
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645219.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645219.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645219_PlotDenoised
+11:24:15.047 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:24:15 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:24:15.519 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:24:15.520 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:24:15.520 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:24:15.521 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:24:15.522 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:24:15.522 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:24:14 AM CEST
+11:24:15.523 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:24:15.523 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:24:15.525 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:24:15.526 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:24:15.526 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:24:15.526 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:24:15.527 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:24:15.527 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:24:15.527 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:24:15.528 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:24:15.528 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:24:15.529 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:24:15.529 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:24:15.529 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:24:15.530 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:24:15.532 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:24:17.206 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:24:17.294 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645219.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:24:17.394 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645219.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:24:17.446 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:24:21.216 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:24:21.216 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:24:21 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.10 minutes.
+Runtime.totalMemory()=2076049408
+SRR645222
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645222.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645222.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645222_PlotDenoised
+11:24:26.690 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:24:27 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:24:27.177 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:24:27.178 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:24:27.179 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:24:27.179 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:24:27.179 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:24:27.180 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:24:26 AM CEST
+11:24:27.180 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:24:27.180 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:24:27.183 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:24:27.183 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:24:27.184 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:24:27.184 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:24:27.184 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:24:27.185 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:24:27.185 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:24:27.185 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:24:27.186 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:24:27.186 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:24:27.186 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:24:27.186 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:24:27.187 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:24:27.189 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:24:29.149 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:24:29.187 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645222.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:24:29.269 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645222.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:24:29.343 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:24:33.114 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:24:33.114 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:24:33 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645223
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645223.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645223.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645223_PlotDenoised
+11:24:38.564 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:24:38 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:24:39.021 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:24:39.021 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:24:39.022 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:24:39.022 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:24:39.023 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:24:39.023 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:24:38 AM CEST
+11:24:39.024 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:24:39.024 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:24:39.026 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:24:39.027 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:24:39.027 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:24:39.027 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:24:39.028 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:24:39.028 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:24:39.029 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:24:39.029 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:24:39.029 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:24:39.030 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:24:39.030 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:24:39.030 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:24:39.031 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:24:39.032 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:24:40.999 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:24:41.059 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645223.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:24:41.129 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645223.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:24:41.198 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:24:44.869 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:24:44.869 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:24:44 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645224
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645224.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645224.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645224_PlotDenoised
+11:24:50.467 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:24:50 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:24:50.896 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:24:50.897 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:24:50.898 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:24:50.898 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:24:50.899 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:24:50.900 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:24:50 AM CEST
+11:24:50.900 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:24:50.900 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:24:50.903 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:24:50.904 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:24:50.904 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:24:50.904 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:24:50.905 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:24:50.905 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:24:50.905 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:24:50.906 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:24:50.906 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:24:50.907 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:24:50.907 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:24:50.907 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:24:50.908 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:24:50.910 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:24:52.649 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:24:52.735 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645224.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:24:52.850 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645224.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:24:52.903 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:24:56.639 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:24:56.639 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:24:56 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.10 minutes.
+Runtime.totalMemory()=2076049408
+SRR645225
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645225.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645225.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645225_PlotDenoised
+11:25:02.059 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:25:02 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:25:02.504 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:25:02.505 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:25:02.505 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:25:02.506 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:25:02.506 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:25:02.507 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:25:01 AM CEST
+11:25:02.507 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:25:02.508 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:25:02.510 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:25:02.511 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:25:02.511 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:25:02.511 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:25:02.512 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:25:02.512 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:25:02.513 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:25:02.513 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:25:02.513 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:25:02.514 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:25:02.514 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:25:02.514 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:25:02.514 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:25:02.516 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:25:04.454 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:25:04.519 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645225.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:25:04.619 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645225.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:25:04.661 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:25:08.317 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:25:08.318 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:25:08 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645235
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645235.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645235.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645235_PlotDenoised
+11:25:13.737 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:25:14 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:25:14.190 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:25:14.191 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:25:14.191 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:25:14.191 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:25:14.192 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:25:14.193 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:25:13 AM CEST
+11:25:14.193 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:25:14.193 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:25:14.196 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:25:14.196 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:25:14.196 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:25:14.197 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:25:14.197 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:25:14.197 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:25:14.197 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:25:14.198 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:25:14.198 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:25:14.198 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:25:14.199 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:25:14.199 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:25:14.199 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:25:14.201 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:25:15.899 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:25:15.963 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645235.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:25:16.131 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645235.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:25:16.205 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:25:20.141 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:25:20.141 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:25:20 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645236
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645236.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645236.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645236_PlotDenoised
+11:25:25.554 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:25:25 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:25:26.007 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:25:26.008 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:25:26.009 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:25:26.009 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:25:26.010 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:25:26.010 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:25:25 AM CEST
+11:25:26.011 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:25:26.011 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:25:26.013 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:25:26.014 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:25:26.014 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:25:26.014 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:25:26.015 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:25:26.015 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:25:26.016 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:25:26.016 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:25:26.016 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:25:26.017 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:25:26.017 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:25:26.017 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:25:26.018 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:25:26.020 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:25:27.701 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:25:27.741 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645236.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:25:27.845 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645236.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:25:27.905 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:25:31.602 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:25:31.602 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:25:31 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.10 minutes.
+Runtime.totalMemory()=2076049408
+SRR645241
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645241.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645241.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645241_PlotDenoised
+11:25:37.157 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:25:37 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:25:37.602 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:25:37.603 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:25:37.603 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:25:37.604 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:25:37.604 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:25:37.605 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:25:37 AM CEST
+11:25:37.605 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:25:37.606 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:25:37.608 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:25:37.609 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:25:37.609 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:25:37.610 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:25:37.610 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:25:37.610 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:25:37.610 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:25:37.611 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:25:37.611 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:25:37.612 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:25:37.612 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:25:37.612 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:25:37.613 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:25:37.615 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:25:39.388 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:25:39.448 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645241.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:25:39.547 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645241.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:25:39.597 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:25:43.352 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:25:43.352 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:25:43 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645242
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645242.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645242.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645242_PlotDenoised
+11:25:48.948 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:25:49 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:25:49.382 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:25:49.383 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:25:49.383 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:25:49.384 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:25:49.385 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:25:49.385 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:25:48 AM CEST
+11:25:49.385 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:25:49.386 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:25:49.388 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:25:49.388 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:25:49.389 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:25:49.389 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:25:49.389 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:25:49.389 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:25:49.390 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:25:49.390 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:25:49.391 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:25:49.391 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:25:49.391 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:25:49.392 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:25:49.392 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:25:49.394 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:25:51.085 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:25:51.132 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645242.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:25:51.259 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645242.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:25:51.328 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:25:55.331 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:25:55.331 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:25:55 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645243
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645243.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645243.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645243_PlotDenoised
+11:26:00.971 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:26:01 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:26:01.461 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:26:01.462 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:26:01.463 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:26:01.463 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:26:01.464 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:26:01.464 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:26:00 AM CEST
+11:26:01.465 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:26:01.465 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:26:01.467 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:26:01.468 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:26:01.468 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:26:01.469 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:26:01.469 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:26:01.469 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:26:01.470 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:26:01.470 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:26:01.471 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:26:01.471 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:26:01.471 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:26:01.472 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:26:01.472 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:26:01.474 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:26:03.356 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:26:03.422 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645243.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:26:03.503 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645243.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:26:03.565 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:26:07.467 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:26:07.467 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:26:07 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645244
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645244.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645244.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645244_PlotDenoised
+11:26:13.119 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:26:13 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:26:13.574 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:26:13.575 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:26:13.575 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:26:13.576 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:26:13.576 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:26:13.577 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:26:12 AM CEST
+11:26:13.577 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:26:13.577 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:26:13.580 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:26:13.580 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:26:13.581 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:26:13.581 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:26:13.581 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:26:13.582 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:26:13.582 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:26:13.583 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:26:13.583 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:26:13.583 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:26:13.584 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:26:13.584 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:26:13.584 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:26:13.586 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:26:15.530 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:26:15.579 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645244.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:26:15.648 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645244.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:26:15.715 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:26:19.517 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:26:19.518 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:26:19 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645247
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645247.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645247.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645247_PlotDenoised
+11:26:25.175 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:26:25 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:26:25.657 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:26:25.658 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:26:25.658 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:26:25.659 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:26:25.659 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:26:25.660 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:26:25 AM CEST
+11:26:25.660 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:26:25.661 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:26:25.663 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:26:25.664 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:26:25.664 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:26:25.664 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:26:25.665 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:26:25.665 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:26:25.665 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:26:25.666 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:26:25.666 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:26:25.667 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:26:25.667 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:26:25.667 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:26:25.668 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:26:25.669 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:26:27.414 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:26:27.498 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645247.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:26:27.615 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645247.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:26:27.681 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:26:31.476 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:26:31.477 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:26:31 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645248
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645248.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645248.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645248_PlotDenoised
+11:26:37.167 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:26:37 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:26:37.643 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:26:37.644 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:26:37.644 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:26:37.645 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:26:37.645 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:26:37.646 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:26:37 AM CEST
+11:26:37.646 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:26:37.647 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:26:37.649 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:26:37.649 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:26:37.650 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:26:37.650 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:26:37.650 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:26:37.651 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:26:37.651 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:26:37.651 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:26:37.652 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:26:37.652 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:26:37.652 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:26:37.652 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:26:37.653 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:26:37.654 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:26:39.766 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:26:39.826 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645248.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:26:39.938 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645248.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:26:40.032 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:26:43.755 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:26:43.755 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:26:43 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645249
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645249.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645249.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645249_PlotDenoised
+11:26:49.292 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:26:49 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:26:49.736 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:26:49.737 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:26:49.737 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:26:49.738 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:26:49.738 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:26:49.739 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:26:49 AM CEST
+11:26:49.739 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:26:49.740 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:26:49.742 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:26:49.743 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:26:49.743 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:26:49.744 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:26:49.744 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:26:49.744 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:26:49.745 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:26:49.745 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:26:49.745 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:26:49.746 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:26:49.746 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:26:49.747 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:26:49.747 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:26:49.749 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:26:51.476 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:26:51.543 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645249.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:26:51.665 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645249.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:26:51.715 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:26:55.431 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:26:55.431 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:26:55 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.10 minutes.
+Runtime.totalMemory()=2076049408
+SRR645250
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645250.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645250.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645250_PlotDenoised
+11:27:01.326 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:27:01 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:27:01.776 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:27:01.777 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:27:01.778 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:27:01.778 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:27:01.779 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:27:01.779 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:27:01 AM CEST
+11:27:01.780 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:27:01.780 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:27:01.783 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:27:01.783 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:27:01.783 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:27:01.784 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:27:01.784 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:27:01.785 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:27:01.785 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:27:01.785 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:27:01.786 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:27:01.786 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:27:01.786 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:27:01.787 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:27:01.787 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:27:01.789 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:27:03.747 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:27:03.820 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645250.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:27:03.950 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645250.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:27:04.022 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:27:07.693 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:27:07.693 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:27:07 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645259
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645259.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645259.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645259_PlotDenoised
+11:27:13.479 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:27:13 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:27:13.918 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:27:13.919 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:27:13.920 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:27:13.920 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:27:13.921 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:27:13.921 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:27:13 AM CEST
+11:27:13.922 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:27:13.922 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:27:13.925 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:27:13.925 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:27:13.926 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:27:13.926 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:27:13.926 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:27:13.927 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:27:13.927 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:27:13.927 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:27:13.928 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:27:13.928 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:27:13.928 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:27:13.929 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:27:13.929 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:27:13.931 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:27:15.594 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:27:15.647 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645259.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:27:15.746 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645259.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:27:15.797 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:27:20.515 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:27:20.515 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:27:20 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.12 minutes.
+Runtime.totalMemory()=2076049408
+SRR645260
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645260.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645260.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645260_PlotDenoised
+11:27:26.177 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:27:26 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:27:26.601 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:27:26.602 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:27:26.603 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:27:26.603 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:27:26.604 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:27:26.604 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:27:26 AM CEST
+11:27:26.605 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:27:26.605 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:27:26.608 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:27:26.609 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:27:26.609 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:27:26.609 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:27:26.610 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:27:26.610 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:27:26.611 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:27:26.611 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:27:26.611 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:27:26.612 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:27:26.612 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:27:26.612 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:27:26.613 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:27:26.614 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:27:28.456 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:27:28.501 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645260.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:27:28.600 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645260.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:27:28.661 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:27:32.401 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:27:32.402 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:27:32 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645272
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645272.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645272.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645272_PlotDenoised
+11:27:38.265 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:27:38 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:27:38.734 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:27:38.735 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:27:38.735 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:27:38.736 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:27:38.737 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:27:38.737 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:27:38 AM CEST
+11:27:38.737 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:27:38.738 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:27:38.740 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:27:38.741 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:27:38.741 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:27:38.741 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:27:38.742 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:27:38.742 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:27:38.742 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:27:38.743 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:27:38.743 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:27:38.743 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:27:38.744 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:27:38.744 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:27:38.745 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:27:38.746 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:27:40.528 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:27:40.587 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645272.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:27:40.664 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645272.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:27:40.725 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:27:44.449 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:27:44.449 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:27:44 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645273
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645273.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645273.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645273_PlotDenoised
+11:27:49.946 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:27:50 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:27:50.405 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:27:50.406 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:27:50.406 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:27:50.407 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:27:50.407 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:27:50.408 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:27:49 AM CEST
+11:27:50.408 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:27:50.409 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:27:50.412 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:27:50.412 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:27:50.412 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:27:50.413 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:27:50.413 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:27:50.414 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:27:50.414 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:27:50.414 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:27:50.415 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:27:50.415 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:27:50.415 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:27:50.416 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:27:50.416 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:27:50.418 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:27:52.455 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:27:52.520 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645273.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:27:52.608 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645273.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:27:52.674 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:27:56.326 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:27:56.327 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:27:56 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645274
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645274.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645274.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645274_PlotDenoised
+11:28:02.045 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:28:02 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:28:02.472 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:28:02.473 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:28:02.474 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:28:02.474 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:28:02.475 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:28:02.475 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:28:01 AM CEST
+11:28:02.476 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:28:02.476 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:28:02.479 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:28:02.480 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:28:02.480 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:28:02.480 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:28:02.481 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:28:02.481 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:28:02.481 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:28:02.482 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:28:02.482 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:28:02.483 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:28:02.483 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:28:02.483 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:28:02.484 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:28:02.486 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:28:04.271 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:28:04.346 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645274.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:28:04.465 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645274.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:28:04.543 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:28:08.427 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:28:08.427 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:28:08 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645275
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645275.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645275.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645275_PlotDenoised
+11:28:14.127 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:28:14 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:28:14.603 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:28:14.604 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:28:14.604 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:28:14.605 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:28:14.606 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:28:14.606 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:28:14 AM CEST
+11:28:14.607 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:28:14.607 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:28:14.610 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:28:14.610 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:28:14.610 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:28:14.611 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:28:14.611 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:28:14.612 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:28:14.612 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:28:14.612 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:28:14.613 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:28:14.613 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:28:14.613 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:28:14.614 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:28:14.614 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:28:14.616 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:28:16.282 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:28:16.330 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645275.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:28:16.401 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645275.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:28:16.482 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:28:20.190 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:28:20.190 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:28:20 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.10 minutes.
+Runtime.totalMemory()=2076049408
+SRR645283
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645283.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645283.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645283_PlotDenoised
+11:28:25.832 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:28:26 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:28:26.233 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:28:26.234 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:28:26.235 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:28:26.235 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:28:26.236 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:28:26.236 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:28:25 AM CEST
+11:28:26.237 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:28:26.237 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:28:26.239 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:28:26.240 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:28:26.240 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:28:26.240 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:28:26.241 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:28:26.241 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:28:26.241 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:28:26.242 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:28:26.242 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:28:26.242 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:28:26.242 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:28:26.243 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:28:26.243 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:28:26.245 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:28:27.960 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:28:28.038 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645283.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:28:28.142 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645283.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:28:28.214 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:28:31.541 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:28:31.541 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:28:31 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.10 minutes.
+Runtime.totalMemory()=2076049408
+SRR645284
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645284.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645284.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645284_PlotDenoised
+11:28:37.140 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:28:37 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:28:37.585 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:28:37.586 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:28:37.587 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:28:37.587 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:28:37.588 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:28:37.588 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:28:37 AM CEST
+11:28:37.589 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:28:37.589 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:28:37.592 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:28:37.592 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:28:37.593 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:28:37.593 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:28:37.593 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:28:37.594 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:28:37.594 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:28:37.594 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:28:37.595 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:28:37.595 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:28:37.595 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:28:37.596 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:28:37.596 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:28:37.598 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:28:39.432 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:28:39.492 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645284.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:28:39.574 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645284.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:28:39.640 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:28:43.321 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:28:43.322 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:28:43 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2076049408
+SRR645288
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645288.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645288.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645288_PlotDenoised
+11:28:49.059 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:28:49 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:28:49.479 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:28:49.479 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:28:49.480 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:28:49.480 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:28:49.481 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:28:49.482 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:28:48 AM CEST
+11:28:49.482 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:28:49.482 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:28:49.485 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:28:49.485 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:28:49.485 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:28:49.486 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:28:49.486 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:28:49.486 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:28:49.487 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:28:49.487 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:28:49.487 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:28:49.488 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:28:49.488 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:28:49.488 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:28:49.488 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:28:49.490 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:28:51.158 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:28:51.201 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645288.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:28:51.289 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645288.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:28:51.356 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:28:54.929 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:28:54.930 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:28:54 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.10 minutes.
+Runtime.totalMemory()=2076049408
+SRR645289
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotDenoisedCopyRatios --standardized-copy-ratios /scratch/a905383/CNV/counts/SRR645289.standardizedCR.tsv --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645289.denoisedCR.tsv --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 46709983 --output /scratch/a905383/CNV/counts/plot --output-prefix SRR645289_PlotDenoised
+11:29:01.968 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 04, 2022 11:29:02 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:29:02.395 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:29:02.396 INFO  PlotDenoisedCopyRatios - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:29:02.396 INFO  PlotDenoisedCopyRatios - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:29:02.397 INFO  PlotDenoisedCopyRatios - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:29:02.397 INFO  PlotDenoisedCopyRatios - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+11:29:02.398 INFO  PlotDenoisedCopyRatios - Start Date/Time: May 4, 2022 at 11:29:01 AM CEST
+11:29:02.398 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:29:02.399 INFO  PlotDenoisedCopyRatios - ------------------------------------------------------------
+11:29:02.401 INFO  PlotDenoisedCopyRatios - HTSJDK Version: 2.24.1
+11:29:02.402 INFO  PlotDenoisedCopyRatios - Picard Version: 2.25.4
+11:29:02.402 INFO  PlotDenoisedCopyRatios - Built for Spark Version: 2.4.5
+11:29:02.402 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:29:02.403 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:29:02.403 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:29:02.403 INFO  PlotDenoisedCopyRatios - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:29:02.404 INFO  PlotDenoisedCopyRatios - Deflater: IntelDeflater
+11:29:02.404 INFO  PlotDenoisedCopyRatios - Inflater: IntelInflater
+11:29:02.404 INFO  PlotDenoisedCopyRatios - GCS max retries/reopens: 20
+11:29:02.405 INFO  PlotDenoisedCopyRatios - Requester pays: disabled
+11:29:02.405 INFO  PlotDenoisedCopyRatios - Initializing engine
+11:29:02.405 INFO  PlotDenoisedCopyRatios - Done initializing engine
+11:29:02.407 INFO  PlotDenoisedCopyRatios - Reading and validating input files...
+11:29:04.185 INFO  PlotDenoisedCopyRatios - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, X=156040895, Y=57227415}
+11:29:04.223 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645289.standardizedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:29:04.327 WARN  PlotDenoisedCopyRatios - Contigs present in the file /scratch/a905383/CNV/counts/SRR645289.denoisedCR.tsv are missing from the sequence dictionary and will not be plotted.
+11:29:04.404 INFO  PlotDenoisedCopyRatios - Writing plots to /scratch/a905383/CNV/counts/plot...
+11:29:08.098 INFO  PlotDenoisedCopyRatios - PlotDenoisedCopyRatios complete.
+11:29:08.098 INFO  PlotDenoisedCopyRatios - Shutting down engine
+[May 4, 2022 at 11:29:08 AM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotDenoisedCopyRatios done. Elapsed time: 0.10 minutes.
+Runtime.totalMemory()=2076049408

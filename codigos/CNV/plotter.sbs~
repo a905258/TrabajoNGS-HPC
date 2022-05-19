@@ -1,0 +1,20 @@
+:
+
+module load R
+
+countsFolder=/scratch/a905383/CNV/counts
+
+file=($(cd $countsFolder && basename --suffix=.counts.hdf5 -- *.counts.hdf5))
+
+for count in ${file[@]}; do
+   echo $count
+   resultFolder=$countsFolder"/"$count".standardizedCR.tsv"
+   gatk PlotDenoisedCopyRatios \
+    --standardized-copy-ratios $resultFolder \
+    --denoised-copy-ratios $countsFolder"/"$count".denoisedCR.tsv" \
+    --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict \
+    --minimum-contig-length 46709983 \
+    --output $countsFolder"/plot" \
+    --output-prefix $count"_PlotDenoised"
+   done
+

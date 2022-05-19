@@ -1,0 +1,90 @@
+Cargando compiladores de Intel...
+/scratch/arubio/bin/moduleloadNGS: line 4: module: command not found
+Cargando librerias de compresion...
+/scratch/arubio/bin/moduleloadNGS: line 7: module: command not found
+Cargando IGV...
+/scratch/arubio/bin/moduleloadNGS: line 10: module: command not found
+Cargando R/3.6.2-intel-2019a...
+/scratch/arubio/bin/moduleloadNGS: line 13: module: command not found
+Cargando Java...
+/scratch/arubio/bin/moduleloadNGS: line 16: module: command not found
+Cargando paths: kallisto, hisat, fastqc, STAR, conda, multiqc, bwa, stringtie, picard, samtools, samblaster, gatk ...
+SRR645223
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar CollectReadCounts -L /scratch/a905383/CNV/preprocessed_intervals100000.interval_list -I /scratch/a905383/CNV/raw_data/SRR645223_aligned.bam --interval-merging-rule OVERLAPPING_ONLY -O /scratch/a905383/CNV/counts/SRR6452230.counts.hdf5
+23:04:28.992 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 11:04:29 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+23:04:29.701 INFO  CollectReadCounts - ------------------------------------------------------------
+23:04:29.702 INFO  CollectReadCounts - The Genome Analysis Toolkit (GATK) v4.2.5.0
+23:04:29.704 INFO  CollectReadCounts - For support and documentation go to https://software.broadinstitute.org/gatk/
+23:04:29.706 INFO  CollectReadCounts - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+23:04:29.707 INFO  CollectReadCounts - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+23:04:29.708 INFO  CollectReadCounts - Start Date/Time: May 14, 2022 at 11:04:28 PM CEST
+23:04:29.708 INFO  CollectReadCounts - ------------------------------------------------------------
+23:04:29.708 INFO  CollectReadCounts - ------------------------------------------------------------
+23:04:29.709 INFO  CollectReadCounts - HTSJDK Version: 2.24.1
+23:04:29.710 INFO  CollectReadCounts - Picard Version: 2.25.4
+23:04:29.710 INFO  CollectReadCounts - Built for Spark Version: 2.4.5
+23:04:29.710 INFO  CollectReadCounts - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+23:04:29.711 INFO  CollectReadCounts - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+23:04:29.711 INFO  CollectReadCounts - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+23:04:29.711 INFO  CollectReadCounts - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+23:04:29.712 INFO  CollectReadCounts - Deflater: IntelDeflater
+23:04:29.712 INFO  CollectReadCounts - Inflater: IntelInflater
+23:04:29.712 INFO  CollectReadCounts - GCS max retries/reopens: 20
+23:04:29.712 INFO  CollectReadCounts - Requester pays: disabled
+23:04:29.713 INFO  CollectReadCounts - Initializing engine
+23:04:30.162 INFO  FeatureManager - Using codec IntervalListCodec to read file file:///scratch/a905383/CNV/preprocessed_intervals100000.interval_list
+23:04:31.062 INFO  IntervalArgumentCollection - Processing 2958930931 bp from intervals
+23:04:31.089 INFO  CollectReadCounts - Done initializing engine
+23:04:31.095 INFO  CollectReadCounts - Collecting read counts...
+23:04:31.096 INFO  ProgressMeter - Starting traversal
+23:04:31.096 INFO  ProgressMeter -        Current Locus  Elapsed Minutes       Reads Processed     Reads/Minute
+23:04:41.098 INFO  ProgressMeter -           1:88328052              0.2               4224000       25344000.0
+23:04:51.097 INFO  ProgressMeter -          1:152655150              0.3               6112000       18336000.0
+23:05:01.098 INFO  ProgressMeter -           10:5334132              0.5              11127000       22253258.2
+23:05:11.099 INFO  ProgressMeter -          10:79133669              0.7              14607000       21909404.5
+23:05:21.100 INFO  ProgressMeter -          11:43177570              0.8              19439000       23325400.5
+23:05:31.616 INFO  ProgressMeter -          12:15458825              1.0              24542000       24331532.2
+23:05:41.617 INFO  ProgressMeter -          12:86790367              1.2              27938000       23770615.0
+23:05:51.618 INFO  ProgressMeter -          13:67828520              1.3              32668000       24342772.0
+23:06:01.619 INFO  ProgressMeter -          14:81049817              1.5              37997000       25185537.1
+23:06:11.619 INFO  ProgressMeter -          15:97602926              1.7              42917000       25616482.0
+23:06:21.621 INFO  ProgressMeter -          17:10331285              1.8              47320000       25689003.1
+23:06:31.620 INFO  ProgressMeter -          18:34032942              2.0              51890000       25832413.7
+23:06:41.625 INFO  ProgressMeter -          19:45183150              2.2              56057000       25768396.9
+23:06:51.627 INFO  ProgressMeter -           2:89916108              2.3              61069000       26073906.5
+23:07:01.627 INFO  ProgressMeter -          2:180332179              2.5              65317000       26034810.3
+23:07:11.628 INFO  ProgressMeter -          20:32956892              2.7              69914000       26131027.7
+23:07:21.630 INFO  ProgressMeter -          22:28489696              2.8              73784000       25960171.7
+23:07:31.629 INFO  ProgressMeter -           3:73919116              3.0              78560000       26109498.6
+23:07:41.629 INFO  ProgressMeter -          3:173154783              3.2              83422000       26270232.8
+23:07:51.747 INFO  ProgressMeter -           4:51823896              3.3              87114000       26049539.0
+23:08:01.747 INFO  ProgressMeter -          4:157196394              3.5              92332000       26299169.2
+23:08:11.748 INFO  ProgressMeter -           5:58558384              3.7              96712000       26298300.5
+23:08:21.747 INFO  ProgressMeter -          5:157334069              3.8             101590000       26427054.0
+23:08:31.747 INFO  ProgressMeter -           6:73344172              4.0             106275000       26496987.3
+23:08:41.750 INFO  ProgressMeter -            7:5931885              4.2             111385000       26662863.3
+23:08:51.752 INFO  ProgressMeter -          7:104285737              4.3             115917000       26683163.8
+23:09:01.795 INFO  ProgressMeter -           8:45415054              4.5             120715000       26756385.3
+23:09:11.797 INFO  ProgressMeter -            9:5095539              4.7             125928000       26917278.2
+23:09:21.799 INFO  ProgressMeter -          9:105847054              4.8             129677000       26765026.6
+23:09:31.798 INFO  ProgressMeter -          X:107092128              5.0             133778000       26693226.8
+23:09:39.894 INFO  CollectReadCounts - 0 read(s) filtered by: WellformedReadFilter 
+798060 read(s) filtered by: MappedReadFilter 
+0 read(s) filtered by: NonZeroReferenceLengthAlignmentReadFilter 
+15713114 read(s) filtered by: NotDuplicateReadFilter 
+12424505 read(s) filtered by: MappingQualityReadFilter 
+28935679 total reads filtered
+23:09:39.895 INFO  ProgressMeter -        KI270337.1:78              5.1             135902957       26406186.0
+23:09:39.895 INFO  ProgressMeter - Traversal complete. Processed 135902957 total reads in 5.1 minutes.
+23:09:39.895 INFO  CollectReadCounts - Writing read counts to /scratch/a905383/CNV/counts/SRR6452230.counts.hdf5...
+log4j:WARN No appenders could be found for logger (org.broadinstitute.hdf5.HDF5Library).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+23:09:40.264 INFO  CollectReadCounts - CollectReadCounts complete.
+23:09:40.264 INFO  CollectReadCounts - Shutting down engine
+[May 14, 2022 at 11:09:40 PM CEST] org.broadinstitute.hellbender.tools.copynumber.CollectReadCounts done. Elapsed time: 5.19 minutes.
+Runtime.totalMemory()=56795136

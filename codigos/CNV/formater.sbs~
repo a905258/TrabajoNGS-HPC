@@ -1,0 +1,10 @@
+file="$1"
+
+name=$(basename --suffix=.denoisedCR.tsv -- $file)
+echo $name
+
+grep -v '^@' $file | awk -f so.awk  | awk -F" " '{print $1,$2,$3,$5,$4}' \
+OFS=" " | awk -v nam=$name -v OFS=" " 'BEGIN{print "ID\tcol1\tcol2"} \
+NR>1{print nam,$1,$2,$3,$4,$5}' | awk '{if (NR!=1) {print}}' | awk \
+'gsub(" ","\t")' | awk '{if (NR!=1) {print}}'  > $name"_cleaned.seg"
+

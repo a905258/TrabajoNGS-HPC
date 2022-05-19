@@ -1,0 +1,34 @@
+#!/bin/bash
+###################################################################################
+### CNV
+###################################################################################
+#
+#
+
+#SBATCH --job-name=cnv%a
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=1
+#SBATCH --nodes=1
+#SBATCH --mem=12G
+#SBATCH --time=00:30:00
+#SBATCH -o /scratch/a905383/CNV/logs/standarized.log
+
+
+source /scratch/arubio/bin/moduleloadNGS
+
+module load Java/1.8.0_181
+
+countsFolder=/scratch/a905383/CNV/count2
+
+file=($(cd $countsFolder && basename --suffix=.counts.hdf5 -- *.counts.hdf5))
+
+for count in ${file[@]}; do
+   echo $count
+   resultFolder=$countsFolder"/"$count".standardizedCR.tsv"
+   gatk DenoiseReadCounts \
+     -I $countsFolder"/"$count".counts.hdf5" \
+     --count-panel-of-normals $countsFolder"/Normal.pon.hdf5" \
+     --standardized-copy-ratios $resultFolder \
+     --denoised-copy-ratios $countsFolder"/"$count".denoisedCR.tsv"
+   done

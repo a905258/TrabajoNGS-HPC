@@ -1,0 +1,1198 @@
+Cargando compiladores de Intel...
+
+The following have been reloaded with a version change:
+  1) GCCcore/8.2.0 => GCCcore/10.3.0
+  2) binutils/.2.31.1-GCCcore-8.2.0 => binutils/.2.36.1-GCCcore-10.3.0
+  3) zlib/.1.2.11-GCCcore-8.2.0 => zlib/.1.2.11-GCCcore-10.3.0
+
+Cargando librerias de compresion...
+
+The following have been reloaded with a version change:
+  1) GCCcore/10.3.0 => GCCcore/6.4.0
+  2) LibTIFF/.4.0.10-GCCcore-8.2.0 => LibTIFF/.4.0.9-intel-2017b
+  3) NASM/2.14.02-GCCcore-8.2.0 => NASM/2.13.01-GCCcore-6.4.0
+  4) binutils/.2.36.1-GCCcore-10.3.0 => binutils/.2.28-GCCcore-6.4.0
+  5) icc/2019.1.144-GCC-8.2.0-2.31.1 => icc/2017.4.196-GCC-6.4.0-2.28
+  6) iccifort/2019.1.144-GCC-8.2.0-2.31.1 => iccifort/2017.4.196-GCC-6.4.0-2.28
+  7) ifort/2019.1.144-GCC-8.2.0-2.31.1 => ifort/2017.4.196-GCC-6.4.0-2.28
+  8) iimpi/2019a => iimpi/2017b
+  9) imkl/2019.1.144-iimpi-2019a => imkl/2017.3.196-iimpi-2017b
+ 10) impi/2018.4.274-iccifort-2019.1.144-GCC-8.2.0-2.31.1 => impi/2017.3.196-iccifort-2017.4.196-GCC-6.4.0-2.28
+ 11) intel/2019a => intel/2017b
+ 12) libjpeg-turbo/.2.0.2-GCCcore-8.2.0 => libjpeg-turbo/1.5.2-GCCcore-6.4.0
+ 13) libpng/.1.6.36-GCCcore-8.2.0 => libpng/.1.6.32-GCCcore-6.4.0
+ 14) zlib/.1.2.11-GCCcore-10.3.0 => zlib/.1.2.11-GCCcore-6.4.0
+
+Cargando IGV...
+Cargando R/3.6.2-intel-2019a...
+
+The following have been reloaded with a version change:
+  1) GCCcore/6.4.0 => GCCcore/8.2.0
+  2) LibTIFF/.4.0.9-intel-2017b => LibTIFF/.4.0.10-GCCcore-8.2.0
+  3) NASM/2.13.01-GCCcore-6.4.0 => NASM/2.14.02-GCCcore-8.2.0
+  4) binutils/.2.28-GCCcore-6.4.0 => binutils/.2.31.1-GCCcore-8.2.0
+  5) icc/2017.4.196-GCC-6.4.0-2.28 => icc/2019.1.144-GCC-8.2.0-2.31.1
+  6) iccifort/2017.4.196-GCC-6.4.0-2.28 => iccifort/2019.1.144-GCC-8.2.0-2.31.1
+  7) ifort/2017.4.196-GCC-6.4.0-2.28 => ifort/2019.1.144-GCC-8.2.0-2.31.1
+  8) iimpi/2017b => iimpi/2019a
+  9) imkl/2017.3.196-iimpi-2017b => imkl/2019.1.144-iimpi-2019a
+ 10) impi/2017.3.196-iccifort-2017.4.196-GCC-6.4.0-2.28 => impi/2018.4.274-iccifort-2019.1.144-GCC-8.2.0-2.31.1
+ 11) intel/2017b => intel/2019a
+ 12) libjpeg-turbo/1.5.2-GCCcore-6.4.0 => libjpeg-turbo/.2.0.2-GCCcore-8.2.0
+ 13) libpng/.1.6.32-GCCcore-6.4.0 => libpng/.1.6.36-GCCcore-8.2.0
+ 14) zlib/.1.2.11-GCCcore-6.4.0 => zlib/.1.2.11-GCCcore-8.2.0
+
+Cargando Java...
+Cargando paths: kallisto, hisat, fastqc, STAR, conda, multiqc, bwa, stringtie, picard, samtools, samblaster, gatk ...
+
+The following have been reloaded with a version change:
+  1) Java/11.0.2 => Java/1.8.0_181
+
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar CreateReadCountPanelOfNormals -I /scratch/a905383/CNV/counts/SRR645210.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645219.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645223.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645225.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645236.exome.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645242.exome.counts.hdf5 --minimum-interval-median-percentile 5.0 -O /scratch/a905383/CNV/counts/Normal.pon.hdf5
+13:19:28.990 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+Apr 27, 2022 1:19:29 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+13:19:29.453 INFO  CreateReadCountPanelOfNormals - ------------------------------------------------------------
+13:19:29.454 INFO  CreateReadCountPanelOfNormals - The Genome Analysis Toolkit (GATK) v4.2.5.0
+13:19:29.454 INFO  CreateReadCountPanelOfNormals - For support and documentation go to https://software.broadinstitute.org/gatk/
+13:19:29.455 INFO  CreateReadCountPanelOfNormals - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+13:19:29.455 INFO  CreateReadCountPanelOfNormals - Java runtime: Java HotSpot(TM) 64-Bit Server VM v1.8.0_181-b13
+13:19:29.456 INFO  CreateReadCountPanelOfNormals - Start Date/Time: April 27, 2022 1:19:28 PM CEST
+13:19:29.456 INFO  CreateReadCountPanelOfNormals - ------------------------------------------------------------
+13:19:29.457 INFO  CreateReadCountPanelOfNormals - ------------------------------------------------------------
+13:19:29.457 INFO  CreateReadCountPanelOfNormals - HTSJDK Version: 2.24.1
+13:19:29.458 INFO  CreateReadCountPanelOfNormals - Picard Version: 2.25.4
+13:19:29.458 INFO  CreateReadCountPanelOfNormals - Built for Spark Version: 2.4.5
+13:19:29.459 INFO  CreateReadCountPanelOfNormals - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+13:19:29.459 INFO  CreateReadCountPanelOfNormals - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+13:19:29.459 INFO  CreateReadCountPanelOfNormals - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+13:19:29.460 INFO  CreateReadCountPanelOfNormals - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+13:19:29.460 INFO  CreateReadCountPanelOfNormals - Deflater: IntelDeflater
+13:19:29.460 INFO  CreateReadCountPanelOfNormals - Inflater: IntelInflater
+13:19:29.461 INFO  CreateReadCountPanelOfNormals - GCS max retries/reopens: 20
+13:19:29.461 INFO  CreateReadCountPanelOfNormals - Requester pays: disabled
+13:19:29.461 INFO  CreateReadCountPanelOfNormals - Initializing engine
+13:19:29.462 INFO  CreateReadCountPanelOfNormals - Done initializing engine
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+22/04/27 13:19:29 INFO SparkContext: Running Spark version 2.4.5
+22/04/27 13:19:30 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+22/04/27 13:19:30 INFO SparkContext: Submitted application: CreateReadCountPanelOfNormals
+22/04/27 13:19:30 INFO SecurityManager: Changing view acls to: a905383
+22/04/27 13:19:30 INFO SecurityManager: Changing modify acls to: a905383
+22/04/27 13:19:30 INFO SecurityManager: Changing view acls groups to: 
+22/04/27 13:19:30 INFO SecurityManager: Changing modify acls groups to: 
+22/04/27 13:19:30 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(a905383); groups with view permissions: Set(); users  with modify permissions: Set(a905383); groups with modify permissions: Set()
+22/04/27 13:19:31 INFO Utils: Successfully started service 'sparkDriver' on port 43530.
+22/04/27 13:19:31 INFO SparkEnv: Registering MapOutputTracker
+22/04/27 13:19:31 INFO SparkEnv: Registering BlockManagerMaster
+22/04/27 13:19:31 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+22/04/27 13:19:31 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+22/04/27 13:19:31 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-1d9db738-2bac-4c6a-bcf0-661be86e105b
+22/04/27 13:19:31 INFO MemoryStore: MemoryStore started with capacity 17.2 GB
+22/04/27 13:19:31 INFO SparkEnv: Registering OutputCommitCoordinator
+22/04/27 13:19:31 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+22/04/27 13:19:31 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://atlas-193:4040
+22/04/27 13:19:31 INFO Executor: Starting executor ID driver on host localhost
+22/04/27 13:19:31 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 37917.
+22/04/27 13:19:31 INFO NettyBlockTransferService: Server created on atlas-193:37917
+22/04/27 13:19:31 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+22/04/27 13:19:31 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, atlas-193, 37917, None)
+22/04/27 13:19:31 INFO BlockManagerMasterEndpoint: Registering block manager atlas-193:37917 with 17.2 GB RAM, BlockManagerId(driver, atlas-193, 37917, None)
+22/04/27 13:19:31 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, atlas-193, 37917, None)
+22/04/27 13:19:31 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, atlas-193, 37917, None)
+13:19:32.402 INFO  CreateReadCountPanelOfNormals - Spark verbosity set to INFO (see --spark-verbosity argument)
+22/04/27 13:19:32 INFO HDF5Library: Trying to load HDF5 library from:
+	jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/org/broadinstitute/hdf5/libjhdf5.2.11.0.so
+22/04/27 13:19:32 INFO H5: HDF5 library: 
+22/04/27 13:19:32 INFO H5:  successfully loaded.
+13:19:32.497 WARN  CreateReadCountPanelOfNormals - Number of eigensamples (20) is greater than the number of input samples (6); the number of samples retained after filtering will be used instead.
+13:19:32.501 INFO  CreateReadCountPanelOfNormals - Retrieving intervals from first read-counts file (/scratch/a905383/CNV/counts/SRR645210.exome.counts.hdf5)...
+13:19:32.623 INFO  CreateReadCountPanelOfNormals - No annotated intervals were provided...
+13:19:32.624 INFO  CreateReadCountPanelOfNormals - Validating and aggregating input read-counts files...
+13:19:32.625 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645210.exome.counts.hdf5 (1 / 6)
+13:19:32.647 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645219.exome.counts.hdf5 (2 / 6)
+13:19:32.663 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645223.exome.counts.hdf5 (3 / 6)
+13:19:32.671 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645225.exome.counts.hdf5 (4 / 6)
+13:19:32.681 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645236.exome.counts.hdf5 (5 / 6)
+13:19:32.687 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645242.exome.counts.hdf5 (6 / 6)
+13:19:32.692 INFO  CreateReadCountPanelOfNormals - Creating the panel of normals...
+13:19:32.693 INFO  HDF5SVDReadCountPanelOfNormals - Creating read-count panel of normals at /scratch/a905383/CNV/counts/Normal.pon.hdf5...
+13:19:32.697 INFO  HDF5SVDReadCountPanelOfNormals - Writing version number (7.0)...
+13:19:32.705 INFO  HDF5SVDReadCountPanelOfNormals - Writing command line...
+13:19:32.709 INFO  HDF5SVDReadCountPanelOfNormals - Writing sequence dictionary...
+13:19:32.712 INFO  HDF5SVDReadCountPanelOfNormals - Writing original read counts (25 x 6)...
+13:19:32.720 INFO  HDF5SVDReadCountPanelOfNormals - Writing original sample filenames (6)...
+13:19:32.721 INFO  HDF5SVDReadCountPanelOfNormals - Writing original intervals (25)...
+13:19:32.723 INFO  HDF5SVDReadCountPanelOfNormals - Preprocessing and standardizing read counts...
+13:19:32.725 INFO  SVDDenoisingUtils - Preprocessing read counts...
+13:19:32.726 INFO  SVDDenoisingUtils - Transforming read counts to fractional coverage...
+13:19:32.752 INFO  SVDDenoisingUtils - Filtering intervals with median (across samples) less than or equal to the 5.00 percentile (0.00)...
+13:19:32.759 INFO  SVDDenoisingUtils - After filtering, 24 out of 25 intervals remain...
+13:19:32.760 INFO  SVDDenoisingUtils - Dividing by interval medians...
+13:19:32.764 INFO  SVDDenoisingUtils - Filtering samples with a fraction of zero-coverage intervals greater than or equal to 5.00 percent...
+13:19:32.767 INFO  SVDDenoisingUtils - After filtering, 6 out of 6 samples remain...
+13:19:32.767 INFO  SVDDenoisingUtils - Filtering intervals with a fraction of zero-coverage samples greater than or equal to 5.00 percent...
+13:19:32.769 INFO  SVDDenoisingUtils - After filtering, 24 out of 25 intervals remain...
+13:19:32.776 INFO  SVDDenoisingUtils - Filtering samples with a median (across intervals) strictly below the 2.50 percentile (1.00) or strictly above the 97.50 percentile (1.00)...
+13:19:32.779 INFO  SVDDenoisingUtils - After filtering, 6 out of 6 samples remain...
+13:19:32.783 INFO  SVDDenoisingUtils - Heap utilization statistics [MB]:
+13:19:32.783 INFO  SVDDenoisingUtils - Used memory: 101
+13:19:32.784 INFO  SVDDenoisingUtils - Free memory: 1877
+13:19:32.784 INFO  SVDDenoisingUtils - Total memory: 1979
+13:19:32.785 INFO  SVDDenoisingUtils - Maximum memory: 29694
+13:19:32.785 INFO  SVDDenoisingUtils - Performing garbage collection...
+13:19:32.836 INFO  SVDDenoisingUtils - Heap utilization statistics [MB]:
+13:19:32.836 INFO  SVDDenoisingUtils - Used memory: 24
+13:19:32.838 INFO  SVDDenoisingUtils - Free memory: 1955
+13:19:32.839 INFO  SVDDenoisingUtils - Total memory: 1979
+13:19:32.839 INFO  SVDDenoisingUtils - Maximum memory: 29694
+13:19:32.844 INFO  SVDDenoisingUtils - 0 zero-coverage values were imputed to the median of the non-zero values in the corresponding interval...
+13:19:32.845 INFO  SVDDenoisingUtils - 0 values strictly below the 0.10 percentile (0.85) or strictly above the 99.90 percentile (1.08) were truncated to the corresponding value...
+13:19:32.846 INFO  SVDDenoisingUtils - Panel read counts preprocessed.
+13:19:32.847 INFO  SVDDenoisingUtils - Standardizing read counts...
+13:19:32.847 INFO  SVDDenoisingUtils - Dividing by sample medians and transforming to log2 space...
+13:19:32.848 INFO  SVDDenoisingUtils - Subtracting median of sample medians...
+13:19:32.851 INFO  SVDDenoisingUtils - Panel read counts standardized.
+13:19:32.853 INFO  HDF5SVDReadCountPanelOfNormals - Writing panel sample filenames (6)...
+13:19:32.854 INFO  HDF5SVDReadCountPanelOfNormals - Writing panel intervals (24)...
+13:19:32.856 INFO  HDF5SVDReadCountPanelOfNormals - Writing panel interval fractional medians (24)...
+13:19:32.856 WARN  HDF5SVDReadCountPanelOfNormals - 20 eigensamples were requested but only 6 are available in the panel of normals...
+13:19:32.857 INFO  HDF5SVDReadCountPanelOfNormals - Performing SVD (truncated at 6 eigensamples) of standardized counts (transposed to 24 x 6)...
+13:19:32.859 INFO  SparkConverter - Converting matrix to distributed Spark matrix...
+13:19:33.218 INFO  SparkConverter - Done converting matrix to distributed Spark matrix...
+22/04/27 13:19:33 INFO SparkContext: Starting job: first at RowMatrix.scala:61
+22/04/27 13:19:33 INFO DAGScheduler: Got job 0 (first at RowMatrix.scala:61) with 1 output partitions
+22/04/27 13:19:33 INFO DAGScheduler: Final stage: ResultStage 0 (first at RowMatrix.scala:61)
+22/04/27 13:19:33 INFO DAGScheduler: Parents of final stage: List()
+22/04/27 13:19:33 INFO DAGScheduler: Missing parents: List()
+22/04/27 13:19:33 INFO DAGScheduler: Submitting ResultStage 0 (ParallelCollectionRDD[0] at parallelize at SparkConverter.java:47), which has no missing parents
+22/04/27 13:19:33 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 1840.0 B, free 17.2 GB)
+22/04/27 13:19:35 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 1149.0 B, free 17.2 GB)
+22/04/27 13:19:35 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on atlas-193:37917 (size: 1149.0 B, free: 17.2 GB)
+22/04/27 13:19:35 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1163
+22/04/27 13:19:35 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (ParallelCollectionRDD[0] at parallelize at SparkConverter.java:47) (first 15 tasks are for partitions Vector(0))
+22/04/27 13:19:35 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+22/04/27 13:19:35 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, localhost, executor driver, partition 0, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:35 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+22/04/27 13:19:35 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 668 bytes result sent to driver
+22/04/27 13:19:35 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 251 ms on localhost (executor driver) (1/1)
+22/04/27 13:19:35 INFO DAGScheduler: ResultStage 0 (first at RowMatrix.scala:61) finished in 2.321 s
+22/04/27 13:19:35 INFO DAGScheduler: Job 0 finished: first at RowMatrix.scala:61, took 2.444383 s
+22/04/27 13:19:35 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+22/04/27 13:19:35 INFO SparkContext: Starting job: first at RowMatrix.scala:61
+22/04/27 13:19:35 INFO DAGScheduler: Got job 1 (first at RowMatrix.scala:61) with 4 output partitions
+22/04/27 13:19:35 INFO DAGScheduler: Final stage: ResultStage 1 (first at RowMatrix.scala:61)
+22/04/27 13:19:35 INFO DAGScheduler: Parents of final stage: List()
+22/04/27 13:19:35 INFO DAGScheduler: Missing parents: List()
+22/04/27 13:19:35 INFO DAGScheduler: Submitting ResultStage 1 (ParallelCollectionRDD[0] at parallelize at SparkConverter.java:47), which has no missing parents
+22/04/27 13:19:35 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 1840.0 B, free 17.2 GB)
+22/04/27 13:19:35 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 1149.0 B, free 17.2 GB)
+22/04/27 13:19:35 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on atlas-193:37917 (size: 1149.0 B, free: 17.2 GB)
+22/04/27 13:19:35 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1163
+22/04/27 13:19:35 INFO DAGScheduler: Submitting 4 missing tasks from ResultStage 1 (ParallelCollectionRDD[0] at parallelize at SparkConverter.java:47) (first 15 tasks are for partitions Vector(1, 2, 3, 4))
+22/04/27 13:19:35 INFO TaskSchedulerImpl: Adding task set 1.0 with 4 tasks
+22/04/27 13:19:35 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1, localhost, executor driver, partition 1, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:35 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+22/04/27 13:19:35 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 711 bytes result sent to driver
+22/04/27 13:19:35 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 2, localhost, executor driver, partition 2, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:35 INFO Executor: Running task 1.0 in stage 1.0 (TID 2)
+22/04/27 13:19:35 INFO Executor: Finished task 1.0 in stage 1.0 (TID 2). 625 bytes result sent to driver
+22/04/27 13:19:35 INFO TaskSetManager: Starting task 2.0 in stage 1.0 (TID 3, localhost, executor driver, partition 3, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:35 INFO Executor: Running task 2.0 in stage 1.0 (TID 3)
+22/04/27 13:19:35 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 80 ms on localhost (executor driver) (1/4)
+22/04/27 13:19:35 INFO TaskSetManager: Finished task 1.0 in stage 1.0 (TID 2) in 76 ms on localhost (executor driver) (2/4)
+22/04/27 13:19:35 INFO Executor: Finished task 2.0 in stage 1.0 (TID 3). 625 bytes result sent to driver
+22/04/27 13:19:35 INFO TaskSetManager: Starting task 3.0 in stage 1.0 (TID 4, localhost, executor driver, partition 4, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:35 INFO Executor: Running task 3.0 in stage 1.0 (TID 4)
+22/04/27 13:19:35 INFO Executor: Finished task 3.0 in stage 1.0 (TID 4). 721 bytes result sent to driver
+22/04/27 13:19:36 INFO TaskSetManager: Finished task 3.0 in stage 1.0 (TID 4) in 24 ms on localhost (executor driver) (3/4)
+22/04/27 13:19:36 INFO TaskSetManager: Finished task 2.0 in stage 1.0 (TID 3) in 81 ms on localhost (executor driver) (4/4)
+22/04/27 13:19:36 INFO DAGScheduler: ResultStage 1 (first at RowMatrix.scala:61) finished in 0.194 s
+22/04/27 13:19:36 INFO DAGScheduler: Job 1 finished: first at RowMatrix.scala:61, took 0.197896 s
+22/04/27 13:19:36 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+22/04/27 13:19:36 INFO SparkContext: Starting job: treeAggregate at RowMatrix.scala:122
+22/04/27 13:19:36 INFO DAGScheduler: Registering RDD 2 (treeAggregate at RowMatrix.scala:122) as input to shuffle 0
+22/04/27 13:19:36 INFO DAGScheduler: Got job 2 (treeAggregate at RowMatrix.scala:122) with 10 output partitions
+22/04/27 13:19:36 INFO DAGScheduler: Final stage: ResultStage 3 (treeAggregate at RowMatrix.scala:122)
+22/04/27 13:19:36 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 2)
+22/04/27 13:19:36 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 2)
+22/04/27 13:19:36 INFO DAGScheduler: Submitting ShuffleMapStage 2 (MapPartitionsRDD[2] at treeAggregate at RowMatrix.scala:122), which has no missing parents
+22/04/27 13:19:36 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 5.6 KB, free 17.2 GB)
+22/04/27 13:19:36 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 3.3 KB, free 17.2 GB)
+22/04/27 13:19:36 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on atlas-193:37917 (size: 3.3 KB, free: 17.2 GB)
+22/04/27 13:19:36 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1163
+22/04/27 13:19:36 INFO DAGScheduler: Submitting 100 missing tasks from ShuffleMapStage 2 (MapPartitionsRDD[2] at treeAggregate at RowMatrix.scala:122) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
+22/04/27 13:19:36 INFO TaskSchedulerImpl: Adding task set 2.0 with 100 tasks
+22/04/27 13:19:36 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 5, localhost, executor driver, partition 0, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:36 INFO Executor: Running task 0.0 in stage 2.0 (TID 5)
+22/04/27 13:19:36 INFO Executor: Finished task 0.0 in stage 2.0 (TID 5). 961 bytes result sent to driver
+22/04/27 13:19:36 INFO TaskSetManager: Starting task 1.0 in stage 2.0 (TID 6, localhost, executor driver, partition 1, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:36 INFO Executor: Running task 1.0 in stage 2.0 (TID 6)
+22/04/27 13:19:36 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 5) in 109 ms on localhost (executor driver) (1/100)
+22/04/27 13:19:36 INFO Executor: Finished task 1.0 in stage 2.0 (TID 6). 961 bytes result sent to driver
+22/04/27 13:19:36 INFO TaskSetManager: Starting task 2.0 in stage 2.0 (TID 7, localhost, executor driver, partition 2, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:36 INFO TaskSetManager: Finished task 1.0 in stage 2.0 (TID 6) in 46 ms on localhost (executor driver) (2/100)
+22/04/27 13:19:36 INFO Executor: Running task 2.0 in stage 2.0 (TID 7)
+22/04/27 13:19:36 INFO Executor: Finished task 2.0 in stage 2.0 (TID 7). 961 bytes result sent to driver
+22/04/27 13:19:36 INFO TaskSetManager: Starting task 3.0 in stage 2.0 (TID 8, localhost, executor driver, partition 3, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:36 INFO TaskSetManager: Finished task 2.0 in stage 2.0 (TID 7) in 52 ms on localhost (executor driver) (3/100)
+22/04/27 13:19:36 INFO Executor: Running task 3.0 in stage 2.0 (TID 8)
+22/04/27 13:19:36 INFO Executor: Finished task 3.0 in stage 2.0 (TID 8). 961 bytes result sent to driver
+22/04/27 13:19:36 INFO TaskSetManager: Starting task 4.0 in stage 2.0 (TID 9, localhost, executor driver, partition 4, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:36 INFO Executor: Running task 4.0 in stage 2.0 (TID 9)
+22/04/27 13:19:36 INFO TaskSetManager: Finished task 3.0 in stage 2.0 (TID 8) in 38 ms on localhost (executor driver) (4/100)
+Apr 27, 2022 1:19:37 PM com.github.fommil.netlib.BLAS <clinit>
+WARNING: Failed to load implementation from: com.github.fommil.netlib.NativeSystemBLAS
+Apr 27, 2022 1:19:37 PM com.github.fommil.jni.JniLoader liberalLoad
+INFO: successfully loaded /tmp/jniloader575536036136096715netlib-native_ref-linux-x86_64.so
+22/04/27 13:19:37 INFO Executor: Finished task 4.0 in stage 2.0 (TID 9). 1004 bytes result sent to driver
+22/04/27 13:19:37 INFO TaskSetManager: Starting task 5.0 in stage 2.0 (TID 10, localhost, executor driver, partition 5, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:37 INFO TaskSetManager: Finished task 4.0 in stage 2.0 (TID 9) in 1145 ms on localhost (executor driver) (5/100)
+22/04/27 13:19:37 INFO Executor: Running task 5.0 in stage 2.0 (TID 10)
+22/04/27 13:19:37 INFO Executor: Finished task 5.0 in stage 2.0 (TID 10). 961 bytes result sent to driver
+22/04/27 13:19:37 INFO TaskSetManager: Starting task 6.0 in stage 2.0 (TID 11, localhost, executor driver, partition 6, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:37 INFO TaskSetManager: Finished task 5.0 in stage 2.0 (TID 10) in 37 ms on localhost (executor driver) (6/100)
+22/04/27 13:19:37 INFO Executor: Running task 6.0 in stage 2.0 (TID 11)
+22/04/27 13:19:37 INFO Executor: Finished task 6.0 in stage 2.0 (TID 11). 961 bytes result sent to driver
+22/04/27 13:19:37 INFO TaskSetManager: Starting task 7.0 in stage 2.0 (TID 12, localhost, executor driver, partition 7, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:37 INFO Executor: Running task 7.0 in stage 2.0 (TID 12)
+22/04/27 13:19:37 INFO TaskSetManager: Finished task 6.0 in stage 2.0 (TID 11) in 33 ms on localhost (executor driver) (7/100)
+22/04/27 13:19:37 INFO Executor: Finished task 7.0 in stage 2.0 (TID 12). 961 bytes result sent to driver
+22/04/27 13:19:37 INFO TaskSetManager: Starting task 8.0 in stage 2.0 (TID 13, localhost, executor driver, partition 8, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:37 INFO TaskSetManager: Finished task 7.0 in stage 2.0 (TID 12) in 19 ms on localhost (executor driver) (8/100)
+22/04/27 13:19:37 INFO Executor: Running task 8.0 in stage 2.0 (TID 13)
+22/04/27 13:19:37 INFO Executor: Finished task 8.0 in stage 2.0 (TID 13). 961 bytes result sent to driver
+22/04/27 13:19:37 INFO TaskSetManager: Starting task 9.0 in stage 2.0 (TID 14, localhost, executor driver, partition 9, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:37 INFO Executor: Running task 9.0 in stage 2.0 (TID 14)
+22/04/27 13:19:37 INFO TaskSetManager: Finished task 8.0 in stage 2.0 (TID 13) in 43 ms on localhost (executor driver) (9/100)
+22/04/27 13:19:37 INFO Executor: Finished task 9.0 in stage 2.0 (TID 14). 961 bytes result sent to driver
+22/04/27 13:19:37 INFO TaskSetManager: Starting task 10.0 in stage 2.0 (TID 15, localhost, executor driver, partition 10, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:37 INFO TaskSetManager: Finished task 9.0 in stage 2.0 (TID 14) in 32 ms on localhost (executor driver) (10/100)
+22/04/27 13:19:37 INFO Executor: Running task 10.0 in stage 2.0 (TID 15)
+22/04/27 13:19:37 INFO Executor: Finished task 10.0 in stage 2.0 (TID 15). 961 bytes result sent to driver
+22/04/27 13:19:37 INFO TaskSetManager: Starting task 11.0 in stage 2.0 (TID 16, localhost, executor driver, partition 11, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:37 INFO Executor: Running task 11.0 in stage 2.0 (TID 16)
+22/04/27 13:19:37 INFO TaskSetManager: Finished task 10.0 in stage 2.0 (TID 15) in 34 ms on localhost (executor driver) (11/100)
+22/04/27 13:19:37 INFO Executor: Finished task 11.0 in stage 2.0 (TID 16). 961 bytes result sent to driver
+22/04/27 13:19:37 INFO TaskSetManager: Starting task 12.0 in stage 2.0 (TID 17, localhost, executor driver, partition 12, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:37 INFO Executor: Running task 12.0 in stage 2.0 (TID 17)
+22/04/27 13:19:37 INFO TaskSetManager: Finished task 11.0 in stage 2.0 (TID 16) in 27 ms on localhost (executor driver) (12/100)
+22/04/27 13:19:37 INFO Executor: Finished task 12.0 in stage 2.0 (TID 17). 961 bytes result sent to driver
+22/04/27 13:19:37 INFO TaskSetManager: Starting task 13.0 in stage 2.0 (TID 18, localhost, executor driver, partition 13, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:37 INFO TaskSetManager: Finished task 12.0 in stage 2.0 (TID 17) in 30 ms on localhost (executor driver) (13/100)
+22/04/27 13:19:37 INFO Executor: Running task 13.0 in stage 2.0 (TID 18)
+22/04/27 13:19:38 INFO Executor: Finished task 13.0 in stage 2.0 (TID 18). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 14.0 in stage 2.0 (TID 19, localhost, executor driver, partition 14, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 13.0 in stage 2.0 (TID 18) in 27 ms on localhost (executor driver) (14/100)
+22/04/27 13:19:38 INFO Executor: Running task 14.0 in stage 2.0 (TID 19)
+22/04/27 13:19:38 INFO Executor: Finished task 14.0 in stage 2.0 (TID 19). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 15.0 in stage 2.0 (TID 20, localhost, executor driver, partition 15, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO Executor: Running task 15.0 in stage 2.0 (TID 20)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 14.0 in stage 2.0 (TID 19) in 27 ms on localhost (executor driver) (15/100)
+22/04/27 13:19:38 INFO Executor: Finished task 15.0 in stage 2.0 (TID 20). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 16.0 in stage 2.0 (TID 21, localhost, executor driver, partition 16, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 15.0 in stage 2.0 (TID 20) in 28 ms on localhost (executor driver) (16/100)
+22/04/27 13:19:38 INFO Executor: Running task 16.0 in stage 2.0 (TID 21)
+22/04/27 13:19:38 INFO Executor: Finished task 16.0 in stage 2.0 (TID 21). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 17.0 in stage 2.0 (TID 22, localhost, executor driver, partition 17, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 16.0 in stage 2.0 (TID 21) in 24 ms on localhost (executor driver) (17/100)
+22/04/27 13:19:38 INFO Executor: Running task 17.0 in stage 2.0 (TID 22)
+22/04/27 13:19:38 INFO Executor: Finished task 17.0 in stage 2.0 (TID 22). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 18.0 in stage 2.0 (TID 23, localhost, executor driver, partition 18, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 17.0 in stage 2.0 (TID 22) in 29 ms on localhost (executor driver) (18/100)
+22/04/27 13:19:38 INFO Executor: Running task 18.0 in stage 2.0 (TID 23)
+22/04/27 13:19:38 INFO Executor: Finished task 18.0 in stage 2.0 (TID 23). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 19.0 in stage 2.0 (TID 24, localhost, executor driver, partition 19, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 18.0 in stage 2.0 (TID 23) in 17 ms on localhost (executor driver) (19/100)
+22/04/27 13:19:38 INFO Executor: Running task 19.0 in stage 2.0 (TID 24)
+22/04/27 13:19:38 INFO Executor: Finished task 19.0 in stage 2.0 (TID 24). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 20.0 in stage 2.0 (TID 25, localhost, executor driver, partition 20, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 19.0 in stage 2.0 (TID 24) in 30 ms on localhost (executor driver) (20/100)
+22/04/27 13:19:38 INFO Executor: Running task 20.0 in stage 2.0 (TID 25)
+22/04/27 13:19:38 INFO Executor: Finished task 20.0 in stage 2.0 (TID 25). 1004 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 21.0 in stage 2.0 (TID 26, localhost, executor driver, partition 21, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 20.0 in stage 2.0 (TID 25) in 39 ms on localhost (executor driver) (21/100)
+22/04/27 13:19:38 INFO Executor: Running task 21.0 in stage 2.0 (TID 26)
+22/04/27 13:19:38 INFO Executor: Finished task 21.0 in stage 2.0 (TID 26). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 22.0 in stage 2.0 (TID 27, localhost, executor driver, partition 22, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO Executor: Running task 22.0 in stage 2.0 (TID 27)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 21.0 in stage 2.0 (TID 26) in 28 ms on localhost (executor driver) (22/100)
+22/04/27 13:19:38 INFO Executor: Finished task 22.0 in stage 2.0 (TID 27). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 23.0 in stage 2.0 (TID 28, localhost, executor driver, partition 23, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 22.0 in stage 2.0 (TID 27) in 19 ms on localhost (executor driver) (23/100)
+22/04/27 13:19:38 INFO Executor: Running task 23.0 in stage 2.0 (TID 28)
+22/04/27 13:19:38 INFO Executor: Finished task 23.0 in stage 2.0 (TID 28). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 24.0 in stage 2.0 (TID 29, localhost, executor driver, partition 24, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:38 INFO Executor: Running task 24.0 in stage 2.0 (TID 29)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 23.0 in stage 2.0 (TID 28) in 33 ms on localhost (executor driver) (24/100)
+22/04/27 13:19:38 INFO Executor: Finished task 24.0 in stage 2.0 (TID 29). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 25.0 in stage 2.0 (TID 30, localhost, executor driver, partition 25, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 24.0 in stage 2.0 (TID 29) in 21 ms on localhost (executor driver) (25/100)
+22/04/27 13:19:38 INFO Executor: Running task 25.0 in stage 2.0 (TID 30)
+22/04/27 13:19:38 INFO Executor: Finished task 25.0 in stage 2.0 (TID 30). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 26.0 in stage 2.0 (TID 31, localhost, executor driver, partition 26, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 25.0 in stage 2.0 (TID 30) in 20 ms on localhost (executor driver) (26/100)
+22/04/27 13:19:38 INFO Executor: Running task 26.0 in stage 2.0 (TID 31)
+22/04/27 13:19:38 INFO Executor: Finished task 26.0 in stage 2.0 (TID 31). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 27.0 in stage 2.0 (TID 32, localhost, executor driver, partition 27, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 26.0 in stage 2.0 (TID 31) in 28 ms on localhost (executor driver) (27/100)
+22/04/27 13:19:38 INFO Executor: Running task 27.0 in stage 2.0 (TID 32)
+22/04/27 13:19:38 INFO Executor: Finished task 27.0 in stage 2.0 (TID 32). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 28.0 in stage 2.0 (TID 33, localhost, executor driver, partition 28, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO Executor: Running task 28.0 in stage 2.0 (TID 33)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 27.0 in stage 2.0 (TID 32) in 28 ms on localhost (executor driver) (28/100)
+22/04/27 13:19:38 INFO Executor: Finished task 28.0 in stage 2.0 (TID 33). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 29.0 in stage 2.0 (TID 34, localhost, executor driver, partition 29, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 28.0 in stage 2.0 (TID 33) in 21 ms on localhost (executor driver) (29/100)
+22/04/27 13:19:38 INFO Executor: Running task 29.0 in stage 2.0 (TID 34)
+22/04/27 13:19:38 INFO Executor: Finished task 29.0 in stage 2.0 (TID 34). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 30.0 in stage 2.0 (TID 35, localhost, executor driver, partition 30, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO Executor: Running task 30.0 in stage 2.0 (TID 35)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 29.0 in stage 2.0 (TID 34) in 27 ms on localhost (executor driver) (30/100)
+22/04/27 13:19:38 INFO Executor: Finished task 30.0 in stage 2.0 (TID 35). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 31.0 in stage 2.0 (TID 36, localhost, executor driver, partition 31, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 30.0 in stage 2.0 (TID 35) in 17 ms on localhost (executor driver) (31/100)
+22/04/27 13:19:38 INFO Executor: Running task 31.0 in stage 2.0 (TID 36)
+22/04/27 13:19:38 INFO Executor: Finished task 31.0 in stage 2.0 (TID 36). 1004 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 32.0 in stage 2.0 (TID 37, localhost, executor driver, partition 32, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 31.0 in stage 2.0 (TID 36) in 32 ms on localhost (executor driver) (32/100)
+22/04/27 13:19:38 INFO Executor: Running task 32.0 in stage 2.0 (TID 37)
+22/04/27 13:19:38 INFO Executor: Finished task 32.0 in stage 2.0 (TID 37). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 33.0 in stage 2.0 (TID 38, localhost, executor driver, partition 33, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 32.0 in stage 2.0 (TID 37) in 24 ms on localhost (executor driver) (33/100)
+22/04/27 13:19:38 INFO Executor: Running task 33.0 in stage 2.0 (TID 38)
+22/04/27 13:19:38 INFO Executor: Finished task 33.0 in stage 2.0 (TID 38). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 34.0 in stage 2.0 (TID 39, localhost, executor driver, partition 34, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 33.0 in stage 2.0 (TID 38) in 28 ms on localhost (executor driver) (34/100)
+22/04/27 13:19:38 INFO Executor: Running task 34.0 in stage 2.0 (TID 39)
+22/04/27 13:19:38 INFO Executor: Finished task 34.0 in stage 2.0 (TID 39). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 35.0 in stage 2.0 (TID 40, localhost, executor driver, partition 35, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 34.0 in stage 2.0 (TID 39) in 29 ms on localhost (executor driver) (35/100)
+22/04/27 13:19:38 INFO Executor: Running task 35.0 in stage 2.0 (TID 40)
+22/04/27 13:19:38 INFO Executor: Finished task 35.0 in stage 2.0 (TID 40). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 36.0 in stage 2.0 (TID 41, localhost, executor driver, partition 36, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 35.0 in stage 2.0 (TID 40) in 23 ms on localhost (executor driver) (36/100)
+22/04/27 13:19:38 INFO Executor: Running task 36.0 in stage 2.0 (TID 41)
+22/04/27 13:19:38 INFO Executor: Finished task 36.0 in stage 2.0 (TID 41). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 37.0 in stage 2.0 (TID 42, localhost, executor driver, partition 37, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 36.0 in stage 2.0 (TID 41) in 27 ms on localhost (executor driver) (37/100)
+22/04/27 13:19:38 INFO Executor: Running task 37.0 in stage 2.0 (TID 42)
+22/04/27 13:19:38 INFO Executor: Finished task 37.0 in stage 2.0 (TID 42). 1004 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 38.0 in stage 2.0 (TID 43, localhost, executor driver, partition 38, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 37.0 in stage 2.0 (TID 42) in 17 ms on localhost (executor driver) (38/100)
+22/04/27 13:19:38 INFO Executor: Running task 38.0 in stage 2.0 (TID 43)
+22/04/27 13:19:38 INFO Executor: Finished task 38.0 in stage 2.0 (TID 43). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 39.0 in stage 2.0 (TID 44, localhost, executor driver, partition 39, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 38.0 in stage 2.0 (TID 43) in 31 ms on localhost (executor driver) (39/100)
+22/04/27 13:19:38 INFO Executor: Running task 39.0 in stage 2.0 (TID 44)
+22/04/27 13:19:38 INFO Executor: Finished task 39.0 in stage 2.0 (TID 44). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 40.0 in stage 2.0 (TID 45, localhost, executor driver, partition 40, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 39.0 in stage 2.0 (TID 44) in 16 ms on localhost (executor driver) (40/100)
+22/04/27 13:19:38 INFO Executor: Running task 40.0 in stage 2.0 (TID 45)
+22/04/27 13:19:38 INFO Executor: Finished task 40.0 in stage 2.0 (TID 45). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 41.0 in stage 2.0 (TID 46, localhost, executor driver, partition 41, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 40.0 in stage 2.0 (TID 45) in 26 ms on localhost (executor driver) (41/100)
+22/04/27 13:19:38 INFO Executor: Running task 41.0 in stage 2.0 (TID 46)
+22/04/27 13:19:38 INFO Executor: Finished task 41.0 in stage 2.0 (TID 46). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 42.0 in stage 2.0 (TID 47, localhost, executor driver, partition 42, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 41.0 in stage 2.0 (TID 46) in 24 ms on localhost (executor driver) (42/100)
+22/04/27 13:19:38 INFO Executor: Running task 42.0 in stage 2.0 (TID 47)
+22/04/27 13:19:38 INFO Executor: Finished task 42.0 in stage 2.0 (TID 47). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 43.0 in stage 2.0 (TID 48, localhost, executor driver, partition 43, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 42.0 in stage 2.0 (TID 47) in 29 ms on localhost (executor driver) (43/100)
+22/04/27 13:19:38 INFO Executor: Running task 43.0 in stage 2.0 (TID 48)
+22/04/27 13:19:38 INFO Executor: Finished task 43.0 in stage 2.0 (TID 48). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 44.0 in stage 2.0 (TID 49, localhost, executor driver, partition 44, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 43.0 in stage 2.0 (TID 48) in 31 ms on localhost (executor driver) (44/100)
+22/04/27 13:19:38 INFO Executor: Running task 44.0 in stage 2.0 (TID 49)
+22/04/27 13:19:38 INFO Executor: Finished task 44.0 in stage 2.0 (TID 49). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 45.0 in stage 2.0 (TID 50, localhost, executor driver, partition 45, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:38 INFO Executor: Running task 45.0 in stage 2.0 (TID 50)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 44.0 in stage 2.0 (TID 49) in 21 ms on localhost (executor driver) (45/100)
+22/04/27 13:19:38 INFO Executor: Finished task 45.0 in stage 2.0 (TID 50). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 46.0 in stage 2.0 (TID 51, localhost, executor driver, partition 46, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 45.0 in stage 2.0 (TID 50) in 18 ms on localhost (executor driver) (46/100)
+22/04/27 13:19:38 INFO Executor: Running task 46.0 in stage 2.0 (TID 51)
+22/04/27 13:19:38 INFO Executor: Finished task 46.0 in stage 2.0 (TID 51). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 47.0 in stage 2.0 (TID 52, localhost, executor driver, partition 47, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 46.0 in stage 2.0 (TID 51) in 22 ms on localhost (executor driver) (47/100)
+22/04/27 13:19:38 INFO Executor: Running task 47.0 in stage 2.0 (TID 52)
+22/04/27 13:19:38 INFO Executor: Finished task 47.0 in stage 2.0 (TID 52). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 48.0 in stage 2.0 (TID 53, localhost, executor driver, partition 48, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 47.0 in stage 2.0 (TID 52) in 24 ms on localhost (executor driver) (48/100)
+22/04/27 13:19:38 INFO Executor: Running task 48.0 in stage 2.0 (TID 53)
+22/04/27 13:19:38 INFO Executor: Finished task 48.0 in stage 2.0 (TID 53). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 49.0 in stage 2.0 (TID 54, localhost, executor driver, partition 49, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 48.0 in stage 2.0 (TID 53) in 28 ms on localhost (executor driver) (49/100)
+22/04/27 13:19:38 INFO Executor: Running task 49.0 in stage 2.0 (TID 54)
+22/04/27 13:19:38 INFO Executor: Finished task 49.0 in stage 2.0 (TID 54). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 50.0 in stage 2.0 (TID 55, localhost, executor driver, partition 50, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 49.0 in stage 2.0 (TID 54) in 26 ms on localhost (executor driver) (50/100)
+22/04/27 13:19:38 INFO Executor: Running task 50.0 in stage 2.0 (TID 55)
+22/04/27 13:19:38 INFO Executor: Finished task 50.0 in stage 2.0 (TID 55). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 51.0 in stage 2.0 (TID 56, localhost, executor driver, partition 51, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 50.0 in stage 2.0 (TID 55) in 17 ms on localhost (executor driver) (51/100)
+22/04/27 13:19:38 INFO Executor: Running task 51.0 in stage 2.0 (TID 56)
+22/04/27 13:19:38 INFO Executor: Finished task 51.0 in stage 2.0 (TID 56). 1004 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 52.0 in stage 2.0 (TID 57, localhost, executor driver, partition 52, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 51.0 in stage 2.0 (TID 56) in 31 ms on localhost (executor driver) (52/100)
+22/04/27 13:19:38 INFO Executor: Running task 52.0 in stage 2.0 (TID 57)
+22/04/27 13:19:38 INFO Executor: Finished task 52.0 in stage 2.0 (TID 57). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 53.0 in stage 2.0 (TID 58, localhost, executor driver, partition 53, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 52.0 in stage 2.0 (TID 57) in 16 ms on localhost (executor driver) (53/100)
+22/04/27 13:19:38 INFO Executor: Running task 53.0 in stage 2.0 (TID 58)
+22/04/27 13:19:38 INFO Executor: Finished task 53.0 in stage 2.0 (TID 58). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 54.0 in stage 2.0 (TID 59, localhost, executor driver, partition 54, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 53.0 in stage 2.0 (TID 58) in 22 ms on localhost (executor driver) (54/100)
+22/04/27 13:19:38 INFO Executor: Running task 54.0 in stage 2.0 (TID 59)
+22/04/27 13:19:38 INFO Executor: Finished task 54.0 in stage 2.0 (TID 59). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 55.0 in stage 2.0 (TID 60, localhost, executor driver, partition 55, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 54.0 in stage 2.0 (TID 59) in 28 ms on localhost (executor driver) (55/100)
+22/04/27 13:19:38 INFO Executor: Running task 55.0 in stage 2.0 (TID 60)
+22/04/27 13:19:38 INFO Executor: Finished task 55.0 in stage 2.0 (TID 60). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 56.0 in stage 2.0 (TID 61, localhost, executor driver, partition 56, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 55.0 in stage 2.0 (TID 60) in 14 ms on localhost (executor driver) (56/100)
+22/04/27 13:19:38 INFO Executor: Running task 56.0 in stage 2.0 (TID 61)
+22/04/27 13:19:38 INFO Executor: Finished task 56.0 in stage 2.0 (TID 61). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 57.0 in stage 2.0 (TID 62, localhost, executor driver, partition 57, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:38 INFO Executor: Running task 57.0 in stage 2.0 (TID 62)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 56.0 in stage 2.0 (TID 61) in 31 ms on localhost (executor driver) (57/100)
+22/04/27 13:19:38 INFO Executor: Finished task 57.0 in stage 2.0 (TID 62). 961 bytes result sent to driver
+22/04/27 13:19:38 INFO TaskSetManager: Starting task 58.0 in stage 2.0 (TID 63, localhost, executor driver, partition 58, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:38 INFO TaskSetManager: Finished task 57.0 in stage 2.0 (TID 62) in 16 ms on localhost (executor driver) (58/100)
+22/04/27 13:19:38 INFO Executor: Running task 58.0 in stage 2.0 (TID 63)
+22/04/27 13:19:39 INFO Executor: Finished task 58.0 in stage 2.0 (TID 63). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 59.0 in stage 2.0 (TID 64, localhost, executor driver, partition 59, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 58.0 in stage 2.0 (TID 63) in 30 ms on localhost (executor driver) (59/100)
+22/04/27 13:19:39 INFO Executor: Running task 59.0 in stage 2.0 (TID 64)
+22/04/27 13:19:39 INFO Executor: Finished task 59.0 in stage 2.0 (TID 64). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 60.0 in stage 2.0 (TID 65, localhost, executor driver, partition 60, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 59.0 in stage 2.0 (TID 64) in 25 ms on localhost (executor driver) (60/100)
+22/04/27 13:19:39 INFO Executor: Running task 60.0 in stage 2.0 (TID 65)
+22/04/27 13:19:39 INFO Executor: Finished task 60.0 in stage 2.0 (TID 65). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 61.0 in stage 2.0 (TID 66, localhost, executor driver, partition 61, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 60.0 in stage 2.0 (TID 65) in 15 ms on localhost (executor driver) (61/100)
+22/04/27 13:19:39 INFO Executor: Running task 61.0 in stage 2.0 (TID 66)
+22/04/27 13:19:39 INFO Executor: Finished task 61.0 in stage 2.0 (TID 66). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 62.0 in stage 2.0 (TID 67, localhost, executor driver, partition 62, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 61.0 in stage 2.0 (TID 66) in 31 ms on localhost (executor driver) (62/100)
+22/04/27 13:19:39 INFO Executor: Running task 62.0 in stage 2.0 (TID 67)
+22/04/27 13:19:39 INFO Executor: Finished task 62.0 in stage 2.0 (TID 67). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 63.0 in stage 2.0 (TID 68, localhost, executor driver, partition 63, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO Executor: Running task 63.0 in stage 2.0 (TID 68)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 62.0 in stage 2.0 (TID 67) in 23 ms on localhost (executor driver) (63/100)
+22/04/27 13:19:39 INFO Executor: Finished task 63.0 in stage 2.0 (TID 68). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 64.0 in stage 2.0 (TID 69, localhost, executor driver, partition 64, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 63.0 in stage 2.0 (TID 68) in 16 ms on localhost (executor driver) (64/100)
+22/04/27 13:19:39 INFO Executor: Running task 64.0 in stage 2.0 (TID 69)
+22/04/27 13:19:39 INFO Executor: Finished task 64.0 in stage 2.0 (TID 69). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 65.0 in stage 2.0 (TID 70, localhost, executor driver, partition 65, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 64.0 in stage 2.0 (TID 69) in 26 ms on localhost (executor driver) (65/100)
+22/04/27 13:19:39 INFO Executor: Running task 65.0 in stage 2.0 (TID 70)
+22/04/27 13:19:39 INFO Executor: Finished task 65.0 in stage 2.0 (TID 70). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 66.0 in stage 2.0 (TID 71, localhost, executor driver, partition 66, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 65.0 in stage 2.0 (TID 70) in 22 ms on localhost (executor driver) (66/100)
+22/04/27 13:19:39 INFO Executor: Running task 66.0 in stage 2.0 (TID 71)
+22/04/27 13:19:39 INFO Executor: Finished task 66.0 in stage 2.0 (TID 71). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 67.0 in stage 2.0 (TID 72, localhost, executor driver, partition 67, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 66.0 in stage 2.0 (TID 71) in 15 ms on localhost (executor driver) (67/100)
+22/04/27 13:19:39 INFO Executor: Running task 67.0 in stage 2.0 (TID 72)
+22/04/27 13:19:39 INFO Executor: Finished task 67.0 in stage 2.0 (TID 72). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 68.0 in stage 2.0 (TID 73, localhost, executor driver, partition 68, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 67.0 in stage 2.0 (TID 72) in 27 ms on localhost (executor driver) (68/100)
+22/04/27 13:19:39 INFO Executor: Running task 68.0 in stage 2.0 (TID 73)
+22/04/27 13:19:39 INFO Executor: Finished task 68.0 in stage 2.0 (TID 73). 1004 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 69.0 in stage 2.0 (TID 74, localhost, executor driver, partition 69, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO Executor: Running task 69.0 in stage 2.0 (TID 74)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 68.0 in stage 2.0 (TID 73) in 29 ms on localhost (executor driver) (69/100)
+22/04/27 13:19:39 INFO Executor: Finished task 69.0 in stage 2.0 (TID 74). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 70.0 in stage 2.0 (TID 75, localhost, executor driver, partition 70, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 69.0 in stage 2.0 (TID 74) in 17 ms on localhost (executor driver) (70/100)
+22/04/27 13:19:39 INFO Executor: Running task 70.0 in stage 2.0 (TID 75)
+22/04/27 13:19:39 INFO Executor: Finished task 70.0 in stage 2.0 (TID 75). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 71.0 in stage 2.0 (TID 76, localhost, executor driver, partition 71, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 70.0 in stage 2.0 (TID 75) in 28 ms on localhost (executor driver) (71/100)
+22/04/27 13:19:39 INFO Executor: Running task 71.0 in stage 2.0 (TID 76)
+22/04/27 13:19:39 INFO Executor: Finished task 71.0 in stage 2.0 (TID 76). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 72.0 in stage 2.0 (TID 77, localhost, executor driver, partition 72, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 71.0 in stage 2.0 (TID 76) in 18 ms on localhost (executor driver) (72/100)
+22/04/27 13:19:39 INFO Executor: Running task 72.0 in stage 2.0 (TID 77)
+22/04/27 13:19:39 INFO Executor: Finished task 72.0 in stage 2.0 (TID 77). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 73.0 in stage 2.0 (TID 78, localhost, executor driver, partition 73, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 72.0 in stage 2.0 (TID 77) in 26 ms on localhost (executor driver) (73/100)
+22/04/27 13:19:39 INFO Executor: Running task 73.0 in stage 2.0 (TID 78)
+22/04/27 13:19:39 INFO Executor: Finished task 73.0 in stage 2.0 (TID 78). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 74.0 in stage 2.0 (TID 79, localhost, executor driver, partition 74, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:39 INFO Executor: Running task 74.0 in stage 2.0 (TID 79)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 73.0 in stage 2.0 (TID 78) in 26 ms on localhost (executor driver) (74/100)
+22/04/27 13:19:39 INFO Executor: Finished task 74.0 in stage 2.0 (TID 79). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 75.0 in stage 2.0 (TID 80, localhost, executor driver, partition 75, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 74.0 in stage 2.0 (TID 79) in 17 ms on localhost (executor driver) (75/100)
+22/04/27 13:19:39 INFO Executor: Running task 75.0 in stage 2.0 (TID 80)
+22/04/27 13:19:39 INFO Executor: Finished task 75.0 in stage 2.0 (TID 80). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 76.0 in stage 2.0 (TID 81, localhost, executor driver, partition 76, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 75.0 in stage 2.0 (TID 80) in 25 ms on localhost (executor driver) (76/100)
+22/04/27 13:19:39 INFO Executor: Running task 76.0 in stage 2.0 (TID 81)
+22/04/27 13:19:39 INFO Executor: Finished task 76.0 in stage 2.0 (TID 81). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 77.0 in stage 2.0 (TID 82, localhost, executor driver, partition 77, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 76.0 in stage 2.0 (TID 81) in 18 ms on localhost (executor driver) (77/100)
+22/04/27 13:19:39 INFO Executor: Running task 77.0 in stage 2.0 (TID 82)
+22/04/27 13:19:39 INFO Executor: Finished task 77.0 in stage 2.0 (TID 82). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 78.0 in stage 2.0 (TID 83, localhost, executor driver, partition 78, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 77.0 in stage 2.0 (TID 82) in 24 ms on localhost (executor driver) (78/100)
+22/04/27 13:19:39 INFO Executor: Running task 78.0 in stage 2.0 (TID 83)
+22/04/27 13:19:39 INFO Executor: Finished task 78.0 in stage 2.0 (TID 83). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 79.0 in stage 2.0 (TID 84, localhost, executor driver, partition 79, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 78.0 in stage 2.0 (TID 83) in 26 ms on localhost (executor driver) (79/100)
+22/04/27 13:19:39 INFO Executor: Running task 79.0 in stage 2.0 (TID 84)
+22/04/27 13:19:39 INFO Executor: Finished task 79.0 in stage 2.0 (TID 84). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 80.0 in stage 2.0 (TID 85, localhost, executor driver, partition 80, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 79.0 in stage 2.0 (TID 84) in 29 ms on localhost (executor driver) (80/100)
+22/04/27 13:19:39 INFO Executor: Running task 80.0 in stage 2.0 (TID 85)
+22/04/27 13:19:39 INFO Executor: Finished task 80.0 in stage 2.0 (TID 85). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 81.0 in stage 2.0 (TID 86, localhost, executor driver, partition 81, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 80.0 in stage 2.0 (TID 85) in 20 ms on localhost (executor driver) (81/100)
+22/04/27 13:19:39 INFO Executor: Running task 81.0 in stage 2.0 (TID 86)
+22/04/27 13:19:39 INFO Executor: Finished task 81.0 in stage 2.0 (TID 86). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 82.0 in stage 2.0 (TID 87, localhost, executor driver, partition 82, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 81.0 in stage 2.0 (TID 86) in 26 ms on localhost (executor driver) (82/100)
+22/04/27 13:19:39 INFO Executor: Running task 82.0 in stage 2.0 (TID 87)
+22/04/27 13:19:39 INFO Executor: Finished task 82.0 in stage 2.0 (TID 87). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 83.0 in stage 2.0 (TID 88, localhost, executor driver, partition 83, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 82.0 in stage 2.0 (TID 87) in 16 ms on localhost (executor driver) (83/100)
+22/04/27 13:19:39 INFO Executor: Running task 83.0 in stage 2.0 (TID 88)
+22/04/27 13:19:39 INFO Executor: Finished task 83.0 in stage 2.0 (TID 88). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 84.0 in stage 2.0 (TID 89, localhost, executor driver, partition 84, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 83.0 in stage 2.0 (TID 88) in 28 ms on localhost (executor driver) (84/100)
+22/04/27 13:19:39 INFO Executor: Running task 84.0 in stage 2.0 (TID 89)
+22/04/27 13:19:39 INFO Executor: Finished task 84.0 in stage 2.0 (TID 89). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 85.0 in stage 2.0 (TID 90, localhost, executor driver, partition 85, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 84.0 in stage 2.0 (TID 89) in 15 ms on localhost (executor driver) (85/100)
+22/04/27 13:19:39 INFO Executor: Running task 85.0 in stage 2.0 (TID 90)
+22/04/27 13:19:39 INFO Executor: Finished task 85.0 in stage 2.0 (TID 90). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 86.0 in stage 2.0 (TID 91, localhost, executor driver, partition 86, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 85.0 in stage 2.0 (TID 90) in 22 ms on localhost (executor driver) (86/100)
+22/04/27 13:19:39 INFO Executor: Running task 86.0 in stage 2.0 (TID 91)
+22/04/27 13:19:39 INFO Executor: Finished task 86.0 in stage 2.0 (TID 91). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 87.0 in stage 2.0 (TID 92, localhost, executor driver, partition 87, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 86.0 in stage 2.0 (TID 91) in 17 ms on localhost (executor driver) (87/100)
+22/04/27 13:19:39 INFO Executor: Running task 87.0 in stage 2.0 (TID 92)
+22/04/27 13:19:39 INFO Executor: Finished task 87.0 in stage 2.0 (TID 92). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 88.0 in stage 2.0 (TID 93, localhost, executor driver, partition 88, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 87.0 in stage 2.0 (TID 92) in 37 ms on localhost (executor driver) (88/100)
+22/04/27 13:19:39 INFO Executor: Running task 88.0 in stage 2.0 (TID 93)
+22/04/27 13:19:39 INFO Executor: Finished task 88.0 in stage 2.0 (TID 93). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 89.0 in stage 2.0 (TID 94, localhost, executor driver, partition 89, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 88.0 in stage 2.0 (TID 93) in 14 ms on localhost (executor driver) (89/100)
+22/04/27 13:19:39 INFO Executor: Running task 89.0 in stage 2.0 (TID 94)
+22/04/27 13:19:39 INFO Executor: Finished task 89.0 in stage 2.0 (TID 94). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 90.0 in stage 2.0 (TID 95, localhost, executor driver, partition 90, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 89.0 in stage 2.0 (TID 94) in 28 ms on localhost (executor driver) (90/100)
+22/04/27 13:19:39 INFO Executor: Running task 90.0 in stage 2.0 (TID 95)
+22/04/27 13:19:39 INFO Executor: Finished task 90.0 in stage 2.0 (TID 95). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 91.0 in stage 2.0 (TID 96, localhost, executor driver, partition 91, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 90.0 in stage 2.0 (TID 95) in 19 ms on localhost (executor driver) (91/100)
+22/04/27 13:19:39 INFO Executor: Running task 91.0 in stage 2.0 (TID 96)
+22/04/27 13:19:39 INFO Executor: Finished task 91.0 in stage 2.0 (TID 96). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 92.0 in stage 2.0 (TID 97, localhost, executor driver, partition 92, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 91.0 in stage 2.0 (TID 96) in 25 ms on localhost (executor driver) (92/100)
+22/04/27 13:19:39 INFO Executor: Running task 92.0 in stage 2.0 (TID 97)
+22/04/27 13:19:39 INFO Executor: Finished task 92.0 in stage 2.0 (TID 97). 1004 bytes result sent to driver
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 31
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 16
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 35
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 23
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 36
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 32
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 30
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 41
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 4
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 42
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 34
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 44
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 49
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 38
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 13
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 0
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 29
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 2
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 11
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 5
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 45
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 24
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 19
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 39
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 6
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 1
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 8
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 33
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 37
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 22
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 28
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 14
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 47
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 40
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 10
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 25
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 7
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 21
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 12
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 17
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 27
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 93.0 in stage 2.0 (TID 98, localhost, executor driver, partition 93, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO Executor: Running task 93.0 in stage 2.0 (TID 98)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 92.0 in stage 2.0 (TID 97) in 79 ms on localhost (executor driver) (93/100)
+22/04/27 13:19:39 INFO Executor: Finished task 93.0 in stage 2.0 (TID 98). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 94.0 in stage 2.0 (TID 99, localhost, executor driver, partition 94, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 93.0 in stage 2.0 (TID 98) in 71 ms on localhost (executor driver) (94/100)
+22/04/27 13:19:39 INFO Executor: Running task 94.0 in stage 2.0 (TID 99)
+22/04/27 13:19:39 INFO BlockManagerInfo: Removed broadcast_1_piece0 on atlas-193:37917 in memory (size: 1149.0 B, free: 17.2 GB)
+22/04/27 13:19:39 INFO Executor: Finished task 94.0 in stage 2.0 (TID 99). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 95.0 in stage 2.0 (TID 100, localhost, executor driver, partition 95, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:39 INFO Executor: Running task 95.0 in stage 2.0 (TID 100)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 94.0 in stage 2.0 (TID 99) in 30 ms on localhost (executor driver) (95/100)
+22/04/27 13:19:39 INFO Executor: Finished task 95.0 in stage 2.0 (TID 100). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 96.0 in stage 2.0 (TID 101, localhost, executor driver, partition 96, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 95.0 in stage 2.0 (TID 100) in 20 ms on localhost (executor driver) (96/100)
+22/04/27 13:19:39 INFO Executor: Running task 96.0 in stage 2.0 (TID 101)
+22/04/27 13:19:39 INFO Executor: Finished task 96.0 in stage 2.0 (TID 101). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 97.0 in stage 2.0 (TID 102, localhost, executor driver, partition 97, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 96.0 in stage 2.0 (TID 101) in 30 ms on localhost (executor driver) (97/100)
+22/04/27 13:19:39 INFO Executor: Running task 97.0 in stage 2.0 (TID 102)
+22/04/27 13:19:39 INFO Executor: Finished task 97.0 in stage 2.0 (TID 102). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 98.0 in stage 2.0 (TID 103, localhost, executor driver, partition 98, PROCESS_LOCAL, 7710 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 97.0 in stage 2.0 (TID 102) in 26 ms on localhost (executor driver) (98/100)
+22/04/27 13:19:39 INFO Executor: Running task 98.0 in stage 2.0 (TID 103)
+22/04/27 13:19:39 INFO Executor: Finished task 98.0 in stage 2.0 (TID 103). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 48
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 18
+22/04/27 13:19:39 INFO ContextCleaner: Cleaned accumulator 15
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 99.0 in stage 2.0 (TID 104, localhost, executor driver, partition 99, PROCESS_LOCAL, 7763 bytes)
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 98.0 in stage 2.0 (TID 103) in 30 ms on localhost (executor driver) (99/100)
+22/04/27 13:19:39 INFO Executor: Running task 99.0 in stage 2.0 (TID 104)
+22/04/27 13:19:39 INFO Executor: Finished task 99.0 in stage 2.0 (TID 104). 961 bytes result sent to driver
+22/04/27 13:19:39 INFO TaskSetManager: Finished task 99.0 in stage 2.0 (TID 104) in 24 ms on localhost (executor driver) (100/100)
+22/04/27 13:19:39 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+22/04/27 13:19:39 INFO DAGScheduler: ShuffleMapStage 2 (treeAggregate at RowMatrix.scala:122) finished in 3.580 s
+22/04/27 13:19:39 INFO DAGScheduler: looking for newly runnable stages
+22/04/27 13:19:39 INFO BlockManagerInfo: Removed broadcast_0_piece0 on atlas-193:37917 in memory (size: 1149.0 B, free: 17.2 GB)
+22/04/27 13:19:39 INFO DAGScheduler: running: Set()
+22/04/27 13:19:39 INFO DAGScheduler: waiting: Set(ResultStage 3)
+22/04/27 13:19:39 INFO DAGScheduler: failed: Set()
+22/04/27 13:19:39 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[4] at treeAggregate at RowMatrix.scala:122), which has no missing parents
+22/04/27 13:19:39 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 6.6 KB, free 17.2 GB)
+22/04/27 13:19:39 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 3.7 KB, free 17.2 GB)
+22/04/27 13:19:39 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on atlas-193:37917 (size: 3.7 KB, free: 17.2 GB)
+22/04/27 13:19:39 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1163
+22/04/27 13:19:39 INFO DAGScheduler: Submitting 10 missing tasks from ResultStage 3 (MapPartitionsRDD[4] at treeAggregate at RowMatrix.scala:122) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
+22/04/27 13:19:39 INFO TaskSchedulerImpl: Adding task set 3.0 with 10 tasks
+22/04/27 13:19:39 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 105, localhost, executor driver, partition 0, ANY, 7662 bytes)
+22/04/27 13:19:39 INFO Executor: Running task 0.0 in stage 3.0 (TID 105)
+22/04/27 13:19:40 INFO ContextCleaner: Cleaned accumulator 46
+22/04/27 13:19:40 INFO ContextCleaner: Cleaned accumulator 9
+22/04/27 13:19:40 INFO ContextCleaner: Cleaned accumulator 20
+22/04/27 13:19:40 INFO ContextCleaner: Cleaned accumulator 43
+22/04/27 13:19:40 INFO ContextCleaner: Cleaned accumulator 26
+22/04/27 13:19:40 INFO ContextCleaner: Cleaned accumulator 3
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Getting 10 non-empty blocks including 10 local blocks and 0 remote blocks
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 7 ms
+22/04/27 13:19:40 INFO Executor: Finished task 0.0 in stage 3.0 (TID 105). 1304 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 1.0 in stage 3.0 (TID 106, localhost, executor driver, partition 1, ANY, 7662 bytes)
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 105) in 82 ms on localhost (executor driver) (1/10)
+22/04/27 13:19:40 INFO Executor: Running task 1.0 in stage 3.0 (TID 106)
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Getting 10 non-empty blocks including 10 local blocks and 0 remote blocks
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+22/04/27 13:19:40 INFO Executor: Finished task 1.0 in stage 3.0 (TID 106). 1304 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 2.0 in stage 3.0 (TID 107, localhost, executor driver, partition 2, ANY, 7662 bytes)
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 1.0 in stage 3.0 (TID 106) in 21 ms on localhost (executor driver) (2/10)
+22/04/27 13:19:40 INFO Executor: Running task 2.0 in stage 3.0 (TID 107)
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Getting 10 non-empty blocks including 10 local blocks and 0 remote blocks
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+22/04/27 13:19:40 INFO Executor: Finished task 2.0 in stage 3.0 (TID 107). 1304 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 3.0 in stage 3.0 (TID 108, localhost, executor driver, partition 3, ANY, 7662 bytes)
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 2.0 in stage 3.0 (TID 107) in 48 ms on localhost (executor driver) (3/10)
+22/04/27 13:19:40 INFO Executor: Running task 3.0 in stage 3.0 (TID 108)
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Getting 10 non-empty blocks including 10 local blocks and 0 remote blocks
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 2 ms
+22/04/27 13:19:40 INFO Executor: Finished task 3.0 in stage 3.0 (TID 108). 1304 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 4.0 in stage 3.0 (TID 109, localhost, executor driver, partition 4, ANY, 7662 bytes)
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 3.0 in stage 3.0 (TID 108) in 12 ms on localhost (executor driver) (4/10)
+22/04/27 13:19:40 INFO Executor: Running task 4.0 in stage 3.0 (TID 109)
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Getting 10 non-empty blocks including 10 local blocks and 0 remote blocks
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+22/04/27 13:19:40 INFO Executor: Finished task 4.0 in stage 3.0 (TID 109). 1304 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 5.0 in stage 3.0 (TID 110, localhost, executor driver, partition 5, ANY, 7662 bytes)
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 4.0 in stage 3.0 (TID 109) in 26 ms on localhost (executor driver) (5/10)
+22/04/27 13:19:40 INFO Executor: Running task 5.0 in stage 3.0 (TID 110)
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Getting 10 non-empty blocks including 10 local blocks and 0 remote blocks
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+22/04/27 13:19:40 INFO Executor: Finished task 5.0 in stage 3.0 (TID 110). 1304 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 6.0 in stage 3.0 (TID 111, localhost, executor driver, partition 6, ANY, 7662 bytes)
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 5.0 in stage 3.0 (TID 110) in 11 ms on localhost (executor driver) (6/10)
+22/04/27 13:19:40 INFO Executor: Running task 6.0 in stage 3.0 (TID 111)
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Getting 10 non-empty blocks including 10 local blocks and 0 remote blocks
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+22/04/27 13:19:40 INFO Executor: Finished task 6.0 in stage 3.0 (TID 111). 1304 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 7.0 in stage 3.0 (TID 112, localhost, executor driver, partition 7, ANY, 7662 bytes)
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 6.0 in stage 3.0 (TID 111) in 20 ms on localhost (executor driver) (7/10)
+22/04/27 13:19:40 INFO Executor: Running task 7.0 in stage 3.0 (TID 112)
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Getting 10 non-empty blocks including 10 local blocks and 0 remote blocks
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+22/04/27 13:19:40 INFO Executor: Finished task 7.0 in stage 3.0 (TID 112). 1304 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 8.0 in stage 3.0 (TID 113, localhost, executor driver, partition 8, ANY, 7662 bytes)
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 7.0 in stage 3.0 (TID 112) in 15 ms on localhost (executor driver) (8/10)
+22/04/27 13:19:40 INFO Executor: Running task 8.0 in stage 3.0 (TID 113)
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Getting 10 non-empty blocks including 10 local blocks and 0 remote blocks
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/04/27 13:19:40 INFO Executor: Finished task 8.0 in stage 3.0 (TID 113). 1304 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 9.0 in stage 3.0 (TID 114, localhost, executor driver, partition 9, ANY, 7662 bytes)
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 8.0 in stage 3.0 (TID 113) in 30 ms on localhost (executor driver) (9/10)
+22/04/27 13:19:40 INFO Executor: Running task 9.0 in stage 3.0 (TID 114)
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Getting 10 non-empty blocks including 10 local blocks and 0 remote blocks
+22/04/27 13:19:40 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/04/27 13:19:40 INFO Executor: Finished task 9.0 in stage 3.0 (TID 114). 1304 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 9.0 in stage 3.0 (TID 114) in 27 ms on localhost (executor driver) (10/10)
+22/04/27 13:19:40 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool 
+22/04/27 13:19:40 INFO DAGScheduler: ResultStage 3 (treeAggregate at RowMatrix.scala:122) finished in 0.296 s
+22/04/27 13:19:40 INFO DAGScheduler: Job 2 finished: treeAggregate at RowMatrix.scala:122, took 3.922126 s
+Apr 27, 2022 1:19:40 PM com.github.fommil.netlib.LAPACK <clinit>
+WARNING: Failed to load implementation from: com.github.fommil.netlib.NativeSystemLAPACK
+Apr 27, 2022 1:19:40 PM com.github.fommil.jni.JniLoader load
+INFO: already loaded netlib-native_ref-linux-x86_64.so
+22/04/27 13:19:40 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 328.0 B, free 17.2 GB)
+22/04/27 13:19:40 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 296.0 B, free 17.2 GB)
+22/04/27 13:19:40 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on atlas-193:37917 (size: 296.0 B, free: 17.2 GB)
+22/04/27 13:19:40 INFO SparkContext: Created broadcast 4 from broadcast at RowMatrix.scala:456
+22/04/27 13:19:40 INFO SparkContext: Starting job: collect at SparkConverter.java:94
+22/04/27 13:19:40 INFO DAGScheduler: Got job 3 (collect at SparkConverter.java:94) with 100 output partitions
+22/04/27 13:19:40 INFO DAGScheduler: Final stage: ResultStage 4 (collect at SparkConverter.java:94)
+22/04/27 13:19:40 INFO DAGScheduler: Parents of final stage: List()
+22/04/27 13:19:40 INFO DAGScheduler: Missing parents: List()
+22/04/27 13:19:40 INFO DAGScheduler: Submitting ResultStage 4 (MapPartitionsRDD[5] at mapPartitions at RowMatrix.scala:457), which has no missing parents
+22/04/27 13:19:40 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 3.2 KB, free 17.2 GB)
+22/04/27 13:19:40 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 1893.0 B, free 17.2 GB)
+22/04/27 13:19:40 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on atlas-193:37917 (size: 1893.0 B, free: 17.2 GB)
+22/04/27 13:19:40 INFO SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:1163
+22/04/27 13:19:40 INFO DAGScheduler: Submitting 100 missing tasks from ResultStage 4 (MapPartitionsRDD[5] at mapPartitions at RowMatrix.scala:457) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
+22/04/27 13:19:40 INFO TaskSchedulerImpl: Adding task set 4.0 with 100 tasks
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 0.0 in stage 4.0 (TID 115, localhost, executor driver, partition 0, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:40 INFO Executor: Running task 0.0 in stage 4.0 (TID 115)
+22/04/27 13:19:40 INFO Executor: Finished task 0.0 in stage 4.0 (TID 115). 707 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 1.0 in stage 4.0 (TID 116, localhost, executor driver, partition 1, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 0.0 in stage 4.0 (TID 115) in 9 ms on localhost (executor driver) (1/100)
+22/04/27 13:19:40 INFO Executor: Running task 1.0 in stage 4.0 (TID 116)
+22/04/27 13:19:40 INFO Executor: Finished task 1.0 in stage 4.0 (TID 116). 664 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 2.0 in stage 4.0 (TID 117, localhost, executor driver, partition 2, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 1.0 in stage 4.0 (TID 116) in 10 ms on localhost (executor driver) (2/100)
+22/04/27 13:19:40 INFO Executor: Running task 2.0 in stage 4.0 (TID 117)
+22/04/27 13:19:40 INFO Executor: Finished task 2.0 in stage 4.0 (TID 117). 664 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 2.0 in stage 4.0 (TID 117) in 19 ms on localhost (executor driver) (3/100)
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 3.0 in stage 4.0 (TID 118, localhost, executor driver, partition 3, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:40 INFO Executor: Running task 3.0 in stage 4.0 (TID 118)
+22/04/27 13:19:40 INFO Executor: Finished task 3.0 in stage 4.0 (TID 118). 664 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 4.0 in stage 4.0 (TID 119, localhost, executor driver, partition 4, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 3.0 in stage 4.0 (TID 118) in 9 ms on localhost (executor driver) (4/100)
+22/04/27 13:19:40 INFO Executor: Running task 4.0 in stage 4.0 (TID 119)
+22/04/27 13:19:40 INFO Executor: Finished task 4.0 in stage 4.0 (TID 119). 760 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 5.0 in stage 4.0 (TID 120, localhost, executor driver, partition 5, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 4.0 in stage 4.0 (TID 119) in 18 ms on localhost (executor driver) (5/100)
+22/04/27 13:19:40 INFO Executor: Running task 5.0 in stage 4.0 (TID 120)
+22/04/27 13:19:40 INFO Executor: Finished task 5.0 in stage 4.0 (TID 120). 664 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 6.0 in stage 4.0 (TID 121, localhost, executor driver, partition 6, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 5.0 in stage 4.0 (TID 120) in 21 ms on localhost (executor driver) (6/100)
+22/04/27 13:19:40 INFO Executor: Running task 6.0 in stage 4.0 (TID 121)
+22/04/27 13:19:40 INFO Executor: Finished task 6.0 in stage 4.0 (TID 121). 664 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 7.0 in stage 4.0 (TID 122, localhost, executor driver, partition 7, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 6.0 in stage 4.0 (TID 121) in 9 ms on localhost (executor driver) (7/100)
+22/04/27 13:19:40 INFO Executor: Running task 7.0 in stage 4.0 (TID 122)
+22/04/27 13:19:40 INFO Executor: Finished task 7.0 in stage 4.0 (TID 122). 707 bytes result sent to driver
+22/04/27 13:19:40 INFO TaskSetManager: Starting task 8.0 in stage 4.0 (TID 123, localhost, executor driver, partition 8, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:40 INFO TaskSetManager: Finished task 7.0 in stage 4.0 (TID 122) in 9 ms on localhost (executor driver) (8/100)
+22/04/27 13:19:40 INFO Executor: Running task 8.0 in stage 4.0 (TID 123)
+22/04/27 13:19:40 INFO Executor: Finished task 8.0 in stage 4.0 (TID 123). 717 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 9.0 in stage 4.0 (TID 124, localhost, executor driver, partition 9, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 8.0 in stage 4.0 (TID 123) in 19 ms on localhost (executor driver) (9/100)
+22/04/27 13:19:41 INFO Executor: Running task 9.0 in stage 4.0 (TID 124)
+22/04/27 13:19:41 INFO Executor: Finished task 9.0 in stage 4.0 (TID 124). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 10.0 in stage 4.0 (TID 125, localhost, executor driver, partition 10, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 9.0 in stage 4.0 (TID 124) in 10 ms on localhost (executor driver) (10/100)
+22/04/27 13:19:41 INFO Executor: Running task 10.0 in stage 4.0 (TID 125)
+22/04/27 13:19:41 INFO Executor: Finished task 10.0 in stage 4.0 (TID 125). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 11.0 in stage 4.0 (TID 126, localhost, executor driver, partition 11, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 10.0 in stage 4.0 (TID 125) in 11 ms on localhost (executor driver) (11/100)
+22/04/27 13:19:41 INFO Executor: Running task 11.0 in stage 4.0 (TID 126)
+22/04/27 13:19:41 INFO Executor: Finished task 11.0 in stage 4.0 (TID 126). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 12.0 in stage 4.0 (TID 127, localhost, executor driver, partition 12, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 11.0 in stage 4.0 (TID 126) in 18 ms on localhost (executor driver) (12/100)
+22/04/27 13:19:41 INFO Executor: Running task 12.0 in stage 4.0 (TID 127)
+22/04/27 13:19:41 INFO Executor: Finished task 12.0 in stage 4.0 (TID 127). 760 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 13.0 in stage 4.0 (TID 128, localhost, executor driver, partition 13, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 12.0 in stage 4.0 (TID 127) in 12 ms on localhost (executor driver) (13/100)
+22/04/27 13:19:41 INFO Executor: Running task 13.0 in stage 4.0 (TID 128)
+22/04/27 13:19:41 INFO Executor: Finished task 13.0 in stage 4.0 (TID 128). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 14.0 in stage 4.0 (TID 129, localhost, executor driver, partition 14, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 13.0 in stage 4.0 (TID 128) in 12 ms on localhost (executor driver) (14/100)
+22/04/27 13:19:41 INFO Executor: Running task 14.0 in stage 4.0 (TID 129)
+22/04/27 13:19:41 INFO Executor: Finished task 14.0 in stage 4.0 (TID 129). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 15.0 in stage 4.0 (TID 130, localhost, executor driver, partition 15, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 14.0 in stage 4.0 (TID 129) in 19 ms on localhost (executor driver) (15/100)
+22/04/27 13:19:41 INFO Executor: Running task 15.0 in stage 4.0 (TID 130)
+22/04/27 13:19:41 INFO Executor: Finished task 15.0 in stage 4.0 (TID 130). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 16.0 in stage 4.0 (TID 131, localhost, executor driver, partition 16, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 15.0 in stage 4.0 (TID 130) in 9 ms on localhost (executor driver) (16/100)
+22/04/27 13:19:41 INFO Executor: Running task 16.0 in stage 4.0 (TID 131)
+22/04/27 13:19:41 INFO Executor: Finished task 16.0 in stage 4.0 (TID 131). 760 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 17.0 in stage 4.0 (TID 132, localhost, executor driver, partition 17, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 16.0 in stage 4.0 (TID 131) in 9 ms on localhost (executor driver) (17/100)
+22/04/27 13:19:41 INFO Executor: Running task 17.0 in stage 4.0 (TID 132)
+22/04/27 13:19:41 INFO Executor: Finished task 17.0 in stage 4.0 (TID 132). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 18.0 in stage 4.0 (TID 133, localhost, executor driver, partition 18, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 17.0 in stage 4.0 (TID 132) in 19 ms on localhost (executor driver) (18/100)
+22/04/27 13:19:41 INFO Executor: Running task 18.0 in stage 4.0 (TID 133)
+22/04/27 13:19:41 INFO Executor: Finished task 18.0 in stage 4.0 (TID 133). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 19.0 in stage 4.0 (TID 134, localhost, executor driver, partition 19, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 18.0 in stage 4.0 (TID 133) in 8 ms on localhost (executor driver) (19/100)
+22/04/27 13:19:41 INFO Executor: Running task 19.0 in stage 4.0 (TID 134)
+22/04/27 13:19:41 INFO Executor: Finished task 19.0 in stage 4.0 (TID 134). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 20.0 in stage 4.0 (TID 135, localhost, executor driver, partition 20, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 19.0 in stage 4.0 (TID 134) in 9 ms on localhost (executor driver) (20/100)
+22/04/27 13:19:41 INFO Executor: Running task 20.0 in stage 4.0 (TID 135)
+22/04/27 13:19:41 INFO Executor: Finished task 20.0 in stage 4.0 (TID 135). 760 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 21.0 in stage 4.0 (TID 136, localhost, executor driver, partition 21, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 20.0 in stage 4.0 (TID 135) in 20 ms on localhost (executor driver) (21/100)
+22/04/27 13:19:41 INFO Executor: Running task 21.0 in stage 4.0 (TID 136)
+22/04/27 13:19:41 INFO Executor: Finished task 21.0 in stage 4.0 (TID 136). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 22.0 in stage 4.0 (TID 137, localhost, executor driver, partition 22, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 21.0 in stage 4.0 (TID 136) in 9 ms on localhost (executor driver) (22/100)
+22/04/27 13:19:41 INFO Executor: Running task 22.0 in stage 4.0 (TID 137)
+22/04/27 13:19:41 INFO Executor: Finished task 22.0 in stage 4.0 (TID 137). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 23.0 in stage 4.0 (TID 138, localhost, executor driver, partition 23, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 22.0 in stage 4.0 (TID 137) in 10 ms on localhost (executor driver) (23/100)
+22/04/27 13:19:41 INFO Executor: Running task 23.0 in stage 4.0 (TID 138)
+22/04/27 13:19:41 INFO Executor: Finished task 23.0 in stage 4.0 (TID 138). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 24.0 in stage 4.0 (TID 139, localhost, executor driver, partition 24, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO Executor: Running task 24.0 in stage 4.0 (TID 139)
+22/04/27 13:19:41 INFO Executor: Finished task 24.0 in stage 4.0 (TID 139). 717 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 23.0 in stage 4.0 (TID 138) in 23 ms on localhost (executor driver) (24/100)
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 25.0 in stage 4.0 (TID 140, localhost, executor driver, partition 25, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 24.0 in stage 4.0 (TID 139) in 10 ms on localhost (executor driver) (25/100)
+22/04/27 13:19:41 INFO Executor: Running task 25.0 in stage 4.0 (TID 140)
+22/04/27 13:19:41 INFO Executor: Finished task 25.0 in stage 4.0 (TID 140). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 26.0 in stage 4.0 (TID 141, localhost, executor driver, partition 26, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 25.0 in stage 4.0 (TID 140) in 9 ms on localhost (executor driver) (26/100)
+22/04/27 13:19:41 INFO Executor: Running task 26.0 in stage 4.0 (TID 141)
+22/04/27 13:19:41 INFO Executor: Finished task 26.0 in stage 4.0 (TID 141). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 27.0 in stage 4.0 (TID 142, localhost, executor driver, partition 27, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO Executor: Running task 27.0 in stage 4.0 (TID 142)
+22/04/27 13:19:41 INFO Executor: Finished task 27.0 in stage 4.0 (TID 142). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 26.0 in stage 4.0 (TID 141) in 22 ms on localhost (executor driver) (27/100)
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 28.0 in stage 4.0 (TID 143, localhost, executor driver, partition 28, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 27.0 in stage 4.0 (TID 142) in 11 ms on localhost (executor driver) (28/100)
+22/04/27 13:19:41 INFO Executor: Running task 28.0 in stage 4.0 (TID 143)
+22/04/27 13:19:41 INFO Executor: Finished task 28.0 in stage 4.0 (TID 143). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 29.0 in stage 4.0 (TID 144, localhost, executor driver, partition 29, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 28.0 in stage 4.0 (TID 143) in 9 ms on localhost (executor driver) (29/100)
+22/04/27 13:19:41 INFO Executor: Running task 29.0 in stage 4.0 (TID 144)
+22/04/27 13:19:41 INFO Executor: Finished task 29.0 in stage 4.0 (TID 144). 760 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 30.0 in stage 4.0 (TID 145, localhost, executor driver, partition 30, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 29.0 in stage 4.0 (TID 144) in 19 ms on localhost (executor driver) (30/100)
+22/04/27 13:19:41 INFO Executor: Running task 30.0 in stage 4.0 (TID 145)
+22/04/27 13:19:41 INFO Executor: Finished task 30.0 in stage 4.0 (TID 145). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 31.0 in stage 4.0 (TID 146, localhost, executor driver, partition 31, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 30.0 in stage 4.0 (TID 145) in 8 ms on localhost (executor driver) (31/100)
+22/04/27 13:19:41 INFO Executor: Running task 31.0 in stage 4.0 (TID 146)
+22/04/27 13:19:41 INFO Executor: Finished task 31.0 in stage 4.0 (TID 146). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 32.0 in stage 4.0 (TID 147, localhost, executor driver, partition 32, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 31.0 in stage 4.0 (TID 146) in 8 ms on localhost (executor driver) (32/100)
+22/04/27 13:19:41 INFO Executor: Running task 32.0 in stage 4.0 (TID 147)
+22/04/27 13:19:41 INFO Executor: Finished task 32.0 in stage 4.0 (TID 147). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 33.0 in stage 4.0 (TID 148, localhost, executor driver, partition 33, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 32.0 in stage 4.0 (TID 147) in 21 ms on localhost (executor driver) (33/100)
+22/04/27 13:19:41 INFO Executor: Running task 33.0 in stage 4.0 (TID 148)
+22/04/27 13:19:41 INFO Executor: Finished task 33.0 in stage 4.0 (TID 148). 717 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 34.0 in stage 4.0 (TID 149, localhost, executor driver, partition 34, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 33.0 in stage 4.0 (TID 148) in 9 ms on localhost (executor driver) (34/100)
+22/04/27 13:19:41 INFO Executor: Running task 34.0 in stage 4.0 (TID 149)
+22/04/27 13:19:41 INFO Executor: Finished task 34.0 in stage 4.0 (TID 149). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 35.0 in stage 4.0 (TID 150, localhost, executor driver, partition 35, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 34.0 in stage 4.0 (TID 149) in 9 ms on localhost (executor driver) (35/100)
+22/04/27 13:19:41 INFO Executor: Running task 35.0 in stage 4.0 (TID 150)
+22/04/27 13:19:41 INFO Executor: Finished task 35.0 in stage 4.0 (TID 150). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 36.0 in stage 4.0 (TID 151, localhost, executor driver, partition 36, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 35.0 in stage 4.0 (TID 150) in 9 ms on localhost (executor driver) (36/100)
+22/04/27 13:19:41 INFO Executor: Running task 36.0 in stage 4.0 (TID 151)
+22/04/27 13:19:41 INFO Executor: Finished task 36.0 in stage 4.0 (TID 151). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 37.0 in stage 4.0 (TID 152, localhost, executor driver, partition 37, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 36.0 in stage 4.0 (TID 151) in 20 ms on localhost (executor driver) (37/100)
+22/04/27 13:19:41 INFO Executor: Running task 37.0 in stage 4.0 (TID 152)
+22/04/27 13:19:41 INFO Executor: Finished task 37.0 in stage 4.0 (TID 152). 760 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 38.0 in stage 4.0 (TID 153, localhost, executor driver, partition 38, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 37.0 in stage 4.0 (TID 152) in 8 ms on localhost (executor driver) (38/100)
+22/04/27 13:19:41 INFO Executor: Running task 38.0 in stage 4.0 (TID 153)
+22/04/27 13:19:41 INFO Executor: Finished task 38.0 in stage 4.0 (TID 153). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 39.0 in stage 4.0 (TID 154, localhost, executor driver, partition 39, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 38.0 in stage 4.0 (TID 153) in 13 ms on localhost (executor driver) (39/100)
+22/04/27 13:19:41 INFO Executor: Running task 39.0 in stage 4.0 (TID 154)
+22/04/27 13:19:41 INFO Executor: Finished task 39.0 in stage 4.0 (TID 154). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 40.0 in stage 4.0 (TID 155, localhost, executor driver, partition 40, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 39.0 in stage 4.0 (TID 154) in 9 ms on localhost (executor driver) (40/100)
+22/04/27 13:19:41 INFO Executor: Running task 40.0 in stage 4.0 (TID 155)
+22/04/27 13:19:41 INFO Executor: Finished task 40.0 in stage 4.0 (TID 155). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 41.0 in stage 4.0 (TID 156, localhost, executor driver, partition 41, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 40.0 in stage 4.0 (TID 155) in 18 ms on localhost (executor driver) (41/100)
+22/04/27 13:19:41 INFO Executor: Running task 41.0 in stage 4.0 (TID 156)
+22/04/27 13:19:41 INFO Executor: Finished task 41.0 in stage 4.0 (TID 156). 717 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 42.0 in stage 4.0 (TID 157, localhost, executor driver, partition 42, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 41.0 in stage 4.0 (TID 156) in 9 ms on localhost (executor driver) (42/100)
+22/04/27 13:19:41 INFO Executor: Running task 42.0 in stage 4.0 (TID 157)
+22/04/27 13:19:41 INFO Executor: Finished task 42.0 in stage 4.0 (TID 157). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 43.0 in stage 4.0 (TID 158, localhost, executor driver, partition 43, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 42.0 in stage 4.0 (TID 157) in 8 ms on localhost (executor driver) (43/100)
+22/04/27 13:19:41 INFO Executor: Running task 43.0 in stage 4.0 (TID 158)
+22/04/27 13:19:41 INFO Executor: Finished task 43.0 in stage 4.0 (TID 158). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 44.0 in stage 4.0 (TID 159, localhost, executor driver, partition 44, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 43.0 in stage 4.0 (TID 158) in 9 ms on localhost (executor driver) (44/100)
+22/04/27 13:19:41 INFO Executor: Running task 44.0 in stage 4.0 (TID 159)
+22/04/27 13:19:41 INFO Executor: Finished task 44.0 in stage 4.0 (TID 159). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 45.0 in stage 4.0 (TID 160, localhost, executor driver, partition 45, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 44.0 in stage 4.0 (TID 159) in 21 ms on localhost (executor driver) (45/100)
+22/04/27 13:19:41 INFO Executor: Running task 45.0 in stage 4.0 (TID 160)
+22/04/27 13:19:41 INFO Executor: Finished task 45.0 in stage 4.0 (TID 160). 717 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 46.0 in stage 4.0 (TID 161, localhost, executor driver, partition 46, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 45.0 in stage 4.0 (TID 160) in 11 ms on localhost (executor driver) (46/100)
+22/04/27 13:19:41 INFO Executor: Running task 46.0 in stage 4.0 (TID 161)
+22/04/27 13:19:41 INFO Executor: Finished task 46.0 in stage 4.0 (TID 161). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 47.0 in stage 4.0 (TID 162, localhost, executor driver, partition 47, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 46.0 in stage 4.0 (TID 161) in 9 ms on localhost (executor driver) (47/100)
+22/04/27 13:19:41 INFO Executor: Running task 47.0 in stage 4.0 (TID 162)
+22/04/27 13:19:41 INFO Executor: Finished task 47.0 in stage 4.0 (TID 162). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 48.0 in stage 4.0 (TID 163, localhost, executor driver, partition 48, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 47.0 in stage 4.0 (TID 162) in 9 ms on localhost (executor driver) (48/100)
+22/04/27 13:19:41 INFO Executor: Running task 48.0 in stage 4.0 (TID 163)
+22/04/27 13:19:41 INFO Executor: Finished task 48.0 in stage 4.0 (TID 163). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 49.0 in stage 4.0 (TID 164, localhost, executor driver, partition 49, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 48.0 in stage 4.0 (TID 163) in 10 ms on localhost (executor driver) (49/100)
+22/04/27 13:19:41 INFO Executor: Running task 49.0 in stage 4.0 (TID 164)
+22/04/27 13:19:41 INFO Executor: Finished task 49.0 in stage 4.0 (TID 164). 760 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 50.0 in stage 4.0 (TID 165, localhost, executor driver, partition 50, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 49.0 in stage 4.0 (TID 164) in 21 ms on localhost (executor driver) (50/100)
+22/04/27 13:19:41 INFO Executor: Running task 50.0 in stage 4.0 (TID 165)
+22/04/27 13:19:41 INFO Executor: Finished task 50.0 in stage 4.0 (TID 165). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 51.0 in stage 4.0 (TID 166, localhost, executor driver, partition 51, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 50.0 in stage 4.0 (TID 165) in 9 ms on localhost (executor driver) (51/100)
+22/04/27 13:19:41 INFO Executor: Running task 51.0 in stage 4.0 (TID 166)
+22/04/27 13:19:41 INFO Executor: Finished task 51.0 in stage 4.0 (TID 166). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 52.0 in stage 4.0 (TID 167, localhost, executor driver, partition 52, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 51.0 in stage 4.0 (TID 166) in 8 ms on localhost (executor driver) (52/100)
+22/04/27 13:19:41 INFO Executor: Running task 52.0 in stage 4.0 (TID 167)
+22/04/27 13:19:41 INFO Executor: Finished task 52.0 in stage 4.0 (TID 167). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 53.0 in stage 4.0 (TID 168, localhost, executor driver, partition 53, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 52.0 in stage 4.0 (TID 167) in 8 ms on localhost (executor driver) (53/100)
+22/04/27 13:19:41 INFO Executor: Running task 53.0 in stage 4.0 (TID 168)
+22/04/27 13:19:41 INFO Executor: Finished task 53.0 in stage 4.0 (TID 168). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 54.0 in stage 4.0 (TID 169, localhost, executor driver, partition 54, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 53.0 in stage 4.0 (TID 168) in 18 ms on localhost (executor driver) (54/100)
+22/04/27 13:19:41 INFO Executor: Running task 54.0 in stage 4.0 (TID 169)
+22/04/27 13:19:41 INFO Executor: Finished task 54.0 in stage 4.0 (TID 169). 717 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 55.0 in stage 4.0 (TID 170, localhost, executor driver, partition 55, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 54.0 in stage 4.0 (TID 169) in 8 ms on localhost (executor driver) (55/100)
+22/04/27 13:19:41 INFO Executor: Running task 55.0 in stage 4.0 (TID 170)
+22/04/27 13:19:41 INFO Executor: Finished task 55.0 in stage 4.0 (TID 170). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 56.0 in stage 4.0 (TID 171, localhost, executor driver, partition 56, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 55.0 in stage 4.0 (TID 170) in 8 ms on localhost (executor driver) (56/100)
+22/04/27 13:19:41 INFO Executor: Running task 56.0 in stage 4.0 (TID 171)
+22/04/27 13:19:41 INFO Executor: Finished task 56.0 in stage 4.0 (TID 171). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 57.0 in stage 4.0 (TID 172, localhost, executor driver, partition 57, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 56.0 in stage 4.0 (TID 171) in 8 ms on localhost (executor driver) (57/100)
+22/04/27 13:19:41 INFO Executor: Running task 57.0 in stage 4.0 (TID 172)
+22/04/27 13:19:41 INFO Executor: Finished task 57.0 in stage 4.0 (TID 172). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 58.0 in stage 4.0 (TID 173, localhost, executor driver, partition 58, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 57.0 in stage 4.0 (TID 172) in 19 ms on localhost (executor driver) (58/100)
+22/04/27 13:19:41 INFO Executor: Running task 58.0 in stage 4.0 (TID 173)
+22/04/27 13:19:41 INFO Executor: Finished task 58.0 in stage 4.0 (TID 173). 760 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 59.0 in stage 4.0 (TID 174, localhost, executor driver, partition 59, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 58.0 in stage 4.0 (TID 173) in 11 ms on localhost (executor driver) (59/100)
+22/04/27 13:19:41 INFO Executor: Running task 59.0 in stage 4.0 (TID 174)
+22/04/27 13:19:41 INFO Executor: Finished task 59.0 in stage 4.0 (TID 174). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 60.0 in stage 4.0 (TID 175, localhost, executor driver, partition 60, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 59.0 in stage 4.0 (TID 174) in 10 ms on localhost (executor driver) (60/100)
+22/04/27 13:19:41 INFO Executor: Running task 60.0 in stage 4.0 (TID 175)
+22/04/27 13:19:41 INFO Executor: Finished task 60.0 in stage 4.0 (TID 175). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 61.0 in stage 4.0 (TID 176, localhost, executor driver, partition 61, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 60.0 in stage 4.0 (TID 175) in 18 ms on localhost (executor driver) (61/100)
+22/04/27 13:19:41 INFO Executor: Running task 61.0 in stage 4.0 (TID 176)
+22/04/27 13:19:41 INFO Executor: Finished task 61.0 in stage 4.0 (TID 176). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 62.0 in stage 4.0 (TID 177, localhost, executor driver, partition 62, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 61.0 in stage 4.0 (TID 176) in 18 ms on localhost (executor driver) (62/100)
+22/04/27 13:19:41 INFO Executor: Running task 62.0 in stage 4.0 (TID 177)
+22/04/27 13:19:41 INFO Executor: Finished task 62.0 in stage 4.0 (TID 177). 717 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 63.0 in stage 4.0 (TID 178, localhost, executor driver, partition 63, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 62.0 in stage 4.0 (TID 177) in 10 ms on localhost (executor driver) (63/100)
+22/04/27 13:19:41 INFO Executor: Running task 63.0 in stage 4.0 (TID 178)
+22/04/27 13:19:41 INFO Executor: Finished task 63.0 in stage 4.0 (TID 178). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 64.0 in stage 4.0 (TID 179, localhost, executor driver, partition 64, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 63.0 in stage 4.0 (TID 178) in 8 ms on localhost (executor driver) (64/100)
+22/04/27 13:19:41 INFO Executor: Running task 64.0 in stage 4.0 (TID 179)
+22/04/27 13:19:41 INFO Executor: Finished task 64.0 in stage 4.0 (TID 179). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 65.0 in stage 4.0 (TID 180, localhost, executor driver, partition 65, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 64.0 in stage 4.0 (TID 179) in 8 ms on localhost (executor driver) (65/100)
+22/04/27 13:19:41 INFO Executor: Running task 65.0 in stage 4.0 (TID 180)
+22/04/27 13:19:41 INFO Executor: Finished task 65.0 in stage 4.0 (TID 180). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 66.0 in stage 4.0 (TID 181, localhost, executor driver, partition 66, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 65.0 in stage 4.0 (TID 180) in 17 ms on localhost (executor driver) (66/100)
+22/04/27 13:19:41 INFO Executor: Running task 66.0 in stage 4.0 (TID 181)
+22/04/27 13:19:41 INFO Executor: Finished task 66.0 in stage 4.0 (TID 181). 717 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 67.0 in stage 4.0 (TID 182, localhost, executor driver, partition 67, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 66.0 in stage 4.0 (TID 181) in 9 ms on localhost (executor driver) (67/100)
+22/04/27 13:19:41 INFO Executor: Running task 67.0 in stage 4.0 (TID 182)
+22/04/27 13:19:41 INFO Executor: Finished task 67.0 in stage 4.0 (TID 182). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 68.0 in stage 4.0 (TID 183, localhost, executor driver, partition 68, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 67.0 in stage 4.0 (TID 182) in 24 ms on localhost (executor driver) (68/100)
+22/04/27 13:19:41 INFO Executor: Running task 68.0 in stage 4.0 (TID 183)
+22/04/27 13:19:41 INFO Executor: Finished task 68.0 in stage 4.0 (TID 183). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 69.0 in stage 4.0 (TID 184, localhost, executor driver, partition 69, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 68.0 in stage 4.0 (TID 183) in 15 ms on localhost (executor driver) (69/100)
+22/04/27 13:19:41 INFO Executor: Running task 69.0 in stage 4.0 (TID 184)
+22/04/27 13:19:41 INFO Executor: Finished task 69.0 in stage 4.0 (TID 184). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 70.0 in stage 4.0 (TID 185, localhost, executor driver, partition 70, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 69.0 in stage 4.0 (TID 184) in 22 ms on localhost (executor driver) (70/100)
+22/04/27 13:19:41 INFO Executor: Running task 70.0 in stage 4.0 (TID 185)
+22/04/27 13:19:41 INFO Executor: Finished task 70.0 in stage 4.0 (TID 185). 760 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 71.0 in stage 4.0 (TID 186, localhost, executor driver, partition 71, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 70.0 in stage 4.0 (TID 185) in 14 ms on localhost (executor driver) (71/100)
+22/04/27 13:19:41 INFO Executor: Running task 71.0 in stage 4.0 (TID 186)
+22/04/27 13:19:41 INFO Executor: Finished task 71.0 in stage 4.0 (TID 186). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 72.0 in stage 4.0 (TID 187, localhost, executor driver, partition 72, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 71.0 in stage 4.0 (TID 186) in 9 ms on localhost (executor driver) (72/100)
+22/04/27 13:19:41 INFO Executor: Running task 72.0 in stage 4.0 (TID 187)
+22/04/27 13:19:41 INFO Executor: Finished task 72.0 in stage 4.0 (TID 187). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 73.0 in stage 4.0 (TID 188, localhost, executor driver, partition 73, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 72.0 in stage 4.0 (TID 187) in 8 ms on localhost (executor driver) (73/100)
+22/04/27 13:19:41 INFO Executor: Running task 73.0 in stage 4.0 (TID 188)
+22/04/27 13:19:41 INFO Executor: Finished task 73.0 in stage 4.0 (TID 188). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 74.0 in stage 4.0 (TID 189, localhost, executor driver, partition 74, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 73.0 in stage 4.0 (TID 188) in 18 ms on localhost (executor driver) (74/100)
+22/04/27 13:19:41 INFO Executor: Running task 74.0 in stage 4.0 (TID 189)
+22/04/27 13:19:41 INFO Executor: Finished task 74.0 in stage 4.0 (TID 189). 717 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 75.0 in stage 4.0 (TID 190, localhost, executor driver, partition 75, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 74.0 in stage 4.0 (TID 189) in 9 ms on localhost (executor driver) (75/100)
+22/04/27 13:19:41 INFO Executor: Running task 75.0 in stage 4.0 (TID 190)
+22/04/27 13:19:41 INFO Executor: Finished task 75.0 in stage 4.0 (TID 190). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 76.0 in stage 4.0 (TID 191, localhost, executor driver, partition 76, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 75.0 in stage 4.0 (TID 190) in 16 ms on localhost (executor driver) (76/100)
+22/04/27 13:19:41 INFO Executor: Running task 76.0 in stage 4.0 (TID 191)
+22/04/27 13:19:41 INFO Executor: Finished task 76.0 in stage 4.0 (TID 191). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 77.0 in stage 4.0 (TID 192, localhost, executor driver, partition 77, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 76.0 in stage 4.0 (TID 191) in 16 ms on localhost (executor driver) (77/100)
+22/04/27 13:19:41 INFO Executor: Running task 77.0 in stage 4.0 (TID 192)
+22/04/27 13:19:41 INFO Executor: Finished task 77.0 in stage 4.0 (TID 192). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 78.0 in stage 4.0 (TID 193, localhost, executor driver, partition 78, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 77.0 in stage 4.0 (TID 192) in 17 ms on localhost (executor driver) (78/100)
+22/04/27 13:19:41 INFO Executor: Running task 78.0 in stage 4.0 (TID 193)
+22/04/27 13:19:41 INFO Executor: Finished task 78.0 in stage 4.0 (TID 193). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 79.0 in stage 4.0 (TID 194, localhost, executor driver, partition 79, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 78.0 in stage 4.0 (TID 193) in 13 ms on localhost (executor driver) (79/100)
+22/04/27 13:19:41 INFO Executor: Running task 79.0 in stage 4.0 (TID 194)
+22/04/27 13:19:41 INFO Executor: Finished task 79.0 in stage 4.0 (TID 194). 717 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 80.0 in stage 4.0 (TID 195, localhost, executor driver, partition 80, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 79.0 in stage 4.0 (TID 194) in 15 ms on localhost (executor driver) (80/100)
+22/04/27 13:19:41 INFO Executor: Running task 80.0 in stage 4.0 (TID 195)
+22/04/27 13:19:41 INFO Executor: Finished task 80.0 in stage 4.0 (TID 195). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 81.0 in stage 4.0 (TID 196, localhost, executor driver, partition 81, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 80.0 in stage 4.0 (TID 195) in 13 ms on localhost (executor driver) (81/100)
+22/04/27 13:19:41 INFO Executor: Running task 81.0 in stage 4.0 (TID 196)
+22/04/27 13:19:41 INFO Executor: Finished task 81.0 in stage 4.0 (TID 196). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 82.0 in stage 4.0 (TID 197, localhost, executor driver, partition 82, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 81.0 in stage 4.0 (TID 196) in 11 ms on localhost (executor driver) (82/100)
+22/04/27 13:19:41 INFO Executor: Running task 82.0 in stage 4.0 (TID 197)
+22/04/27 13:19:41 INFO Executor: Finished task 82.0 in stage 4.0 (TID 197). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 83.0 in stage 4.0 (TID 198, localhost, executor driver, partition 83, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 82.0 in stage 4.0 (TID 197) in 15 ms on localhost (executor driver) (83/100)
+22/04/27 13:19:41 INFO Executor: Running task 83.0 in stage 4.0 (TID 198)
+22/04/27 13:19:41 INFO Executor: Finished task 83.0 in stage 4.0 (TID 198). 717 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 84.0 in stage 4.0 (TID 199, localhost, executor driver, partition 84, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 83.0 in stage 4.0 (TID 198) in 11 ms on localhost (executor driver) (84/100)
+22/04/27 13:19:41 INFO Executor: Running task 84.0 in stage 4.0 (TID 199)
+22/04/27 13:19:41 INFO Executor: Finished task 84.0 in stage 4.0 (TID 199). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 85.0 in stage 4.0 (TID 200, localhost, executor driver, partition 85, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 84.0 in stage 4.0 (TID 199) in 11 ms on localhost (executor driver) (85/100)
+22/04/27 13:19:41 INFO Executor: Running task 85.0 in stage 4.0 (TID 200)
+22/04/27 13:19:41 INFO Executor: Finished task 85.0 in stage 4.0 (TID 200). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 86.0 in stage 4.0 (TID 201, localhost, executor driver, partition 86, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 85.0 in stage 4.0 (TID 200) in 9 ms on localhost (executor driver) (86/100)
+22/04/27 13:19:41 INFO Executor: Running task 86.0 in stage 4.0 (TID 201)
+22/04/27 13:19:41 INFO Executor: Finished task 86.0 in stage 4.0 (TID 201). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 87.0 in stage 4.0 (TID 202, localhost, executor driver, partition 87, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 86.0 in stage 4.0 (TID 201) in 9 ms on localhost (executor driver) (87/100)
+22/04/27 13:19:41 INFO Executor: Running task 87.0 in stage 4.0 (TID 202)
+22/04/27 13:19:41 INFO Executor: Finished task 87.0 in stage 4.0 (TID 202). 760 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 88.0 in stage 4.0 (TID 203, localhost, executor driver, partition 88, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 87.0 in stage 4.0 (TID 202) in 15 ms on localhost (executor driver) (88/100)
+22/04/27 13:19:41 INFO Executor: Running task 88.0 in stage 4.0 (TID 203)
+22/04/27 13:19:41 INFO Executor: Finished task 88.0 in stage 4.0 (TID 203). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 89.0 in stage 4.0 (TID 204, localhost, executor driver, partition 89, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 88.0 in stage 4.0 (TID 203) in 12 ms on localhost (executor driver) (89/100)
+22/04/27 13:19:41 INFO Executor: Running task 89.0 in stage 4.0 (TID 204)
+22/04/27 13:19:41 INFO Executor: Finished task 89.0 in stage 4.0 (TID 204). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 90.0 in stage 4.0 (TID 205, localhost, executor driver, partition 90, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 89.0 in stage 4.0 (TID 204) in 10 ms on localhost (executor driver) (90/100)
+22/04/27 13:19:41 INFO Executor: Running task 90.0 in stage 4.0 (TID 205)
+22/04/27 13:19:41 INFO Executor: Finished task 90.0 in stage 4.0 (TID 205). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 91.0 in stage 4.0 (TID 206, localhost, executor driver, partition 91, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 90.0 in stage 4.0 (TID 205) in 32 ms on localhost (executor driver) (91/100)
+22/04/27 13:19:41 INFO Executor: Running task 91.0 in stage 4.0 (TID 206)
+22/04/27 13:19:41 INFO Executor: Finished task 91.0 in stage 4.0 (TID 206). 717 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 92.0 in stage 4.0 (TID 207, localhost, executor driver, partition 92, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 91.0 in stage 4.0 (TID 206) in 9 ms on localhost (executor driver) (92/100)
+22/04/27 13:19:41 INFO Executor: Running task 92.0 in stage 4.0 (TID 207)
+22/04/27 13:19:41 INFO Executor: Finished task 92.0 in stage 4.0 (TID 207). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 93.0 in stage 4.0 (TID 208, localhost, executor driver, partition 93, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 92.0 in stage 4.0 (TID 207) in 18 ms on localhost (executor driver) (93/100)
+22/04/27 13:19:41 INFO Executor: Running task 93.0 in stage 4.0 (TID 208)
+22/04/27 13:19:41 INFO Executor: Finished task 93.0 in stage 4.0 (TID 208). 664 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 94.0 in stage 4.0 (TID 209, localhost, executor driver, partition 94, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 93.0 in stage 4.0 (TID 208) in 9 ms on localhost (executor driver) (94/100)
+22/04/27 13:19:41 INFO Executor: Running task 94.0 in stage 4.0 (TID 209)
+22/04/27 13:19:41 INFO Executor: Finished task 94.0 in stage 4.0 (TID 209). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 95.0 in stage 4.0 (TID 210, localhost, executor driver, partition 95, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 94.0 in stage 4.0 (TID 209) in 8 ms on localhost (executor driver) (95/100)
+22/04/27 13:19:41 INFO Executor: Running task 95.0 in stage 4.0 (TID 210)
+22/04/27 13:19:41 INFO Executor: Finished task 95.0 in stage 4.0 (TID 210). 760 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 96.0 in stage 4.0 (TID 211, localhost, executor driver, partition 96, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 95.0 in stage 4.0 (TID 210) in 13 ms on localhost (executor driver) (96/100)
+22/04/27 13:19:41 INFO Executor: Running task 96.0 in stage 4.0 (TID 211)
+22/04/27 13:19:41 INFO Executor: Finished task 96.0 in stage 4.0 (TID 211). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 97.0 in stage 4.0 (TID 212, localhost, executor driver, partition 97, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 96.0 in stage 4.0 (TID 211) in 8 ms on localhost (executor driver) (97/100)
+22/04/27 13:19:41 INFO Executor: Running task 97.0 in stage 4.0 (TID 212)
+22/04/27 13:19:41 INFO Executor: Finished task 97.0 in stage 4.0 (TID 212). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 98.0 in stage 4.0 (TID 213, localhost, executor driver, partition 98, PROCESS_LOCAL, 7721 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 97.0 in stage 4.0 (TID 212) in 20 ms on localhost (executor driver) (98/100)
+22/04/27 13:19:41 INFO Executor: Running task 98.0 in stage 4.0 (TID 213)
+22/04/27 13:19:41 INFO Executor: Finished task 98.0 in stage 4.0 (TID 213). 707 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Starting task 99.0 in stage 4.0 (TID 214, localhost, executor driver, partition 99, PROCESS_LOCAL, 7774 bytes)
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 98.0 in stage 4.0 (TID 213) in 8 ms on localhost (executor driver) (99/100)
+22/04/27 13:19:41 INFO Executor: Running task 99.0 in stage 4.0 (TID 214)
+22/04/27 13:19:41 INFO Executor: Finished task 99.0 in stage 4.0 (TID 214). 717 bytes result sent to driver
+22/04/27 13:19:41 INFO TaskSetManager: Finished task 99.0 in stage 4.0 (TID 214) in 7 ms on localhost (executor driver) (100/100)
+22/04/27 13:19:41 INFO TaskSchedulerImpl: Removed TaskSet 4.0, whose tasks have all completed, from pool 
+22/04/27 13:19:41 INFO DAGScheduler: ResultStage 4 (collect at SparkConverter.java:94) finished in 1.098 s
+22/04/27 13:19:41 INFO DAGScheduler: Job 3 finished: collect at SparkConverter.java:94, took 1.105160 s
+13:19:41.982 INFO  HDF5SVDReadCountPanelOfNormals - Writing singular values (6)...
+13:19:41.984 INFO  HDF5SVDReadCountPanelOfNormals - Writing eigensample vectors (transposed to 6 x 24)...
+13:19:41.987 INFO  HDF5SVDReadCountPanelOfNormals - Read-count panel of normals written to /scratch/a905383/CNV/counts/Normal.pon.hdf5.
+13:19:41.987 INFO  CreateReadCountPanelOfNormals - CreateReadCountPanelOfNormals complete.
+22/04/27 13:19:41 INFO SparkUI: Stopped Spark web UI at http://atlas-193:4040
+22/04/27 13:19:42 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+22/04/27 13:19:42 INFO MemoryStore: MemoryStore cleared
+22/04/27 13:19:42 INFO BlockManager: BlockManager stopped
+22/04/27 13:19:42 INFO BlockManagerMaster: BlockManagerMaster stopped
+22/04/27 13:19:42 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+22/04/27 13:19:42 INFO SparkContext: Successfully stopped SparkContext
+13:19:42.245 INFO  CreateReadCountPanelOfNormals - Shutting down engine
+[April 27, 2022 1:19:42 PM CEST] org.broadinstitute.hellbender.tools.copynumber.CreateReadCountPanelOfNormals done. Elapsed time: 0.22 minutes.
+Runtime.totalMemory()=2076049408
+22/04/27 13:19:42 INFO ShutdownHookManager: Shutdown hook called
+22/04/27 13:19:42 INFO ShutdownHookManager: Deleting directory /tmp/spark-20dda097-ea0b-4838-b7e7-d5c6804b95d7

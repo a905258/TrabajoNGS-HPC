@@ -1,0 +1,987 @@
+Cargando compiladores de Intel...
+Cargando librerias de compresion...
+
+The following have been reloaded with a version change:
+  1) GCCcore/10.3.0 => GCCcore/6.4.0
+  2) binutils/.2.36.1-GCCcore-10.3.0 => binutils/.2.28-GCCcore-6.4.0
+  3) zlib/.1.2.11-GCCcore-10.3.0 => zlib/.1.2.11-GCCcore-6.4.0
+
+Cargando IGV...
+Cargando R/3.6.2-intel-2019a...
+
+The following have been reloaded with a version change:
+  1) GCCcore/6.4.0 => GCCcore/8.2.0
+  2) GLib/.2.53.5-GCCcore-6.4.0 => GLib/.2.60.1-GCCcore-8.2.0
+  3) LibTIFF/.4.0.9-intel-2017b => LibTIFF/.4.0.10-GCCcore-8.2.0
+  4) NASM/2.13.01-GCCcore-6.4.0 => NASM/2.14.02-GCCcore-8.2.0
+  5) PCRE/.8.41-GCCcore-6.4.0 => PCRE/.8.43-GCCcore-8.2.0
+  6) XZ/.5.2.3-GCCcore-6.4.0 => XZ/.5.2.4-GCCcore-8.2.0
+  7) binutils/.2.28-GCCcore-6.4.0 => binutils/.2.31.1-GCCcore-8.2.0
+  8) bzip2/.1.0.6-GCCcore-6.4.0 => bzip2/.1.0.6-GCCcore-8.2.0
+  9) gettext/.0.19.8.1-GCCcore-6.4.0 => gettext/.0.19.8.1-GCCcore-8.2.0
+ 10) icc/2017.4.196-GCC-6.4.0-2.28 => icc/2019.1.144-GCC-8.2.0-2.31.1
+ 11) iccifort/2017.4.196-GCC-6.4.0-2.28 => iccifort/2019.1.144-GCC-8.2.0-2.31.1
+ 12) ifort/2017.4.196-GCC-6.4.0-2.28 => ifort/2019.1.144-GCC-8.2.0-2.31.1
+ 13) iimpi/2017b => iimpi/2019a
+ 14) imkl/2017.3.196-iimpi-2017b => imkl/2019.1.144-iimpi-2019a
+ 15) impi/2017.3.196-iccifort-2017.4.196-GCC-6.4.0-2.28 => impi/2018.4.274-iccifort-2019.1.144-GCC-8.2.0-2.31.1
+ 16) intel/2017b => intel/2019a
+ 17) libffi/.3.2.1-GCCcore-6.4.0 => libffi/.3.2.1-GCCcore-8.2.0
+ 18) libjpeg-turbo/1.5.2-GCCcore-6.4.0 => libjpeg-turbo/.2.0.2-GCCcore-8.2.0
+ 19) libpng/.1.6.32-GCCcore-6.4.0 => libpng/.1.6.36-GCCcore-8.2.0
+ 20) libxml2/.2.9.4-GCCcore-6.4.0 => libxml2/.2.9.8-GCCcore-8.2.0
+ 21) ncurses/.6.0-GCCcore-6.4.0 => ncurses/.6.1-GCCcore-8.2.0
+ 22) util-linux/.2.31-GCCcore-6.4.0 => util-linux/.2.33-GCCcore-8.2.0
+ 23) zlib/.1.2.11-GCCcore-6.4.0 => zlib/.1.2.11-GCCcore-8.2.0
+
+Cargando Java...
+Cargando paths: kallisto, hisat, fastqc, STAR, conda, multiqc, bwa, stringtie, picard, samtools, samblaster, gatk ...
+17:15:20.611 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:15:20.612 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:15:20 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.39 minutes.
+Runtime.totalMemory()=2147483648
+1
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645218.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645218/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645218/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645218
+0
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645209.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645209/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645209/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645209
+17:15:25.201 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:15:25 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:15:25.528 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:25.529 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:15:25.529 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:15:25.530 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:15:25.530 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:15:25.531 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:15:25 PM CEST
+17:15:25.531 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:25.531 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:25.540 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:15:25.541 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:15:25.541 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:15:25.541 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:15:25.542 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:15:25.542 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:15:25.542 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:15:25.542 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:15:25.543 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:15:25.543 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:15:25.543 INFO  PlotModeledSegments - Requester pays: disabled
+17:15:25.544 INFO  PlotModeledSegments - Initializing engine
+17:15:25.544 INFO  PlotModeledSegments - Done initializing engine
+17:15:25.548 INFO  PlotModeledSegments - Reading and validating input files...
+17:15:27.047 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:15:27.138 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645218.modeled.png...
+17:15:27.464 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:15:27 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:15:27.768 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:27.769 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:15:27.769 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:15:27.770 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:15:27.770 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:15:27.770 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:15:27 PM CEST
+17:15:27.771 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:27.771 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:27.774 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:15:27.774 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:15:27.774 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:15:27.775 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:15:27.775 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:15:27.776 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:15:27.776 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:15:27.777 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:15:27.777 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:15:27.777 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:15:27.778 INFO  PlotModeledSegments - Requester pays: disabled
+17:15:27.778 INFO  PlotModeledSegments - Initializing engine
+17:15:27.778 INFO  PlotModeledSegments - Done initializing engine
+17:15:27.780 INFO  PlotModeledSegments - Reading and validating input files...
+17:15:28.935 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:15:29.022 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645209.modeled.png...
+17:15:31.102 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:15:31.102 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:15:31 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.10 minutes.
+Runtime.totalMemory()=2147483648
+2
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645222.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645222/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645222/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645222
+17:15:32.339 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:15:32.340 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:15:32 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=2147483648
+1
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645218.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645218/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645218/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645218
+17:15:35.764 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:15:36 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:15:36.123 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:36.124 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:15:36.124 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:15:36.124 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:15:36.125 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:15:36.125 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:15:35 PM CEST
+17:15:36.125 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:36.126 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:36.133 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:15:36.133 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:15:36.134 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:15:36.134 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:15:36.134 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:15:36.134 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:15:36.135 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:15:36.135 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:15:36.135 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:15:36.136 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:15:36.136 INFO  PlotModeledSegments - Requester pays: disabled
+17:15:36.136 INFO  PlotModeledSegments - Initializing engine
+17:15:36.137 INFO  PlotModeledSegments - Done initializing engine
+17:15:36.140 INFO  PlotModeledSegments - Reading and validating input files...
+17:15:36.938 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:15:37 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:15:37.411 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:37.411 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:15:37.412 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:15:37.412 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:15:37.413 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:15:37.413 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:15:36 PM CEST
+17:15:37.413 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:37.414 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:37.421 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:15:37.421 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:15:37.422 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:15:37.422 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:15:37.422 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:15:37.423 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:15:37.423 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:15:37.423 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:15:37.424 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:15:37.424 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:15:37.424 INFO  PlotModeledSegments - Requester pays: disabled
+17:15:37.425 INFO  PlotModeledSegments - Initializing engine
+17:15:37.425 INFO  PlotModeledSegments - Done initializing engine
+17:15:37.427 INFO  PlotModeledSegments - Reading and validating input files...
+17:15:37.635 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:15:37.730 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645222.modeled.png...
+17:15:38.225 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:15:38.305 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645218.modeled.png...
+17:15:41.318 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:15:41.318 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:15:41 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.09 minutes.
+Runtime.totalMemory()=2147483648
+3
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645224.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645224/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645224/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645224
+17:15:41.735 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:15:41.736 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:15:41 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=2147483648
+2
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645222.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645222/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645222/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645222
+17:15:45.883 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:15:46 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:15:46.239 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:46.240 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:15:46.240 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:15:46.241 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:15:46.241 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:15:46.241 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:15:45 PM CEST
+17:15:46.242 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:46.242 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:46.251 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:15:46.251 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:15:46.252 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:15:46.252 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:15:46.253 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:15:46.253 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:15:46.253 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:15:46.253 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:15:46.254 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:15:46.254 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:15:46.254 INFO  PlotModeledSegments - Requester pays: disabled
+17:15:46.255 INFO  PlotModeledSegments - Initializing engine
+17:15:46.255 INFO  PlotModeledSegments - Done initializing engine
+17:15:46.258 INFO  PlotModeledSegments - Reading and validating input files...
+17:15:46.332 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:15:46 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:15:46.638 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:46.639 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:15:46.640 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:15:46.640 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:15:46.640 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:15:46.641 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:15:46 PM CEST
+17:15:46.641 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:46.642 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:46.644 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:15:46.644 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:15:46.645 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:15:46.645 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:15:46.645 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:15:46.646 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:15:46.646 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:15:46.646 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:15:46.647 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:15:46.647 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:15:46.647 INFO  PlotModeledSegments - Requester pays: disabled
+17:15:46.648 INFO  PlotModeledSegments - Initializing engine
+17:15:46.648 INFO  PlotModeledSegments - Done initializing engine
+17:15:46.649 INFO  PlotModeledSegments - Reading and validating input files...
+17:15:47.174 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:15:47.271 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645224.modeled.png...
+17:15:47.407 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:15:47.502 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645222.modeled.png...
+17:15:50.573 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:15:50.573 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:15:50 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=2579496960
+4
+17:15:50.707 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:15:50.708 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:15:50 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.07 minutes.
+Runtime.totalMemory()=2147483648
+3
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645235.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645235/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645235/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645235
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645224.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645224/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645224/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645224
+17:15:55.187 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+17:15:55.285 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:15:55 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:15:55.533 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:55.534 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:15:55.534 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:15:55.535 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:15:55.535 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:15:55.536 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:15:55 PM CEST
+17:15:55.536 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:55.536 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:55.543 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:15:55.544 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:15:55.544 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:15:55.544 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:15:55.545 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:15:55.545 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:15:55.545 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:15:55.546 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:15:55.546 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:15:55.546 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:15:55.546 INFO  PlotModeledSegments - Requester pays: disabled
+17:15:55.547 INFO  PlotModeledSegments - Initializing engine
+17:15:55.547 INFO  PlotModeledSegments - Done initializing engine
+17:15:55.550 INFO  PlotModeledSegments - Reading and validating input files...
+May 14, 2022 5:15:55 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:15:55.603 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:55.604 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:15:55.605 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:15:55.605 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:15:55.606 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:15:55.606 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:15:55 PM CEST
+17:15:55.607 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:55.607 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:15:55.610 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:15:55.610 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:15:55.611 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:15:55.611 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:15:55.611 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:15:55.612 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:15:55.612 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:15:55.612 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:15:55.613 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:15:55.613 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:15:55.613 INFO  PlotModeledSegments - Requester pays: disabled
+17:15:55.614 INFO  PlotModeledSegments - Initializing engine
+17:15:55.614 INFO  PlotModeledSegments - Done initializing engine
+17:15:55.615 INFO  PlotModeledSegments - Reading and validating input files...
+17:15:56.357 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:15:56.454 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645224.modeled.png...
+17:15:56.512 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:15:56.592 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645235.modeled.png...
+17:15:59.862 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:15:59.862 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:15:59 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=2147483648
+17:15:59.881 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:15:59.882 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:15:59 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=2147483648
+4
+5
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645235.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645235/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645235/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645235
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645241.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645241/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645241/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645241
+17:16:04.465 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+17:16:04.586 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:16:04 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:16:04.802 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:04.802 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:16:04.803 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:16:04.803 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:16:04.804 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:16:04.804 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:16:04 PM CEST
+17:16:04.804 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:04.805 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:04.807 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:16:04.808 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:16:04.808 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:16:04.808 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:16:04.808 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:16:04.809 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:16:04.809 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:16:04.809 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:16:04.810 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:16:04.810 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:16:04.810 INFO  PlotModeledSegments - Requester pays: disabled
+17:16:04.811 INFO  PlotModeledSegments - Initializing engine
+17:16:04.811 INFO  PlotModeledSegments - Done initializing engine
+17:16:04.812 INFO  PlotModeledSegments - Reading and validating input files...
+May 14, 2022 5:16:04 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:16:04.895 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:04.896 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:16:04.897 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:16:04.897 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:16:04.898 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:16:04.898 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:16:04 PM CEST
+17:16:04.898 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:04.899 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:04.901 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:16:04.902 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:16:04.902 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:16:04.902 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:16:04.903 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:16:04.903 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:16:04.903 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:16:04.904 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:16:04.904 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:16:04.905 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:16:04.905 INFO  PlotModeledSegments - Requester pays: disabled
+17:16:04.905 INFO  PlotModeledSegments - Initializing engine
+17:16:04.906 INFO  PlotModeledSegments - Done initializing engine
+17:16:04.908 INFO  PlotModeledSegments - Reading and validating input files...
+17:16:05.556 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:16:05.637 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645235.modeled.png...
+17:16:06.868 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:16:06.944 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645241.modeled.png...
+17:16:08.945 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:16:08.946 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:16:08 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=2147483648
+5
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645241.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645241/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645241/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645241
+17:16:10.220 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:16:10.221 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:16:10 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.10 minutes.
+Runtime.totalMemory()=2147483648
+6
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645243.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645243/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645243/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645243
+17:16:13.593 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:16:13 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:16:13.936 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:13.937 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:16:13.937 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:16:13.938 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:16:13.938 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:16:13.938 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:16:13 PM CEST
+17:16:13.939 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:13.939 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:13.942 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:16:13.942 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:16:13.943 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:16:13.943 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:16:13.943 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:16:13.944 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:16:13.944 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:16:13.944 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:16:13.945 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:16:13.945 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:16:13.945 INFO  PlotModeledSegments - Requester pays: disabled
+17:16:13.946 INFO  PlotModeledSegments - Initializing engine
+17:16:13.946 INFO  PlotModeledSegments - Done initializing engine
+17:16:13.947 INFO  PlotModeledSegments - Reading and validating input files...
+17:16:14.684 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:16:14.787 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645241.modeled.png...
+17:16:14.801 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:16:15 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:16:15.098 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:15.099 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:16:15.099 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:16:15.100 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:16:15.100 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:16:15.101 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:16:14 PM CEST
+17:16:15.101 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:15.101 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:15.104 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:16:15.104 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:16:15.105 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:16:15.105 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:16:15.105 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:16:15.106 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:16:15.106 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:16:15.106 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:16:15.106 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:16:15.107 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:16:15.107 INFO  PlotModeledSegments - Requester pays: disabled
+17:16:15.107 INFO  PlotModeledSegments - Initializing engine
+17:16:15.108 INFO  PlotModeledSegments - Done initializing engine
+17:16:15.110 INFO  PlotModeledSegments - Reading and validating input files...
+17:16:15.998 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:16:16.091 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645243.modeled.png...
+17:16:17.975 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:16:17.975 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:16:17 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.07 minutes.
+Runtime.totalMemory()=2579496960
+6
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645243.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645243/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645243/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645243
+17:16:19.282 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:16:19.283 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:16:19 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=2579496960
+7
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645247.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645247/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645247/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645247
+17:16:22.638 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:16:22 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:16:22.988 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:22.989 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:16:22.989 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:16:22.990 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:16:22.990 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:16:22.991 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:16:22 PM CEST
+17:16:22.991 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:22.991 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:22.993 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:16:22.994 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:16:22.994 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:16:22.994 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:16:22.994 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:16:22.995 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:16:22.995 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:16:22.995 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:16:22.996 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:16:22.996 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:16:22.996 INFO  PlotModeledSegments - Requester pays: disabled
+17:16:22.996 INFO  PlotModeledSegments - Initializing engine
+17:16:22.997 INFO  PlotModeledSegments - Done initializing engine
+17:16:22.998 INFO  PlotModeledSegments - Reading and validating input files...
+17:16:23.765 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+17:16:23.772 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:16:23.887 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645243.modeled.png...
+May 14, 2022 5:16:24 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:16:24.077 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:24.079 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:16:24.079 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:16:24.079 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:16:24.080 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:16:24.080 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:16:23 PM CEST
+17:16:24.081 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:24.081 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:24.083 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:16:24.084 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:16:24.084 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:16:24.084 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:16:24.085 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:16:24.085 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:16:24.085 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:16:24.086 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:16:24.086 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:16:24.086 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:16:24.086 INFO  PlotModeledSegments - Requester pays: disabled
+17:16:24.087 INFO  PlotModeledSegments - Initializing engine
+17:16:24.087 INFO  PlotModeledSegments - Done initializing engine
+17:16:24.090 INFO  PlotModeledSegments - Reading and validating input files...
+17:16:25.134 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:16:25.212 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645247.modeled.png...
+17:16:27.142 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:16:27.142 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:16:27 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=2579496960
+7
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645247.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645247/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645247/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645247
+17:16:28.338 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:16:28.339 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:16:28 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=2147483648
+8
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645249.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645249/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645249/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645249
+17:16:31.574 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:16:31 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:16:31.929 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:31.930 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:16:31.931 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:16:31.931 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:16:31.931 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:16:31.932 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:16:31 PM CEST
+17:16:31.932 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:31.933 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:31.935 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:16:31.935 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:16:31.936 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:16:31.936 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:16:31.936 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:16:31.936 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:16:31.937 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:16:31.937 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:16:31.937 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:16:31.938 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:16:31.938 INFO  PlotModeledSegments - Requester pays: disabled
+17:16:31.938 INFO  PlotModeledSegments - Initializing engine
+17:16:31.939 INFO  PlotModeledSegments - Done initializing engine
+17:16:31.941 INFO  PlotModeledSegments - Reading and validating input files...
+17:16:32.637 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+17:16:32.716 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:16:32.808 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645247.modeled.png...
+May 14, 2022 5:16:32 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:16:32.992 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:32.993 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:16:32.993 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:16:32.994 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:16:32.994 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:16:32.994 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:16:32 PM CEST
+17:16:32.995 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:32.995 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:32.998 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:16:32.998 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:16:32.998 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:16:32.999 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:16:32.999 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:16:32.999 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:16:33.000 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:16:33.000 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:16:33.000 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:16:33.001 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:16:33.001 INFO  PlotModeledSegments - Requester pays: disabled
+17:16:33.001 INFO  PlotModeledSegments - Initializing engine
+17:16:33.001 INFO  PlotModeledSegments - Done initializing engine
+17:16:33.005 INFO  PlotModeledSegments - Reading and validating input files...
+17:16:34.131 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:16:34.229 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645249.modeled.png...
+17:16:35.958 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:16:35.958 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:16:35 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.07 minutes.
+Runtime.totalMemory()=2147483648
+8
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645249.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645249/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645249/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645249
+17:16:37.403 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:16:37.404 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:16:37 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=2579496960
+9
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645259.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645259/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645259/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645259
+17:16:40.608 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:16:40 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:16:40.935 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:40.935 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:16:40.936 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:16:40.936 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:16:40.937 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:16:40.937 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:16:40 PM CEST
+17:16:40.937 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:40.937 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:40.940 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:16:40.940 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:16:40.940 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:16:40.941 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:16:40.941 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:16:40.941 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:16:40.942 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:16:40.942 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:16:40.942 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:16:40.942 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:16:40.943 INFO  PlotModeledSegments - Requester pays: disabled
+17:16:40.943 INFO  PlotModeledSegments - Initializing engine
+17:16:40.943 INFO  PlotModeledSegments - Done initializing engine
+17:16:40.945 INFO  PlotModeledSegments - Reading and validating input files...
+17:16:41.699 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:16:41.786 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645249.modeled.png...
+17:16:41.821 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:16:42 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:16:42.111 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:42.111 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:16:42.112 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:16:42.113 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:16:42.113 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:16:42.113 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:16:41 PM CEST
+17:16:42.114 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:42.114 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:42.119 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:16:42.119 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:16:42.120 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:16:42.120 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:16:42.120 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:16:42.120 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:16:42.121 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:16:42.121 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:16:42.121 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:16:42.122 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:16:42.122 INFO  PlotModeledSegments - Requester pays: disabled
+17:16:42.122 INFO  PlotModeledSegments - Initializing engine
+17:16:42.122 INFO  PlotModeledSegments - Done initializing engine
+17:16:42.125 INFO  PlotModeledSegments - Reading and validating input files...
+17:16:44.501 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:16:44.605 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645259.modeled.png...
+17:16:45.773 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:16:45.773 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:16:45 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.09 minutes.
+Runtime.totalMemory()=2147483648
+9
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645259.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645259/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645259/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645259
+17:16:47.917 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:16:47.920 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:16:47 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.10 minutes.
+Runtime.totalMemory()=2579496960
+10
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645272.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645272/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645272/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645272
+17:16:50.228 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:16:50 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:16:50.538 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:50.539 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:16:50.540 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:16:50.540 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:16:50.540 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:16:50.541 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:16:50 PM CEST
+17:16:50.541 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:50.542 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:50.547 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:16:50.547 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:16:50.547 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:16:50.548 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:16:50.548 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:16:50.548 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:16:50.548 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:16:50.549 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:16:50.549 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:16:50.549 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:16:50.549 INFO  PlotModeledSegments - Requester pays: disabled
+17:16:50.550 INFO  PlotModeledSegments - Initializing engine
+17:16:50.550 INFO  PlotModeledSegments - Done initializing engine
+17:16:50.552 INFO  PlotModeledSegments - Reading and validating input files...
+17:16:51.310 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:16:51.417 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645259.modeled.png...
+17:16:52.309 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:16:52 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:16:52.619 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:52.620 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:16:52.620 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:16:52.620 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:16:52.621 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:16:52.621 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:16:52 PM CEST
+17:16:52.621 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:52.622 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:52.629 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:16:52.629 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:16:52.629 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:16:52.630 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:16:52.630 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:16:52.631 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:16:52.631 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:16:52.631 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:16:52.632 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:16:52.632 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:16:52.632 INFO  PlotModeledSegments - Requester pays: disabled
+17:16:52.633 INFO  PlotModeledSegments - Initializing engine
+17:16:52.633 INFO  PlotModeledSegments - Done initializing engine
+17:16:52.636 INFO  PlotModeledSegments - Reading and validating input files...
+17:16:53.614 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:16:53.703 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645272.modeled.png...
+17:16:54.640 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:16:54.643 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:16:54 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.07 minutes.
+Runtime.totalMemory()=2579496960
+10
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645272.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645272/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645272/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645272
+17:16:56.918 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:16:56.918 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:16:56 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=2147483648
+11
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645274.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645274/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645274/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645274
+17:16:58.833 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:16:59 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:16:59.148 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:59.149 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:16:59.150 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:16:59.150 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:16:59.151 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:16:59.151 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:16:58 PM CEST
+17:16:59.151 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:59.151 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:16:59.159 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:16:59.160 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:16:59.160 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:16:59.160 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:16:59.161 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:16:59.161 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:16:59.161 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:16:59.162 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:16:59.162 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:16:59.162 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:16:59.162 INFO  PlotModeledSegments - Requester pays: disabled
+17:16:59.163 INFO  PlotModeledSegments - Initializing engine
+17:16:59.163 INFO  PlotModeledSegments - Done initializing engine
+17:16:59.165 INFO  PlotModeledSegments - Reading and validating input files...
+17:16:59.930 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:17:00.020 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645272.modeled.png...
+17:17:01.344 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:17:01 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:17:01.666 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:01.667 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:17:01.667 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:17:01.667 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:17:01.668 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:17:01.668 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:17:01 PM CEST
+17:17:01.668 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:01.669 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:01.671 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:17:01.671 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:17:01.671 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:17:01.672 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:17:01.672 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:17:01.672 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:17:01.673 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:17:01.673 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:17:01.673 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:17:01.674 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:17:01.675 INFO  PlotModeledSegments - Requester pays: disabled
+17:17:01.677 INFO  PlotModeledSegments - Initializing engine
+17:17:01.679 INFO  PlotModeledSegments - Done initializing engine
+17:17:01.687 INFO  PlotModeledSegments - Reading and validating input files...
+17:17:03.349 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:17:03.350 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:17:03 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=2579496960
+11
+17:17:03.408 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:17:03.503 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645274.modeled.png...
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645274.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645274/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645274/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645274
+17:17:06.891 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:17:06.892 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:17:06 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.09 minutes.
+Runtime.totalMemory()=2147483648
+12
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645283.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645283/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645283/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645283
+17:17:07.953 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:17:08 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:17:08.270 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:08.271 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:17:08.271 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:17:08.271 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:17:08.272 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:17:08.272 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:17:07 PM CEST
+17:17:08.273 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:08.273 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:08.281 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:17:08.281 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:17:08.282 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:17:08.282 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:17:08.282 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:17:08.283 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:17:08.283 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:17:08.283 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:17:08.283 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:17:08.284 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:17:08.284 INFO  PlotModeledSegments - Requester pays: disabled
+17:17:08.284 INFO  PlotModeledSegments - Initializing engine
+17:17:08.285 INFO  PlotModeledSegments - Done initializing engine
+17:17:08.286 INFO  PlotModeledSegments - Reading and validating input files...
+17:17:09.012 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:17:09.120 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645274.modeled.png...
+17:17:11.312 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:17:11 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:17:11.664 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:11.665 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:17:11.666 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:17:11.666 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:17:11.669 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:17:11.670 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:17:11 PM CEST
+17:17:11.670 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:11.671 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:11.674 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:17:11.674 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:17:11.675 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:17:11.675 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:17:11.675 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:17:11.676 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:17:11.676 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:17:11.676 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:17:11.677 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:17:11.677 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:17:11.677 INFO  PlotModeledSegments - Requester pays: disabled
+17:17:11.677 INFO  PlotModeledSegments - Initializing engine
+17:17:11.678 INFO  PlotModeledSegments - Done initializing engine
+17:17:11.681 INFO  PlotModeledSegments - Reading and validating input files...
+17:17:12.398 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:17:12.399 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:17:12 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=2147483648
+12
+17:17:12.572 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:17:12.658 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645283.modeled.png...
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645283.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645283/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645283/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645283
+17:17:16.038 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:17:16.038 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:17:16 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=2147483648
+13
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645289.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645289/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645289/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645289
+17:17:17.081 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:17:17 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:17:17.410 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:17.411 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:17:17.412 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:17:17.412 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:17:17.412 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:17:17.413 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:17:16 PM CEST
+17:17:17.413 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:17.413 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:17.419 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:17:17.419 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:17:17.419 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:17:17.420 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:17:17.420 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:17:17.420 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:17:17.420 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:17:17.421 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:17:17.421 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:17:17.421 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:17:17.421 INFO  PlotModeledSegments - Requester pays: disabled
+17:17:17.422 INFO  PlotModeledSegments - Initializing engine
+17:17:17.422 INFO  PlotModeledSegments - Done initializing engine
+17:17:17.424 INFO  PlotModeledSegments - Reading and validating input files...
+17:17:18.152 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:17:18.243 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645283.modeled.png...
+17:17:20.595 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:17:20 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:17:20.923 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:20.924 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:17:20.924 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:17:20.924 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:17:20.925 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:17:20.925 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:17:20 PM CEST
+17:17:20.925 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:20.926 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:20.928 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:17:20.929 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:17:20.929 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:17:20.929 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:17:20.929 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:17:20.930 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:17:20.930 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:17:20.930 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:17:20.931 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:17:20.931 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:17:20.931 INFO  PlotModeledSegments - Requester pays: disabled
+17:17:20.931 INFO  PlotModeledSegments - Initializing engine
+17:17:20.932 INFO  PlotModeledSegments - Done initializing engine
+17:17:20.936 INFO  PlotModeledSegments - Reading and validating input files...
+17:17:21.572 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:17:21.572 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:17:21 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=2147483648
+13
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar PlotModeledSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645289.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/seg/SRR645289/tumor.hets.tsv --segments /scratch/a905383/CNV/counts/seg/SRR645289/tumor.modelFinal.seg --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict --minimum-contig-length 1000 --output /scratch/a905383/CNV/counts/seg/plot --output-prefix SRR645289
+17:17:22.601 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:17:22.695 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645289.modeled.png...
+17:17:26.073 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:17:26.073 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:17:26 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.09 minutes.
+Runtime.totalMemory()=2147483648
+17:17:26.243 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 5:17:26 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+17:17:26.623 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:26.624 INFO  PlotModeledSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+17:17:26.625 INFO  PlotModeledSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+17:17:26.625 INFO  PlotModeledSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+17:17:26.626 INFO  PlotModeledSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.2+9
+17:17:26.626 INFO  PlotModeledSegments - Start Date/Time: May 14, 2022 at 5:17:26 PM CEST
+17:17:26.626 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:26.627 INFO  PlotModeledSegments - ------------------------------------------------------------
+17:17:26.629 INFO  PlotModeledSegments - HTSJDK Version: 2.24.1
+17:17:26.630 INFO  PlotModeledSegments - Picard Version: 2.25.4
+17:17:26.630 INFO  PlotModeledSegments - Built for Spark Version: 2.4.5
+17:17:26.631 INFO  PlotModeledSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+17:17:26.631 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+17:17:26.632 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+17:17:26.632 INFO  PlotModeledSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+17:17:26.632 INFO  PlotModeledSegments - Deflater: IntelDeflater
+17:17:26.633 INFO  PlotModeledSegments - Inflater: IntelInflater
+17:17:26.633 INFO  PlotModeledSegments - GCS max retries/reopens: 20
+17:17:26.634 INFO  PlotModeledSegments - Requester pays: disabled
+17:17:26.634 INFO  PlotModeledSegments - Initializing engine
+17:17:26.634 INFO  PlotModeledSegments - Done initializing engine
+17:17:26.637 INFO  PlotModeledSegments - Reading and validating input files...
+17:17:27.361 INFO  PlotModeledSegments - Contigs above length threshold: {1=248956422, 10=133797422, 11=135086622, 12=133275309, 13=114364328, 14=107043718, 15=101991189, 16=90338345, 17=83257441, 18=80373285, 19=58617616, 2=242193529, 20=64444167, 21=46709983, 22=50818468, 3=198295559, 4=190214555, 5=181538259, 6=170805979, 7=159345973, 8=145138636, 9=138394717, MT=16569, X=156040895, Y=57227415, KI270728.1=1872759, KI270727.1=448248, KI270442.1=392061, KI270729.1=280839, GL000225.1=211173, KI270743.1=210658, GL000008.2=209709, GL000009.2=201709, KI270747.1=198735, KI270722.1=194050, GL000194.1=191469, KI270742.1=186739, GL000205.2=185591, GL000195.1=182896, KI270736.1=181920, KI270733.1=179772, GL000224.1=179693, GL000219.1=179198, KI270719.1=176845, GL000216.2=176608, KI270712.1=176043, KI270706.1=175055, KI270725.1=172810, KI270744.1=168472, KI270734.1=165050, GL000213.1=164239, GL000220.1=161802, KI270715.1=161471, GL000218.1=161147, KI270749.1=158759, KI270741.1=157432, GL000221.1=155397, KI270716.1=153799, KI270731.1=150754, KI270751.1=150742, KI270750.1=148850, KI270519.1=138126, GL000214.1=137718, KI270708.1=127682, KI270730.1=112551, KI270438.1=112505, KI270737.1=103838, KI270721.1=100316, KI270738.1=99375, KI270748.1=93321, KI270435.1=92983, GL000208.1=92689, KI270538.1=91309, KI270756.1=79590, KI270739.1=73985, KI270757.1=71251, KI270709.1=66860, KI270746.1=66486, KI270753.1=62944, KI270589.1=44474, KI270726.1=43739, KI270735.1=42811, KI270711.1=42210, KI270745.1=41891, KI270714.1=41717, KI270732.1=41543, KI270713.1=40745, KI270754.1=40191, KI270710.1=40176, KI270717.1=40062, KI270724.1=39555, KI270720.1=39050, KI270723.1=38115, KI270718.1=38054, KI270317.1=37690, KI270740.1=37240, KI270755.1=36723, KI270707.1=32032, KI270579.1=31033, KI270752.1=27745, KI270512.1=22689, KI270322.1=21476, GL000226.1=15008, KI270311.1=12399, KI270366.1=8320, KI270511.1=8127, KI270448.1=7992, KI270521.1=7642, KI270581.1=7046, KI270582.1=6504, KI270515.1=6361, KI270588.1=6158, KI270591.1=5796, KI270522.1=5674, KI270507.1=5353, KI270590.1=4685, KI270584.1=4513, KI270320.1=4416, KI270382.1=4215, KI270468.1=4055, KI270467.1=3920, KI270362.1=3530, KI270517.1=3253, KI270593.1=3041, KI270528.1=2983, KI270587.1=2969, KI270364.1=2855, KI270371.1=2805, KI270333.1=2699, KI270374.1=2656, KI270411.1=2646, KI270414.1=2489, KI270510.1=2415, KI270390.1=2387, KI270375.1=2378, KI270420.1=2321, KI270509.1=2318, KI270315.1=2276, KI270302.1=2274, KI270518.1=2186, KI270530.1=2168, KI270304.1=2165, KI270418.1=2145, KI270424.1=2140, KI270417.1=2043, KI270508.1=1951, KI270303.1=1942, KI270381.1=1930, KI270529.1=1899, KI270425.1=1884, KI270396.1=1880, KI270363.1=1803, KI270386.1=1788, KI270465.1=1774, KI270383.1=1750, KI270384.1=1658, KI270330.1=1652, KI270372.1=1650, KI270548.1=1599, KI270580.1=1553, KI270387.1=1537, KI270391.1=1484, KI270305.1=1472, KI270373.1=1451, KI270422.1=1445, KI270316.1=1444, KI270340.1=1428, KI270338.1=1428, KI270583.1=1400, KI270334.1=1368, KI270429.1=1361, KI270393.1=1308, KI270516.1=1300, KI270389.1=1298, KI270466.1=1233, KI270388.1=1216, KI270544.1=1202, KI270310.1=1201, KI270412.1=1179, KI270395.1=1143, KI270376.1=1136, KI270337.1=1121, KI270335.1=1048, KI270378.1=1048, KI270379.1=1045, KI270329.1=1040, KI270419.1=1029, KI270336.1=1026}
+17:17:27.452 INFO  PlotModeledSegments - Writing plot to /scratch/a905383/CNV/counts/seg/plot/SRR645289.modeled.png...
+17:17:30.940 INFO  PlotModeledSegments - PlotModeledSegments complete.
+17:17:30.940 INFO  PlotModeledSegments - Shutting down engine
+[May 14, 2022 at 5:17:30 PM CEST] org.broadinstitute.hellbender.tools.copynumber.plotting.PlotModeledSegments done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=2147483648

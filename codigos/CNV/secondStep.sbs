@@ -1,0 +1,37 @@
+#!/bin/bash
+###################################################################################
+### CNV
+###################################################################################
+#
+#
+
+#SBATCH --job-name=cnv%a
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=1
+#SBATCH --nodes=1
+#SBATCH --mem=10G
+#SBATCH --time=36:30:00
+#SBATCH --mail-type=END
+#SBATCH --mail-user=a905383@alumni.unav.es
+#SBATCH -o /scratch/a905383/CNV/logs/allelicCount%a.log
+
+
+### Load programs here
+
+source /scratch/arubio/bin/moduleloadNGS
+
+file=($(cd /scratch/a905383/CNV/raw_data && basename --suffix=_aligned.bam -- *_aligned.bam))
+filename=${file[$SLURM_ARRAY_TASK_ID]}
+
+
+samplesFolder=/scratch/a905383/CNV/raw_data
+intervals=/scratch/a905383/CNV/filtered.interval_list
+countsFolder=/scratch/a905383/CNV/counts
+
+echo $filename
+gatk --java-options "-Xmx10g" CollectAllelicCounts -L $intervals \
+        -I $samplesFolder"/"$filename"_aligned.bam" \
+        -R /scratch/arubio/DNAseq/Auxfiles/dummy.fa \
+        -O $countsFolder"/"$filename".allelicCounts.tsv"
+

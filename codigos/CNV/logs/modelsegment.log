@@ -1,0 +1,501 @@
+Cargando compiladores de Intel...
+Cargando librerias de compresion...
+
+The following have been reloaded with a version change:
+  1) GCCcore/10.3.0 => GCCcore/6.4.0
+  2) binutils/.2.36.1-GCCcore-10.3.0 => binutils/.2.28-GCCcore-6.4.0
+  3) zlib/.1.2.11-GCCcore-10.3.0 => zlib/.1.2.11-GCCcore-6.4.0
+
+Cargando IGV...
+Cargando R/3.6.2-intel-2019a...
+
+The following have been reloaded with a version change:
+  1) GCCcore/6.4.0 => GCCcore/8.2.0
+  2) GLib/.2.53.5-GCCcore-6.4.0 => GLib/.2.60.1-GCCcore-8.2.0
+  3) LibTIFF/.4.0.9-intel-2017b => LibTIFF/.4.0.10-GCCcore-8.2.0
+  4) NASM/2.13.01-GCCcore-6.4.0 => NASM/2.14.02-GCCcore-8.2.0
+  5) PCRE/.8.41-GCCcore-6.4.0 => PCRE/.8.43-GCCcore-8.2.0
+  6) XZ/.5.2.3-GCCcore-6.4.0 => XZ/.5.2.4-GCCcore-8.2.0
+  7) binutils/.2.28-GCCcore-6.4.0 => binutils/.2.31.1-GCCcore-8.2.0
+  8) bzip2/.1.0.6-GCCcore-6.4.0 => bzip2/.1.0.6-GCCcore-8.2.0
+  9) gettext/.0.19.8.1-GCCcore-6.4.0 => gettext/.0.19.8.1-GCCcore-8.2.0
+ 10) icc/2017.4.196-GCC-6.4.0-2.28 => icc/2019.1.144-GCC-8.2.0-2.31.1
+ 11) iccifort/2017.4.196-GCC-6.4.0-2.28 => iccifort/2019.1.144-GCC-8.2.0-2.31.1
+ 12) ifort/2017.4.196-GCC-6.4.0-2.28 => ifort/2019.1.144-GCC-8.2.0-2.31.1
+ 13) iimpi/2017b => iimpi/2019a
+ 14) imkl/2017.3.196-iimpi-2017b => imkl/2019.1.144-iimpi-2019a
+ 15) impi/2017.3.196-iccifort-2017.4.196-GCC-6.4.0-2.28 => impi/2018.4.274-iccifort-2019.1.144-GCC-8.2.0-2.31.1
+ 16) intel/2017b => intel/2019a
+ 17) libffi/.3.2.1-GCCcore-6.4.0 => libffi/.3.2.1-GCCcore-8.2.0
+ 18) libjpeg-turbo/1.5.2-GCCcore-6.4.0 => libjpeg-turbo/.2.0.2-GCCcore-8.2.0
+ 19) libpng/.1.6.32-GCCcore-6.4.0 => libpng/.1.6.36-GCCcore-8.2.0
+ 20) libxml2/.2.9.4-GCCcore-6.4.0 => libxml2/.2.9.8-GCCcore-8.2.0
+ 21) ncurses/.6.0-GCCcore-6.4.0 => ncurses/.6.1-GCCcore-8.2.0
+ 22) util-linux/.2.31-GCCcore-6.4.0 => util-linux/.2.33-GCCcore-8.2.0
+ 23) zlib/.1.2.11-GCCcore-6.4.0 => zlib/.1.2.11-GCCcore-8.2.0
+
+Cargando Java...
+Cargando paths: kallisto, hisat, fastqc, STAR, conda, multiqc, bwa, stringtie, picard, samtools, samblaster, gatk ...
+0
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -Xmx23g -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar ModelSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645209.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/SRR645209.allelicCounts.tsv --normal-allelic-counts /scratch/a905383/CNV/counts/SRR645210.allelicCounts.tsv --output /scratch/a905383/CNV/counts/seg/SRR645209 --output-prefix tumor
+11:23:49.129 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 10, 2022 11:23:49 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:23:49.737 INFO  ModelSegments - ------------------------------------------------------------
+11:23:49.738 INFO  ModelSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:23:49.738 INFO  ModelSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:23:49.738 INFO  ModelSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:23:49.739 INFO  ModelSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+11:23:49.739 INFO  ModelSegments - Start Date/Time: May 10, 2022 at 11:23:48 AM CEST
+11:23:49.739 INFO  ModelSegments - ------------------------------------------------------------
+11:23:49.740 INFO  ModelSegments - ------------------------------------------------------------
+11:23:49.742 INFO  ModelSegments - HTSJDK Version: 2.24.1
+11:23:49.742 INFO  ModelSegments - Picard Version: 2.25.4
+11:23:49.743 INFO  ModelSegments - Built for Spark Version: 2.4.5
+11:23:49.743 INFO  ModelSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:23:49.743 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:23:49.744 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:23:49.744 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:23:49.744 INFO  ModelSegments - Deflater: IntelDeflater
+11:23:49.745 INFO  ModelSegments - Inflater: IntelInflater
+11:23:49.745 INFO  ModelSegments - GCS max retries/reopens: 20
+11:23:49.745 INFO  ModelSegments - Requester pays: disabled
+11:23:49.745 INFO  ModelSegments - Initializing engine
+11:23:49.746 INFO  ModelSegments - Done initializing engine
+11:23:49.746 INFO  ModelSegments - Used memory (MB) after initializing engine: 70
+11:23:49.772 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645209.denoisedCR.tsv)...
+11:23:50.909 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645209.allelicCounts.tsv)...
+11:25:09.832 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645210.allelicCounts.tsv)...
+11:26:36.886 INFO  ModelSegments - Used memory (MB) after reading files: 21282
+1
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -Xmx23g -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar ModelSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645218.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/SRR645218.allelicCounts.tsv --normal-allelic-counts /scratch/a905383/CNV/counts/SRR645219.allelicCounts.tsv --output /scratch/a905383/CNV/counts/seg/SRR645218 --output-prefix tumor
+11:26:48.015 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 10, 2022 11:26:48 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:26:48.396 INFO  ModelSegments - ------------------------------------------------------------
+11:26:48.396 INFO  ModelSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:26:48.397 INFO  ModelSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:26:48.397 INFO  ModelSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:26:48.398 INFO  ModelSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+11:26:48.398 INFO  ModelSegments - Start Date/Time: May 10, 2022 at 11:26:47 AM CEST
+11:26:48.398 INFO  ModelSegments - ------------------------------------------------------------
+11:26:48.399 INFO  ModelSegments - ------------------------------------------------------------
+11:26:48.402 INFO  ModelSegments - HTSJDK Version: 2.24.1
+11:26:48.402 INFO  ModelSegments - Picard Version: 2.25.4
+11:26:48.403 INFO  ModelSegments - Built for Spark Version: 2.4.5
+11:26:48.403 INFO  ModelSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:26:48.403 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:26:48.404 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:26:48.404 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:26:48.405 INFO  ModelSegments - Deflater: IntelDeflater
+11:26:48.405 INFO  ModelSegments - Inflater: IntelInflater
+11:26:48.406 INFO  ModelSegments - GCS max retries/reopens: 20
+11:26:48.406 INFO  ModelSegments - Requester pays: disabled
+11:26:48.407 INFO  ModelSegments - Initializing engine
+11:26:48.407 INFO  ModelSegments - Done initializing engine
+11:26:48.408 INFO  ModelSegments - Used memory (MB) after initializing engine: 70
+11:26:48.431 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645218.denoisedCR.tsv)...
+11:26:49.377 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645218.allelicCounts.tsv)...
+11:28:08.306 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645219.allelicCounts.tsv)...
+11:29:34.523 INFO  ModelSegments - Used memory (MB) after reading files: 21928
+2
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -Xmx23g -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar ModelSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645222.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/SRR645222.allelicCounts.tsv --normal-allelic-counts /scratch/a905383/CNV/counts/SRR645223.allelicCounts.tsv --output /scratch/a905383/CNV/counts/seg/SRR645222 --output-prefix tumor
+11:29:46.396 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 10, 2022 11:29:46 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:29:46.770 INFO  ModelSegments - ------------------------------------------------------------
+11:29:46.771 INFO  ModelSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:29:46.771 INFO  ModelSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:29:46.772 INFO  ModelSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:29:46.773 INFO  ModelSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+11:29:46.773 INFO  ModelSegments - Start Date/Time: May 10, 2022 at 11:29:46 AM CEST
+11:29:46.774 INFO  ModelSegments - ------------------------------------------------------------
+11:29:46.774 INFO  ModelSegments - ------------------------------------------------------------
+11:29:46.777 INFO  ModelSegments - HTSJDK Version: 2.24.1
+11:29:46.778 INFO  ModelSegments - Picard Version: 2.25.4
+11:29:46.778 INFO  ModelSegments - Built for Spark Version: 2.4.5
+11:29:46.779 INFO  ModelSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:29:46.779 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:29:46.779 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:29:46.779 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:29:46.780 INFO  ModelSegments - Deflater: IntelDeflater
+11:29:46.780 INFO  ModelSegments - Inflater: IntelInflater
+11:29:46.780 INFO  ModelSegments - GCS max retries/reopens: 20
+11:29:46.781 INFO  ModelSegments - Requester pays: disabled
+11:29:46.781 INFO  ModelSegments - Initializing engine
+11:29:46.782 INFO  ModelSegments - Done initializing engine
+11:29:46.782 INFO  ModelSegments - Used memory (MB) after initializing engine: 63
+11:29:46.809 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645222.denoisedCR.tsv)...
+11:29:47.762 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645222.allelicCounts.tsv)...
+11:31:06.176 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645223.allelicCounts.tsv)...
+11:32:30.891 INFO  ModelSegments - Used memory (MB) after reading files: 21179
+3
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -Xmx23g -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar ModelSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645224.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/SRR645224.allelicCounts.tsv --normal-allelic-counts /scratch/a905383/CNV/counts/SRR645225.allelicCounts.tsv --output /scratch/a905383/CNV/counts/seg/SRR645224 --output-prefix tumor
+11:32:42.137 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 10, 2022 11:32:42 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:32:42.512 INFO  ModelSegments - ------------------------------------------------------------
+11:32:42.513 INFO  ModelSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:32:42.514 INFO  ModelSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:32:42.514 INFO  ModelSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:32:42.515 INFO  ModelSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+11:32:42.515 INFO  ModelSegments - Start Date/Time: May 10, 2022 at 11:32:42 AM CEST
+11:32:42.515 INFO  ModelSegments - ------------------------------------------------------------
+11:32:42.516 INFO  ModelSegments - ------------------------------------------------------------
+11:32:42.519 INFO  ModelSegments - HTSJDK Version: 2.24.1
+11:32:42.520 INFO  ModelSegments - Picard Version: 2.25.4
+11:32:42.520 INFO  ModelSegments - Built for Spark Version: 2.4.5
+11:32:42.520 INFO  ModelSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:32:42.521 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:32:42.521 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:32:42.522 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:32:42.522 INFO  ModelSegments - Deflater: IntelDeflater
+11:32:42.522 INFO  ModelSegments - Inflater: IntelInflater
+11:32:42.523 INFO  ModelSegments - GCS max retries/reopens: 20
+11:32:42.523 INFO  ModelSegments - Requester pays: disabled
+11:32:42.523 INFO  ModelSegments - Initializing engine
+11:32:42.523 INFO  ModelSegments - Done initializing engine
+11:32:42.524 INFO  ModelSegments - Used memory (MB) after initializing engine: 62
+11:32:42.550 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645224.denoisedCR.tsv)...
+11:32:46.822 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645224.allelicCounts.tsv)...
+11:34:05.936 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645225.allelicCounts.tsv)...
+11:35:32.074 INFO  ModelSegments - Used memory (MB) after reading files: 21798
+4
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -Xmx23g -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar ModelSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645235.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/SRR645235.allelicCounts.tsv --normal-allelic-counts /scratch/a905383/CNV/counts/SRR645236.allelicCounts.tsv --output /scratch/a905383/CNV/counts/seg/SRR645235 --output-prefix tumor
+11:35:44.139 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 10, 2022 11:35:44 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:35:44.846 INFO  ModelSegments - ------------------------------------------------------------
+11:35:44.848 INFO  ModelSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:35:44.848 INFO  ModelSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:35:44.849 INFO  ModelSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:35:44.849 INFO  ModelSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+11:35:44.849 INFO  ModelSegments - Start Date/Time: May 10, 2022 at 11:35:44 AM CEST
+11:35:44.850 INFO  ModelSegments - ------------------------------------------------------------
+11:35:44.850 INFO  ModelSegments - ------------------------------------------------------------
+11:35:44.853 INFO  ModelSegments - HTSJDK Version: 2.24.1
+11:35:44.853 INFO  ModelSegments - Picard Version: 2.25.4
+11:35:44.853 INFO  ModelSegments - Built for Spark Version: 2.4.5
+11:35:44.854 INFO  ModelSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:35:44.854 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:35:44.855 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:35:44.855 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:35:44.855 INFO  ModelSegments - Deflater: IntelDeflater
+11:35:44.855 INFO  ModelSegments - Inflater: IntelInflater
+11:35:44.856 INFO  ModelSegments - GCS max retries/reopens: 20
+11:35:44.856 INFO  ModelSegments - Requester pays: disabled
+11:35:44.856 INFO  ModelSegments - Initializing engine
+11:35:44.857 INFO  ModelSegments - Done initializing engine
+11:35:44.857 INFO  ModelSegments - Used memory (MB) after initializing engine: 88
+11:35:44.878 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645235.denoisedCR.tsv)...
+11:35:45.731 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645235.allelicCounts.tsv)...
+11:37:06.941 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645236.allelicCounts.tsv)...
+11:38:34.426 INFO  ModelSegments - Used memory (MB) after reading files: 21424
+5
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -Xmx23g -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar ModelSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645241.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/SRR645241.allelicCounts.tsv --normal-allelic-counts /scratch/a905383/CNV/counts/SRR645242.allelicCounts.tsv --output /scratch/a905383/CNV/counts/seg/SRR645241 --output-prefix tumor
+11:38:45.416 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 10, 2022 11:38:45 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:38:45.774 INFO  ModelSegments - ------------------------------------------------------------
+11:38:45.774 INFO  ModelSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:38:45.775 INFO  ModelSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:38:45.775 INFO  ModelSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:38:45.776 INFO  ModelSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+11:38:45.776 INFO  ModelSegments - Start Date/Time: May 10, 2022 at 11:38:45 AM CEST
+11:38:45.777 INFO  ModelSegments - ------------------------------------------------------------
+11:38:45.777 INFO  ModelSegments - ------------------------------------------------------------
+11:38:45.780 INFO  ModelSegments - HTSJDK Version: 2.24.1
+11:38:45.780 INFO  ModelSegments - Picard Version: 2.25.4
+11:38:45.781 INFO  ModelSegments - Built for Spark Version: 2.4.5
+11:38:45.781 INFO  ModelSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:38:45.781 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:38:45.781 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:38:45.782 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:38:45.782 INFO  ModelSegments - Deflater: IntelDeflater
+11:38:45.782 INFO  ModelSegments - Inflater: IntelInflater
+11:38:45.783 INFO  ModelSegments - GCS max retries/reopens: 20
+11:38:45.783 INFO  ModelSegments - Requester pays: disabled
+11:38:45.783 INFO  ModelSegments - Initializing engine
+11:38:45.784 INFO  ModelSegments - Done initializing engine
+11:38:45.784 INFO  ModelSegments - Used memory (MB) after initializing engine: 62
+11:38:45.805 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645241.denoisedCR.tsv)...
+11:38:48.040 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645241.allelicCounts.tsv)...
+11:40:06.850 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645242.allelicCounts.tsv)...
+11:41:36.497 INFO  ModelSegments - Used memory (MB) after reading files: 21948
+6
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -Xmx23g -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar ModelSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645243.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/SRR645243.allelicCounts.tsv --normal-allelic-counts /scratch/a905383/CNV/counts/SRR645244.allelicCounts.tsv --output /scratch/a905383/CNV/counts/seg/SRR645243 --output-prefix tumor
+11:41:48.034 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 10, 2022 11:41:48 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:41:48.438 INFO  ModelSegments - ------------------------------------------------------------
+11:41:48.439 INFO  ModelSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:41:48.440 INFO  ModelSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:41:48.441 INFO  ModelSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:41:48.442 INFO  ModelSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+11:41:48.442 INFO  ModelSegments - Start Date/Time: May 10, 2022 at 11:41:47 AM CEST
+11:41:48.444 INFO  ModelSegments - ------------------------------------------------------------
+11:41:48.445 INFO  ModelSegments - ------------------------------------------------------------
+11:41:48.448 INFO  ModelSegments - HTSJDK Version: 2.24.1
+11:41:48.448 INFO  ModelSegments - Picard Version: 2.25.4
+11:41:48.448 INFO  ModelSegments - Built for Spark Version: 2.4.5
+11:41:48.449 INFO  ModelSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:41:48.450 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:41:48.450 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:41:48.450 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:41:48.450 INFO  ModelSegments - Deflater: IntelDeflater
+11:41:48.451 INFO  ModelSegments - Inflater: IntelInflater
+11:41:48.451 INFO  ModelSegments - GCS max retries/reopens: 20
+11:41:48.452 INFO  ModelSegments - Requester pays: disabled
+11:41:48.452 INFO  ModelSegments - Initializing engine
+11:41:48.452 INFO  ModelSegments - Done initializing engine
+11:41:48.453 INFO  ModelSegments - Used memory (MB) after initializing engine: 62
+11:41:48.474 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645243.denoisedCR.tsv)...
+11:41:51.165 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645243.allelicCounts.tsv)...
+11:43:08.802 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645244.allelicCounts.tsv)...
+11:44:34.835 INFO  ModelSegments - Used memory (MB) after reading files: 21350
+7
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -Xmx23g -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar ModelSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645247.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/SRR645247.allelicCounts.tsv --normal-allelic-counts /scratch/a905383/CNV/counts/SRR645248.allelicCounts.tsv --output /scratch/a905383/CNV/counts/seg/SRR645247 --output-prefix tumor
+11:44:45.836 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 10, 2022 11:44:46 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:44:46.224 INFO  ModelSegments - ------------------------------------------------------------
+11:44:46.225 INFO  ModelSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:44:46.226 INFO  ModelSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:44:46.226 INFO  ModelSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:44:46.226 INFO  ModelSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+11:44:46.227 INFO  ModelSegments - Start Date/Time: May 10, 2022 at 11:44:45 AM CEST
+11:44:46.227 INFO  ModelSegments - ------------------------------------------------------------
+11:44:46.227 INFO  ModelSegments - ------------------------------------------------------------
+11:44:46.230 INFO  ModelSegments - HTSJDK Version: 2.24.1
+11:44:46.231 INFO  ModelSegments - Picard Version: 2.25.4
+11:44:46.231 INFO  ModelSegments - Built for Spark Version: 2.4.5
+11:44:46.231 INFO  ModelSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:44:46.232 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:44:46.232 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:44:46.232 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:44:46.233 INFO  ModelSegments - Deflater: IntelDeflater
+11:44:46.233 INFO  ModelSegments - Inflater: IntelInflater
+11:44:46.233 INFO  ModelSegments - GCS max retries/reopens: 20
+11:44:46.234 INFO  ModelSegments - Requester pays: disabled
+11:44:46.234 INFO  ModelSegments - Initializing engine
+11:44:46.234 INFO  ModelSegments - Done initializing engine
+11:44:46.236 INFO  ModelSegments - Used memory (MB) after initializing engine: 71
+11:44:46.259 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645247.denoisedCR.tsv)...
+11:44:47.149 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645247.allelicCounts.tsv)...
+11:46:06.476 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645248.allelicCounts.tsv)...
+11:47:31.284 INFO  ModelSegments - Used memory (MB) after reading files: 21254
+8
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -Xmx23g -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar ModelSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645249.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/SRR645249.allelicCounts.tsv --normal-allelic-counts /scratch/a905383/CNV/counts/SRR645250.allelicCounts.tsv --output /scratch/a905383/CNV/counts/seg/SRR645249 --output-prefix tumor
+11:47:42.804 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 10, 2022 11:47:43 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:47:43.146 INFO  ModelSegments - ------------------------------------------------------------
+11:47:43.147 INFO  ModelSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:47:43.148 INFO  ModelSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:47:43.148 INFO  ModelSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:47:43.149 INFO  ModelSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+11:47:43.149 INFO  ModelSegments - Start Date/Time: May 10, 2022 at 11:47:42 AM CEST
+11:47:43.150 INFO  ModelSegments - ------------------------------------------------------------
+11:47:43.150 INFO  ModelSegments - ------------------------------------------------------------
+11:47:43.153 INFO  ModelSegments - HTSJDK Version: 2.24.1
+11:47:43.154 INFO  ModelSegments - Picard Version: 2.25.4
+11:47:43.154 INFO  ModelSegments - Built for Spark Version: 2.4.5
+11:47:43.154 INFO  ModelSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:47:43.155 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:47:43.155 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:47:43.155 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:47:43.156 INFO  ModelSegments - Deflater: IntelDeflater
+11:47:43.156 INFO  ModelSegments - Inflater: IntelInflater
+11:47:43.156 INFO  ModelSegments - GCS max retries/reopens: 20
+11:47:43.157 INFO  ModelSegments - Requester pays: disabled
+11:47:43.157 INFO  ModelSegments - Initializing engine
+11:47:43.158 INFO  ModelSegments - Done initializing engine
+11:47:43.158 INFO  ModelSegments - Used memory (MB) after initializing engine: 54
+11:47:43.182 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645249.denoisedCR.tsv)...
+11:47:44.038 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645249.allelicCounts.tsv)...
+11:49:03.050 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645250.allelicCounts.tsv)...
+11:50:28.154 INFO  ModelSegments - Used memory (MB) after reading files: 21408
+9
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -Xmx23g -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar ModelSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645259.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/SRR645259.allelicCounts.tsv --normal-allelic-counts /scratch/a905383/CNV/counts/SRR645260.allelicCounts.tsv --output /scratch/a905383/CNV/counts/seg/SRR645259 --output-prefix tumor
+11:50:38.629 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 10, 2022 11:50:39 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:50:39.025 INFO  ModelSegments - ------------------------------------------------------------
+11:50:39.026 INFO  ModelSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:50:39.027 INFO  ModelSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:50:39.027 INFO  ModelSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:50:39.028 INFO  ModelSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+11:50:39.028 INFO  ModelSegments - Start Date/Time: May 10, 2022 at 11:50:38 AM CEST
+11:50:39.029 INFO  ModelSegments - ------------------------------------------------------------
+11:50:39.029 INFO  ModelSegments - ------------------------------------------------------------
+11:50:39.032 INFO  ModelSegments - HTSJDK Version: 2.24.1
+11:50:39.033 INFO  ModelSegments - Picard Version: 2.25.4
+11:50:39.033 INFO  ModelSegments - Built for Spark Version: 2.4.5
+11:50:39.034 INFO  ModelSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:50:39.034 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:50:39.034 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:50:39.035 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:50:39.035 INFO  ModelSegments - Deflater: IntelDeflater
+11:50:39.035 INFO  ModelSegments - Inflater: IntelInflater
+11:50:39.036 INFO  ModelSegments - GCS max retries/reopens: 20
+11:50:39.036 INFO  ModelSegments - Requester pays: disabled
+11:50:39.036 INFO  ModelSegments - Initializing engine
+11:50:39.037 INFO  ModelSegments - Done initializing engine
+11:50:39.037 INFO  ModelSegments - Used memory (MB) after initializing engine: 70
+11:50:39.061 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645259.denoisedCR.tsv)...
+11:50:40.828 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645259.allelicCounts.tsv)...
+11:51:59.677 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645260.allelicCounts.tsv)...
+11:53:23.655 INFO  ModelSegments - Used memory (MB) after reading files: 21394
+10
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -Xmx23g -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar ModelSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645272.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/SRR645272.allelicCounts.tsv --normal-allelic-counts /scratch/a905383/CNV/counts/SRR645273.allelicCounts.tsv --output /scratch/a905383/CNV/counts/seg/SRR645272 --output-prefix tumor
+11:53:34.416 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 10, 2022 11:53:34 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+11:53:34.786 INFO  ModelSegments - ------------------------------------------------------------
+11:53:34.787 INFO  ModelSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+11:53:34.787 INFO  ModelSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+11:53:34.788 INFO  ModelSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+11:53:34.788 INFO  ModelSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+11:53:34.788 INFO  ModelSegments - Start Date/Time: May 10, 2022 at 11:53:34 AM CEST
+11:53:34.789 INFO  ModelSegments - ------------------------------------------------------------
+11:53:34.789 INFO  ModelSegments - ------------------------------------------------------------
+11:53:34.793 INFO  ModelSegments - HTSJDK Version: 2.24.1
+11:53:34.794 INFO  ModelSegments - Picard Version: 2.25.4
+11:53:34.794 INFO  ModelSegments - Built for Spark Version: 2.4.5
+11:53:34.794 INFO  ModelSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+11:53:34.795 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+11:53:34.795 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+11:53:34.796 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+11:53:34.796 INFO  ModelSegments - Deflater: IntelDeflater
+11:53:34.797 INFO  ModelSegments - Inflater: IntelInflater
+11:53:34.797 INFO  ModelSegments - GCS max retries/reopens: 20
+11:53:34.798 INFO  ModelSegments - Requester pays: disabled
+11:53:34.798 INFO  ModelSegments - Initializing engine
+11:53:34.798 INFO  ModelSegments - Done initializing engine
+11:53:34.799 INFO  ModelSegments - Used memory (MB) after initializing engine: 90
+11:53:34.828 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645272.denoisedCR.tsv)...
+11:53:35.706 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645272.allelicCounts.tsv)...
+11:54:57.519 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645273.allelicCounts.tsv)...
+11:57:10.091 INFO  ModelSegments - Used memory (MB) after reading files: 20774
+11
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -Xmx23g -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar ModelSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645274.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/SRR645274.allelicCounts.tsv --normal-allelic-counts /scratch/a905383/CNV/counts/SRR645275.allelicCounts.tsv --output /scratch/a905383/CNV/counts/seg/SRR645274 --output-prefix tumor
+11:59:50.946 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 10, 2022 12:01:03 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+12:01:09.261 INFO  ModelSegments - ------------------------------------------------------------
+12:01:09.329 INFO  ModelSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+12:01:09.394 INFO  ModelSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+12:01:09.472 INFO  ModelSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+12:01:09.548 INFO  ModelSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+12:01:09.590 INFO  ModelSegments - Start Date/Time: May 10, 2022 at 11:59:50 AM CEST
+12:01:09.613 INFO  ModelSegments - ------------------------------------------------------------
+12:01:09.639 INFO  ModelSegments - ------------------------------------------------------------
+12:01:10.007 INFO  ModelSegments - HTSJDK Version: 2.24.1
+12:01:13.412 INFO  ModelSegments - Picard Version: 2.25.4
+12:01:13.824 INFO  ModelSegments - Built for Spark Version: 2.4.5
+12:01:13.839 INFO  ModelSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+12:01:13.845 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+12:01:13.855 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+12:01:13.876 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+12:01:13.879 INFO  ModelSegments - Deflater: IntelDeflater
+12:01:13.889 INFO  ModelSegments - Inflater: IntelInflater
+12:01:13.902 INFO  ModelSegments - GCS max retries/reopens: 20
+12:01:14.089 INFO  ModelSegments - Requester pays: disabled
+12:01:14.650 INFO  ModelSegments - Initializing engine
+12:01:14.667 INFO  ModelSegments - Done initializing engine
+12:01:14.690 INFO  ModelSegments - Used memory (MB) after initializing engine: 71
+12:01:19.798 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645274.denoisedCR.tsv)...
+12:01:32.346 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645274.allelicCounts.tsv)...
+12:04:39.667 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645275.allelicCounts.tsv)...
+12:06:22.325 INFO  ModelSegments - Used memory (MB) after reading files: 21234
+12
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -Xmx23g -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar ModelSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645283.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/SRR645283.allelicCounts.tsv --normal-allelic-counts /scratch/a905383/CNV/counts/SRR645284.allelicCounts.tsv --output /scratch/a905383/CNV/counts/seg/SRR645283 --output-prefix tumor
+12:06:47.477 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 10, 2022 12:06:48 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+12:06:49.008 INFO  ModelSegments - ------------------------------------------------------------
+12:06:49.009 INFO  ModelSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+12:06:49.010 INFO  ModelSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+12:06:49.011 INFO  ModelSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+12:06:49.012 INFO  ModelSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+12:06:49.012 INFO  ModelSegments - Start Date/Time: May 10, 2022 at 12:06:46 PM CEST
+12:06:49.012 INFO  ModelSegments - ------------------------------------------------------------
+12:06:49.013 INFO  ModelSegments - ------------------------------------------------------------
+12:06:49.016 INFO  ModelSegments - HTSJDK Version: 2.24.1
+12:06:49.016 INFO  ModelSegments - Picard Version: 2.25.4
+12:06:49.017 INFO  ModelSegments - Built for Spark Version: 2.4.5
+12:06:49.017 INFO  ModelSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+12:06:49.017 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+12:06:49.018 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+12:06:49.018 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+12:06:49.018 INFO  ModelSegments - Deflater: IntelDeflater
+12:06:49.019 INFO  ModelSegments - Inflater: IntelInflater
+12:06:49.019 INFO  ModelSegments - GCS max retries/reopens: 20
+12:06:49.019 INFO  ModelSegments - Requester pays: disabled
+12:06:49.020 INFO  ModelSegments - Initializing engine
+12:06:49.020 INFO  ModelSegments - Done initializing engine
+12:06:49.020 INFO  ModelSegments - Used memory (MB) after initializing engine: 63
+12:06:49.042 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645283.denoisedCR.tsv)...
+12:06:50.660 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645283.allelicCounts.tsv)...
+12:08:12.513 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645284.allelicCounts.tsv)...
+12:09:39.698 INFO  ModelSegments - Used memory (MB) after reading files: 22148
+13
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -Xmx23g -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar ModelSegments --denoised-copy-ratios /scratch/a905383/CNV/counts/SRR645289.denoisedCR.tsv --allelic-counts /scratch/a905383/CNV/counts/SRR645289.allelicCounts.tsv --normal-allelic-counts /scratch/a905383/CNV/counts/SRR645288.allelicCounts.tsv --output /scratch/a905383/CNV/counts/seg/SRR645289 --output-prefix tumor
+12:09:50.986 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 10, 2022 12:09:51 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+12:09:51.393 INFO  ModelSegments - ------------------------------------------------------------
+12:09:51.394 INFO  ModelSegments - The Genome Analysis Toolkit (GATK) v4.2.5.0
+12:09:51.394 INFO  ModelSegments - For support and documentation go to https://software.broadinstitute.org/gatk/
+12:09:51.395 INFO  ModelSegments - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+12:09:51.395 INFO  ModelSegments - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+12:09:51.396 INFO  ModelSegments - Start Date/Time: May 10, 2022 at 12:09:50 PM CEST
+12:09:51.396 INFO  ModelSegments - ------------------------------------------------------------
+12:09:51.396 INFO  ModelSegments - ------------------------------------------------------------
+12:09:51.399 INFO  ModelSegments - HTSJDK Version: 2.24.1
+12:09:51.400 INFO  ModelSegments - Picard Version: 2.25.4
+12:09:51.400 INFO  ModelSegments - Built for Spark Version: 2.4.5
+12:09:51.401 INFO  ModelSegments - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+12:09:51.401 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+12:09:51.401 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+12:09:51.402 INFO  ModelSegments - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+12:09:51.402 INFO  ModelSegments - Deflater: IntelDeflater
+12:09:51.402 INFO  ModelSegments - Inflater: IntelInflater
+12:09:51.402 INFO  ModelSegments - GCS max retries/reopens: 20
+12:09:51.403 INFO  ModelSegments - Requester pays: disabled
+12:09:51.403 INFO  ModelSegments - Initializing engine
+12:09:51.404 INFO  ModelSegments - Done initializing engine
+12:09:51.404 INFO  ModelSegments - Used memory (MB) after initializing engine: 70
+12:09:51.436 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645289.denoisedCR.tsv)...
+12:09:52.221 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645289.allelicCounts.tsv)...
+12:11:10.458 INFO  ModelSegments - Reading file (/scratch/a905383/CNV/counts/SRR645288.allelicCounts.tsv)...
+12:12:47.936 INFO  ModelSegments - Used memory (MB) after reading files: 21812
+slurmstepd: error: Detected 14 oom-kill event(s) in step 608795.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.

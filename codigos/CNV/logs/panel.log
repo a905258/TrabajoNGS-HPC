@@ -1,0 +1,204 @@
+Cargando compiladores de Intel...
+/scratch/arubio/bin/moduleloadNGS: line 4: module: command not found
+Cargando librerias de compresion...
+/scratch/arubio/bin/moduleloadNGS: line 7: module: command not found
+Cargando IGV...
+/scratch/arubio/bin/moduleloadNGS: line 10: module: command not found
+Cargando R/3.6.2-intel-2019a...
+/scratch/arubio/bin/moduleloadNGS: line 13: module: command not found
+Cargando Java...
+/scratch/arubio/bin/moduleloadNGS: line 16: module: command not found
+Cargando paths: kallisto, hisat, fastqc, STAR, conda, multiqc, bwa, stringtie, picard, samtools, samblaster, gatk ...
+/var/spool/slurmd/job618775/slurm_script: line 20: module: command not found
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar CreateReadCountPanelOfNormals -I /scratch/a905383/CNV/counts/SRR645210.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645219.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645223.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645225.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645236.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645242.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645244.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645248.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645250.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645260.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645273.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645275.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645284.counts.hdf5 -I /scratch/a905383/CNV/counts/SRR645288.counts.hdf5 --minimum-interval-median-percentile 5.0 -O /scratch/a905383/CNV/counts/Normal.pon.hdf5
+23:16:07.977 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 14, 2022 11:16:08 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+23:16:08.338 INFO  CreateReadCountPanelOfNormals - ------------------------------------------------------------
+23:16:08.338 INFO  CreateReadCountPanelOfNormals - The Genome Analysis Toolkit (GATK) v4.2.5.0
+23:16:08.339 INFO  CreateReadCountPanelOfNormals - For support and documentation go to https://software.broadinstitute.org/gatk/
+23:16:08.339 INFO  CreateReadCountPanelOfNormals - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+23:16:08.339 INFO  CreateReadCountPanelOfNormals - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+23:16:08.340 INFO  CreateReadCountPanelOfNormals - Start Date/Time: May 14, 2022 at 11:16:07 PM CEST
+23:16:08.340 INFO  CreateReadCountPanelOfNormals - ------------------------------------------------------------
+23:16:08.341 INFO  CreateReadCountPanelOfNormals - ------------------------------------------------------------
+23:16:08.343 INFO  CreateReadCountPanelOfNormals - HTSJDK Version: 2.24.1
+23:16:08.343 INFO  CreateReadCountPanelOfNormals - Picard Version: 2.25.4
+23:16:08.343 INFO  CreateReadCountPanelOfNormals - Built for Spark Version: 2.4.5
+23:16:08.343 INFO  CreateReadCountPanelOfNormals - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+23:16:08.344 INFO  CreateReadCountPanelOfNormals - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+23:16:08.344 INFO  CreateReadCountPanelOfNormals - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+23:16:08.344 INFO  CreateReadCountPanelOfNormals - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+23:16:08.345 INFO  CreateReadCountPanelOfNormals - Deflater: IntelDeflater
+23:16:08.345 INFO  CreateReadCountPanelOfNormals - Inflater: IntelInflater
+23:16:08.345 INFO  CreateReadCountPanelOfNormals - GCS max retries/reopens: 20
+23:16:08.345 INFO  CreateReadCountPanelOfNormals - Requester pays: disabled
+23:16:08.346 INFO  CreateReadCountPanelOfNormals - Initializing engine
+23:16:08.346 INFO  CreateReadCountPanelOfNormals - Done initializing engine
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar) to method java.nio.Bits.unaligned()
+WARNING: Please consider reporting this to the maintainers of org.apache.spark.unsafe.Platform
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+22/05/14 23:16:12 INFO SparkContext: Running Spark version 2.4.5
+22/05/14 23:16:14 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+22/05/14 23:16:14 INFO SparkContext: Submitted application: CreateReadCountPanelOfNormals
+22/05/14 23:16:14 INFO SecurityManager: Changing view acls to: a905383
+22/05/14 23:16:14 INFO SecurityManager: Changing modify acls to: a905383
+22/05/14 23:16:14 INFO SecurityManager: Changing view acls groups to: 
+22/05/14 23:16:14 INFO SecurityManager: Changing modify acls groups to: 
+22/05/14 23:16:14 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(a905383); groups with view permissions: Set(); users  with modify permissions: Set(a905383); groups with modify permissions: Set()
+22/05/14 23:16:16 INFO Utils: Successfully started service 'sparkDriver' on port 36202.
+22/05/14 23:16:16 INFO SparkEnv: Registering MapOutputTracker
+22/05/14 23:16:16 INFO SparkEnv: Registering BlockManagerMaster
+22/05/14 23:16:16 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+22/05/14 23:16:16 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+22/05/14 23:16:16 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-36f27441-cc18-4e78-a2a3-f4d47c774c9f
+22/05/14 23:16:17 INFO MemoryStore: MemoryStore started with capacity 1601.8 MB
+22/05/14 23:16:17 INFO SparkEnv: Registering OutputCommitCoordinator
+22/05/14 23:16:17 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+22/05/14 23:16:17 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://atlas-193:4040
+22/05/14 23:16:18 INFO Executor: Starting executor ID driver on host localhost
+22/05/14 23:16:18 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 32904.
+22/05/14 23:16:18 INFO NettyBlockTransferService: Server created on atlas-193:32904
+22/05/14 23:16:18 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+22/05/14 23:16:18 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, atlas-193, 32904, None)
+22/05/14 23:16:18 INFO BlockManagerMasterEndpoint: Registering block manager atlas-193:32904 with 1601.8 MB RAM, BlockManagerId(driver, atlas-193, 32904, None)
+22/05/14 23:16:18 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, atlas-193, 32904, None)
+22/05/14 23:16:18 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, atlas-193, 32904, None)
+23:16:19.856 INFO  CreateReadCountPanelOfNormals - Spark verbosity set to INFO (see --spark-verbosity argument)
+22/05/14 23:16:19 INFO HDF5Library: Trying to load HDF5 library from:
+	jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/org/broadinstitute/hdf5/libjhdf5.2.11.0.so
+22/05/14 23:16:19 INFO H5: HDF5 library: 
+22/05/14 23:16:19 INFO H5:  successfully loaded.
+23:16:19.932 WARN  CreateReadCountPanelOfNormals - Number of eigensamples (20) is greater than the number of input samples (14); the number of samples retained after filtering will be used instead.
+23:16:19.936 INFO  CreateReadCountPanelOfNormals - Retrieving intervals from first read-counts file (/scratch/a905383/CNV/counts/SRR645210.counts.hdf5)...
+23:16:20.512 INFO  CreateReadCountPanelOfNormals - No annotated intervals were provided...
+23:16:20.522 INFO  CreateReadCountPanelOfNormals - Validating and aggregating input read-counts files...
+23:16:20.528 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645210.counts.hdf5 (1 / 14)
+23:16:20.794 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645219.counts.hdf5 (2 / 14)
+23:16:21.900 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645223.counts.hdf5 (3 / 14)
+23:16:22.126 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645225.counts.hdf5 (4 / 14)
+23:16:22.506 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645236.counts.hdf5 (5 / 14)
+23:16:22.893 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645242.counts.hdf5 (6 / 14)
+23:16:23.306 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645244.counts.hdf5 (7 / 14)
+23:16:23.513 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645248.counts.hdf5 (8 / 14)
+23:16:23.766 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645250.counts.hdf5 (9 / 14)
+23:16:23.909 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645260.counts.hdf5 (10 / 14)
+23:16:24.610 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645273.counts.hdf5 (11 / 14)
+23:16:27.356 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645275.counts.hdf5 (12 / 14)
+23:16:27.704 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645284.counts.hdf5 (13 / 14)
+23:16:28.168 INFO  CreateReadCountPanelOfNormals - Aggregating read-counts file /scratch/a905383/CNV/counts/SRR645288.counts.hdf5 (14 / 14)
+23:16:28.483 INFO  CreateReadCountPanelOfNormals - Creating the panel of normals...
+23:16:28.487 INFO  HDF5SVDReadCountPanelOfNormals - Creating read-count panel of normals at /scratch/a905383/CNV/counts/Normal.pon.hdf5...
+23:16:28.493 INFO  HDF5SVDReadCountPanelOfNormals - Writing version number (7.0)...
+23:16:28.499 INFO  HDF5SVDReadCountPanelOfNormals - Writing command line...
+23:16:28.503 INFO  HDF5SVDReadCountPanelOfNormals - Writing sequence dictionary...
+23:16:28.506 INFO  HDF5SVDReadCountPanelOfNormals - Writing original read counts (294955 x 14)...
+23:16:28.612 INFO  HDF5SVDReadCountPanelOfNormals - Writing original sample filenames (14)...
+23:16:28.613 INFO  HDF5SVDReadCountPanelOfNormals - Writing original intervals (294955)...
+23:16:28.684 INFO  HDF5SVDReadCountPanelOfNormals - Preprocessing and standardizing read counts...
+23:16:28.688 INFO  SVDDenoisingUtils - Preprocessing read counts...
+23:16:28.689 INFO  SVDDenoisingUtils - Transforming read counts to fractional coverage...
+23:16:29.198 INFO  SVDDenoisingUtils - Filtering intervals with median (across samples) less than or equal to the 5.00 percentile (0.00)...
+23:16:29.237 INFO  SVDDenoisingUtils - After filtering, 280208 out of 294955 intervals remain...
+23:16:29.238 INFO  SVDDenoisingUtils - Dividing by interval medians...
+23:16:29.363 INFO  SVDDenoisingUtils - Filtering samples with a fraction of zero-coverage intervals greater than or equal to 5.00 percent...
+23:16:29.412 INFO  SVDDenoisingUtils - After filtering, 14 out of 14 samples remain...
+23:16:29.413 INFO  SVDDenoisingUtils - Filtering intervals with a fraction of zero-coverage samples greater than or equal to 5.00 percent...
+23:16:29.547 INFO  SVDDenoisingUtils - After filtering, 279019 out of 294955 intervals remain...
+23:16:29.722 INFO  SVDDenoisingUtils - Filtering samples with a median (across intervals) strictly below the 2.50 percentile (0.99) or strictly above the 97.50 percentile (1.00)...
+23:16:29.724 INFO  SVDDenoisingUtils - After filtering, 14 out of 14 samples remain...
+23:16:29.804 INFO  SVDDenoisingUtils - Heap utilization statistics [MB]:
+23:16:29.804 INFO  SVDDenoisingUtils - Used memory: 194
+23:16:29.808 INFO  SVDDenoisingUtils - Free memory: 79
+23:16:29.808 INFO  SVDDenoisingUtils - Total memory: 274
+23:16:29.809 INFO  SVDDenoisingUtils - Maximum memory: 2969
+23:16:29.809 INFO  SVDDenoisingUtils - Performing garbage collection...
+23:16:29.881 INFO  SVDDenoisingUtils - Heap utilization statistics [MB]:
+23:16:29.881 INFO  SVDDenoisingUtils - Used memory: 135
+23:16:29.882 INFO  SVDDenoisingUtils - Free memory: 187
+23:16:29.882 INFO  SVDDenoisingUtils - Total memory: 322
+23:16:29.883 INFO  SVDDenoisingUtils - Maximum memory: 2969
+23:16:30.388 INFO  SVDDenoisingUtils - 0 zero-coverage values were imputed to the median of the non-zero values in the corresponding interval...
+23:16:30.507 INFO  SVDDenoisingUtils - 7812 values strictly below the 0.10 percentile (0.66) or strictly above the 99.90 percentile (2.08) were truncated to the corresponding value...
+23:16:30.508 INFO  SVDDenoisingUtils - Panel read counts preprocessed.
+23:16:30.509 INFO  SVDDenoisingUtils - Standardizing read counts...
+23:16:30.509 INFO  SVDDenoisingUtils - Dividing by sample medians and transforming to log2 space...
+23:16:30.629 INFO  SVDDenoisingUtils - Subtracting median of sample medians...
+23:16:30.708 INFO  SVDDenoisingUtils - Panel read counts standardized.
+23:16:30.718 INFO  HDF5SVDReadCountPanelOfNormals - Writing panel sample filenames (14)...
+23:16:30.719 INFO  HDF5SVDReadCountPanelOfNormals - Writing panel intervals (279019)...
+23:16:30.805 INFO  HDF5SVDReadCountPanelOfNormals - Writing panel interval fractional medians (279019)...
+23:16:30.809 WARN  HDF5SVDReadCountPanelOfNormals - 20 eigensamples were requested but only 14 are available in the panel of normals...
+23:16:30.810 INFO  HDF5SVDReadCountPanelOfNormals - Performing SVD (truncated at 14 eigensamples) of standardized counts (transposed to 279019 x 14)...
+23:16:30.890 INFO  SparkConverter - Converting matrix to distributed Spark matrix...
+23:16:32.622 INFO  SparkConverter - Done converting matrix to distributed Spark matrix...
+23:16:32.747 WARN  HDF5SVDReadCountPanelOfNormals - Exception encountered during creation of panel of normals (java.lang.IllegalArgumentException: Unsupported class file major version 55).  Attempting to delete partial output in /scratch/a905383/CNV/counts/Normal.pon.hdf5...
+22/05/14 23:16:32 INFO SparkUI: Stopped Spark web UI at http://atlas-193:4040
+22/05/14 23:16:32 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+22/05/14 23:16:32 INFO MemoryStore: MemoryStore cleared
+22/05/14 23:16:32 INFO BlockManager: BlockManager stopped
+22/05/14 23:16:32 INFO BlockManagerMaster: BlockManagerMaster stopped
+22/05/14 23:16:32 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+22/05/14 23:16:32 INFO SparkContext: Successfully stopped SparkContext
+23:16:32.879 INFO  CreateReadCountPanelOfNormals - Shutting down engine
+[May 14, 2022 at 11:16:32 PM CEST] org.broadinstitute.hellbender.tools.copynumber.CreateReadCountPanelOfNormals done. Elapsed time: 0.42 minutes.
+Runtime.totalMemory()=338399232
+org.broadinstitute.hellbender.exceptions.GATKException: Could not create panel of normals.  It may be necessary to use stricter parameters for filtering.  For example, use a larger value of minimum-interval-median-percentile.
+	at org.broadinstitute.hellbender.tools.copynumber.denoising.HDF5SVDReadCountPanelOfNormals.create(HDF5SVDReadCountPanelOfNormals.java:354)
+	at org.broadinstitute.hellbender.tools.copynumber.CreateReadCountPanelOfNormals.runPipeline(CreateReadCountPanelOfNormals.java:290)
+	at org.broadinstitute.hellbender.engine.spark.SparkCommandLineProgram.doWork(SparkCommandLineProgram.java:31)
+	at org.broadinstitute.hellbender.cmdline.CommandLineProgram.runTool(CommandLineProgram.java:140)
+	at org.broadinstitute.hellbender.cmdline.CommandLineProgram.instanceMainPostParseArgs(CommandLineProgram.java:192)
+	at org.broadinstitute.hellbender.cmdline.CommandLineProgram.instanceMain(CommandLineProgram.java:211)
+	at org.broadinstitute.hellbender.Main.runCommandLineProgram(Main.java:160)
+	at org.broadinstitute.hellbender.Main.mainEntry(Main.java:203)
+	at org.broadinstitute.hellbender.Main.main(Main.java:289)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 55
+	at org.apache.xbean.asm6.ClassReader.<init>(ClassReader.java:166)
+	at org.apache.xbean.asm6.ClassReader.<init>(ClassReader.java:148)
+	at org.apache.xbean.asm6.ClassReader.<init>(ClassReader.java:136)
+	at org.apache.xbean.asm6.ClassReader.<init>(ClassReader.java:237)
+	at org.apache.spark.util.ClosureCleaner$.getClassReader(ClosureCleaner.scala:49)
+	at org.apache.spark.util.FieldAccessFinder$$anon$3$$anonfun$visitMethodInsn$2.apply(ClosureCleaner.scala:517)
+	at org.apache.spark.util.FieldAccessFinder$$anon$3$$anonfun$visitMethodInsn$2.apply(ClosureCleaner.scala:500)
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:733)
+	at scala.collection.mutable.HashMap$$anon$1$$anonfun$foreach$2.apply(HashMap.scala:134)
+	at scala.collection.mutable.HashMap$$anon$1$$anonfun$foreach$2.apply(HashMap.scala:134)
+	at scala.collection.mutable.HashTable$class.foreachEntry(HashTable.scala:236)
+	at scala.collection.mutable.HashMap.foreachEntry(HashMap.scala:40)
+	at scala.collection.mutable.HashMap$$anon$1.foreach(HashMap.scala:134)
+	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:732)
+	at org.apache.spark.util.FieldAccessFinder$$anon$3.visitMethodInsn(ClosureCleaner.scala:500)
+	at org.apache.xbean.asm6.ClassReader.readCode(ClassReader.java:2175)
+	at org.apache.xbean.asm6.ClassReader.readMethod(ClassReader.java:1238)
+	at org.apache.xbean.asm6.ClassReader.accept(ClassReader.java:631)
+	at org.apache.xbean.asm6.ClassReader.accept(ClassReader.java:355)
+	at org.apache.spark.util.ClosureCleaner$$anonfun$org$apache$spark$util$ClosureCleaner$$clean$14.apply(ClosureCleaner.scala:307)
+	at org.apache.spark.util.ClosureCleaner$$anonfun$org$apache$spark$util$ClosureCleaner$$clean$14.apply(ClosureCleaner.scala:306)
+	at scala.collection.immutable.List.foreach(List.scala:392)
+	at org.apache.spark.util.ClosureCleaner$.org$apache$spark$util$ClosureCleaner$$clean(ClosureCleaner.scala:306)
+	at org.apache.spark.util.ClosureCleaner$.clean(ClosureCleaner.scala:162)
+	at org.apache.spark.SparkContext.clean(SparkContext.scala:2326)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2100)
+	at org.apache.spark.rdd.RDD$$anonfun$take$1.apply(RDD.scala:1409)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:385)
+	at org.apache.spark.rdd.RDD.take(RDD.scala:1382)
+	at org.apache.spark.rdd.RDD$$anonfun$first$1.apply(RDD.scala:1423)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:385)
+	at org.apache.spark.rdd.RDD.first(RDD.scala:1422)
+	at org.apache.spark.mllib.linalg.distributed.RowMatrix.numCols(RowMatrix.scala:61)
+	at org.apache.spark.mllib.linalg.distributed.RowMatrix.computeSVD(RowMatrix.scala:232)
+	at org.apache.spark.mllib.linalg.distributed.RowMatrix.computeSVD(RowMatrix.scala:208)
+	at org.broadinstitute.hellbender.tools.copynumber.denoising.HDF5SVDReadCountPanelOfNormals.create(HDF5SVDReadCountPanelOfNormals.java:326)
+	... 8 more
+22/05/14 23:16:32 INFO ShutdownHookManager: Shutdown hook called
+22/05/14 23:16:32 INFO ShutdownHookManager: Deleting directory /tmp/spark-6a27bf8f-0d99-411a-8d44-f541bd911542

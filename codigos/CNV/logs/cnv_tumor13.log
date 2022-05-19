@@ -1,0 +1,134 @@
+Cargando compiladores de Intel...
+
+The following have been reloaded with a version change:
+  1) GCCcore/8.2.0 => GCCcore/10.3.0
+  2) binutils/.2.31.1-GCCcore-8.2.0 => binutils/.2.36.1-GCCcore-10.3.0
+  3) zlib/.1.2.11-GCCcore-8.2.0 => zlib/.1.2.11-GCCcore-10.3.0
+
+Cargando librerias de compresion...
+
+The following have been reloaded with a version change:
+  1) GCCcore/10.3.0 => GCCcore/6.4.0
+  2) GLib/.2.60.1-GCCcore-8.2.0 => GLib/.2.53.5-GCCcore-6.4.0
+  3) LibTIFF/.4.0.10-GCCcore-8.2.0 => LibTIFF/.4.0.9-intel-2017b
+  4) NASM/2.14.02-GCCcore-8.2.0 => NASM/2.13.01-GCCcore-6.4.0
+  5) PCRE/.8.43-GCCcore-8.2.0 => PCRE/.8.41-GCCcore-6.4.0
+  6) XZ/.5.2.4-GCCcore-8.2.0 => XZ/.5.2.3-GCCcore-6.4.0
+  7) binutils/.2.36.1-GCCcore-10.3.0 => binutils/.2.28-GCCcore-6.4.0
+  8) bzip2/.1.0.6-GCCcore-8.2.0 => bzip2/.1.0.6-GCCcore-6.4.0
+  9) gettext/.0.19.8.1-GCCcore-8.2.0 => gettext/.0.19.8.1-GCCcore-6.4.0
+ 10) icc/2019.1.144-GCC-8.2.0-2.31.1 => icc/2017.4.196-GCC-6.4.0-2.28
+ 11) iccifort/2019.1.144-GCC-8.2.0-2.31.1 => iccifort/2017.4.196-GCC-6.4.0-2.28
+ 12) ifort/2019.1.144-GCC-8.2.0-2.31.1 => ifort/2017.4.196-GCC-6.4.0-2.28
+ 13) iimpi/2019a => iimpi/2017b
+ 14) imkl/2019.1.144-iimpi-2019a => imkl/2017.3.196-iimpi-2017b
+ 15) impi/2018.4.274-iccifort-2019.1.144-GCC-8.2.0-2.31.1 => impi/2017.3.196-iccifort-2017.4.196-GCC-6.4.0-2.28
+ 16) intel/2019a => intel/2017b
+ 17) libffi/.3.2.1-GCCcore-8.2.0 => libffi/.3.2.1-GCCcore-6.4.0
+ 18) libjpeg-turbo/.2.0.2-GCCcore-8.2.0 => libjpeg-turbo/1.5.2-GCCcore-6.4.0
+ 19) libpng/.1.6.36-GCCcore-8.2.0 => libpng/.1.6.32-GCCcore-6.4.0
+ 20) libxml2/.2.9.8-GCCcore-8.2.0 => libxml2/.2.9.4-GCCcore-6.4.0
+ 21) ncurses/.6.1-GCCcore-8.2.0 => ncurses/.6.0-GCCcore-6.4.0
+ 22) util-linux/.2.33-GCCcore-8.2.0 => util-linux/.2.31-GCCcore-6.4.0
+ 23) zlib/.1.2.11-GCCcore-10.3.0 => zlib/.1.2.11-GCCcore-6.4.0
+
+Cargando IGV...
+Cargando R/3.6.2-intel-2019a...
+
+The following have been reloaded with a version change:
+  1) GCCcore/6.4.0 => GCCcore/8.2.0
+  2) LibTIFF/.4.0.9-intel-2017b => LibTIFF/.4.0.10-GCCcore-8.2.0
+  3) NASM/2.13.01-GCCcore-6.4.0 => NASM/2.14.02-GCCcore-8.2.0
+  4) PCRE/.8.41-GCCcore-6.4.0 => PCRE/.8.43-GCCcore-8.2.0
+  5) XZ/.5.2.3-GCCcore-6.4.0 => XZ/.5.2.4-GCCcore-8.2.0
+  6) binutils/.2.28-GCCcore-6.4.0 => binutils/.2.31.1-GCCcore-8.2.0
+  7) bzip2/.1.0.6-GCCcore-6.4.0 => bzip2/.1.0.6-GCCcore-8.2.0
+  8) icc/2017.4.196-GCC-6.4.0-2.28 => icc/2019.1.144-GCC-8.2.0-2.31.1
+  9) iccifort/2017.4.196-GCC-6.4.0-2.28 => iccifort/2019.1.144-GCC-8.2.0-2.31.1
+ 10) ifort/2017.4.196-GCC-6.4.0-2.28 => ifort/2019.1.144-GCC-8.2.0-2.31.1
+ 11) iimpi/2017b => iimpi/2019a
+ 12) imkl/2017.3.196-iimpi-2017b => imkl/2019.1.144-iimpi-2019a
+ 13) impi/2017.3.196-iccifort-2017.4.196-GCC-6.4.0-2.28 => impi/2018.4.274-iccifort-2019.1.144-GCC-8.2.0-2.31.1
+ 14) intel/2017b => intel/2019a
+ 15) libjpeg-turbo/1.5.2-GCCcore-6.4.0 => libjpeg-turbo/.2.0.2-GCCcore-8.2.0
+ 16) libpng/.1.6.32-GCCcore-6.4.0 => libpng/.1.6.36-GCCcore-8.2.0
+ 17) libxml2/.2.9.4-GCCcore-6.4.0 => libxml2/.2.9.8-GCCcore-8.2.0
+ 18) ncurses/.6.0-GCCcore-6.4.0 => ncurses/.6.1-GCCcore-8.2.0
+ 19) zlib/.1.2.11-GCCcore-6.4.0 => zlib/.1.2.11-GCCcore-8.2.0
+
+Cargando Java...
+Cargando paths: kallisto, hisat, fastqc, STAR, conda, multiqc, bwa, stringtie, picard, samtools, samblaster, gatk ...
+SRR645289
+Using GATK jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar CollectReadCounts -L /scratch/a905383/CNV/preprocessed_intervals100000.interval_list -I /scratch/a905383/CNV/raw_data/SRR645289_aligned.bam --interval-merging-rule OVERLAPPING_ONLY -O /scratch/a905383/CNV/counts/SRR6452890.counts.hdf5
+15:38:16.015 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/scratch/arubio/bin/gatk-4.2.5.0/gatk-package-4.2.5.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+May 05, 2022 3:38:16 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+15:38:16.594 INFO  CollectReadCounts - ------------------------------------------------------------
+15:38:16.595 INFO  CollectReadCounts - The Genome Analysis Toolkit (GATK) v4.2.5.0
+15:38:16.596 INFO  CollectReadCounts - For support and documentation go to https://software.broadinstitute.org/gatk/
+15:38:16.597 INFO  CollectReadCounts - Executing as a905383@atlas-193 on Linux v3.10.0-693.el7.x86_64 amd64
+15:38:16.597 INFO  CollectReadCounts - Java runtime: OpenJDK 64-Bit Server VM v11.0.13+7-b1751.21
+15:38:16.598 INFO  CollectReadCounts - Start Date/Time: May 5, 2022 at 3:38:15 PM CEST
+15:38:16.598 INFO  CollectReadCounts - ------------------------------------------------------------
+15:38:16.599 INFO  CollectReadCounts - ------------------------------------------------------------
+15:38:16.602 INFO  CollectReadCounts - HTSJDK Version: 2.24.1
+15:38:16.603 INFO  CollectReadCounts - Picard Version: 2.25.4
+15:38:16.603 INFO  CollectReadCounts - Built for Spark Version: 2.4.5
+15:38:16.604 INFO  CollectReadCounts - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+15:38:16.604 INFO  CollectReadCounts - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+15:38:16.605 INFO  CollectReadCounts - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+15:38:16.605 INFO  CollectReadCounts - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+15:38:16.605 INFO  CollectReadCounts - Deflater: IntelDeflater
+15:38:16.606 INFO  CollectReadCounts - Inflater: IntelInflater
+15:38:16.606 INFO  CollectReadCounts - GCS max retries/reopens: 20
+15:38:16.606 INFO  CollectReadCounts - Requester pays: disabled
+15:38:16.607 INFO  CollectReadCounts - Initializing engine
+15:38:17.038 INFO  FeatureManager - Using codec IntervalListCodec to read file file:///scratch/a905383/CNV/preprocessed_intervals100000.interval_list
+15:38:18.158 INFO  IntervalArgumentCollection - Processing 2958930931 bp from intervals
+15:38:18.176 INFO  CollectReadCounts - Done initializing engine
+15:38:18.191 INFO  CollectReadCounts - Collecting read counts...
+15:38:18.192 INFO  ProgressMeter - Starting traversal
+15:38:18.193 INFO  ProgressMeter -        Current Locus  Elapsed Minutes       Reads Processed     Reads/Minute
+15:38:28.196 INFO  ProgressMeter -           1:85917032              0.2               3346000       20071985.6
+15:38:38.198 INFO  ProgressMeter -          1:191808781              0.3               6613000       19835033.0
+15:38:48.214 INFO  ProgressMeter -          10:41915202              0.5              10547000       21079946.7
+15:38:58.214 INFO  ProgressMeter -          11:23017968              0.7              15108000       22650674.7
+15:39:08.214 INFO  ProgressMeter -            12:443770              0.8              19526000       23421363.0
+15:39:18.215 INFO  ProgressMeter -         12:117817316              1.0              24240000       24231115.3
+15:39:28.217 INFO  ProgressMeter -          14:28332181              1.2              29074000       24912385.9
+15:39:38.223 INFO  ProgressMeter -          15:55780314              1.3              33622000       25209252.3
+15:39:48.217 INFO  ProgressMeter -          16:83847685              1.5              38243000       25488819.5
+15:39:58.216 INFO  ProgressMeter -          18:39125457              1.7              42827000       25690291.2
+15:40:08.217 INFO  ProgressMeter -           2:29683573              1.8              47747000       26038137.1
+15:40:18.217 INFO  ProgressMeter -          2:148105027              2.0              52329000       26159268.1
+15:40:28.221 INFO  ProgressMeter -          20:23506638              2.2              57187000       26388722.3
+15:40:38.219 INFO  ProgressMeter -          22:45141971              2.3              61262000       26250267.8
+15:40:48.224 INFO  ProgressMeter -           3:93470527              2.5              66031000       26406942.6
+15:40:58.224 INFO  ProgressMeter -            4:5393851              2.7              70586000       26464622.5
+15:41:08.224 INFO  ProgressMeter -          4:115068916              2.8              75061000       26487287.6
+15:41:18.226 INFO  ProgressMeter -           5:41970412              3.0              79898000       26627932.8
+15:41:28.225 INFO  ProgressMeter -          5:149062444              3.2              84176000       26577418.5
+15:41:38.226 INFO  ProgressMeter -           6:88534873              3.3              89005000       26697095.0
+15:41:48.227 INFO  ProgressMeter -           7:37011404              3.5              93915000       26828513.5
+15:41:58.227 INFO  ProgressMeter -          7:156613041              3.7              98524000       26866029.8
+15:42:08.230 INFO  ProgressMeter -          8:123661800              3.8             103281000       26938770.2
+15:42:18.229 INFO  ProgressMeter -          9:119375338              4.0             107735000       26929822.7
+15:42:28.560 INFO  ProgressMeter -           Y:56747673              4.2             112045000       26851489.4
+15:42:31.553 INFO  CollectReadCounts - 0 read(s) filtered by: WellformedReadFilter 
+758741 read(s) filtered by: MappedReadFilter 
+0 read(s) filtered by: NonZeroReferenceLengthAlignmentReadFilter 
+22485682 read(s) filtered by: NotDuplicateReadFilter 
+10937038 read(s) filtered by: MappingQualityReadFilter 
+34181461 total reads filtered
+15:42:31.554 INFO  ProgressMeter -       KI270336.1:585              4.2             112468245       26634307.2
+15:42:31.554 INFO  ProgressMeter - Traversal complete. Processed 112468245 total reads in 4.2 minutes.
+15:42:31.556 INFO  CollectReadCounts - Writing read counts to /scratch/a905383/CNV/counts/SRR6452890.counts.hdf5...
+log4j:WARN No appenders could be found for logger (org.broadinstitute.hdf5.HDF5Library).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+15:42:31.888 INFO  CollectReadCounts - CollectReadCounts complete.
+15:42:31.889 INFO  CollectReadCounts - Shutting down engine
+[May 5, 2022 at 3:42:31 PM CEST] org.broadinstitute.hellbender.tools.copynumber.CollectReadCounts done. Elapsed time: 4.27 minutes.
+Runtime.totalMemory()=57585664

@@ -1,0 +1,42 @@
+#!/bin/bash
+###################################################################################
+### CNV
+###################################################################################
+#
+#
+
+#SBATCH --job-name=cnv%a
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=1
+#SBATCH --nodes=1
+#SBATCH --mem=2G
+#SBATCH --time=00:30:00
+##SBATCH --mail-type=END
+##SBATCH --mail-user=a905383@alumni.unav.es
+#SBATCH -o /scratch/a905383/CNV/logs/plotter%a.log
+
+
+### Load programs here
+
+source /scratch/arubio/bin/moduleloadNGS
+
+
+module load R
+
+countsFolder=/scratch/a905383/CNV/counts
+
+file=($(cd $countsFolder && basename --suffix=.counts.hdf5 -- *.counts.hdf5))
+
+for count in ${file[@]}; do
+   echo $count
+   resultFolder=$countsFolder"/"$count".standardizedCR.tsv"
+   gatk PlotDenoisedCopyRatios \
+    --standardized-copy-ratios $resultFolder \
+    --denoised-copy-ratios $countsFolder"/"$count".denoisedCR.tsv" \
+    --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict \
+    --minimum-contig-length 46709983 \
+    --output $countsFolder"/plot" \
+    --output-prefix $count"_PlotDenoised"
+   done
+

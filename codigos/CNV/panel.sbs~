@@ -1,0 +1,41 @@
+#!/bin/bash
+###################################################################################
+### CNV
+###################################################################################
+#
+#
+
+#SBATCH --job-name=cnv%a
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=1
+#SBATCH --nodes=1
+#SBATCH --mem=12G
+#SBATCH --time=00:30:00
+#SBATCH -o /scratch/a905383/CNV/logs/panel.log
+
+
+source /scratch/arubio/bin/moduleloadNGS
+
+module load Java/1.8.0_181
+
+countsFolder=/scratch/a905383/CNV/count
+
+gatk CreateReadCountPanelOfNormals \
+ -I $countsFolder"/SRR6452100.counts.hdf5" \
+ -I $countsFolder"/SRR6452190.counts.hdf5" \
+ -I $countsFolder"/SRR6452230.counts.hdf5" \
+ -I $countsFolder"/SRR6452250.counts.hdf5" \
+ -I $countsFolder"/SRR6452360.counts.hdf5" \
+ -I $countsFolder"/SRR6452420.counts.hdf5" \
+ -I $countsFolder"/SRR6452440.counts.hdf5" \
+ -I $countsFolder"/SRR6452480.counts.hdf5" \
+ -I $countsFolder"/SRR6452500.counts.hdf5" \
+ -I $countsFolder"/SRR6452600.counts.hdf5" \
+ -I $countsFolder"/SRR6452730.counts.hdf5" \
+ -I $countsFolder"/SRR6452750.counts.hdf5" \
+ -I $countsFolder"/SRR6452840.counts.hdf5" \
+ -I $countsFolder"/SRR6452880.counts.hdf5" \
+ --minimum-interval-median-percentile 5.0 \
+ -O /scratch/a905383/CNV/counts/Normal.pon.hdf5
+

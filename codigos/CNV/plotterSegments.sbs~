@@ -1,0 +1,46 @@
+#!/bin/bash
+###################################################################################
+### CNV
+###################################################################################
+#
+#
+
+#SBATCH --job-name=cnv%a
+#SBATCH --account=biomedicine
+#SBATCH --partition=biomedicine
+#SBATCH --cpus-per-task=2
+#SBATCH --nodes=1
+#SBATCH --mem=24G
+#SBATCH --time=36:30:00
+#SBATCH -o /scratch/a905383/CNV/logs/plot_modelsegment.log
+
+
+source /scratch/arubio/bin/moduleloadNGS
+
+#module load Java/1.8.0_181
+
+countsFolder=/scratch/a905383/CNV/counts
+
+files_tumor=("SRR645209" "SRR645218" "SRR645222" "SRR645224" "SRR645235" "SRR645241" \
+"SRR645243" "SRR645247" "SRR645249" "SRR645259" "SRR645272" "SRR645274" \
+"SRR645283" "SRR645289")
+
+files_normal=("SRR645210" "SRR645219" "SRR645223" "SRR645225" "SRR645236" "SRR645242" \
+"SRR645244" "SRR645248" "SRR645250" "SRR645260" "SRR645273" "SRR645275" \
+"SRR645284" "SRR645288")
+
+nums=${#files_tumor[@]}
+num=$((nums-1))
+
+
+for ((i=0; i<=$num; i++)); do
+   echo $i
+  gatk PlotModeledSegments \
+    --denoised-copy-ratios "/scratch/a905383/CNV/counts/"${files_tumor[$i]}".denoisedCR.tsv" \
+    --allelic-counts "/scratch/a905383/CNV/counts/seg/"${files_tumor[$i]}"/tumor.hets.tsv" \
+    --segments "/scratch/a905383/CNV/counts/seg/"${files_tumor[$i]}"/tumor.modelFinal.seg" \
+    --sequence-dictionary /scratch/arubio/DNAseq/Auxfiles/dummy.dict \
+    --minimum-contig-length 1000 \
+    --output /scratch/a905383/CNV/counts/seg/plot \
+    --output-prefix ${files_tumor[$i]}
+   done
